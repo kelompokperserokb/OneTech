@@ -13,8 +13,10 @@ class Etc extends CI_Controller {
 
 	}
 
-	public function sendEmail($a, $b, $c, $d)
+	public function sendEmail($to, $subject, $body, $from)
 	{
-
+	    $headers = "From: $from";
+	    mail($to, $subject, $body, $headers);
+        //SendEmail($_POST['emailTo'], $_POST['emailSubject'], $_POST['emailBody'], $_POST['emailFrom']);
 	}
 }
