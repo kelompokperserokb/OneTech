@@ -13,7 +13,7 @@ class Etc extends CI_Controller {
 
 	}
 
-	public function sendEmail(String a, String b, String c, String d)
+	public function sendEmail($a, $b, $c, $d)
 	{
 
 	}

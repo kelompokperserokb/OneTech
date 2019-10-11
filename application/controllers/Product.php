@@ -8,7 +8,7 @@ class Product extends CI_Controller {
 
 	}
 
-	public function searchProduct(String a)
+	public function searchProduct($a)
 	{
 
 	}
