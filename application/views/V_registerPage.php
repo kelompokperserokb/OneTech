@@ -11,6 +11,10 @@
 		Name : <input type = "text" name="name"> <br>
 		Address : <input type = "text" name="address"> <br>
 		Phone Number : <input type = "text" name="phoneNumber"> <br>
+        <input type="hidden" name="accountType" value="Personal">
+        <input type="hidden" name="typeOfInstitution" value="">
+        <input type="hidden" name="institutionName" value="">
+        <input type="hidden" name="institutionAddress" value="">
 		<input type = "submit">
 	</form>
 
