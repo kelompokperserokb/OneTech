@@ -5,7 +5,7 @@
 </head>
 <body>
 
-	<form action="<?php echo base_url('account/checkVerify');?>" method="post">
+	<form action="<?php echo base_url('account/registData');?>" method="post">
 		Email : <input type = "text" name="email"> <br>
 		Password : <input type="password" name="password"> <br>
 		Name : <input type = "text" name="name"> <br>

@@ -15,7 +15,7 @@ class M_AccountDB extends CI_Model
 
         $this->db->where('email', $email);
         $this->db->where('hash', $hash);
-        $this->db->where('hash', '0');
+        $this->db->where('activeStatus', '0');
         $this->db->update('user', $data);
         $this->db->trans_complete();
     }
