@@ -5,14 +5,17 @@ class Account extends CI_Controller {
 
 	public function loginAccount()
 	{
-		$this->load->model('m_login');
-		if($this->m_login->login($this->input->post('email'), $this->input->post('password'))==TRUE){
+		$this->load->model('m_AccountDB');
+		if($this->m_AccountDB->login($this->input->post('email'), $this->input->post('password'))==TRUE){
 			echo "<script>  
 		 			alert('Login Success!');
                  </script>";
+			session_start();
+			$_SESSION["email"] = $this->input->post('email');
 			$this->load->view('V_homePage');
 		}else{
 			echo "<script>
+					//window.location.href='".base_url('hotel/checkOrder')."';
                     alert('Login Failed, Wrong Username or Password');
                  </script>";
 		}
@@ -30,7 +33,14 @@ class Account extends CI_Controller {
 
 	public function setPassword()
 	{
+		$this->load->helper('url');
+
+		$hash = bin2hex(openssl_random_pseudo_bytes(16));
+		$data = array(
+			'hash' => $hash,
+		);
 		$this->load->model('M_login');
+		$this->M_login->
 	}
 
 	public function registData()
