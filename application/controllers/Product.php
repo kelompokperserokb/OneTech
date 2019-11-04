@@ -34,6 +34,10 @@ class Product extends CI_Controller {
 		redirect(base_url(), 'refresh');
 	}
 
+	public function getProduct($id) {
+
+	}
+
 	public function updateProduct($id) {
 		$name = $this->input->post('name');
 		$type = $this->input->post('type');
