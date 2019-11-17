@@ -56,6 +56,12 @@ class M_ProductDB extends CI_Model
 		$this->db->trans_complete();
 	}
 
+	public function getProductData($type){
+		
+	}
+
+
+
 }
 
 ?>
