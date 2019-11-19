@@ -38,7 +38,7 @@ class M_ProductDB extends CI_Model
 			'ProductImage' => $image,
 		);
 		$this->db->trans_start();
-		$this->db->where('id', $id));
+		$this->db->where('id', $id);
 		$this->db->update('product', $data);
 		$this->db->trans_complete();
 	}
@@ -51,7 +51,7 @@ class M_ProductDB extends CI_Model
 		);
 
     	$this->db->trans_start();
-		$this->db->where('id', $id));
+		$this->db->where('id', $id);
 		$this->db->update('product', $data);
 		$this->db->trans_complete();
 	}
@@ -60,7 +60,15 @@ class M_ProductDB extends CI_Model
 
 	}
 
+	public function getProduct(){
+		$this->db->select('*');
+		$this->db->from('product');
+		$this->db->order_by('DatePost', 'DESC');
+		$this->db->limit(6);
+		$query = $this->db->get();
 
+		return $query->result();
+	}
 
 }
 

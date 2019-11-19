@@ -18,6 +18,7 @@ class Account extends CI_Controller {
 					//window.location.href='".base_url('hotel/checkOrder')."';
                     alert('Login Failed, Wrong Username or Password');
                  </script>";
+            $this->load->view('V_loginPopUp');
 		}
 	}
 
@@ -28,7 +29,14 @@ class Account extends CI_Controller {
 
 	public function searchAccount()
 	{
-
+        /*$this->load->helper('url');
+		$hash = bin2hex(openssl_random_pseudo_bytes(16));
+		$data = array(
+			'hash' => $hash,
+		);
+		$this->load->model('M_login');
+		$this->M_login->
+		$this->M_login->*/
 	}
 
 	public function setPassword()
@@ -40,7 +48,7 @@ class Account extends CI_Controller {
 			'hash' => $hash,
 		);
 		$this->load->model('M_login');
-		$this->M_login->
+		//$this->M_login->
 	}
 
 	public function registData()
