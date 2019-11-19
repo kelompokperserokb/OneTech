@@ -56,11 +56,4 @@ class Product extends CI_Controller {
 		$this->M_ProductDB->giveDiscount($discount, $startDateDiscount, $lastDateDiscount, $id);
 		$this->load->view();
 	}
-
-	public function getProduct(){
-        $this->load->model("M_ProductDB");
-        $data['data'] = $this->M_ProductDB->getProduct();
-
-        $this->load->view('V_homePage', $data);
-    }
 }

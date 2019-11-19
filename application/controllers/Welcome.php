@@ -21,13 +21,6 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
         $this->load->helper('url');
-		//$this->load->view('V_registerPage');
-
-        session_start();
-        if (isset($_SESSION["email"])) {
-            $this->load->view('V_homePage');
-        } else {
-            $this->load->view('V_loginPopUp');
-        }
+		$this->load->view('V_registerPage');
 	}
 }
