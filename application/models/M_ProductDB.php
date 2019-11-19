@@ -57,7 +57,7 @@ class M_ProductDB extends CI_Model
 	}
 
 	public function getProductData($type){
-		
+
 	}
 
 
