@@ -5,7 +5,7 @@
 </head>
 <body>
 <?php
-    foreach ($data as $row) {
+/*    foreach ($data as $row) {
         echo "
         <p> Nama Produk = $row->productName; </p>
         <p> Produk Type = $row->productType; </p>
@@ -15,7 +15,7 @@
         <br>
         <br>";
     }
-?>
+*/?>
 
 </body>
 </html>
