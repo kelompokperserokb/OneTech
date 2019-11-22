@@ -67,7 +67,9 @@ class M_ProductDB extends CI_Model
 		$this->db->limit(6);
 		$query = $this->db->get();
 
-		return $query->result();
+		$data['data'] = $query->result();
+		$data['count'] = $query->num_rows();
+		return $data;
 	}
 
 }
