@@ -21,20 +21,26 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
         $this->load->helper('url');
-		//$this->load->view('V_registerPage');
-
-        /*session_start();
-        if (isset($_SESSION["email"])) {
-            $this->load->view('V_homePage');
-        } else {
-            $this->load->view('V_loginPopUp');
-        }*/
-
         $this->homepage();
 	}
 
-	public function homepage(){
-        header("Location:".base_url("Product/homepage"));
+    public function homepage(){
+        $data["merk"] = $this->getMerk();
+        $data["product"] = $this->getTypeProducts();
+        $this->load->view('header',$data["merk"]);
+        $this->load->view('index',$data);
+        $this->load->view('footer');
+    }
 
+    public function getTypeProducts(){
+        $this->load->model("M_ProductDB");
+        $datas['data'] = $this->M_ProductDB->getProducts();
+        return $datas;
+    }
+
+    public function getMerk(){
+        $this->load->model("M_ProductDB");
+        $datas['data'] = $this->M_ProductDB->getMerk();
+        return $datas;
     }
 }

@@ -34,26 +34,6 @@ class Product extends CI_Controller {
 		redirect(base_url(), 'refresh');
 	}
 
-    public function homepage(){
-        $data["merk"] = $this->getMerk();
-	    $data["product"] = $this->getTypeProducts();
-        $this->load->view('header',$data["merk"]);
-        $this->load->view('index',$data);
-        $this->load->view('footer');
-    }
-
-    public function getTypeProducts(){
-        $this->load->model("M_ProductDB");
-        $datas['data'] = $this->M_ProductDB->getProducts();
-        return $datas;
-    }
-
-    public function getMerk(){
-        $this->load->model("M_ProductDB");
-        $datas['data'] = $this->M_ProductDB->getMerk();
-        return $datas;
-    }
-
 	public function updateProduct($id) {
 		$name = $this->input->post('name');
 		$type = $this->input->post('type');
