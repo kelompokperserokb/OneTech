@@ -14,7 +14,6 @@
 
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/flaticon.css"/>
     <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/slicknav.min.css"/>
