@@ -1200,7 +1200,7 @@ ol {
 
 .page-top-info {
     background: #f8f7f7;
-    padding: 40px 0 50px;
+    padding: 60px 0 70px;
 }
 
 .page-top-info h4 {
@@ -2110,9 +2110,7 @@ ol {
 }
 
 .contact-social a {
-    display: -ms-inline-flex;
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
+
     display: inline-flex;
     width: 32px;
     height: 32px;
@@ -2455,6 +2453,9 @@ html {
     height: 100%;
 }
 
+.tabcontent label {
+    padding: 20px 10px;
+}
 
 /* --- headnav menu : signup & signin --- */
 

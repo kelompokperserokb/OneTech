@@ -9,7 +9,7 @@ class Account extends CI_Controller {
 		$this->load->model('m_AccountDB');
 		if($this->m_AccountDB->login($this->input->post('username'), $this->input->post('password'))==TRUE){
 		    $account = $this->m_AccountDB->getAccount($this->input->post('username'));
-		    if ($account[0]->activeStatus == 1){
+		    if ($account[0]->active_status == 1){
                 $_SESSION["email"] = $this->input->post('username');
                 echo "true";
             } else {
@@ -52,40 +52,42 @@ class Account extends CI_Controller {
 
 	public function registData()
 	{
-        $this->load->helper('url');
-        if (isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["name"]) && isset($_POST["address"]) && isset($_POST["phoneNumber"])
-            && isset($_POST["accountType"]) && isset($_POST["typeOfInstitution"]) && isset($_POST["institutionName"]) && isset($_POST["institutionAddress"])){
-            try {
-                $hash = bin2hex(openssl_random_pseudo_bytes(16));
+        $this->load->model("M_AccountDB");
+        $val = $this->M_AccountDB->getAccount($_POST["email"]);
+
+        if ($val->num_rows() > 0) {
+            echo "false";
+        } else{
+            try {$hash = bin2hex(openssl_random_pseudo_bytes(16));
                 $email = $_POST["email"] == '' ? null : $_POST["email"];
                 $data = array(
                     'email' => $email,
                     'password' => $_POST["password"],
-                    'name' => $_POST["name"],
+                    'first_name' => $_POST["first_name"],
+                    'last_name' => $_POST["last_name"],
                     'address' => $_POST["address"],
-                    'phoneNumber' => $_POST["phoneNumber"],
-                    'activeStatus' => '0',
-                    'accountType' => $_POST["accountType"],
-                    'typeOfInstitution' => $_POST["typeOfInstitution"],
-                    'institutionName' => $_POST["institutionName"],
-                    'institutionAddress' => $_POST["institutionAddress"],
+                    'phone_number' => $_POST["phone_number"],
+                    'active_status' => '0',
+                    'accountType' => $_POST["account_type"],
+                    'institution_type' => $_POST["institution_type"],
+                    'institution_name' => $_POST["institution_name"],
+                    'institution_address' => $_POST["institution_address"],
                     'hash' => $hash,
                 );
                 $this->load->model("M_AccountDB");
                 $this->M_AccountDB->registAccountToDB($data);
 
-                $db_error = $this->db->error();
-                if (!empty($db_error)) {
-                    throw new Exception('Database error! Error Code [' . $db_error['code'] . '] Error: ' . $db_error['message']);
-                    return false; // unreachable retrun statement !!!
-                }
-                return TRUE;
+                echo "true";
             } catch (Exception $ex) {
-                header('Location: '.base_url(''));
+                echo "error";
             }
+        }
+        /*if (isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["first_name"])&& isset($_POST["last_name"]) && isset($_POST["address"]) && isset($_POST["phone_number"])
+            && isset($_POST["account_type"]) && isset($_POST["institution_type"]) && isset($_POST["institution_name"]) && isset($_POST["institution_address"])){
+
         } else {
             header('Location: '.base_url(''));
-        }
+        }*/
 	}
 
 	public function checkVerify()
