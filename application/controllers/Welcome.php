@@ -23,11 +23,18 @@ class Welcome extends CI_Controller {
         $this->load->helper('url');
 		//$this->load->view('V_registerPage');
 
-        session_start();
+        /*session_start();
         if (isset($_SESSION["email"])) {
             $this->load->view('V_homePage');
         } else {
             $this->load->view('V_loginPopUp');
-        }
+        }*/
+
+        $this->homepage();
 	}
+
+	public function homepage(){
+        header("Location:".base_url("Product/getProduct"));
+
+    }
 }

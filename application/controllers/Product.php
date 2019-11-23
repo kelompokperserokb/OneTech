@@ -34,10 +34,12 @@ class Product extends CI_Controller {
 		redirect(base_url(), 'refresh');
 	}
 
-    public function getProduct(){
+    public function getTypeProducts(){
         $this->load->model("M_ProductDB");
-        $data['data'] = $this->M_ProductDB->getProduct();
-        $this->load->view('V_homePage', $data);
+        $datas['data'] = $this->M_ProductDB->getProducts();
+        $this->load->view('header');
+        $this->load->view('index',$datas);
+        $this->load->view('footer');
     }
 
 	public function updateProduct($id) {
