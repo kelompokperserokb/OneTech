@@ -47,6 +47,7 @@ ol {
 
 .h_site-logo {
 	display: inline-block;
+	margin-top: 6px;
 }
 
 .h_header-search-form {
@@ -75,6 +76,10 @@ ol {
 	border: none;
 	cursor: pointer;
 	background-color: transparent;
+}
+
+.h_user-panel {
+	margin-top: 6px;
 }
 
 .h_user-panel .h_up-item {
@@ -221,12 +226,14 @@ ol {
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 	.h_site-logo {
 		margin-bottom: 20px;
+		margin-top: 3px;
 	}
 	.h_header-search-form {
 		margin-bottom: 15px;
 	}
 	.h_user-panel {
 		text-align: center;
+		margin-top: 3px;
 	}
 	.h_main-menu {
 		text-align: center;
@@ -244,12 +251,14 @@ ol {
 @media only screen and (max-width: 767px) {
 	.h_site-logo {
 		margin-bottom: 20px;
+		margin-top: 3px;
 	}
 	.h_header-search-form {
 		margin-bottom: 15px;
 	}
 	.h_user-panel {
 		text-align: center;
+		margin-top: 3px;
 	}
 	.h_main-menu {
 		display: none;

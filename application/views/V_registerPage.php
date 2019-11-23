@@ -91,7 +91,7 @@
 </section>
 
 <!--====== Javascripts & Jquery ======-->
-<script src="<?php echo base_url(); ?>js/tabs.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/tabs.js"></script>
 
 </body>
 
