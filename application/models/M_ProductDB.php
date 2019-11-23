@@ -63,12 +63,23 @@ class M_ProductDB extends CI_Model
 	public function getProducts(){
 		$this->db->select('*');
 		$this->db->from('type_product');
-		$this->db->join('product', 'product.product_id= posters.id');
+		$this->db->join('product', 'product.product_id = type_product.product_id');
 		$this->db->order_by('DatePost', 'DESC');
 		$this->db->limit(6);
 		$query = $this->db->get();
 
-		$data['data'] = $query->result();
+		$data['data_array'] = $query->result();
+		$data['count'] = $query->num_rows();
+		return $data;
+	}
+
+	public function getMerk(){
+		$this->db->select('*');
+		$this->db->from('merk');
+		$this->db->limit(6);
+		$query = $this->db->get();
+
+		$data['data_array'] = $query->result();
 		$data['count'] = $query->num_rows();
 		return $data;
 	}

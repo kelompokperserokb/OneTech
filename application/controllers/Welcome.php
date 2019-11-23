@@ -34,7 +34,7 @@ class Welcome extends CI_Controller {
 	}
 
 	public function homepage(){
-        header("Location:".base_url("Product/getProduct"));
+        header("Location:".base_url("Product/homepage"));
 
     }
 }

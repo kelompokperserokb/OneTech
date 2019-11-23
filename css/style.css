@@ -367,8 +367,8 @@ ol {
 
 .header-search-form button {
     position: absolute;
+    float: right;
     height: 100%;
-    right: 18px;
     top: 0;
     font-size: 26px;
     color: #000;
