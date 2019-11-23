@@ -60,9 +60,9 @@ class M_ProductDB extends CI_Model
 
 	}
 
-	public function getProduct(){
+	public function getTypeProducts(){
 		$this->db->select('*');
-		$this->db->from('product');
+		$this->db->from('type_product');
 		$this->db->order_by('DatePost', 'DESC');
 		$this->db->limit(6);
 		$query = $this->db->get();

@@ -34,7 +34,7 @@ class Product extends CI_Controller {
 		redirect(base_url(), 'refresh');
 	}
 
-    public function getProduct(){
+    public function getTypeProducts(){
         $this->load->model("M_ProductDB");
         $datas['data'] = $this->M_ProductDB->getProduct();
         $this->load->view('header');

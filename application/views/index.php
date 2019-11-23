@@ -194,7 +194,7 @@
                             </div>
                         </div>
                         <div class="pi-text">
-                            <h6>Rp. '.number_format($data['data'][$i]->productPrice,2,",",".").'</h6>
+                            <h6>Rp. '.number_format($data['data'][$i]->price,2,",",".").'</h6>
                             <p>'.$data['data'][$i]->productName.'</p>
                         </div>
                     </div>
