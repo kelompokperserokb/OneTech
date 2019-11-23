@@ -34,6 +34,9 @@
                                 <a href="#home">
                                     <p><span>Payment</span></p>
                                 </a>
+								<a href="#home">
+									<p><span>Logistics and Delivery</span></p>
+								</a>
                             </div>
                         </div>
                     </div>
@@ -44,8 +47,8 @@
                             <h4>-----Connect With Us-----</h4>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 footer-contacts text-center">
-                            <p><span>CS:</span> +62 (21) 4585 6306</p>
-                            <p><span>Sales:</span> +62 (21) 4585 6306</p>
+                            <p><span>CS:</span> +62 (21) xxxx xxxx</p>
+                            <p><span>Sales:</span> +62 (21) xxxx xxxx</p>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 footer-contacts">
                             <div class="form contact-form">
