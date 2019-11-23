@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>css/jquery-ui.min.css" />
     <link rel="stylesheet" href="<?php echo base_url(); ?>css/owl.carousel.min.css" />
     <link rel="stylesheet" href="<?php echo base_url(); ?>css/animate.css" />
-    <link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css?<?php echo date('l jS \of F Y h:i:s A'); ?>" />
     <link rel="stylesheet" href="<?php echo base_url(); ?>css/style1.css" />
 
     <link rel="stylesheet" href="<?php echo base_url(); ?>css/modal.css" />
@@ -32,7 +32,6 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
-
 
 
 </head>
@@ -77,19 +76,20 @@
 
                     <!-- Modal -->
                     <div id="id01" class="modal">
-
-                        <form class="modal-content animate" action="<?php echo base_url('account/loginAccount');?>" method="post">
+                        <form class="modal-content animate" method="post" id="login">
                             <div class="imgcontainer">
-                                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                                <span onclick="document.getElementById('id01').style.display='none'" class="close close-modal" title="Close Modal">&times;</span>
                                 <img src="<?php echo base_url(); ?>img_avatar2.png" alt="Avatar" class="avatar">
                             </div>
 
                             <div class="container">
                                 <label for="uname"><b>Username</b></label>
-                                <input type="text" placeholder="Email" name="email" required>
+                                <input type="text" placeholder="Email" name="email" id="username" required>
 
                                 <label for="psw"><b>Password</b></label>
-                                <input type="password" placeholder="Enter Password" name="password" required>
+                                <input type="password" placeholder="Enter Password" name="password" id="password" required>
+
+                                <label><b id="message" style="color: red"></b></label>
 
                                 <button type="submit">Login</button>
                                 <label>
@@ -98,22 +98,11 @@
                             </div>
 
                             <div class="container" style="background-color:#f1f1f1">
-                                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn close-modal">Cancel</button>
                                 <span class="psw">Forgot <a href="#">password?</a></span>
                             </div>
                         </form>
                     </div>
-                    <script>
-                        // Get the modal
-                        var modal = document.getElementById('id01');
-
-                        // When the user clicks anywhere outside of the modal, close it
-                        window.onclick = function(event) {
-                            if (event.target == modal) {
-                                modal.style.display = "none";
-                            }
-                        }
-                    </script>
                     <!-- end Modal -->
 
                     <div class="col-md-1 col-sm-1">
@@ -134,25 +123,27 @@
         <nav class="main-navbar">
             <div class="container">
                 <!-- menu -->
-                <ul class="main-menu">
-                    <li>
-                        <a href="#"></a>
-                    </li>
-                    <li>
-                        <a href="#"></a>
-                    </li>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Product 1</a></li>
-                    <li><a href="#">Product 2</a></li>
-                    <li><a href="#">Product 3</a></li>
-                    <li><a href="#">Product 4</a></li>
-                    <li><a href="#">Product 5</a></li>
-                    <li><a href="#">Product 6
-						<span class="new">New</span>
-					</a></li>
+                <ul class="main-menu text-center">
+                    <?php
+                        for($i = 0 ; $i < $data["count"] ; $i++){
+                            echo '<li><a href="#" id="'.$data["data_array"][$i]->category_id.'" >'.$data["data_array"][$i]->category_name.'</a></li>';
+                        }
+                    ?>
                 </ul>
             </div>
         </nav>
     </header>
     <!-- Header section end -->
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
 </html>

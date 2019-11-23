@@ -2748,3 +2748,7 @@ span.email-notes {
     width: 100% !important;
     height: 100% !important;
 }
+
+* {
+    box-sizing: border-box;
+}

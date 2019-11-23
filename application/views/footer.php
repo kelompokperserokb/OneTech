@@ -126,6 +126,8 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url(); ?>js/onetech/authentication.js?<?php echo date('l jS \of F Y h:i:s A'); ?>"></script>
+
 
 </body>
 
