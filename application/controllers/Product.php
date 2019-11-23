@@ -34,14 +34,6 @@ class Product extends CI_Controller {
 		redirect(base_url(), 'refresh');
 	}
 
-    public function getTypeProducts(){
-        $this->load->model("M_ProductDB");
-        $datas['data'] = $this->M_ProductDB->getProducts();
-        $this->load->view('header');
-        $this->load->view('index',$datas);
-        $this->load->view('footer');
-    }
-
 	public function updateProduct($id) {
 		$name = $this->input->post('name');
 		$type = $this->input->post('type');
@@ -64,4 +56,7 @@ class Product extends CI_Controller {
 		$this->M_ProductDB->giveDiscount($discount, $startDateDiscount, $lastDateDiscount, $id);
 		$this->load->view();
 	}
+	public function Tes(){
+
+    }
 }
