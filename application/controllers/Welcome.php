@@ -46,6 +46,9 @@ class Welcome extends CI_Controller {
 
     public function register(){
         $this->load->helper('url');
-        $this->load->view('index');
+        $data["merk"] = $this->getCategory();
+        $this->load->view('header',$data["merk"]);
+        $this->load->view('V_registerPage');
+        $this->load->view('footer');
     }
 }

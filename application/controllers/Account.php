@@ -8,8 +8,13 @@ class Account extends CI_Controller {
         session_start();
 		$this->load->model('m_AccountDB');
 		if($this->m_AccountDB->login($this->input->post('username'), $this->input->post('password'))==TRUE){
-			$_SESSION["email"] = $this->input->post('username');
-            echo "true";
+		    $account = $this->m_AccountDB->getAccount($this->input->post('username'));
+		    if ($account[0]->activeStatus == 1){
+                $_SESSION["email"] = $this->input->post('username');
+                echo "true";
+            } else {
+		        echo "needverification";
+            }
 		}else{
             echo "false";
 		}

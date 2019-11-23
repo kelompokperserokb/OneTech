@@ -136,19 +136,19 @@
 
         <div class="mySlides faded">
             <div class="numbertext">1 / 3</div>
-            <img src="<?php echo base_url(); ?>img/slider/produk1.jpg" style="width:100%">
+            <img src="<?php echo base_url(); ?>Asset/img/slider/produk1.jpg" style="width:100%">
             <div class="text">Caption One</div>
             </div>
 
         <div class="mySlides faded">
             <div class="numbertext">2 / 3</div>
-            <img src="<?php echo base_url(); ?>img/slider/produk2.jpg" style="width:100%">
+            <img src="<?php echo base_url(); ?>Asset/img/slider/produk2.jpg" style="width:100%">
             <div class="text">Caption Two</div>
         </div>
 
         <div class="mySlides faded">
             <div class="numbertext">3 / 3</div>
-            <img src="<?php echo base_url(); ?>img/slider/3.jpg" style="width:100%">
+            <img src="<?php echo base_url(); ?>Asset/img/slider/3.jpg" style="width:100%">
             <div class="text">Caption Three</div>
         </div>
 
@@ -187,7 +187,7 @@
                    echo '<div class="col-lg-3 col-sm-6">
                     <div class="product-item">
                         <div class="pi-pic">
-                            <img src="'.base_url().'img/products/'.($i+1).'.jpg" alt="">
+                            <img src="'.base_url().'Asset/img/products/'.($i+1).'.jpg" alt="">
                             <div class="pi-links">
                                 <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
                                 <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>

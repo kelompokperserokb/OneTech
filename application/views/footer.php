@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-
+    <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/style.css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/style1.css" />
 </head>
 <!-- Start Footer bottom Area -->
 <footer>
@@ -103,30 +104,31 @@
 <!-- Footer section end -->
 
 <!--====== Javascripts & Jquery ======-->
-<script src="<?php echo base_url(); ?>js/jquery-3.2.1.min.js"></script>
-<script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
-<script src="<?php echo base_url(); ?>js/jquery.slicknav.min.js"></script>
-<script src="<?php echo base_url(); ?>js/owl.carousel.min.js"></script>
-<script src="<?php echo base_url(); ?>js/jquery.nicescroll.min.js"></script>
-<script src="<?php echo base_url(); ?>js/jquery.zoom.min.js"></script>
-<script src="<?php echo base_url(); ?>js/jquery-ui.min.js"></script>
-<script src="<?php echo base_url(); ?>js/main.js"></script>
-<script src="<?php echo base_url(); ?>js/jcarousel/jquery.jcarousel.min.js"></script>
-<script src="<?php echo base_url(); ?>js/jquery.fancybox.pack.js"></script>
-<script src="<?php echo base_url(); ?>js/jquery.fancybox-media.js"></script>
-<script src="<?php echo base_url(); ?>js/google-code-prettify/prettify.js"></script>
-<script src="<?php echo base_url(); ?>js/portfolio/jquery.quicksand.js"></script>
-<script src="<?php echo base_url(); ?>js/portfolio/setting.js"></script>
-<script src="<?php echo base_url(); ?>js/jquery.flexslider.js"></script>
-<script src="<?php echo base_url(); ?>js/jquery.nivo.slider.js"></script>
-<script src="<?php echo base_url(); ?>js/modernizr.custom.js"></script>
-<script src="<?php echo base_url(); ?>js/jquery.ba-cond.min.js"></script>
-<script src="<?php echo base_url(); ?>js/jquery.slitslider.js"></script>
-<script src="<?php echo base_url(); ?>js/animate.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/jquery-3.2.1.min.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/jquery.slicknav.min.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/owl.carousel.min.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/jquery.nicescroll.min.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/jquery.zoom.min.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/jquery-ui.min.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/main.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/jcarousel/jquery.jcarousel.min.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/jquery.fancybox.pack.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/jquery.fancybox-media.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/google-code-prettify/prettify.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/portfolio/jquery.quicksand.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/portfolio/setting.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/jquery.flexslider.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/jquery.nivo.slider.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/modernizr.custom.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/jquery.ba-cond.min.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/jquery.slitslider.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/animate.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<script src="<?php echo base_url(); ?>js/onetech/authentication.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/onetech/authentication.js?<?php echo date('l jS \of F Y h:i:s A'); ?>"></script>
+
 
 </body>
 

@@ -1,0 +1,285 @@
+html,
+body {
+	height: 100%;
+	font-family: 'Raleway', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+}
+
+img {
+	max-width: 100%;
+}
+
+input:focus,
+select:focus,
+button:focus,
+textarea:focus {
+	outline: none;
+}
+
+a:hover,
+a:focus {
+	text-decoration: none;
+	outline: none;
+}
+
+ul,
+ol {
+	padding: 0;
+	margin: 0;
+}
+
+/*------------------
+  Header section
+---------------------*/
+
+.fa{
+	color: #3EC1D5;
+}
+
+.fa:hover{
+	color: #3a9fbf;
+}
+
+.h_header-top {
+	padding: 12px 0 8px;
+}
+
+.h_site-logo {
+	display: inline-block;
+	margin-top: 6px;
+}
+
+.h_header-search-form {
+	width: 100%;
+	position: relative;
+	padding: 0 10px;
+}
+
+.h_header-search-form input {
+	width: 100%;
+	height: 44px;
+	font-size: 14px;
+	border-radius: 50px;
+	border: none;
+	padding: 0 19px;
+	background: #f0f0f0;
+}
+
+.h_header-search-form button {
+	position: absolute;
+	height: 100%;
+	right: 18px;
+	top: 0;
+	font-size: 26px;
+	color: #000;
+	border: none;
+	cursor: pointer;
+	background-color: transparent;
+}
+
+.h_user-panel {
+	margin-top: 6px;
+}
+
+.h_user-panel .h_up-item {
+	display: inline-block;
+	font-size: 24px;
+
+}
+
+.h_user-panel .h_up-item i {
+	font-size: 24px;
+}
+
+.h_user-panel .h_up-item a {
+	font-size: 14px;
+	color: #000;
+}
+
+.h_user-panel .h_up-item:first-child {
+	margin-right: 20px;
+}
+
+.h_user-panel .h_up-item:last-child {
+	margin-right: 20px;
+}
+
+.h_up-item a:hover {
+	color: #3a9fbf;
+}
+
+.h_main-navbar {
+	background: #282828;
+}
+
+.slicknav_menu {
+	display: none;
+}
+
+.h_main-menu {
+	list-style: none;
+	text-align: center;
+}
+
+.h_main-menu li {
+	display: inline-block;
+	position: relative;
+}
+
+.h_main-menu li a {
+	display: inline-block;
+	font-size: 16px;
+	color: #ffffff;
+	margin-right: 50px;
+	line-height: 1;
+	padding: 17px 0;
+	position: relative;
+}
+
+.h_main-menu li a .new {
+	position: absolute;
+	top: -8px;
+	font-size: 10px;
+	font-weight: 700;
+	color: #fff;
+	background: #3a9fbf;
+	line-height: 1;
+	text-transform: uppercase;
+	left: calc(50% - 21px);
+	padding: 5px 9px 1px;
+	border-radius: 15px;
+	width: 42px;
+}
+
+.h_main-menu li:hover .h_sub-menu {
+	visibility: visible;
+	opacity: 1;
+	margin-top: 0;
+}
+
+.h_main-menu li:hover>a {
+	color: #3a9fbf;
+}
+
+.h_main-menu:hover .h_sub-menu {
+	visibility: visible;
+	opacity: 1;
+	margin-top: 0;
+}
+
+.h_main-menu:hover>a {
+	color: #3a9fbf;
+}
+
+.h_main-menu .h_sub-menu {
+	text-align: left;
+	position: absolute;
+	list-style: none;
+	width: 220px;
+	left: 0;
+	top: 100%;
+	padding: 20px 0;
+	visibility: hidden;
+	opacity: 0;
+	margin-top: 50px;
+	background: #fff;
+	z-index: 99;
+	-webkit-transition: all 0.4s;
+	-o-transition: all 0.4s;
+	transition: all 0.4s;
+	-webkit-box-shadow: 2px 7px 20px rgba(0, 0, 0, 0.05);
+	box-shadow: 2px 7px 20px rgba(0, 0, 0, 0.05);
+}
+
+.h_main-menu .h_sub-menu li {
+	display: block;
+}
+
+.h_main-menu .h_sub-menu li a {
+	display: block;
+	color: #000;
+	margin-right: 0;
+	padding: 8px 20px;
+}
+
+.h_main-menu .h_sub-menu li a:hover {
+	color: #3a9fbf;
+}
+
+.nav-switch {
+	display: none;
+}
+
+/* ----------------
+  Responsive
+---------------------*/
+
+@media (min-width: 1200px) {
+	.h_container {
+		max-width: 1175px;
+	}
+}
+
+/* Tablet :768px. */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	.h_site-logo {
+		margin-bottom: 20px;
+		margin-top: 3px;
+	}
+	.h_header-search-form {
+		margin-bottom: 15px;
+	}
+	.h_user-panel {
+		text-align: center;
+		margin-top: 3px;
+	}
+	.h_main-menu {
+		text-align: center;
+	}
+	.h_sub-menu {
+		text-align: left;
+	}
+	.h_main-menu li a {
+		margin-right: 30px;
+	}
+}
+
+/* Large Mobile :480px. */
+
+@media only screen and (max-width: 767px) {
+	.h_site-logo {
+		margin-bottom: 20px;
+		margin-top: 3px;
+	}
+	.h_header-search-form {
+		margin-bottom: 15px;
+	}
+	.h_user-panel {
+		text-align: center;
+		margin-top: 3px;
+	}
+	.h_main-menu {
+		display: none;
+	}
+	.slicknav_btn {
+		background-color: #565656;
+	}
+	.slicknav_menu {
+		background: #282828;
+		display: block;
+	}
+	.slicknav_menu .new {
+		font-size: 10px;
+		font-weight: 700;
+		color: #fff;
+		background: #f51167;
+		line-height: 1;
+		text-transform: uppercase;
+		padding: 5px 9px 1px;
+		border-radius: 15px;
+		width: 42px;
+		margin-left: 5px;
+	}
+}
