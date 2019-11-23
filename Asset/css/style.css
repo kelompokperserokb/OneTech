@@ -2449,12 +2449,12 @@ html {
 .tabcontent {
     color: black;
     display: none;
-    padding: 100px 20px;
+    padding: 100px 10px;
     height: 100%;
 }
 
 .tabcontent label {
-    padding: 20px 10px;
+    padding: 30px 0px 5px 0px;
 }
 
 /* --- headnav menu : signup & signin --- */
@@ -3403,15 +3403,6 @@ html {
     background-color: #777;
 }
 
-
-/* Style the tab content (and add height:100% for full page content) */
-
-.tabcontent {
-    color: white;
-    display: none;
-    padding: 100px 20px;
-    height: 100%;
-}
 
 
 /* --- headnav menu : signup & signin --- */

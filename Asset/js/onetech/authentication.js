@@ -83,11 +83,11 @@ $(document).ready(function(){
             var first_name = document.getElementById('first_name_b').value;
             var last_name = document.getElementById('last_name_b').value;
             var address = document.getElementById('address_b').value;
-            var account_type = document.getElementById('account_type_p').value;
+            var account_type = document.getElementById('account_type_b').value;
             var phone_number = document.getElementById('phone_number_b').value;
-            var institution_name = document.getElementById('institution_name_b').value;;
-            var institution_address = document.getElementById('phone_address_b').value;;
-            var institution_type = document.getElementById('institution_type_b').value;;
+            var institution_name = document.getElementById('institution_name_b').value;
+            var institution_address = document.getElementById('institution_address_b').value;
+            var institution_type = document.getElementById('institution_type_b').value;
 
             var url = base_url.toString() + "/OneTech/Account/registData";
             $.ajax({

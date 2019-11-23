@@ -3,6 +3,15 @@
 
 class Account extends CI_Controller {
 
+    public function toLogin(){
+        $this->load->helper('url');
+        $this->load->model("M_ProductDB");
+        $data['data'] = $this->M_ProductDB->getCategory();
+        $this->load->view('V_header',$data);
+        $this->load->view('V_login');
+        $this->load->view('footer');
+    }
+
 	public function loginAccount()
 	{
         session_start();

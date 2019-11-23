@@ -59,7 +59,7 @@
                         if (!isset($_SESSION["email"])) {
                             echo '<div class="h_up-item">
                                     <i class="fa fa-user"></i>
-                                    <a href="#">Log In</a> | <a href="'.base_url().'register">Sign Up</a>
+                                    <a href="'.base_url().'login">Log In</a> | <a href="'.base_url().'register">Sign Up</a>
                                 </div>';
                         } else {
                             echo "<div class=\"h_up-item h_main-menu\">
