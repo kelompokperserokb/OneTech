@@ -8,30 +8,29 @@
     <meta name="keywords" content="One Tech">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Favicon -->
-    <link href="img/favicon.png" rel="shortcut icon" />
+    <link href="<?php echo base_url(''); ?>img/favicon.png" rel="shortcut icon" />
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
 
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="../../Asset/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../../Asset/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="../../Asset/css/flaticon.css" />
-    <link rel="stylesheet" href="../../Asset/css/slicknav.min.css" />
-    <link rel="stylesheet" href="../../Asset/css/jquery-ui.min.css" />
-    <link rel="stylesheet" href="../../Asset/css/owl.carousel.min.css" />
-    <link rel="stylesheet" href="../../Asset/css/animate.css" />
-    <link rel="stylesheet" href="../../Asset/css/style.css" />
-    <link rel="stylesheet" href="../../Asset/css/style1.css" />
-    <link rel="stylesheet" href="../../Asset/css/style11.css" />
-    <link rel="stylesheet" href="../../Asset/css/styleee.css" />
-    <link rel="stylesheet" href="../../Asset/css/modal.css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap.min.css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>css/font-awesome.min.css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>css/flaticon.css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>css/slicknav.min.css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>css/jquery-ui.min.css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>css/animate.css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>css/style1.css" />
+
+    <link rel="stylesheet" href="<?php echo base_url(); ?>css/modal.css" />
 
 
     <!--[if lt IE 9]>
-		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 
 
@@ -52,7 +51,7 @@
                     <div class="col-lg-2 text-center text-lg-left">
 
                         <!-- logo -->
-                        <a class="navbar-brand page-scroll sticky-logo" href="index.html">
+                        <a class="navbar-brand page-scroll sticky-logo" href="<?php echo base_url(); ?>">
                             <h1 style="color: black"><span>One</span>Tech</h1>
                             <!-- Uncomment below if you prefer to use an image logo -->
                             <!--<img src="img/logo.png" alt="" title="">-->
@@ -65,28 +64,37 @@
                         </form>
                     </div>
 
-                    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+                    <?php
+                    session_start();
+                    if (!isset($_SESSION["email"])) {
+                        echo "<button onclick=document.getElementById('id01').style.display='block' style='width:auto;'>Login</button>";
+                    } else {
+                        echo "
+                        <form action='".base_url('account/logout')."' >
+                            <button type='submit' style='width:auto; background-color: red;'>Logout</button>
+                        </form>";
+                    }?>
 
                     <!-- Modal -->
                     <div id="id01" class="modal">
 
-                        <form class="modal-content animate" action="/action_page.php" method="post">
+                        <form class="modal-content animate" action="<?php echo base_url('account/loginAccount');?>" method="post">
                             <div class="imgcontainer">
                                 <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-                                <img src="img_avatar2.png" alt="Avatar" class="avatar">
+                                <img src="<?php echo base_url(); ?>img_avatar2.png" alt="Avatar" class="avatar">
                             </div>
 
                             <div class="container">
                                 <label for="uname"><b>Username</b></label>
-                                <input type="text" placeholder="Enter Username" name="uname" required>
+                                <input type="text" placeholder="Email" name="email" required>
 
                                 <label for="psw"><b>Password</b></label>
-                                <input type="password" placeholder="Enter Password" name="psw" required>
+                                <input type="password" placeholder="Enter Password" name="password" required>
 
                                 <button type="submit">Login</button>
                                 <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
+                                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                                </label>
                             </div>
 
                             <div class="container" style="background-color:#f1f1f1">
@@ -142,54 +150,9 @@
                     <li><a href="#">Product 6
 						<span class="new">New</span>
 					</a></li>
-                    <!--<li><a href="#">Shoes</a>
-                        <ul class="sub-menu">
-                            <li><a href="#">Sneakers</a></li>
-                            <li><a href="#">Sandals</a></li>
-                            <li><a href="#">Formal Shoes</a></li>
-                            <li><a href="#">Boots</a></li>
-                            <li><a href="#">Flip Flops</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Pages</a>
-                        <ul class="sub-menu">
-                            <li><a href="./product.html">Product Page</a></li>
-                            <li><a href="./category.html">Category Page</a></li>
-                            <li><a href="./cart.html">Cart Page</a></li>
-                            <li><a href="./checkout.html">Checkout Page</a></li>
-                            <li><a href="./contact.html">Contact Page</a></li>
-                        </ul>
-                    </li>-->
-
                 </ul>
             </div>
         </nav>
     </header>
     <!-- Header section end -->
-
-    <!--====== Javascripts & Jquery ======-->
-    <script src="../../Asset/js/jquery-3.2.1.min.js"></script>
-    <script src="../../Asset/js/bootstrap.min.js"></script>
-    <script src="../../Asset/js/jquery.slicknav.min.js"></script>
-    <script src="../../Asset/js/owl.carousel.min.js"></script>
-    <script src="../../Asset/js/jquery.nicescroll.min.js"></script>
-    <script src="../../Asset/js/jquery.zoom.min.js"></script>
-    <script src="../../Asset/js/jquery-ui.min.js"></script>
-    <script src="../../Asset/js/main.js"></script>
-    <script src="../../Asset/js/jcarousel/jquery.jcarousel.min.js"></script>
-    <script src="../../Asset/js/jquery.fancybox.pack.js"></script>
-    <script src="../../Asset/js/jquery.fancybox-media.js"></script>
-    <script src="../../Asset/js/google-code-prettify/prettify.js"></script>
-    <script src="../../Asset/js/portfolio/jquery.quicksand.js"></script>
-    <script src="../../Asset/js/portfolio/setting.js"></script>
-    <script src="../../Asset/js/jquery.flexslider.js"></script>
-    <script src="../../Asset/js/jquery.nivo.slider.js"></script>
-    <script src="../../Asset/js/modernizr.custom.js"></script>
-    <script src="../../Asset/js/jquery.ba-cond.min.js"></script>
-    <script src="../../Asset/js/jquery.slitslider.js"></script>
-    <script src="../../Asset/js/animate.js"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
 </html>

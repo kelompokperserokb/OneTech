@@ -12,15 +12,21 @@ class Account extends CI_Controller {
                  </script>";
 			session_start();
 			$_SESSION["email"] = $this->input->post('email');
-			$this->load->view('V_homePage');
+			header('Location:'.base_url());
 		}else{
 			echo "<script>
 					//window.location.href='".base_url('hotel/checkOrder')."';
                     alert('Login Failed, Wrong Username or Password');
                  </script>";
-            $this->load->view('V_loginPopUp');
+            header('Location:'.base_url());
 		}
 	}
+
+	public function logout(){
+	    session_start();
+        unset($_SESSION['email']);
+        header('Location:'.base_url());
+    }
 
 	public function authentication()
 	{
