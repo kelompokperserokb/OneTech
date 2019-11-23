@@ -35,6 +35,15 @@ class M_AccountDB extends CI_Model
 		}
 	}
 
+	public function getAccount($email){
+		$cek = array('email' => $email);
+		$this->db->select('*');
+		$this->db->from('user');
+		$this->db->where($cek);
+		$query = $this->db->get();
+		return $query->result();
+	}
+
 	public function lupaPassword($email, $newPassword)
 	{
 		$this->db->trans_start();

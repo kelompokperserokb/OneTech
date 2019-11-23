@@ -17,10 +17,11 @@ $(document).ready(function(){
                 if (response == "true") {
                     alert('Login Success');
                     window.location.href = base_url.toString()+"/OneTech";
-                } else {
+                } else if (response == "false") {
                     $('#message').text("Login Failed, Wrong Username or Password");
+                } else {
+                    $('#message').text("Please verify your account first, check your email");
                 }
-
             },
         });
     });
