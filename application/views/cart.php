@@ -57,17 +57,17 @@
                                 <tr>
                                     <th class="product-th">Product</th>
                                     <th class="quy-th">Quantity</th>
-
+                                    <th class="size-th">Attributes</th>
                                     <th class="total-th">Price</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td class="product-col">
-                                        <img src="img/cart/1.jpg" alt="">
+                                        <img src="img/tandatanya.jpg" alt="">
                                         <div class="pc-title">
-                                            <h4>Animal Print Dress</h4>
-                                            <p>$45.90</p>
+                                            <h4>COSRX</h4>
+                                            <p>Sku: CX-OSOCP135</p>
                                         </div>
                                     </td>
                                     <td class="quy-col">
@@ -77,14 +77,16 @@
                                             </div>
                                         </div>
                                     </td>
-
+                                    <td class="size-col">
+                                        <h4>varian: 70 pads</h4>
+                                    </td>
                                     <td class="total-col">
                                         <h4>$45.90</h4>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="product-col">
-                                        <img src="img/cart/2.jpg" alt="">
+                                        <img src="img/tandatanya.jpg" alt="">
                                         <div class="pc-title">
                                             <h4>Ruffle Pink Top</h4>
                                             <p>$45.90</p>
@@ -97,31 +99,14 @@
                                             </div>
                                         </div>
                                     </td>
-
+                                    <td class="size-col">
+                                        <h4>Size M</h4>
+                                    </td>
                                     <td class="total-col">
                                         <h4>$45.90</h4>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td class="product-col">
-                                        <img src="img/cart/3.jpg" alt="">
-                                        <div class="pc-title">
-                                            <h4>Skinny Jeans</h4>
-                                            <p>$45.90</p>
-                                        </div>
-                                    </td>
-                                    <td class="quy-col">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
 
-                                    <td class="total-col">
-                                        <h4>$45.90</h4>
-                                    </td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -143,229 +128,9 @@
 </section>
 <!-- cart section end -->
 
-<!-- RELATED PRODUCTS section -->
-<section class="related-product-section">
-    <div class="container">
-        <div class="section-title">
-            <h2>CONTINUE SHOPPING</h2>
-        </div>
-        <div class="product-slider owl-carousel">
-            <div class="product-item">
-                <div class="pi-pic">
-                    <img src="./img/tandatanya.jpg" alt="">
-                    <div class="pi-links">
-                        <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                        <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                    </div>
-                </div>
-                <div class="pi-text">
-                    <h6>$35,00</h6>
-                    <p>Flamboyant Pink Top </p>
-                </div>
-            </div>
-            <div class="product-item">
-                <div class="pi-pic">
-                    <div class="tag-new">New</div>
-                    <img src="./img/tandatanya.jpg" alt="">
-                    <div class="pi-links">
-                        <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                        <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                    </div>
-                </div>
-                <div class="pi-text">
-                    <h6>$35,00</h6>
-                    <p>Black and White Stripes Dress</p>
-                </div>
-            </div>
-            <div class="product-item">
-                <div class="pi-pic">
-                    <img src="./img/tandatanya.jpg" alt="">
-                    <div class="pi-links">
-                        <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                        <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                    </div>
-                </div>
-                <div class="pi-text">
-                    <h6>$35,00</h6>
-                    <p>Flamboyant Pink Top </p>
-                </div>
-            </div>
-            <div class="product-item">
-                <div class="pi-pic">
-                    <img src="./img/tandatanya.jpg" alt="">
-                    <div class="pi-links">
-                        <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                        <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                    </div>
-                </div>
-                <div class="pi-text">
-                    <h6>$35,00</h6>
-                    <p>Flamboyant Pink Top </p>
-                </div>
-            </div>
-            <div class="product-item">
-                <div class="pi-pic">
-                    <img src="./img/tandatanya.jpg" alt="">
-                    <div class="pi-links">
-                        <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                        <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                    </div>
-                </div>
-                <div class="pi-text">
-                    <h6>$35,00</h6>
-                    <p>Flamboyant Pink Top </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- RELATED PRODUCTS section end -->
-<!-- Product filter section -->
-<section class="product-filter-section">
-    <div class="container">
-        <div class="section-title">
-            <h2>BROWSE TOP SELLING PRODUCTS</h2>
-        </div>
-        <ul class="product-filter-menu">
-            <li><a href="#">Category 1</a></li>
-            <li><a href="#">Category 2</a></li>
-            <li><a href="#">Category 3</a></li>
-            <li><a href="#">Category 4</a></li>
-            <li><a href="#">Category 5</a></li>
-            <li><a href="#">Category 6</a></li>
-            <li><a href="#">Category 7</a></li>
-        </ul>
-        <div class="row">
-            <div class="col-lg-3 col-sm-6">
-                <div class="product-item">
-                    <div class="pi-pic">
-                        <img src="./img/tandatanya.jpg" alt="">
-                        <div class="pi-links">
-                            <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                            <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                        </div>
-                    </div>
-                    <div class="pi-text">
-                        <h6>$35,00</h6>
-                        <p>Flamboyant Pink Top </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="product-item">
-                    <div class="pi-pic">
-                        <div class="tag-sale">ON SALE</div>
-                        <img src="./img/tandatanya.jpg" alt="">
-                        <div class="pi-links">
-                            <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                            <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                        </div>
-                    </div>
-                    <div class="pi-text">
-                        <h6>$35,00</h6>
-                        <p>Black and White Stripes Dress</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="product-item">
-                    <div class="pi-pic">
-                        <img src="./img/tandatanya.jpg" alt="">
-                        <div class="pi-links">
-                            <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                            <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                        </div>
-                    </div>
-                    <div class="pi-text">
-                        <h6>$35,00</h6>
-                        <p>Flamboyant Pink Top </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="product-item">
-                    <div class="pi-pic">
-                        <img src="./img/tandatanya.jpg" alt="">
-                        <div class="pi-links">
-                            <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                            <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                        </div>
-                    </div>
-                    <div class="pi-text">
-                        <h6>$35,00</h6>
-                        <p>Flamboyant Pink Top </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="product-item">
-                    <div class="pi-pic">
-                        <img src="./img/tandatanya.jpg" alt="">
-                        <div class="pi-links">
-                            <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                            <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                        </div>
-                    </div>
-                    <div class="pi-text">
-                        <h6>$35,00</h6>
-                        <p>Flamboyant Pink Top </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="product-item">
-                    <div class="pi-pic">
-                        <img src="./img/tandatanya.jpg" alt="">
-                        <div class="pi-links">
-                            <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                            <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                        </div>
-                    </div>
-                    <div class="pi-text">
-                        <h6>$35,00</h6>
-                        <p>Black and White Stripes Dress</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="product-item">
-                    <div class="pi-pic">
-                        <img src="./img/tandatanya.jpg" alt="">
-                        <div class="pi-links">
-                            <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                            <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                        </div>
-                    </div>
-                    <div class="pi-text">
-                        <h6>$35,00</h6>
-                        <p>Flamboyant Pink Top </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="product-item">
-                    <div class="pi-pic">
-                        <img src="./img/tandatanya.jpg" alt="">
-                        <div class="pi-links">
-                            <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-                            <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
-                        </div>
-                    </div>
-                    <div class="pi-text">
-                        <h6>$35,00</h6>
-                        <p>Flamboyant Pink Top </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="text-center pt-5">
-            <button class="site-btn sb-line sb-dark">LOAD MORE</button>
-        </div>
-    </div>
-</section>
-<!-- Product filter section end -->
 
 
 </body>
+<script src="js/cart.js"></script>
 
 </html>
