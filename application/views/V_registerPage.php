@@ -7,8 +7,8 @@
 <body>
 <!-- checkout section  -->
 <section class="checkout-section spad">
-    <button class="tablink" onclick="openPage('Personal Account', this, 'red')">Personal Account</button>
-    <button class="tablink" onclick="openPage('Buisness Account', this, 'green')" id="defaultOpen">Buisness Account</button>
+    <button class="tablink" onclick="openPage('Personal Account', this, 'red') " id="defaultOpen">Personal Account</button>
+    <button class="tablink" onclick="openPage('Buisness Account', this, 'green')" >Buisness Account</button>
 
     <div id="Personal Account" class="tabcontent">
         <div class="container">
