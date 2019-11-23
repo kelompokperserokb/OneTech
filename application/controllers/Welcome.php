@@ -27,7 +27,7 @@ class Welcome extends CI_Controller {
     public function homepage(){
         $data["merk"] = $this->getCategory();
         $data["product"] = $this->getTypeProducts();
-        $this->load->view('header',$data["merk"]);
+        $this->load->view('V_header',$data["merk"]);
         $this->load->view('index',$data);
         $this->load->view('footer');
     }
@@ -47,8 +47,12 @@ class Welcome extends CI_Controller {
     public function register(){
         $this->load->helper('url');
         $data["merk"] = $this->getCategory();
-        $this->load->view('header',$data["merk"]);
+        $this->load->view('V_header',$data["merk"]);
         $this->load->view('V_registerPage');
+        $this->load->view('footer');
+    }
+
+    public function footer(){
         $this->load->view('footer');
     }
 }
