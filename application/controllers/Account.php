@@ -8,22 +8,10 @@ class Account extends CI_Controller {
         session_start();
 		$this->load->model('m_AccountDB');
 		if($this->m_AccountDB->login($this->input->post('username'), $this->input->post('password'))==TRUE){
-			/*echo "<script>
-		 			alert('Login Success!');
-                 </script>";*/
 			$_SESSION["email"] = $this->input->post('username');
-            /*unset($_SESSION['wrong']);
-			header('Location:'.base_url());*/
             echo "true";
 		}else{
-            /*$_SESSION["wrong"] = "true" ;
-            redirect(base_url());
-			echo "<script>
-					//window.location.href='".base_url('hotel/checkOrder')."';
-                    alert('Login Failed, Wrong Username or Password');
-                 </script>";*/
             echo "false";
-
 		}
 	}
 
@@ -32,11 +20,6 @@ class Account extends CI_Controller {
         unset($_SESSION['email']);
         header('Location:'.base_url());
     }
-
-	public function authentication()
-	{
-
-	}
 
 	public function searchAccount()
 	{

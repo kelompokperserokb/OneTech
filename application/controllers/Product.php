@@ -56,4 +56,7 @@ class Product extends CI_Controller {
 		$this->M_ProductDB->giveDiscount($discount, $startDateDiscount, $lastDateDiscount, $id);
 		$this->load->view();
 	}
+	public function Tes(){
+
+    }
 }

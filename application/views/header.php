@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>css/jquery-ui.min.css" />
     <link rel="stylesheet" href="<?php echo base_url(); ?>css/owl.carousel.min.css" />
     <link rel="stylesheet" href="<?php echo base_url(); ?>css/animate.css" />
-    <link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css?<?php echo date('l jS \of F Y h:i:s A'); ?>" />
     <link rel="stylesheet" href="<?php echo base_url(); ?>css/style1.css" />
 
     <link rel="stylesheet" href="<?php echo base_url(); ?>css/modal.css" />
@@ -127,7 +127,7 @@
                 <ul class="main-menu text-center">
                     <?php
                         for($i = 0 ; $i < $data["count"] ; $i++){
-                            echo '<li><a href="#">'.$data["data_array"][$i]->merk_name.'</a></li>';
+                            echo '<li><a href="#" id="'.$data["data_array"][$i]->category_id.'" >'.$data["data_array"][$i]->category_name.'</a></li>';
                         }
                     ?>
                 </ul>

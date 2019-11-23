@@ -25,7 +25,7 @@ class Welcome extends CI_Controller {
 	}
 
     public function homepage(){
-        $data["merk"] = $this->getMerk();
+        $data["merk"] = $this->getCategory();
         $data["product"] = $this->getTypeProducts();
         $this->load->view('header',$data["merk"]);
         $this->load->view('index',$data);
@@ -38,9 +38,14 @@ class Welcome extends CI_Controller {
         return $datas;
     }
 
-    public function getMerk(){
+    public function getCategory(){
         $this->load->model("M_ProductDB");
-        $datas['data'] = $this->M_ProductDB->getMerk();
+        $datas['data'] = $this->M_ProductDB->getCategory();
         return $datas;
+    }
+
+    public function register(){
+        $this->load->helper('url');
+        $this->load->view('index');
     }
 }

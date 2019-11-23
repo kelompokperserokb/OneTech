@@ -11,11 +11,10 @@ $(document).ready(function(){
             method: 'post',
             data: {username: username, password: password},
             beforeSend : function(){
-
+                $('#message').text("");
             },
             success: function(response) {
                 if (response == "true") {
-                    $('#message').text("");
                     alert('Login Success');
                     window.location.href = base_url.toString()+"/OneTech";
                 } else {
