@@ -7,12 +7,18 @@ class Order extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->library('pdf');
+        $this->load->helper('url');
 	}
 
 	public function addToCart()
 	{
 
 	}
+
+	public function cart(){
+        $this->load->view('cart');
+        $this->load->view('footer');
+    }
 
 	public function removeFromCart()
 	{
