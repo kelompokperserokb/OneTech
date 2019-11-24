@@ -16,8 +16,7 @@
                         <div class="footer-head">
                             <h1 style="color: black"><span>One</span>Tech</h1>
                             <p>
-                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                                totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.
+								OneTech hadir dengan konsep One Stop Online Shopping untuk menjawab kebutuhan masyarakat modern akan kemudahan berbelanja, kapanpun dan dimanapun Anda menginginkannya baik retail maupun grosir.
                             </p>
                         </div>
                     </div>
