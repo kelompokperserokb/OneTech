@@ -6,9 +6,15 @@
 
 <body>
 <!-- checkout section  -->
-<section class="checkout-section spad">
+<section class="spad">
+	<center>=
+		<h2> Register a New Account</h2>>
+	</center>
+
     <button class="tablink" onclick="openPage('Personal Account', this, 'red') " id="defaultOpen">Personal Account</button>
-    <button class="tablink" onclick="openPage('Business Account', this, 'green')" >Buisness Account</button>
+    <button class="tablink" onclick="openPage('Business Account', this, 'green')" >Business Account</button>
+
+
 
     <div id="Personal Account" class="tabcontent">
         <div class="container">
@@ -20,15 +26,10 @@
                             <div class="col-md-12">
                                 <input type="text" placeholder="Email" id="email_p" required>
                                 <input type="text" placeholder="Password" id="password_p" required>
-                                <input type="text" placeholder="Password Correction" id="password_correction_p" required>
+                                <input type="text" placeholder="Password Confirmation" id="password_confirmation_p" required>
                                 <input type="text" placeholder="First Name" id="first_name_p" required>
                                 <input type="text" placeholder="Last Name" id="last_name_p" required>
-                            </div>
-                            <div class="col-md-6">
                                 <input type="text" placeholder="Address" id="address_p" required>
-                            </div>
-
-                            <div class="col-md-6">
                                 <input type="text" placeholder="Phone no." id="phone_number_p" required>
                             </div>
                             <div class="contact-form col-md-12">
@@ -52,46 +53,48 @@
                             <div class="col-md-12">
                                 <input type="text" placeholder="Email" id="email_b" required>
                                 <input type="text" placeholder="Password" id="password_b" required>
-                                <input type="text" placeholder="Password Correction" id="password_correction_b" required>
+                                <input type="text" placeholder="Password Confirmation" id="password_confirmation_b" required>
                                 <input type="text" placeholder="First Name" id="first_name_b" required>
                                 <input type="text" placeholder="Last Name" id="last_name_b" required>
-                            </div>
-                            <div class="col-md-6">
                                 <input type="text" placeholder="Address" id="address_b" required>
-                            </div>
-                            <div class="col-md-6">
                                 <input type="text" placeholder="Phone no." id="phone_number_b" required>
-                            </div>
-                            <div class="col-md-12">
-                                <input type="text" placeholder="Institution Name" id="institution_name_b" required>
-                            </div>
-                            <div class="col-md-12">
-                                <input type="text" placeholder="Institution Address" id="institution_address_b" required>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="col-md-12" style='bottom : 22px;'>
-                                    <label for="institution_type">Institution type: </label>
-                                    <select class="form-control" id="institution_type_b" required>
-                                        <option> 1</option>
-                                        <option> 2</option>
-                                        <option> 3</option>
-                                        <option> 4</option>
-                                    </select>
-                                </div>
-                            </div>
+							</div>
+							<div class="col-md-4">
+								<select name="institution_type" class="form-control" id="institution_type_b" required>
+									<option> Institution Type... </option>
+									<option> PT </option>
+									<option> CV </option>
+									<option> Firma </option>
+									<option> PD </option>
+									<option> UD </option>
+									<option> BUMD </option>
+									<option> BUMN </option>
+									<option> Kementerian </option>
+									<option> Lembaga </option>
+									<option> Yayasan </option>
+									<option> Koperasi </option>
+									<option> Lain-lain </option>
+								</select>
+							</div>
+							<div class="col-md-8">
+								<input type="text" placeholder="Institution Name" id="institution_name_b" required>
+							</div>
+							<div class="col-md-12">
+								<input type="text" placeholder="Institution Address" id="institution_address_b" required>
+								<input type="text" placeholder="NPWP Number" id="npwp_b" required>
+							</div>
                             <div class="contact-form col-md-12">
                                 <div class="text-center"><button type="submit">REGISTER</button></div>
                             </div>
                         </div>
                     </form>
-
                 </div>
-
             </div>
         </div>
     </div>
     </div>
 </section>
+
 
 <!--====== Javascripts & Jquery ======-->
 <script src="<?php echo base_url(); ?>Asset/js/tabs.js"></script>
