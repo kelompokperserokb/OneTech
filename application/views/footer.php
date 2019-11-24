@@ -16,7 +16,7 @@
                         <div class="footer-head">
                             <h1 style="color: black"><span>One</span>Tech</h1>
                             <p>
-								OneTech hadir dengan konsep One Stop Online Shopping untuk menjawab kebutuhan masyarakat modern akan kemudahan berbelanja, kapanpun dan dimanapun Anda menginginkannya baik retail maupun grosir.
+								OneTech hadir dengan konsep One Stop Online Shopping untuk menjawab kebutuhan masyarakat modern akan kemudahan berbelanja, kapanpun dan dimanapun Anda menginginkannya baik retail maupun grosir.OneTech hadir dengan konsep One Stop Online Shopping untuk menjawab kebutuhan masyarakat modern akan kemudahan berbelanja, kapanpun dan dimanapun Anda menginginkannya baik retail maupun grosir.
                             </p>
                         </div>
                     </div>
