@@ -29,7 +29,7 @@
 <div class="limiter">
     <div class="container-login100" >
         <div class="wrap-login100">
-            <form class="login100-form validate-form" id="login">
+            <form class="login100-form validate-form" id="login" method="post">
                     <span class="login100-form-logo">
 						<i class="zmdi zmdi-landscape"></i>
 					</span>
@@ -39,12 +39,12 @@
 					</span>
 
                 <div class="wrap-input100 validate-input" data-validate="Enter username">
-                    <input class="input100" id="username" type="text" name="username" placeholder="Username">
+                    <input class="input100" id="username" type="text" name="username" placeholder="Username" required>
                     <span class="focus-input100" data-placeholder="&#xf207;"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Enter password">
-                    <input class="input100" id="password" type="password" name="pass" placeholder="Password">
+                    <input class="input100" id="password" type="password" name="pass" placeholder="Password" required>
                     <span class="focus-input100" data-placeholder="&#xf191;"></span>
                 </div>
 
@@ -56,9 +56,7 @@
                 </div>
 
                 <div class="container-login100-form-btn">
-                    <button class="login100-form-btn">
-                        Login
-                    </button>
+                    <input type="submit" class="login100-form-btn" value="Login">
                 </div>
 
                 <div class="text-center p-t-90">
@@ -74,20 +72,7 @@
 
 <div id="dropDownSelect1"></div>
 
-<!--===============================================================================================-->
-<script src="<?php echo base_url(); ?>Asset/vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-<script src="<?php echo base_url(); ?>Asset/vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-<script src="<?php echo base_url(); ?>Asset/vendor/bootstrap/js/popper.js"></script>
-<script src="<?php echo base_url(); ?>Asset/vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-<script src="<?php echo base_url(); ?>Asset/vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-<script src="<?php echo base_url(); ?>Asset/vendor/daterangepicker/moment.min.js"></script>
-<script src="<?php echo base_url(); ?>Asset/vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-<script src="<?php echo base_url(); ?>Asset/vendor/countdowntime/countdowntime.js"></script>
+
 <!--===============================================================================================-->
 <script src="<?php echo base_url(); ?>Asset/js/mainin.js"></script>
 
