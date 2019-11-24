@@ -64,7 +64,7 @@
                             <tbody>
                                 <tr>
                                     <td class="product-col">
-                                        <img src="img/tandatanya.jpg" alt="">
+                                        <img src="<?php echo base_url(); ?>Asset/img/tandatanya.jpg" alt="">
                                         <div class="pc-title">
                                             <h4>COSRX</h4>
                                             <p>Sku: CX-OSOCP135</p>
@@ -74,6 +74,7 @@
                                         <div class="quantity">
                                             <div class="pro-qty">
                                                 <input type="text" value="1">
+                                                <?php echo '<input type="hidden" id ="stock-quota" value="'.$stock.'" />'; ?>
                                             </div>
                                         </div>
                                     </td>
@@ -116,10 +117,10 @@
                 </div>
             </div>
             <div class="col-lg-4 card-right">
-                <form class="promo-code-form">
+                <!--<form class="promo-code-form">
                     <input type="text" placeholder="Enter promo code">
                     <button>Submit</button>
-                </form>
+                </form>-->
                 <a href="" class="site-btn">Proceed to checkout</a>
                 <a href="" class="site-btn sb-dark">Continue shopping</a>
             </div>
