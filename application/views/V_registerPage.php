@@ -7,8 +7,8 @@
 <body>
 <!-- checkout section  -->
 <section class="spad">
-	<center>=
-		<h2> Register a New Account</h2>>
+	<center>
+		<h2> Register a New Account</h2>
 	</center>
 
     <button class="tablink" onclick="openPage('Personal Account', this, 'red') " id="defaultOpen">Personal Account</button>
