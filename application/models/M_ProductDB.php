@@ -81,6 +81,18 @@ class M_ProductDB extends CI_Model
 		return $data;
 	}
 
+	public function getProductByLimit($limit){
+		$this->db->select('*');
+		$this->db->from('product');
+		$this->db->join('type_product','type_product.product_id = product.product_id');
+		$this->db->order_by('product.DatePost', 'DESC');
+		$this->db->limit($limit);
+		$query = $this->db->get();
+
+		$data['data_array'] = $query->result();
+		$data['count'] = $query->num_rows();
+		return $data;
+	}
 	public function getProducts(){
 		$this->db->select('*');
 		$this->db->from('product');

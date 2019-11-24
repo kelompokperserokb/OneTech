@@ -26,15 +26,15 @@ class Welcome extends CI_Controller {
 
     public function homepage(){
         $data["merk"] = $this->getCategory();
-        $data["product"] = $this->getTypeProducts();
+        $data["product"] = $this->getProductByLimit(8);
         $this->load->view('V_header',$data["merk"]);
         $this->load->view('index',$data);
         $this->load->view('footer');
     }
 
-    public function getTypeProducts(){
+    public function getProductByLimit($limit){
         $this->load->model("M_ProductDB");
-        $datas['data'] = $this->M_ProductDB->getProducts();
+        $datas['data'] = $this->M_ProductDB->getProductByLimit($limit);
         return $datas;
     }
 
