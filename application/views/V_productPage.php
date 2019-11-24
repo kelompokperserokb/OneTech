@@ -29,7 +29,7 @@
 			<div class="col-lg-6 product-details">
 				<h2 class="p-title">'.$product["data_array"][0]->product_name.' - '.$product["data_array"][0]->product_type.'</h2>
 				<h3 class="p-price">Rp. '.number_format($product["data_array"][0]->product_price,2,",",".").'</h3>
-				<h4 class="p-stock">Available: <span>'. $stock_status .'<input type="hidden" id ="stock-quota" value="'.$stock.'" /></span></h4>
+				<h4 class="p-stock">Available: <span>'. $stock_status .'<input type="hidden" id ="stock_quota" value="'.$stock.'" /></span></h4>
 				<!--<div class="p-review">
 					<a href="">3 reviews</a>|<a href="">Add your review</a>
 				</div>-->
@@ -325,6 +325,7 @@
 </section>
 <!-- Product filter section end -->
 
+<script src="<?php echo base_url(); ?>Asset/js/main.js"></script>
 </body>
 
 </html>
