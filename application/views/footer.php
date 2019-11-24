@@ -26,7 +26,7 @@
                         <div class="footer-head">
                             <h4>Information</h4>
                             <div class="footer-contacts">
-                                <a href="<?php echo base_url(); ?>/about">
+                                <a href="<?php echo base_url(); ?>about">
                                     <p><span>About Us</span></p>
                                 </a>
                                 <a href="#home">
