@@ -79,7 +79,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="form contact-form">
+                            <div class="contact-form col-md-12">
                                 <div class="text-center"><button type="submit">REGISTER</button></div>
                             </div>
                         </div>

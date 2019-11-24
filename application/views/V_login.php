@@ -6,17 +6,19 @@
 </head>
 
 <body>
-<div class="loginbox">
-    <img src="<?php echo base_url(); ?>Asset/img/user.png" class="user">
+<div class="container">
+    <div class="loginbox col-4">
+        <img src="<?php echo base_url(); ?>Asset/img/user.png" class="user">
 
-    <form>
-        <p>Email</p>
-        <input type="text" name="" placeholder="Email">
-        <p>Password</p>
-        <input type="Password" name="" placeholder="Enter Password">
-        <input type="submit" name="" value="Login">
-        <a href="Register - Copy.html">Create New Account</a>
-    </form>
+        <form>
+            <p>Email</p>
+            <input type="text" name="" placeholder="Email">
+            <p>Password</p>
+            <input type="Password" name="" placeholder="Enter Password">
+            <input type="submit" name="" value="Login">
+            <a href="<?php echo base_url(); ?>register">Create New Account</a>
+        </form>
+    </div>
 </div>
 </body>
 </html>

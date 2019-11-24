@@ -56,8 +56,29 @@ class M_ProductDB extends CI_Model
 		$this->db->trans_complete();
 	}
 
-	public function getProductData($type){
+	public function getProductData($id,$type_id){
+		$this->db->select('*');
+		$this->db->from('product');
+		$this->db->join('type_product','type_product.product_id = product.product_id');
+		$this->db->where('product.product_id',"$id");
+		$this->db->where('type_product.type_id',"$type_id");
+		$query = $this->db->get();
 
+		$data['data_array'] = $query->result();
+		return $data;
+	}
+
+	public function getProductTypeData($id, $type_id){
+		$this->db->select('*');
+		$this->db->from('type_product');
+		$this->db->where('product_id',"$id");
+		$this->db->where('type_id !=',"$type_id");
+		$query = $this->db->get();
+
+		$data['count'] = $query->num_rows();
+		$data['data_array'] = $query->result();
+
+		return $data;
 	}
 
 	public function getProducts(){
