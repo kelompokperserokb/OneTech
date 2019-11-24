@@ -112,7 +112,6 @@
 <script src="<?php echo base_url(); ?>Asset/js/jquery.nicescroll.min.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/jquery.zoom.min.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/jquery-ui.min.js"></script>
-<script src="<?php echo base_url(); ?>Asset/js/main.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/jcarousel/jquery.jcarousel.min.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/jquery.fancybox.pack.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/jquery.fancybox-media.js"></script>
