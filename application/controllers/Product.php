@@ -70,4 +70,13 @@ class Product extends CI_Controller {
         $this->load->view('V_productPage',$data);
         $this->load->view('footer');
     }
+
+    public function viewAllProduct(){
+        $this->load->helper('url');
+        $this->load->model("M_ProductDB");
+        $data['data'] = $this->M_ProductDB->getCategory();
+        $this->load->view('V_header',$data);
+        $this->load->view('V_allProductPage');
+        $this->load->view('footer');
+    }
 }

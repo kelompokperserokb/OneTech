@@ -29,13 +29,13 @@
                                 <a href="<?php echo base_url(); ?>about">
                                     <p><span>About Us</span></p>
                                 </a>
-                                <a href="#home">
+                                <a href="<?php echo base_url(); ?>howtoorder">
                                     <p><span>How to Order</span></p>
                                 </a>
-                                <a href="#home">
+                                <a href="<?php echo base_url(); ?>payment">
                                     <p><span>Payment</span></p>
                                 </a>
-								<a href="#home">
+								<a href="<?php echo base_url(); ?>delivery">
 									<p><span>Logistics and Delivery</span></p>
 								</a>
                             </div>
