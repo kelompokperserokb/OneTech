@@ -16,7 +16,7 @@
                         <div class="footer-head">
                             <h1 style="color: black"><span>One</span>Tech</h1>
                             <p>
-								OneTech hadir dengan konsep One Stop Online Shopping untuk menjawab kebutuhan masyarakat modern akan kemudahan berbelanja, kapanpun dan dimanapun Anda menginginkannya baik retail maupun grosir.
+								OneTech hadir dengan konsep One Stop Online Shopping untuk menjawab kebutuhan masyarakat modern akan kemudahan berbelanja, kapanpun dan dimanapun Anda menginginkannya baik retail maupun grosir.OneTech hadir dengan konsep One Stop Online Shopping untuk menjawab kebutuhan masyarakat modern akan kemudahan berbelanja, kapanpun dan dimanapun Anda menginginkannya baik retail maupun grosir.
                             </p>
                         </div>
                     </div>
@@ -26,7 +26,7 @@
                         <div class="footer-head">
                             <h4>Information</h4>
                             <div class="footer-contacts">
-                                <a href="#home">
+                                <a href="<?php echo base_url(); ?>about">
                                     <p><span>About Us</span></p>
                                 </a>
                                 <a href="#home">
@@ -112,7 +112,6 @@
 <script src="<?php echo base_url(); ?>Asset/js/jquery.nicescroll.min.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/jquery.zoom.min.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/jquery-ui.min.js"></script>
-<script src="<?php echo base_url(); ?>Asset/js/main.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/jcarousel/jquery.jcarousel.min.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/jquery.fancybox.pack.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/jquery.fancybox-media.js"></script>
@@ -124,7 +123,6 @@
 <script src="<?php echo base_url(); ?>Asset/js/modernizr.custom.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/jquery.ba-cond.min.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/jquery.slitslider.js"></script>
-<script src="<?php echo base_url(); ?>Asset/js/animate.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>

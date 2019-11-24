@@ -55,4 +55,12 @@ class Welcome extends CI_Controller {
     public function footer(){
         $this->load->view('footer');
     }
+
+    public function about(){
+        $this->load->helper('url');
+        $data["merk"] = $this->getCategory();
+        $this->load->view('V_header',$data["merk"]);
+        $this->load->view('V_aboutUs');
+        $this->load->view('footer');
+    }
 }
