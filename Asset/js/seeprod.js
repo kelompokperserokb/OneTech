@@ -9,6 +9,7 @@
            var index = $("table tbody tr:last-child").index();
            var row = '<tr>' +
                '<td><input type="text" class="form-control" name="id" id="id"></td>' +
+               '<td><input type="image" img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/sheep-5.jpg"class="img-fluid img-thumbnail" alt="Sheep" name="image" id="image"></td>' +
                '<td><input type="text" class="form-control" name="CodeProduct" id="CodeProduct"></td>' +
                '<td><input type="text" class="form-control" name="name" id="name"></td>' +
                '<td><input type="text" class="form-control" name="category" id="category"></td>' +
