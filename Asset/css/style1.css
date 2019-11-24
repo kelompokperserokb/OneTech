@@ -856,9 +856,9 @@ ul#horizontal-list li:not(:first-child) {
     position: relative;
 }
 
-.our-skill-area {
+/*.our-skill-area {
     background: rgba(248, 248, 248, 0.8) url("../img/background/bg1.jpg") no-repeat fixed center top / cover;
-}
+}*/
 
 .test-overly {
     background: rgba(0, 0, 0, 0.80);
@@ -1034,14 +1034,14 @@ ul#horizontal-list li:not(:first-child) {
 /*----------------------------------------
  7.Wellcome Area Css
 ----------------------------------------*/
-
+/*
 .wellcome-area {
     background: rgba(248, 248, 248, 0.8) url("../img/background/bg1.jpg");
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
     background-attachment: fixed;
-}
+}*/
 
 .well-bg {
     position: relative;
@@ -1109,58 +1109,7 @@ ul#horizontal-list li:not(:first-child) {
 }
 
 
-/*----------------------------------------
- 8.Team Area Css
-----------------------------------------*/
 
-.team-member {
-    background: rgba(0, 0, 0, 0.65) none repeat scroll 0 0;
-    display: block;
-    margin-right: -15px;
-    padding: 10px;
-    position: relative;
-    overflow: hidden;
-}
-
-.team-member::before {
-    background: rgba(0, 0, 0, 0) url("../img/team/team01.jpg") repeat scroll 0 0;
-    content: "";
-    display: block;
-    height: 100%;
-    left: 0;
-    margin-right: -15px;
-    padding: 10px;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: -1;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: top center;
-    transition: 5s;
-    transform: scale(1);
-}
-
-.team-member:hover.team-member::before {
-    transform: scale(1.2);
-}
-
-.single-team-member {
-    border: 1px solid #ddd;
-}
-
-.team-left-text h4 {
-    color: #fff;
-    font-size: 30px;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.team-left-text p {
-    color: #fff;
-    font-size: 17px;
-    line-height: 26px;
-}
 
 .email-news {
     display: block;
@@ -1343,7 +1292,7 @@ ul#horizontal-list li:not(:first-child) {
 
 /*  9.review Area
 /*--------------------------------*/
-
+/*
 .reviews-area {
     background: url(../img/background/bg1.jpg);
     overflow: hidden;
@@ -1354,7 +1303,7 @@ ul#horizontal-list li:not(:first-child) {
     width: 100%;
     height: auto;
     position: relative;
-}
+}*/
 
 .work-left-text {
     background: #3EC1D5 none repeat scroll 0 0;
@@ -1697,11 +1646,11 @@ ul#horizontal-list li:not(:first-child) {
  12.Testimonial Area Css
 ----------------------------------------*/
 
-.testimonials-area {
+/*.testimonials-area {
     background: rgba(0, 0, 0, 0) url("../img/background/slider1.jpg") no-repeat fixed center top / cover;
     height: auto;
     width: 100%;
-}
+}*/
 
 .testi-inner {
     position: relative;
@@ -2162,6 +2111,12 @@ ul#horizontal-list li:not(:first-child) {
     margin-top: 30px;
 }
 
+.footer-contacts {
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
 .footer-contacts p span {
     color: #3EC1D5;
     font-weight: 700;
@@ -2236,13 +2191,13 @@ ul#horizontal-list li:not(:first-child) {
 /*  16.Home Page 2  CSS
 /*----------------------------------------*/
 
-.header-bg {
+/*.header-bg {
     background: url(../img/slider/slider1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
     background-attachment: fixed;
-}
+}*/
 
 .header-bg.home-2 {
     width: 100%;
