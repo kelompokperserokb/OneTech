@@ -814,6 +814,10 @@ ol {
     left: -92px;
 }
 
+.product-item{
+	margin : 20px 0px;
+}
+
 .product-item .pi-pic {
     position: relative;
     display: block;
@@ -907,7 +911,7 @@ ol {
 
 .product-item .pi-text {
     padding-top: 22px;
-    height: 87px;
+    height: auto;
 }
 
 .product-item .pi-text h6 {
