@@ -26,7 +26,7 @@
                         <div class="footer-head">
                             <h4>Information</h4>
                             <div class="footer-contacts">
-                                <a href="#home">
+                                <a href="<?php echo base_url(); ?>/about">
                                     <p><span>About Us</span></p>
                                 </a>
                                 <a href="#home">
@@ -123,7 +123,6 @@
 <script src="<?php echo base_url(); ?>Asset/js/modernizr.custom.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/jquery.ba-cond.min.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/jquery.slitslider.js"></script>
-<script src="<?php echo base_url(); ?>Asset/js/animate.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
