@@ -115,6 +115,219 @@
 </div>
 <!-- end mini table-->
 
+<!-- RELATED PRODUCTS section
+<section class="related-product-section">
+	<div class="container">
+		<div class="section-title">
+			<h2>RELATED PRODUCTS</h2>
+		</div>
+		<div class="product-slider owl-carousel">
+			<div class="product-item">
+				<div class="pi-pic">
+					<img src="<?php echo base_url(); ?>Asset//img/tandatanya.jpg" alt="">
+					<div class="pi-links">
+						<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+
+					</div>
+				</div>
+				<div class="pi-text">
+					<h6>$35,00</h6>
+					<p>Flamboyant Pink Top </p>
+				</div>
+			</div>
+			<div class="product-item">
+				<div class="pi-pic">
+					<div class="tag-new">New</div>
+					<img src="<?php echo base_url(); ?>Asset//img/tandatanya.jpg" alt="">
+					<div class="pi-links">
+						<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+
+					</div>
+				</div>
+				<div class="pi-text">
+					<h6>$35,00</h6>
+					<p>Black and White Stripes Dress</p>
+				</div>
+			</div>
+			<div class="product-item">
+				<div class="pi-pic">
+					<img src="<?php echo base_url(); ?>Asset/img/tandatanya.jpg" alt="">
+					<div class="pi-links">
+						<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+
+					</div>
+				</div>
+				<div class="pi-text">
+					<h6>$35,00</h6>
+					<p>Flamboyant Pink Top </p>
+				</div>
+			</div>
+			<div class="product-item">
+				<div class="pi-pic">
+					<img src="<?php echo base_url(); ?>Asset/img/tandatanya.jpg" alt="">
+					<div class="pi-links">
+						<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+
+					</div>
+				</div>
+				<div class="pi-text">
+					<h6>$35,00</h6>
+					<p>Flamboyant Pink Top </p>
+				</div>
+			</div>
+			<div class="product-item">
+				<div class="pi-pic">
+					<img src="<?php echo base_url(); ?>Asset/img/tandatanya.jpg" alt="">
+					<div class="pi-links">
+						<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+
+					</div>
+				</div>
+				<div class="pi-text">
+					<h6>$35,00</h6>
+					<p>Flamboyant Pink Top </p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+ RELATED PRODUCTS section end -->
+<!-- Product filter section
+<section class="product-filter-section">
+	<div class="container">
+		<div class="section-title">
+			<h2>BROWSE TOP SELLING PRODUCTS</h2>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-3 col-sm-6">
+				<div class="product-item">
+					<div class="pi-pic">
+						<img src="<?php echo base_url(); ?>Asset/img/tandatanya.jpg" alt="">
+						<div class="pi-links">
+							<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+
+						</div>
+					</div>
+					<div class="pi-text">
+						<h6>$35,00</h6>
+						<p>Flamboyant Pink Top </p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-sm-6">
+				<div class="product-item">
+					<div class="pi-pic">
+						<div class="tag-sale">ON SALE</div>
+						<img src="<?php echo base_url(); ?>Asset/img/tandatanya.jpg" alt="">
+						<div class="pi-links">
+							<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+
+						</div>
+					</div>
+					<div class="pi-text">
+						<h6>$35,00</h6>
+						<p>Black and White Stripes Dress</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-sm-6">
+				<div class="product-item">
+					<div class="pi-pic">
+						<img src="<?php echo base_url(); ?>Asset/img/tandatanya.jpg" alt="">
+						<div class="pi-links">
+							<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+
+						</div>
+					</div>
+					<div class="pi-text">
+						<h6>$35,00</h6>
+						<p>Flamboyant Pink Top </p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-sm-6">
+				<div class="product-item">
+					<div class="pi-pic">
+						<img src="<?php echo base_url(); ?>Asset/img/tandatanya.jpg" alt="">
+						<div class="pi-links">
+							<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+
+						</div>
+					</div>
+					<div class="pi-text">
+						<h6>$35,00</h6>
+						<p>Flamboyant Pink Top </p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-sm-6">
+				<div class="product-item">
+					<div class="pi-pic">
+						<img src="<?php echo base_url(); ?>Asset/img/tandatanya.jpg" alt="">
+						<div class="pi-links">
+							<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+
+						</div>
+					</div>
+					<div class="pi-text">
+						<h6>$35,00</h6>
+						<p>Flamboyant Pink Top </p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-sm-6">
+				<div class="product-item">
+					<div class="pi-pic">
+						<img src="<?php echo base_url(); ?>Asset/img/tandatanya.jpg" alt="">
+						<div class="pi-links">
+							<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+
+						</div>
+					</div>
+					<div class="pi-text">
+						<h6>$35,00</h6>
+						<p>Black and White Stripes Dress</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-sm-6">
+				<div class="product-item">
+					<div class="pi-pic">
+						<img src="<?php echo base_url(); ?>Asset/img/tandatanya.jpg" alt="">
+						<div class="pi-links">
+							<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+
+						</div>
+					</div>
+					<div class="pi-text">
+						<h6>$35,00</h6>
+						<p>Flamboyant Pink Top </p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-sm-6">
+				<div class="product-item">
+					<div class="pi-pic">
+						<img src="<?php echo base_url(); ?>Asset/img/tandatanya.jpg" alt="">
+						<div class="pi-links">
+							<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+
+						</div>
+					</div>
+					<div class="pi-text">
+						<h6>$35,00</h6>
+						<p>Flamboyant Pink Top </p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="text-center pt-5">
+			<button class="site-btn sb-line sb-dark">LOAD MORE</button>
+		</div>
+	</div>
+</section>
+ Product filter section end -->
 
 <script src="<?php echo base_url(); ?>Asset/js/main.js"></script>
 </body>
