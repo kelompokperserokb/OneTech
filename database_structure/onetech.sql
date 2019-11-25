@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 23 Nov 2019 pada 09.59
+-- Waktu pembuatan: 25 Nov 2019 pada 09.26
 -- Versi server: 10.4.6-MariaDB
 -- Versi PHP: 7.3.9
 
@@ -233,6 +233,7 @@ CREATE TABLE `user` (
   `typeOfInstitution` varchar(15) DEFAULT NULL,
   `institutionName` varchar(127) DEFAULT NULL,
   `institutionAddress` varchar(255) DEFAULT NULL,
+  `npwp` varchar(20) DEFAULT NULL,
   `hash` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
