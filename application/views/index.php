@@ -2,167 +2,49 @@
 <html lang="en">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        * {
-            box-sizing: border-box
-        }
-
-        body {
-            font-family: Verdana, sans-serif;
-            margin: 0
-        }
-
-        .mySlides {
-            display: none
-        }
-
-        img {
-            vertical-align: middle;
-        }
-        /* Slideshow container */
-
-        .slideshow-container {
-            max-width: 1000px;
-            position: relative;
-            margin: auto;
-        }
-        /* Next & previous buttons */
-
-        .prev,
-        .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            padding: 16px;
-            margin-top: -22px;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.6s ease;
-            border-radius: 0 3px 3px 0;
-            user-select: none;
-        }
-        /* Position the "next button" to the right */
-
-        .next {
-            right: 0;
-            border-radius: 3px 0 0 3px;
-        }
-        /* On hover, add a black background color with a little bit see-through */
-
-        .prev:hover,
-        .next:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-        /* Caption text */
-
-        .text {
-            color: #f2f2f2;
-            font-size: 15px;
-            padding: 8px 12px;
-            position: absolute;
-            bottom: 8px;
-            width: 100%;
-            text-align: center;
-        }
-        /* Number text (1/3 etc) */
-
-        .numbertext {
-            color: #f2f2f2;
-            font-size: 12px;
-            padding: 8px 12px;
-            position: absolute;
-            top: 0;
-        }
-        /* The dots/bullets/indicators */
-
-        .dot {
-            cursor: pointer;
-            height: 15px;
-            width: 15px;
-            margin: 0 2px;
-            background-color: #bbb;
-            border-radius: 50%;
-            display: inline-block;
-            transition: background-color 0.6s ease;
-        }
-
-        .active,
-        .dot:hover {
-            background-color: #717171;
-        }
-
-        .faded {
-            -webkit-animation-name: fade;
-            -webkit-animation-duration: 1.5s;
-            animation-name: fade;
-            animation-duration: 1.5s;
-        }
-
-        @-webkit-keyframes faded {
-            from {
-                opacity: .4
-            }
-            to {
-                opacity: 1
-            }
-        }
-
-        @keyframes faded {
-            from {
-                opacity: .4
-            }
-            to {
-                opacity: 1
-            }
-        }
-        /* On smaller screens, decrease text size */
-
-        @media only screen and (max-width: 300px) {
-            .prev,
-            .next,
-            .text {
-                font-size: 11px
-            }
-        }
-    </style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/bootstrap-337.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/style.css">
 </head>
 
 <body>
     <!-- Start Slider Area -->
-    <div class="slideshow-container">
-
-        <div class="mySlides faded">
-            <div class="numbertext">1 / 3</div>
-            <img src="<?php echo base_url(); ?>Asset/img/slider/produk1.jpg" style="width:100%">
-            <div class="text">Caption One</div>
-            </div>
-
-        <div class="mySlides faded">
-            <div class="numbertext">2 / 3</div>
-            <img src="<?php echo base_url(); ?>Asset/img/slider/produk2.jpg" style="width:100%">
-            <div class="text">Caption Two</div>
-        </div>
-
-        <div class="mySlides faded">
-            <div class="numbertext">3 / 3</div>
-            <img src="<?php echo base_url(); ?>Asset/img/slider/3.jpg" style="width:100%">
-            <div class="text">Caption Three</div>
-        </div>
-
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </div>
-    <br>
-
-    <div class="text-center">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
-    </div>
-
+	<div class="container" id="slider"><!-- container Begin -->
+		<div class="col-md-12"><!-- col-md-12 Begin -->
+			<div class="carousel slide" id="myCarousel" data-ride="carousel"><!-- carousel slide Begin -->
+				<ol class="carousel-indicators"><!-- carousel-indicators Begin -->
+					<li class="active" data-target="#myCarousel" data-slide-to="0"></li>
+					<li data-target="#myCarousel" data-slide-to="1"></li>
+					<li data-target="#myCarousel" data-slide-to="2"></li>
+					<li data-target="#myCarousel" data-slide-to="3"></li>
+				</ol><!-- carousel-indicators Finish -->
+				<div class="carousel-inner"><!-- carousel-inner Begin -->
+					<div class="item active">
+						<img src="<?php echo base_url(); ?>Asset/img/slider/slider-1.jpg" alt="Slider Image 1">
+					</div>
+					<div class="item">
+						<img src="<?php echo base_url(); ?>Asset/img/slider/slider-2.jpg" alt="Slider Image 2">
+					</div>
+					<div class="item">
+						<img src="<?php echo base_url(); ?>Asset/img/slider/slider-3.jpg" alt="Slider Image 3">
+					</div>
+					<div class="item">
+						<img src="<?php echo base_url(); ?>Asset/img/slider/slider-3.jpg" alt="Slider Image 4">
+					</div>
+				</div><!-- carousel-inner Finish -->
+				<a href="#myCarousel" class="left carousel-control" data-slide="prev"><!-- left carousel-control Begin -->
+					<span class="glyphicon glyphicon-chevron-left"></span>
+					<span class="sr-only">Previous</span>
+				</a><!-- left carousel-control Finish -->
+				<a href="#myCarousel" class="right carousel-control" data-slide="next"><!-- left carousel-control Begin -->
+					<span class="glyphicon glyphicon-chevron-right"></span>
+					<span class="sr-only">Next</span>
+				</a><!-- left carousel-control Finish -->
+			</div><!-- carousel slide Finish -->
+		</div><!-- col-md-12 Finish -->
+	</div><!-- container Finish -->
     <!-- End Slider Area -->
 
 
@@ -172,16 +54,6 @@
             <div class="section-title">
                 <h2>OUR LATEST PRODUCTS</h2>
             </div>
-            <!--<ul class="product-filter-menu">
-                <li><a href="#">TOPS</a></li>
-                <li><a href="#">JUMPSUITS</a></li>
-                <li><a href="#">LINGERIE</a></li>
-                <li><a href="#">JEANS</a></li>
-                <li><a href="#">DRESSES</a></li>
-                <li><a href="#">COATS</a></li>
-                <li><a href="#">JUMPERS</a></li>
-                <li><a href="#">LEGGINGS</a></li>
-            </ul>-->
             <div class="row">
                 <?php for($i = 0 ; $i<$product['data']['count']; $i++){
                    echo '<div class="col-lg-3 col-sm-6">
@@ -213,38 +85,8 @@
     </section>
     <!-- Product filter section end -->
 
-    <script>
-        var slideIndex = 1;
-        showSlides(slideIndex);
-
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
-
-        function currentSlide(n) {
-            showSlides(slideIndex = n);
-        }
-
-        function showSlides(n) {
-            var i;
-            var slides = document.getElementsByClassName("mySlides");
-            var dots = document.getElementsByClassName("dot");
-            if (n > slides.length) {
-                slideIndex = 1
-            }
-            if (n < 1) {
-                slideIndex = slides.length
-            }
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-            slides[slideIndex - 1].style.display = "block";
-            dots[slideIndex - 1].className += " active";
-        }
-    </script>
+	<script src="<?php echo base_url(); ?>Asset/js/jquery-331.min.js"></script>
+	<script src="<?php echo base_url(); ?>Asset/js/bootstrap-337.min.js"></script>
 </body>
 
 </html>
