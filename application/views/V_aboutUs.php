@@ -110,6 +110,14 @@
 							</div>
 						</div>
 					</div>
+					<div class="about-move">
+						<div class="ab_details">
+							<div class="ab_single">
+								<h4>Find Us At</h4>
+								<div class="mapouter"><div class="gmap_canvas"><iframe width="650" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=minindo%20artha%20gemilang&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.whatismyip-address.com"></a></div><style>.mapouter{position:relative;text-align:right;height:500px;width:650px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:650px;}</style></div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="col-md-2 col-sm-2 col-xs-12"></div>
