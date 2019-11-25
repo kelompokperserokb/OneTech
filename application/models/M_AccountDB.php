@@ -35,6 +35,21 @@ class M_AccountDB extends CI_Model
 		}
 	}
 
+	public function loginAdmin($password)
+	{
+		$cek = array('password' => $password);
+		$this->db->select('*');
+		$this->db->from('admin');
+		$this->db->where($cek);
+		$query = $this->db->get();
+
+		if ($query->num_rows() == 1) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	public function getAccount($email){
 		$cek = array('email' => $email);
 		$this->db->select('*');
