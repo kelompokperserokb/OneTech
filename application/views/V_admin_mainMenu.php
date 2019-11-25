@@ -15,9 +15,10 @@
 </head>
 
 <body>
+<body style="width: 2500px !important;">
 <div class="flex-container">
-   <!-- <div class="table-wrapper">
-    <div class="table-title">-->
+    <!--<div class="table-wrapper">-->
+    <!--<div class="table-title">-->
     <div class="row">
         <div class="col-sm-8">
             <h2>See <b>Product</b></h2>
@@ -27,85 +28,92 @@
         </div>
     </div>
 </div>
-<table class="table table-bordered">
-    <thead>
+<table class="table table-bordered ex1">
+    <colgroup>
+        <col width="6%">
+        <col width="7%">
+        <col width="7%">
+        <col width="9%">
+        <col width="9%">
+        <col width="9%">
+        <col width="7%">
+        <col width="7%">
+        <col width="7%">
+        <col width="6%">
+        <col width="6%">
+        <col width="8%">
+        <col width="8%">
+        <col width="4%">
+    </colgroup>
+    <div class="fixed_header">
+        <thead>
         <tr>
-            <th>id</th>
-            <th>Image</th>
-            <th>CodeProduct</th>
-            <th>Name</th>
             <th>Category</th>
             <th>Merk</th>
+            <th>Name Product</th>
+            <th>Image1</th>
+            <th>Image2</th>
+            <th>Image3</th>
+            <th>CodeProduct</th>
             <th>Price</th>
             <th>Discount</th>
             <th>Start Date</th>
             <th>Last Date</th>
+            <th>Description</th>
+            <th>Description Type Product</th>
             <th>Actions</th>
-
         </tr>
-    </thead>
-    <tbody>
-        <tr>
+        </thead>
+        <tbody>
+        <!--<tr>
+            <td>Administration</td>
+            <td>Administration</td>
             <td>John Doe</td>
             <td class="w-25">
                 <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/sheep-5.jpg" class="img-fluid img-thumbnail" alt="Sheep">
             </td>
-            <td>Administration</td>
-            <td>Administration</td>
-            <td>Administration</td>
-            <td>Administration</td>
-            <td>Administration</td>
-            <td>Administration</td>
-            <td><input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31"></td>
-            <td><input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31"></td>
-
-            <td>
-                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+            <td class="w-25">
+                <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/sheep-5.jpg" class="img-fluid img-thumbnail" alt="Sheep">
             </td>
-        </tr>
-        <tr>
-            <td>Peter Parker</td>
             <td class="w-25">
                 <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/sheep-5.jpg" class="img-fluid img-thumbnail" alt="Sheep">
             </td>
             <td>Administration</td>
             <td>Administration</td>
             <td>Administration</td>
-            <td>Administration</td>
-            <td>Administration</td>
-            <td>Administration</td>
             <td><input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31"></td>
             <td><input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31"></td>
-
+            <td>Administration</td>
+            <td>Administration</td>
             <td>
                 <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                 <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                 <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
             </td>
-        </tr>
+        </tr>-->
+
         <tr>
-            <td>Fran Wilson</td>
-            <td class="w-25">
-                <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/sheep-5.jpg" class="img-fluid img-thumbnail" alt="Sheep">
-            </td>
-            <td>Administration</td>
-            <td>Administration</td>
-            <td>Administration</td>
-            <td>Administration</td>
-            <td>Administration</td>
-            <td>Administration</td>
-            <td><input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31"></td>
-            <td><input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31"></td>
-
+            <td><input type="text" class="form-control" name="category" id="category"></td>
+            <td><input type="text" class="form-control" name="merk" id="merk"></td>
+            <td><input type="text" class="form-control" name="name-product" id="name-product"></td>
+            <td><input type="file" multiple accept="image/jpeg" class="form-control" name="image-product1" id="image-product1"></td>
+            <td><input type="file" multiple accept="image/jpeg" class="form-control" name="image-product2" id="image-product2"></td>
+            <td><input type="file" multiple accept="image/jpeg" class="form-control" name="image-product3" id="image-product3"></td>
+            <td><input type="text" class="form-control" name="code-product" id="code-product"></td>
+            <td><input type="text" class="form-control" name="price" id="price"></td>
+            <td><input type="text" class="form-control" name="discount" id="discount"></td>
+            <td><input type="date" id="start" name="date-start" value="2019-07-22" min="2019-01-01" max="2030-12-31" id="date-start"></td>
+            <td><input type="date" id="start" name="date-end" value="2019-07-22" min="2019-01-01" max="2030-12-31" id="date-end"></td>
+            <td><input type="text" class="form-control" name="desc-product" id="desc-product"></td>
+            <td><input type="text" class="form-control" name="desc-type" id="desc-type"></td>
             <td>
                 <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                 <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                 <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
             </td>
         </tr>
-    </tbody>
+        </tbody>
+    </div>
 </table>
 </div>
 </div>
