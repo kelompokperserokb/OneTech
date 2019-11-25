@@ -111,7 +111,7 @@
 </div>
 <!-- end mini table-->
 
-<!-- RELATED PRODUCTS section -->
+<!-- RELATED PRODUCTS section
 <section class="related-product-section">
 	<div class="container">
 		<div class="section-title">
@@ -187,8 +187,8 @@
 		</div>
 	</div>
 </section>
-<!-- RELATED PRODUCTS section end -->
-<!-- Product filter section -->
+ RELATED PRODUCTS section end -->
+<!-- Product filter section
 <section class="product-filter-section">
 	<div class="container">
 		<div class="section-title">
@@ -323,7 +323,7 @@
 		</div>
 	</div>
 </section>
-<!-- Product filter section end -->
+ Product filter section end -->
 
 <script src="<?php echo base_url(); ?>Asset/js/main.js"></script>
 </body>
