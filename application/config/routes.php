@@ -61,3 +61,6 @@ $route['about'] = "Direct/about";
 $route['howtoorder'] = "Direct/howToOrder";
 $route['payment'] = "Direct/payment";
 $route['delivery'] = "Direct/logistic";
+
+$route['admin/admin/admin/login'] = "Direct/loginAdmin";
+$route['admin/admin/admin/home'] = "Direct/adminHome";

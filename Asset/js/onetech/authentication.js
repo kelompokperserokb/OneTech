@@ -25,6 +25,31 @@ $(document).ready(function(){
             },
         });
     });
+
+    $('#login-admin').submit(function(e){
+        e.preventDefault();
+
+        var password = document.getElementById('password').value;
+        var url = base_url.toString()+"/OneTech/Account/loginAdmin";
+
+        $.ajax({
+            url: url ,
+            method: 'post',
+            data: {password: password},
+            beforeSend : function(){
+
+            },
+            success: function(response) {
+                if (response == "true") {
+                    alert('Login Success');
+                    window.location.href = base_url.toString()+"/OneTech/admin/admin/admin/home";
+                } else {
+                    alert("Login Failed, Wrong Password");
+                }
+            },
+        });
+    });
+
     $('.close-modal').click(function(){
         $('#message').text("");
         $('#username').val("");
