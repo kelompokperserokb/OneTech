@@ -56,7 +56,7 @@ class M_AccountDB extends CI_Model
 		$this->db->from('user');
 		$this->db->where($cek);
 		$query = $this->db->get();
-		return $query;
+		return $query->result();
 	}
 
 	public function lupaPassword($email, $newPassword)

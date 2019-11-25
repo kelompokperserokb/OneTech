@@ -45,11 +45,17 @@ class Welcome extends CI_Controller {
     }
 
     public function register(){
+
         $this->load->helper('url');
-        $data["merk"] = $this->getCategory();
-        $this->load->view('V_header',$data["merk"]);
-        $this->load->view('V_registerPage');
-        $this->load->view('footer');
+        if (!isset($_SESSION["email"])) {
+            $data["merk"] = $this->getCategory();
+            $this->load->view('V_header',$data["merk"]);
+            $this->load->view('V_registerPage');
+            $this->load->view('footer');
+        } else {
+            redirect(base_url());
+        }
+
     }
 
     public function footer(){

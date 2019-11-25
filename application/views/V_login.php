@@ -36,7 +36,7 @@
 
                 <span class="login100-form-title p-b-34 p-t-27">
 						Log in
-					</span>
+                </span>
 
                 <div class="wrap-input100 validate-input" data-validate="Enter username">
                     <input class="input100" id="username" type="text" name="username" placeholder="Username" required>
@@ -48,6 +48,10 @@
                     <span class="focus-input100" data-placeholder="&#xf191;"></span>
                 </div>
 
+                <label class="label-danger" id="message">
+
+                </label>
+
                 <div class="contact100-form-checkbox">
                     <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
                     <label class="label-checkbox100" for="ckb1">
@@ -58,7 +62,6 @@
                 <div class="container-login100-form-btn">
                     <button type="submit" class="login100-form-btn" >Login</button>
                 </div>
-                <input type="submit">
                 <div class="text-center p-t-90">
                     <a class="txt1" href="#">
                         Forgot Password?
@@ -73,7 +76,22 @@
 
 <!--===============================================================================================-->
 <script src="<?php echo base_url(); ?>Asset/js/mainin.js"></script>
-
+<!--===============================================================================================-->
+<script src="<?php echo base_url(); ?>Asset/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="<?php echo base_url(); ?>Asset/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="<?php echo base_url(); ?>Asset/js/popper.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="<?php echo base_url(); ?>Asset/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="<?php echo base_url(); ?>Asset/vendor/daterangepicker/moment.min.js"></script>
+<script src="<?php echo base_url(); ?>Asset/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script src="<?php echo base_url(); ?>Asset/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+<script src="<?php echo base_url(); ?>Asset/js/mainin.js"></script>
 </body>
 
 </html>

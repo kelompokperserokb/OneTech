@@ -5,11 +5,15 @@ class Account extends CI_Controller {
 
     public function toLogin(){
         $this->load->helper('url');
-        $this->load->model("M_ProductDB");
-        $data['data'] = $this->M_ProductDB->getCategory();
-        $this->load->view('V_header',$data);
-        $this->load->view('V_login');
-        $this->load->view('footer');
+        if (!isset($_SESSION["email"])) {
+            $this->load->model("M_ProductDB");
+            $data['data'] = $this->M_ProductDB->getCategory();
+            $this->load->view('V_header', $data);
+            $this->load->view('V_login');
+            $this->load->view('footer');
+        } else {
+            redirect(base_url());
+        }
     }
 
 	public function loginAccount()
@@ -20,6 +24,7 @@ class Account extends CI_Controller {
 		    $account = $this->m_AccountDB->getAccount($this->input->post('username'));
 		    if ($account[0]->active_status == 1){
                 $_SESSION["email"] = $this->input->post('username');
+                $_SESSION["name"] = $account[0]->first_name;
                 echo "true";
             } else {
 		        echo "needverification";
@@ -44,6 +49,7 @@ class Account extends CI_Controller {
 	public function logout(){
 	    session_start();
         unset($_SESSION['email']);
+        unset($_SESSION['name']);
         header('Location:'.base_url());
     }
 

@@ -64,3 +64,4 @@ $route['delivery'] = "Direct/logistic";
 
 $route['admin/admin/admin/login'] = "Direct/loginAdmin";
 $route['admin/admin/admin/home'] = "Direct/adminHome";
+
