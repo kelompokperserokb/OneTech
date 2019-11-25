@@ -89,7 +89,7 @@
 										<div class="validation"></div>
 									</div>
 									<div class="text-center">
-										<button type="submit">Send Message</button>
+										<button onclick="giveAlert()" type="submit">Send Message</button>
 									</div>
 								</form>
 							</div>
@@ -123,6 +123,12 @@
 	</div>
 </footer>
 <!-- Footer section end -->
+
+<script>
+    function giveAlert() {
+        alert("Terima kasih. Email anda telah kami terima. Email balasan akan dikirim dalam waktu 1-2 hari kerja. Jika tidak ada cek folder spam");
+    }
+</script>
 
 <!--====== Javascripts & Jquery ======-->
 <script src="<?php echo base_url(); ?>Asset/js/jquery-3.2.1.min.js"></script>
