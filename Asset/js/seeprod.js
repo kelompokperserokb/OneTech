@@ -48,9 +48,24 @@
        });
        // Edit row on edit button click
        $(document).on("click", ".edit", function() {
-           $(this).parents("tr").find("td:not(:last-child)").each(function() {
+           /*$(this).parents("tr").find("td:not(:last-child)").each(function() {
                $(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
-           });
+           });*/
+           var actions = $("table td:last-child").html();
+           var row =
+               '<td><input type="text" class="form-control" name="id" id="id"></td>' +
+               '<td><input type="image" img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/sheep-5.jpg"class="img-fluid img-thumbnail" alt="Sheep" name="image" id="image"></td>' +
+               '<td><input type="text" class="form-control" name="CodeProduct" id="CodeProduct"></td>' +
+               '<td><input type="text" class="form-control" name="name" id="name"></td>' +
+               '<td><input type="text" class="form-control" name="category" id="category"></td>' +
+               '<td><input type="text" class="form-control" name="merk" id="merk"></td>' +
+               '<td><input type="text" class="form-control" name="price" id="price"></td>' +
+               '<td><input type="text" class="form-control" name="discount" id="discount"></td>' +
+               '<td><input type="date" id="start" value="2019-11-22" min="2019-01-01" max="2030-12-31" name="startdate" id="startdate"></td>' +
+               '<td><input type="date" id="end" value="2019-11-22" min="2019-01-01" max="2030-12-31" name="lastdate" id="lastdate"></td>' +
+               '<td>' + actions + '</td>';
+
+           $(this).parents("tr").html(row);
            $(this).parents("tr").find(".add, .edit").toggle();
            $(".add-new").attr("disabled", "disabled");
        });

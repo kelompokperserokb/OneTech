@@ -23,14 +23,26 @@ class Direct extends CI_Controller {
 
 	}
 
-	public function login()
+	public function adminHome()
 	{
-
+        $this->load->helper('url');
+        session_start();
+        if (!isset($_SESSION["admin-authorize"])) {
+            redirect(base_url()."admin/admin/admin/login");
+        } else {
+            $this->load->view('V_admin_mainMenu');
+        }
 	}
 
-	public function forgetPassword()
+	public function loginAdmin()
 	{
-
+        $this->load->helper('url');
+        session_start();
+        if (!isset($_SESSION["admin-authorize"])) {
+            $this->load->view('V_admin_loginAdmin');
+        } else {
+            redirect(base_url()."admin/admin/admin/home");
+        }
 	}
 
     public function about(){
