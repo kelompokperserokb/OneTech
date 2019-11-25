@@ -48,7 +48,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="panel">
+					<!--<div class="panel">
 						<div class="panel-header" id="headingTwo">
 							<button class="panel-link" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">care details </button>
 						</div>
@@ -74,7 +74,7 @@
 								</p>
 							</div>
 						</div>
-					</div>
+					</div>-->
 				</div>
 			</div>';
 			?>
