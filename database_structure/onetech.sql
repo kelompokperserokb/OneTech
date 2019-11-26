@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 25 Nov 2019 pada 09.26
+-- Waktu pembuatan: 26 Nov 2019 pada 12.03
 -- Versi server: 10.4.6-MariaDB
 -- Versi PHP: 7.3.9
 
@@ -29,8 +29,15 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
-  `admin` varchar(16) NOT NULL
+  `password` varchar(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `admin`
+--
+
+INSERT INTO `admin` (`password`) VALUES
+('sayangbirujingga');
 
 -- --------------------------------------------------------
 
