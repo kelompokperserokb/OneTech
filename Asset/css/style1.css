@@ -2108,6 +2108,7 @@ ul#horizontal-list li:not(:first-child) {
 }
 
 .footer-icons {
+	color: #222;
     margin-top: 30px;
 }
 
