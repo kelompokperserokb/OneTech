@@ -142,8 +142,6 @@
 <script src="<?php echo base_url(); ?>Asset/js/jquery.fancybox.pack.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/jquery.fancybox-media.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/google-code-prettify/prettify.js"></script>
-<script src="<?php echo base_url(); ?>Asset/js/portfolio/jquery.quicksand.js"></script>
-<script src="<?php echo base_url(); ?>Asset/js/portfolio/setting.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/jquery.flexslider.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/jquery.nivo.slider.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/modernizr.custom.js"></script>

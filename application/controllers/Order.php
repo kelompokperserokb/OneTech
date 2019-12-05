@@ -16,8 +16,19 @@ class Order extends CI_Controller {
 	}
 
 	public function cart(){
-        $this->load->view('cart');
+        $this->load->model("M_OrderDB");
+        $data['data'] = $this->M_OrderDB->getCart();
+        $this->load->view('cart', $data);
         $this->load->view('footer');
+    }
+
+    public function updateCart(){
+        $this->load->model("M_OrderDB");
+        $type_id = $this->input->post('type_id') ;
+        $quantity = $this->input->post('quantity');
+        if (isset($_SESSION['email'])) {
+            echo $this->M_OrderDB->updateCart($_SESSION['email'], $type_id, $quantity);
+        }
     }
 
 	public function removeFromCart()

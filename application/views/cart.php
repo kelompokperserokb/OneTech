@@ -15,15 +15,6 @@
 
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/flaticon.css"/>
-    <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/slicknav.min.css"/>
-    <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/jquery-ui.min.css"/>
-    <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/owl.carousel.min.css"/>
-    <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/animate.css"/>
-    <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/header-style.css?<?php echo date('l jS \of F Y h:i:s A'); ?>"/>
-
 
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -31,12 +22,18 @@
     <![endif]-->
 </head>
 
+<body>
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+
 <!-- Page info -->
 <div class="page-top-info">
     <div class="container">
         <h4>Your cart</h4>
         <div class="site-pagination">
-            <a href="">Home</a> /
+            <a href="<?php echo base_url();?>">Home</a> /
             <a href="">Your cart</a>
         </div>
     </div>
@@ -53,66 +50,53 @@
                     <h3>Your Cart</h3>
                     <div class="cart-table-warp">
                         <table>
-                            <thead>
-                                <tr>
-                                    <th class="product-th">Product</th>
-                                    <th class="quy-th">Quantity</th>
-                                    <th class="size-th">Attributes</th>
-                                    <th class="total-th">Price</th>
+                            <thead >
+                                <col width="48%">
+                                <col width="4%">
+                                <col width="20%">
+                                <col width="28%">
+                                <tr">
+                                    <th class="product-th text-center">Product</th>
+                                    <th class="quy-th text-center">Quantity</th>
+                                    <th class="size-th text-center">Attributes</th>
+                                    <th class="total-th text-center">Price</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="product-col">
-                                        <img src="<?php echo base_url(); ?>Asset/img/tandatanya.jpg" alt="">
-                                        <div class="pc-title">
-                                            <h4>COSRX</h4>
-                                            <p>Sku: CX-OSOCP135</p>
-                                        </div>
-                                    </td>
-                                    <td class="quy-col">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
-                                                <?php echo '<input type="hidden" id ="stock-quota" value="'.$stock.'" />'; ?>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="size-col">
-                                        <h4>varian: 70 pads</h4>
-                                    </td>
-                                    <td class="total-col">
-                                        <h4>$45.90</h4>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="product-col">
-                                        <img src="img/tandatanya.jpg" alt="">
-                                        <div class="pc-title">
-                                            <h4>Ruffle Pink Top</h4>
-                                            <p>$45.90</p>
-                                        </div>
-                                    </td>
-                                    <td class="quy-col">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="size-col">
-                                        <h4>Size M</h4>
-                                    </td>
-                                    <td class="total-col">
-                                        <h4>$45.90</h4>
-                                    </td>
-                                </tr>
-
+                            <tbody id="table-cart">
+                                <?php
+                                    for ($i = 0; $i < $data['count'] ; $i++ ) {
+                                        echo '<tr>
+                                            <td class="product-col">
+                                                <img src="' . base_url() . 'Asset/img/tandatanya.jpg" alt="">
+                                                <div class="pc-title">
+                                                    <h4>' . $data['data_array'][$i]->product_name . '</h4>
+                                                    <p>' . $data['data_array'][$i]->product_code . '</p>
+                                                </div>
+                                            </td>
+                                            <td class="quy-col">
+                                                <div class="quantity">
+                                                    <div class="pro-qty" id="4590">
+                                                        <input id="qty" type="text" value="'.$data['data_array'][$i]->quantity.'">
+                                                        <input type="hidden" id ="stock-quota" value="' . $data['data_array'][$i]->quota . '" />
+                                                        <input type="hidden" id ="type_id" value="' . $data['data_array'][$i]->type_id . '" />
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="size-col">
+                                                <h4>' . $data['data_array'][$i]->product_type . '</h4>
+                                            </td>
+                                            <td class="total-col" id="product-price">
+                                                <h4 class="price">Rp. ' . number_format($data['data_array'][$i]->product_price, 2, ",", ".") . '</h4>
+                                                <input class="price-hidden" type="hidden" value="' . $data['data_array'][$i]->product_price . '">
+                                            </td>
+                                        </tr>';
+                                    }
+                                ?>
                             </tbody>
                         </table>
                     </div>
                     <div class="total-cost">
-                        <h6>Total <span>$99.90</span></h6>
+                        <h6>Total <span>Rp. 0,00</span></h6>
                     </div>
                 </div>
             </div>
@@ -129,9 +113,10 @@
 </section>
 <!-- cart section end -->
 
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/cart.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/onetech/math.js"></script>
 </body>
-<script src="js/cart.js"></script>
+
 
 </html>

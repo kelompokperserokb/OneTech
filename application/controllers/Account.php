@@ -18,7 +18,6 @@ class Account extends CI_Controller {
 
 	public function loginAccount()
 	{
-        session_start();
 		$this->load->model('m_AccountDB');
 		if($this->m_AccountDB->login($this->input->post('username'), $this->input->post('password'))==TRUE){
 		    $account = $this->m_AccountDB->getAccount($this->input->post('username'));
@@ -36,7 +35,6 @@ class Account extends CI_Controller {
 
     public function loginAdmin()
     {
-        session_start();
         $this->load->model('m_AccountDB');
         if($this->m_AccountDB->loginAdmin($this->input->post('password'))==TRUE){
             $_SESSION["admin-authorize"] = "true";
@@ -47,7 +45,6 @@ class Account extends CI_Controller {
     }
 
 	public function logout(){
-	    session_start();
         unset($_SESSION['email']);
         unset($_SESSION['name']);
         header('Location:'.base_url());

@@ -1688,7 +1688,7 @@ ol {
 	table {
 		width: 100%;
 		min-width: 442px;
-		margin-bottom: 17px;
+		margin-bottom: 20px;
 		tr th {
 			font-size: 12px;
 			font-weight: 400;
@@ -1708,12 +1708,11 @@ ol {
 	}
 	.product-col {
 		display: table;
-		margin-bottom: 19px;
 		img {
-			display: table-cell;
+			display: table-row;
 			vertical-align: middle;
 			float: left;
-			width: 73px;
+			width: 90px;
 		}
 		.pc-title {
 			display: table-cell;

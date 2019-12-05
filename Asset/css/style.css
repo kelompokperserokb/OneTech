@@ -1773,18 +1773,18 @@ ol {
 
 .cart-table .product-col {
     display: table;
-    margin-bottom: 19px;
 }
 
 .cart-table .product-col img {
-    display: table-cell;
+    display: block;
     vertical-align: middle;
-    float: left;
-    width: 73px;
+    width: 200px;
+    padding-left: auto;
+    padding-right: auto;
 }
 
 .cart-table .product-col .pc-title {
-    display: table-cell;
+    display: block;
     vertical-align: middle;
     padding-left: 30px;
 }
@@ -1836,7 +1836,7 @@ ol {
 }
 
 .cart-table .size-col h4 {
-    padding-right: 70px;
+
 }
 
 .cart-table .total-cost {
