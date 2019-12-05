@@ -90,12 +90,12 @@
 			<ul class="h_main-menu">
 				<?php
 
-				for ($i = 0; $i < $merk['data']["count"]; $i++) {
+				for ($i = 0; $i < $cat['data']["count"]; $i++) {
 					$str2 = "";
-					$str = '<li><a href="#" id="' . $merk['data']["data_array"][$i]->category_id . '" >' . $merk['data']["data_array"][$i]->category_name . '</a>
+					$str = '<li><a href="#" id="' . $cat['data']["data_array"][$i]->category_id . '" >' . $cat['data']["data_array"][$i]->category_name . '</a>
 					<ul class="h_sub-menu">';
 					for ($j = 0; $j < $sub['data']["count"]; $j++) {
-						if ($merk['data']["data_array"][$i]->category_id == $sub['data']["data_array"][$j]->category_id) {
+						if ($cat['data']["data_array"][$i]->category_id == $sub['data']["data_array"][$j]->category_id) {
 							$str2 .= '<li><a href="#" id="' . $sub['data']["data_array"][$j]->subcategory_id . '" >' . $sub['data']["data_array"][$j]->subcategory_name . '</a></li>';
 						}
 					}
