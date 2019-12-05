@@ -92,7 +92,6 @@
                                         </tr>';
                                     }
                                 ?>
-                            </tbody>
                         </table>
                     </div>
                     <div class="total-cost">

@@ -12,7 +12,7 @@
     <div class="footer-area">
         <div class="container">
             <div class="row">
-                <div class="col-md-3 col-sm-3 col-xs-12">
+                <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="footer-content">
                         <div class="footer-head">
                             <h1 style="color: black"><span>One</span>Tech</h1>
@@ -26,7 +26,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-3 col-xs-12">
+                <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="footer-content text-center">
                         <div class="footer-head">
                             <h4>Information</h4>
@@ -47,15 +47,31 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-6 col-sm-6 col-xs-12">
+				<div class="col-md-6 col-sm-12 col-xs-12">
 					<div class="footer-head text-center">
 						<h4>--Connect With Us--</h4>
 					</div>
 					<div class="row">
 						<div class="col-md-6 col-sm-6 col-xs-12">
 							<div class="footer-content text-center">
-								<p><span>CS:</span> +62 (21) xxxx xxxx</p>
-								<p><span>Sales:</span> +62 (21) xxxx xxxx</p>
+								<p><span>CS:</span> 021 4584 1156</p>
+								<p><span>WA:</span> 081808558855</p>
+							</div>
+							<div class="footer-icons">
+								<ul>
+									<li>
+										<a href="#"><i class="fa fa-facebook"></i></a>
+									</li>
+									<li>
+										<a href="#"><i class="fa fa-twitter"></i></a>
+									</li>
+									<li>
+										<a href="#"><i class="fa fa-google"></i></a>
+									</li>
+									<li>
+										<a href="#"><i class="fa fa-pinterest"></i></a>
+									</li>
+								</ul>
 							</div>
 						</div>
 						<div class="col-md-6 col-sm-6 col-xs-12 footer-contacts">

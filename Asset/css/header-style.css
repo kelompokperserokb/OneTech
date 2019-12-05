@@ -162,12 +162,6 @@ ol {
 	color: #3a9fbf;
 }
 
-.h_main-menu:hover .h_sub-menu {
-	visibility: visible;
-	opacity: 1;
-	margin-top: 0;
-}
-
 .h_main-menu:hover>a {
 	color: #3a9fbf;
 }

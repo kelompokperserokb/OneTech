@@ -27,7 +27,8 @@ class Welcome extends CI_Controller {
     public function homepage(){
         $data["merk"] = $this->getCategory();
         $data["product"] = $this->getProductByLimit(8);
-        $this->load->view('V_header',$data["merk"]);
+        $data["sub"] = $this->getSubCategory();
+        $this->load->view('V_header',$data);
         $this->load->view('index',$data);
         $this->load->view('footer');
     }
@@ -43,6 +44,12 @@ class Welcome extends CI_Controller {
         $datas['data'] = $this->M_ProductDB->getCategory();
         return $datas;
     }
+
+    public function getSubCategory(){
+		$this->load->model("M_ProductDB");
+		$data['data'] = $this->M_ProductDB->getSubCategory();
+		return $data;
+	}
 
     public function register(){
 
