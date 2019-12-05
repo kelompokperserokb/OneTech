@@ -97,9 +97,9 @@
             <td><input type="text" class="form-control" name="category" id="category"></td>
             <td><input type="text" class="form-control" name="merk" id="merk"></td>
             <td><input type="text" class="form-control" name="name-product" id="name-product"></td>
-            <td><input type="file" multiple accept="image/jpeg" class="form-control" name="image-product1" id="image-product1"></td>
-            <td><input type="file" multiple accept="image/jpeg" class="form-control" name="image-product2" id="image-product2"></td>
-            <td><input type="file" multiple accept="image/jpeg" class="form-control" name="image-product3" id="image-product3"></td>
+            <td><input type="file" accept="image/jpeg" class="form-control" name="image-product1" id="image-product1"></td>
+            <td><input type="file" accept="image/jpeg" class="form-control" name="image-product2" id="image-product2"></td>
+            <td><input type="file" accept="image/jpeg" class="form-control" name="image-product3" id="image-product3"></td>
             <td><input type="text" class="form-control" name="code-product" id="code-product"></td>
             <td><input type="text" class="form-control" name="price" id="price"></td>
             <td><input type="text" class="form-control" name="discount" id="discount"></td>

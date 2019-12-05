@@ -13,9 +13,9 @@ $(document).ready(function() {
             '<td><input type="text" class="form-control" name="category" id="category" value="AA"></td>' +
             '<td><input type="text" class="form-control" name="merk" id="merk" value=""></td>' +
             '<td><input type="text" class="form-control" name="name-product" id="name-product" value=""></td>' +
-            '<td><input type="file" multiple accept="image/jpeg" class="form-control" name="image-product1" id="image-product1" value=""><img id="preview-image1"></td>' +
-            '<td><input type="file" multiple accept="image/jpeg" class="form-control" name="image-product2" id="image-product2" value=""><img id="preview-image2"></td>' +
-            '<td><input type="file" multiple accept="image/jpeg" class="form-control" name="image-product3" id="image-product3" value=""><img id="preview-image3"></td>' +
+            '<td><input type="file" accept="image/jpeg" class="form-control" name="image-product1" id="image-product1" value=""><img id="preview-image1" src=""></td>' +
+            '<td><input type="file" accept="image/jpeg" class="form-control" name="image-product2" id="image-product2" value=""><img id="preview-image2" src=""></td>' +
+            '<td><input type="file" accept="image/jpeg" class="form-control" name="image-product3" id="image-product3" value=""><img id="preview-image3" src=""></td>' +
             '<td><input type="text" class="form-control" name="code-product" id="code-product" value=""></td>' +
             '<td><input type="text" class="form-control" name="price" id="price" value=""></td>' +
             '<td><input type="text" class="form-control" name="discount" id="discount" value=""></td>' +
@@ -32,12 +32,20 @@ $(document).ready(function() {
     });
     // Add row on add button click
     $(document).on("click", ".add", function() {
+        upload();
         var category = ($(this).parents("tr").find('input'))[0].value;
         var merk = ($(this).parents("tr").find('input'))[1].value;
         var name_product = ($(this).parents("tr").find('input'))[2].value;
-        var image_product1 = ($(this).parents("tr").find('input'))[3].value;
-        var image_product2 = ($(this).parents("tr").find('input'))[4].value;
-        var image_product3 = ($(this).parents("tr").find('input'))[5].value;
+
+        //Jangan dihapus, lagi buat maintain metode
+        /*var image_product1 = ($(this).parents("tr").find('img'))[0].attr('src');
+        var image_product2 = ($(this).parents("tr").find('img'))[1].attr('src');
+        var image_product3 = ($(this).parents("tr").find('img'))[2].attr('src');*/
+        
+        var image_product1 = $('#preview-image1').attr('src');
+        var image_product2 = $('#preview-image2').attr('src');
+        var image_product3 = $('#preview-image3').attr('src');
+
         var code_product = ($(this).parents("tr").find('input'))[6].value;
         var price = ($(this).parents("tr").find('input'))[7].value;
         var discount = ($(this).parents("tr").find('input'))[8].value;
@@ -82,9 +90,9 @@ $(document).ready(function() {
             $(input[0]).parent("td").html(category);
             $(input[1]).parent("td").html(merk);
             $(input[2]).parent("td").html(name_product);
-            $(input[3]).parent("td").html('<img src ="' +image_product1+ '"> </img>');
-            $(input[4]).parent("td").html('<img src ="' +image_product2+ '"> </img>');
-            $(input[5]).parent("td").html('<img src ="' +image_product3+ '"> </img>');
+            $(input[3]).parent("td").html('<img id="preview-image1" src="'+image_product1+'">');
+            $(input[4]).parent("td").html('<img id="preview-image2" src="'+image_product2+'">');
+            $(input[5]).parent("td").html('<img id="preview-image3" src="'+image_product3+'">');
             $(input[6]).parent("td").html(code_product);
             $(input[7]).parent("td").html(price);
             $(input[8]).parent("td").html(discount);
