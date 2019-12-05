@@ -41,7 +41,7 @@ $(document).ready(function() {
         /*var image_product1 = ($(this).parents("tr").find('img'))[0].attr('src');
         var image_product2 = ($(this).parents("tr").find('img'))[1].attr('src');
         var image_product3 = ($(this).parents("tr").find('img'))[2].attr('src');*/
-        
+
         var image_product1 = $('#preview-image1').attr('src');
         var image_product2 = $('#preview-image2').attr('src');
         var image_product3 = $('#preview-image3').attr('src');
