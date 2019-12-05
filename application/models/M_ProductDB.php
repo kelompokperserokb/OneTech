@@ -116,6 +116,16 @@ class M_ProductDB extends CI_Model
 		return $data;
 	}
 
+	public function getSubCategory(){
+		$this->db->select('*');
+		$this->db->from('sub-category');
+		$query = $this->db->get();
+
+		$data['data_array'] = $query->result();
+		$data['count'] = $query->num_rows();
+		return $data;
+	}
+
 }
 
 ?>
