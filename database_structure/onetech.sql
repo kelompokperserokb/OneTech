@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 26 Nov 2019 pada 12.03
+-- Waktu pembuatan: 05 Des 2019 pada 12.21
 -- Versi server: 10.4.6-MariaDB
 -- Versi PHP: 7.3.9
 
@@ -125,6 +125,7 @@ CREATE TABLE `product` (
   `product_img_2` text DEFAULT NULL,
   `product_img_3` text DEFAULT NULL,
   `category_id` int(6) NOT NULL,
+  `subcategory_id` int(6) NOT NULL,
   `merk_id` int(6) NOT NULL,
   `discount` int(11) DEFAULT NULL,
   `startDateDiscount` date DEFAULT NULL,
@@ -136,24 +137,24 @@ CREATE TABLE `product` (
 -- Dumping data untuk tabel `product`
 --
 
-INSERT INTO `product` (`product_id`, `product_code`, `product_name`, `product_desc`, `product_price`, `product_img_1`, `product_img_2`, `product_img_3`, `category_id`, `merk_id`, `discount`, `startDateDiscount`, `lastDateDiscount`, `datePost`) VALUES
-(1, 'CHE40 AWS A5.1 E6013 JIS Z 3211 D4313', 'CHE40 ATLANTIC WELDING ELECTRODES FOR MILD STEEL', 'CHE40  is  mild  steel  welding  electrode  with  high  titania  type  coating.  It  has excellent  welding  performance  such  as  arc  stability,  easy  slag  removal,  good re-striking, and shiny appearance and designed for all position welding. It has widely  used  for  general  purpose;  shipbuilding,  vehicles,  constructions,  and especially suitable for welding sheet steel and small work pieces. Current: AC, DC±. Approved grade 2 by: BKI, LR, ABS, BV, CCS, CWB, DNV, GL, NK.', 2000000, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, '2019-11-23'),
-(2, 'CHE43 AWS A5.1 E6013 JIS Z 3211 D4313', 'CHE43 ATLANTIC WELDING ELECTRODES FOR MILD STEEL', 'CHE43  is  mild  steel  welding  electrode  with  iron  oxide  titania  (ilmenite),.  It  is suitable  for  welding  All  position,  especially  for  ?at  and  horizontal  ?llet.  It  is suitable  for  medium  and  thick  armor  plate  structure,  such  as  ships,  bridges, machinery and building, etc. Current: AC, DC±. Approved grade 2 by: LR, ABS, BV, CCS, GL, DNV, NK.', 1200000, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, '2019-11-23'),
-(3, 'CHE56 AWS A5.1 E7016 JIS Z 3212 D5016', 'CHE56 ATLANTIC WELDING ELECTRODES FOR HIGH TENSILE STEEL', 'Kawat las kekuatan tinggi salutan low hydrogen, memiliki sifat tangguh dan tahan retak yang sangat baik. Digunakan secara luas untuk fabrikasi baja kekuatan tinggi 50 kgf/mm2, seperti; kapal, boiler, jembatan dan pressure vessel. Arus: AC, DC±. Approved', 1800000, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, '2019-11-23'),
-(4, 'CHE58-1 AWS A5.1 E7018-1 AWS A5.1 E7018 JIS Z 3212 D5016', 'CHE58-1 ATLANTIC WELDING ELECTRODES FOR HIGH TENSILE STEEL', 'Kawat las kekuatan tinggi salutan iron powder low hydrogen, memiliki sifat tangguh pada suhu rendah dan tahan terhadap retak. Dengan kandungan iron powder meningkatkan efisiensi las sekitar 110%. Digunakan untuk fabrikasi baja kekuatan tinggi 50 kgf/mm2, seperti; high pressure vessels, jembatan, pembangkit listrik dan oshore drilling platforms. Arust: AC, DC', 2000000, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, '2019-11-23'),
-(5, 'CHE505GX AWS A5.5 E7010-P1', 'CHE505GX ATLANTIC WELDING ELECTRODES FOR HIGH TENSILE STEEL', 'Kawat las kekuatan tinggi salutan cellulose sodium, memiliki mampu las yang sangat baik pada semua posisi las, termasuk vertikal turun. Menghasilkan dua sisi las pada pengelasan satu sisi seperti las root pass. Cocok untuk hot pass dan capping pada fabrikasi sambungan', 3000000, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, '2019-11-23'),
-(6, 'CHS102 AWS A5.4 E308-16 JIS Z 3221 D308-16', 'CHS102 ATLANTIC WELDING ELECTRODES FOR STAINLESS STEEL', 'Kawat las baja tahan karat salutan titania dapat digunakan untuk semua posisi las dengan mampu las yang sangat baik; busur las stabil, terak mudah lepas, sedikit percikan dan salutan tahan panas. Digunakan secara luas untuk las material AISI / SUS 301, 302, 304, 308,', 2900000, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, '2019-11-23'),
-(7, 'CHS002 AWS A5.4 E308L-16 JIS Z 3221 D308L-16', 'CHS002 ATLANTIC WELDING ELECTRODES FOR STAINLESS STEEL', 'CHS002 is lime titania type coating electrode for extra-low carbon stainless steel in all position welding. It has excellent resistance to inter-crystal corrosion. It is suitable for welding of AISI/SUS 304L stainless steel structures, which working conditions need to be resistance corrosion and working temperature is below 300°C.', 2000000, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, '2019-11-23'),
-(8, 'CHS29.9 AWS A5.4 E312-16 JIS Z 3221 D312-16', 'CHS29.9 ATLANTIC WELDING ELECTRODES FOR DISSIMILAR AND PROBLEM STEEL', 'Kawat las salutan titania dengan logam las membentuk fasa duplex: ferritic-austenitic, dengan kandungan ferritic sekitar 40%, memiliki ketahanan retak yang sangat baik dan kekuatan tarik yang tinggi. Cocok untuk las baja cor, baja karbon tinggi, baja perkakas, baja sulit dilas dan baja berbeda jenis. Dan dapat digunakan sebagai dasar untuk las lapisan', 4000000, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, '2019-11-23'),
-(9, 'CHS102MnMo AWS A5.4 E307-16', 'CHS102MnMo ATLANTIC WELDING ELECTRODES FOR HARD SURFACING', 'ATLANTIC WELDING ELECTRODES FOR HARD SURFACING moderate strength welds with good crack resistance between dissimilar steel, such austenitic manganese steel and carbon steel forgings or castings. It is suitable for welding structures made by ASTM307 stainless steel, also it can be used surfacing impingement and corrosion resisting steel and transition layers. Current: AC, DC+.', 1300000, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, '2019-11-23'),
-(10, 'CHC308 AWS A5.15 ENi-CI JIS Z 3252 DFCNi', 'CHC308 ATLANTIC WELDING ELECTRODES FOR CAST IRON', 'pilihan terbaik untuk perbaikan keretakan dan penyambungan sesama besi cor dan dengan logam lain. Deposit las mudah dalam proses permesinan dengan ketangguhan dan ketahanan retak yang baik. Pada proses las, gunakan amper rendah dan lakukan peening setelah las. Arus:', 2200000, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, '2019-11-23'),
-(11, 'ZX7-160\r\n(PE20-160R)', 'ZX7-160 TIME Manual Metal Arc Welding Machine', 'MOSFET\r\ntechnology, invert frequency is 100 Hz.', 3100000, NULL, NULL, NULL, 1, 2, NULL, NULL, NULL, '2019-11-23'),
-(12, 'ZX7-160\r\n(PE60-160)', 'ZX7-160 TIME Manual Metal Arc Welding Machine', 'MOSFET\r\ntechnology, invert frequency is 100 Hz.\r\nPlastic Case', 1200000, NULL, NULL, NULL, 1, 2, NULL, NULL, NULL, '2019-11-23'),
-(13, 'ZX7-400\r\n(PE23-400)', 'ZX7-400 TIME Manual Metal Arc Welding Machine', 'Wireless/wire remote control is optional.\r\nPlastic Case', 4100000, NULL, NULL, NULL, 1, 2, NULL, NULL, NULL, '2019-11-23'),
-(14, 'ZX7-400\r\n(PE50-400)', 'ZX7-400 TIME Manual Metal Arc Welding Machine', 'Wireless/wire remote control is optional. Two power characteristic: dropping characteristic and slanting\r\ncharacteristic.', 2500000, NULL, NULL, NULL, 1, 2, NULL, NULL, NULL, '2019-11-23'),
-(15, 'ZX7-400\r\n(PE12-3 X 400)', 'ZX7-400 TIME Manual Metal Arc Welding Machine', 'It can be used as three welder independence and widely used\r\nin the ?eld of shipbuilding.', 4200000, NULL, NULL, NULL, 1, 2, NULL, NULL, NULL, '2019-11-23'),
-(16, 'ZX7-500\r\n(PE10-500)', 'ZX7-500 TIME Manual Metal Arc Welding Machine', 'The cable can be lengthened.\r\nBe suitable for air carbon arc\r\ngouging ( lower than 520A/45V ).', 3300000, NULL, NULL, NULL, 1, 2, NULL, NULL, NULL, '2019-11-23'),
-(17, 'ZX7-630\r\n(PE52-630 )', 'ZX7-630 TIME Manual Metal Arc Welding Machine', 'High e?ciency of air carbon arc gouging.\r\nSwitch for MMA/Gougin g on front panel. 100% duty cycle.', 2200000, NULL, NULL, NULL, 1, 2, NULL, NULL, NULL, '2019-11-23');
+INSERT INTO `product` (`product_id`, `product_code`, `product_name`, `product_desc`, `product_price`, `product_img_1`, `product_img_2`, `product_img_3`, `category_id`, `subcategory_id`, `merk_id`, `discount`, `startDateDiscount`, `lastDateDiscount`, `datePost`) VALUES
+(1, 'CHE40 AWS A5.1 E6013 JIS Z 3211 D4313', 'CHE40 ATLANTIC WELDING ELECTRODES FOR MILD STEEL', 'CHE40  is  mild  steel  welding  electrode  with  high  titania  type  coating.  It  has excellent  welding  performance  such  as  arc  stability,  easy  slag  removal,  good re-striking, and shiny appearance and designed for all position welding. It has widely  used  for  general  purpose;  shipbuilding,  vehicles,  constructions,  and especially suitable for welding sheet steel and small work pieces. Current: AC, DC±. Approved grade 2 by: BKI, LR, ABS, BV, CCS, CWB, DNV, GL, NK.', 2000000, NULL, NULL, NULL, 1, 1, 1, NULL, NULL, NULL, '2019-11-23'),
+(2, 'CHE43 AWS A5.1 E6013 JIS Z 3211 D4313', 'CHE43 ATLANTIC WELDING ELECTRODES FOR MILD STEEL', 'CHE43  is  mild  steel  welding  electrode  with  iron  oxide  titania  (ilmenite),.  It  is suitable  for  welding  All  position,  especially  for  ?at  and  horizontal  ?llet.  It  is suitable  for  medium  and  thick  armor  plate  structure,  such  as  ships,  bridges, machinery and building, etc. Current: AC, DC±. Approved grade 2 by: LR, ABS, BV, CCS, GL, DNV, NK.', 1200000, NULL, NULL, NULL, 1, 1, 1, NULL, NULL, NULL, '2019-11-23'),
+(3, 'CHE56 AWS A5.1 E7016 JIS Z 3212 D5016', 'CHE56 ATLANTIC WELDING ELECTRODES FOR HIGH TENSILE STEEL', 'Kawat las kekuatan tinggi salutan low hydrogen, memiliki sifat tangguh dan tahan retak yang sangat baik. Digunakan secara luas untuk fabrikasi baja kekuatan tinggi 50 kgf/mm2, seperti; kapal, boiler, jembatan dan pressure vessel. Arus: AC, DC±. Approved', 1800000, NULL, NULL, NULL, 1, 1, 1, NULL, NULL, NULL, '2019-11-23'),
+(4, 'CHE58-1 AWS A5.1 E7018-1 AWS A5.1 E7018 JIS Z 3212 D5016', 'CHE58-1 ATLANTIC WELDING ELECTRODES FOR HIGH TENSILE STEEL', 'Kawat las kekuatan tinggi salutan iron powder low hydrogen, memiliki sifat tangguh pada suhu rendah dan tahan terhadap retak. Dengan kandungan iron powder meningkatkan efisiensi las sekitar 110%. Digunakan untuk fabrikasi baja kekuatan tinggi 50 kgf/mm2, seperti; high pressure vessels, jembatan, pembangkit listrik dan oshore drilling platforms. Arust: AC, DC', 2000000, NULL, NULL, NULL, 1, 1, 1, NULL, NULL, NULL, '2019-11-23'),
+(5, 'CHE505GX AWS A5.5 E7010-P1', 'CHE505GX ATLANTIC WELDING ELECTRODES FOR HIGH TENSILE STEEL', 'Kawat las kekuatan tinggi salutan cellulose sodium, memiliki mampu las yang sangat baik pada semua posisi las, termasuk vertikal turun. Menghasilkan dua sisi las pada pengelasan satu sisi seperti las root pass. Cocok untuk hot pass dan capping pada fabrikasi sambungan', 3000000, NULL, NULL, NULL, 1, 1, 1, NULL, NULL, NULL, '2019-11-23'),
+(6, 'CHS102 AWS A5.4 E308-16 JIS Z 3221 D308-16', 'CHS102 ATLANTIC WELDING ELECTRODES FOR STAINLESS STEEL', 'Kawat las baja tahan karat salutan titania dapat digunakan untuk semua posisi las dengan mampu las yang sangat baik; busur las stabil, terak mudah lepas, sedikit percikan dan salutan tahan panas. Digunakan secara luas untuk las material AISI / SUS 301, 302, 304, 308,', 2900000, NULL, NULL, NULL, 1, 1, 1, NULL, NULL, NULL, '2019-11-23'),
+(7, 'CHS002 AWS A5.4 E308L-16 JIS Z 3221 D308L-16', 'CHS002 ATLANTIC WELDING ELECTRODES FOR STAINLESS STEEL', 'CHS002 is lime titania type coating electrode for extra-low carbon stainless steel in all position welding. It has excellent resistance to inter-crystal corrosion. It is suitable for welding of AISI/SUS 304L stainless steel structures, which working conditions need to be resistance corrosion and working temperature is below 300°C.', 2000000, NULL, NULL, NULL, 1, 1, 1, NULL, NULL, NULL, '2019-11-23'),
+(8, 'CHS29.9 AWS A5.4 E312-16 JIS Z 3221 D312-16', 'CHS29.9 ATLANTIC WELDING ELECTRODES FOR DISSIMILAR AND PROBLEM STEEL', 'Kawat las salutan titania dengan logam las membentuk fasa duplex: ferritic-austenitic, dengan kandungan ferritic sekitar 40%, memiliki ketahanan retak yang sangat baik dan kekuatan tarik yang tinggi. Cocok untuk las baja cor, baja karbon tinggi, baja perkakas, baja sulit dilas dan baja berbeda jenis. Dan dapat digunakan sebagai dasar untuk las lapisan', 4000000, NULL, NULL, NULL, 1, 1, 1, NULL, NULL, NULL, '2019-11-23'),
+(9, 'CHS102MnMo AWS A5.4 E307-16', 'CHS102MnMo ATLANTIC WELDING ELECTRODES FOR HARD SURFACING', 'ATLANTIC WELDING ELECTRODES FOR HARD SURFACING moderate strength welds with good crack resistance between dissimilar steel, such austenitic manganese steel and carbon steel forgings or castings. It is suitable for welding structures made by ASTM307 stainless steel, also it can be used surfacing impingement and corrosion resisting steel and transition layers. Current: AC, DC+.', 1300000, NULL, NULL, NULL, 1, 1, 1, NULL, NULL, NULL, '2019-11-23'),
+(10, 'CHC308 AWS A5.15 ENi-CI JIS Z 3252 DFCNi', 'CHC308 ATLANTIC WELDING ELECTRODES FOR CAST IRON', 'pilihan terbaik untuk perbaikan keretakan dan penyambungan sesama besi cor dan dengan logam lain. Deposit las mudah dalam proses permesinan dengan ketangguhan dan ketahanan retak yang baik. Pada proses las, gunakan amper rendah dan lakukan peening setelah las. Arus:', 2200000, NULL, NULL, NULL, 1, 1, 1, NULL, NULL, NULL, '2019-11-23'),
+(11, 'ZX7-160\r\n(PE20-160R)', 'ZX7-160 TIME Manual Metal Arc Welding Machine', 'MOSFET\r\ntechnology, invert frequency is 100 Hz.', 3100000, NULL, NULL, NULL, 1, 1, 2, NULL, NULL, NULL, '2019-11-23'),
+(12, 'ZX7-160\r\n(PE60-160)', 'ZX7-160 TIME Manual Metal Arc Welding Machine', 'MOSFET\r\ntechnology, invert frequency is 100 Hz.\r\nPlastic Case', 1200000, NULL, NULL, NULL, 1, 1, 2, NULL, NULL, NULL, '2019-11-23'),
+(13, 'ZX7-400\r\n(PE23-400)', 'ZX7-400 TIME Manual Metal Arc Welding Machine', 'Wireless/wire remote control is optional.\r\nPlastic Case', 4100000, NULL, NULL, NULL, 1, 1, 2, NULL, NULL, NULL, '2019-11-23'),
+(14, 'ZX7-400\r\n(PE50-400)', 'ZX7-400 TIME Manual Metal Arc Welding Machine', 'Wireless/wire remote control is optional. Two power characteristic: dropping characteristic and slanting\r\ncharacteristic.', 2500000, NULL, NULL, NULL, 1, 1, 2, NULL, NULL, NULL, '2019-11-23'),
+(15, 'ZX7-400\r\n(PE12-3 X 400)', 'ZX7-400 TIME Manual Metal Arc Welding Machine', 'It can be used as three welder independence and widely used\r\nin the ?eld of shipbuilding.', 4200000, NULL, NULL, NULL, 1, 1, 2, NULL, NULL, NULL, '2019-11-23'),
+(16, 'ZX7-500\r\n(PE10-500)', 'ZX7-500 TIME Manual Metal Arc Welding Machine', 'The cable can be lengthened.\r\nBe suitable for air carbon arc\r\ngouging ( lower than 520A/45V ).', 3300000, NULL, NULL, NULL, 1, 1, 2, NULL, NULL, NULL, '2019-11-23'),
+(17, 'ZX7-630\r\n(PE52-630 )', 'ZX7-630 TIME Manual Metal Arc Welding Machine', 'High e?ciency of air carbon arc gouging.\r\nSwitch for MMA/Gougin g on front panel. 100% duty cycle.', 2200000, NULL, NULL, NULL, 1, 1, 2, NULL, NULL, NULL, '2019-11-23');
 
 -- --------------------------------------------------------
 
@@ -166,6 +167,48 @@ CREATE TABLE `purchaseitem` (
   `order_id` varchar(9) NOT NULL,
   `quantity` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `sub-category`
+--
+
+CREATE TABLE `sub-category` (
+  `subcategory_id` int(6) NOT NULL,
+  `subcategory_name` varchar(255) NOT NULL,
+  `category_id` int(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `sub-category`
+--
+
+INSERT INTO `sub-category` (`subcategory_id`, `subcategory_name`, `category_id`) VALUES
+(1, 'Welding Rod', 1),
+(2, 'Welding Machine', 1),
+(3, 'Welding 3', 1),
+(4, 'Welding 4', 1),
+(5, 'Rubber Hose', 2),
+(6, 'Rubber Marine', 2),
+(7, 'Rubber Sheet', 2),
+(8, 'Rubber 4', 2),
+(9, 'Paint 1', 3),
+(10, 'Paint 2', 3),
+(11, 'Paint 3', 3),
+(12, 'Paint 4', 3),
+(13, 'NC 1', 4),
+(14, 'NC 2', 4),
+(15, 'NC 3', 4),
+(16, 'NC 4', 4),
+(17, 'NC 1', 5),
+(18, 'NC 2', 5),
+(19, 'NC 3', 5),
+(20, 'NC 4', 5),
+(21, 'Others 1', 6),
+(22, 'Others 2', 6),
+(23, 'Others 3', 6),
+(24, 'Others 4', 6);
 
 -- --------------------------------------------------------
 
@@ -280,7 +323,8 @@ ALTER TABLE `order`
 ALTER TABLE `product`
   ADD PRIMARY KEY (`product_id`),
   ADD KEY `merk_id` (`merk_id`),
-  ADD KEY `category_id` (`category_id`);
+  ADD KEY `category_id` (`category_id`),
+  ADD KEY `subcategory_id` (`subcategory_id`);
 
 --
 -- Indeks untuk tabel `purchaseitem`
@@ -288,6 +332,13 @@ ALTER TABLE `product`
 ALTER TABLE `purchaseitem`
   ADD KEY `idOrder` (`order_id`),
   ADD KEY `idProduct` (`type_id`);
+
+--
+-- Indeks untuk tabel `sub-category`
+--
+ALTER TABLE `sub-category`
+  ADD PRIMARY KEY (`subcategory_id`),
+  ADD KEY `category_id` (`category_id`);
 
 --
 -- Indeks untuk tabel `type_product`
@@ -337,6 +388,12 @@ ALTER TABLE `purchaseitem`
   MODIFY `type_id` int(6) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT untuk tabel `sub-category`
+--
+ALTER TABLE `sub-category`
+  MODIFY `subcategory_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
 -- AUTO_INCREMENT untuk tabel `type_product`
 --
 ALTER TABLE `type_product`
@@ -364,7 +421,8 @@ ALTER TABLE `order`
 --
 ALTER TABLE `product`
   ADD CONSTRAINT `merk_id` FOREIGN KEY (`merk_id`) REFERENCES `merk` (`merk_id`),
-  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`);
+  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`),
+  ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`subcategory_id`) REFERENCES `sub-category` (`subcategory_id`);
 
 --
 -- Ketidakleluasaan untuk tabel `purchaseitem`
@@ -372,6 +430,12 @@ ALTER TABLE `product`
 ALTER TABLE `purchaseitem`
   ADD CONSTRAINT `purchaseitem_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `order` (`order_id`),
   ADD CONSTRAINT `purchaseitem_ibfk_2` FOREIGN KEY (`type_id`) REFERENCES `type_product` (`type_id`);
+
+--
+-- Ketidakleluasaan untuk tabel `sub-category`
+--
+ALTER TABLE `sub-category`
+  ADD CONSTRAINT `sub-category_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`);
 
 --
 -- Ketidakleluasaan untuk tabel `type_product`

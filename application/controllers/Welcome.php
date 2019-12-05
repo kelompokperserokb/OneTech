@@ -25,8 +25,8 @@ class Welcome extends CI_Controller {
 	}
 
     public function homepage(){
-        $data["merk"] = $this->getCategory();
-        $data["product"] = $this->getProductByLimit(8);
+		$data["product"] = $this->getProductByLimit(8);
+		$data["cat"] = $this->getCategory();
         $data["sub"] = $this->getSubCategory();
         $this->load->view('V_header',$data);
         $this->load->view('index',$data);

@@ -56,6 +56,27 @@ class M_ProductDB extends CI_Model
 		$this->db->trans_complete();
 	}
 
+	public function getProducts(){
+		$this->db->select('*');
+		$this->db->from('product');
+		$this->db->order_by('DatePost', 'DESC');
+		$this->db->limit(8);
+		$query = $this->db->get();
+
+		$data['data_array'] = $query->result();
+		$data['count'] = $query->num_rows();
+		return $data;
+	}
+
+	public function getProduct($id){
+		$this->db->select('*');
+		$this->db->from('product');
+		$this->db->where('product_id',"$id");
+		$query = $this->db->get();
+		$data['data_array'] = $query->result();
+		return $data;
+	}
+
 	public function getProductData($id,$type_id){
 		$this->db->select('*');
 		$this->db->from('product');
@@ -68,36 +89,22 @@ class M_ProductDB extends CI_Model
 		return $data;
 	}
 
-	public function getProductTypeData($id, $type_id){
+	//digunakan untuk tabel
+	public function getProductTypeData($id){
 		$this->db->select('*');
 		$this->db->from('type_product');
 		$this->db->where('product_id',"$id");
-		$this->db->where('type_id !=',"$type_id");
 		$query = $this->db->get();
-
 		$data['count'] = $query->num_rows();
 		$data['data_array'] = $query->result();
-
 		return $data;
 	}
 
 	public function getProductByLimit($limit){
 		$this->db->select('*');
 		$this->db->from('product');
-		$this->db->join('type_product','type_product.product_id = product.product_id');
-		$this->db->order_by('product.DatePost', 'DESC');
-		$this->db->limit($limit);
-		$query = $this->db->get();
-
-		$data['data_array'] = $query->result();
-		$data['count'] = $query->num_rows();
-		return $data;
-	}
-	public function getProducts(){
-		$this->db->select('*');
-		$this->db->from('product');
 		$this->db->order_by('DatePost', 'DESC');
-		$this->db->limit(8);
+		$this->db->limit($limit);
 		$query = $this->db->get();
 
 		$data['data_array'] = $query->result();

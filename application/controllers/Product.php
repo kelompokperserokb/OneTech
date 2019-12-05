@@ -56,10 +56,28 @@ class Product extends CI_Controller {
 		$this->M_ProductDB->giveDiscount($discount, $startDateDiscount, $lastDateDiscount, $id);
 		$this->load->view();
 	}
-	public function viewProducts($prod_id,$type_id){
+
+	public function viewProducts($prod_id){
+		$this->load->helper('url');
+		$this->load->model("M_ProductDB");
+		$data["cat"] = $this->getCategory();
+		$data["sub"] = $this->getSubCategory();
+		$data['product'] = $this->M_ProductDB->getProduct($prod_id);
+		$data['product_type'] = $this->M_ProductDB->getProductTypeData($prod_id);
+
+		$data["stock"] = $data["product_type"]["data_array"][0]->quota;
+		$data["stock_status"] = $data["stock"] > 0 ? "In Stock" : "Sold Out";
+
+		$this->load->view('V_header',$data);
+		$this->load->view('V_productPage',$data);
+		$this->load->view('footer');
+	}
+
+	public function viewProductsType($prod_id,$type_id){
         $this->load->helper('url');
         $this->load->model("M_ProductDB");
-        $data['data'] = $this->M_ProductDB->getCategory();
+		$data["cat"] = $this->getCategory();
+		$data["sub"] = $this->getSubCategory();
         $data['product'] = $this->M_ProductDB->getProductData($prod_id,$type_id);
         $data['product_type'] = $this->M_ProductDB->getProductTypeData($prod_id, $type_id);
 
@@ -73,10 +91,29 @@ class Product extends CI_Controller {
 
     public function viewAllProduct(){
         $this->load->helper('url');
-        $this->load->model("M_ProductDB");
-        $data['data'] = $this->M_ProductDB->getCategory();
+		$data["product"] = $this->getProductByLimit(12);
+		$data["cat"] = $this->getCategory();
+		$data["sub"] = $this->getSubCategory();
         $this->load->view('V_header',$data);
-        $this->load->view('V_allProductPage');
+        $this->load->view('V_allProductPage',$data);
         $this->load->view('footer');
     }
+
+	public function getProductByLimit($limit){
+		$this->load->model("M_ProductDB");
+		$datas['data'] = $this->M_ProductDB->getProductByLimit($limit);
+		return $datas;
+	}
+
+	public function getCategory(){
+		$this->load->model("M_ProductDB");
+		$datas['data'] = $this->M_ProductDB->getCategory();
+		return $datas;
+	}
+
+	public function getSubCategory(){
+		$this->load->model("M_ProductDB");
+		$datas['data'] = $this->M_ProductDB->getSubCategory();
+		return $datas;
+	}
 }

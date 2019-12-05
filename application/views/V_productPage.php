@@ -44,7 +44,6 @@
 						<div id="collapse1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
 							<div class="panel-body">
 								<p>'.$product["data_array"][0]->product_desc.'</p>
-								<p>'.$product["data_array"][0]->description_type.'</p>
 							</div>
 						</div>
 					</div>
