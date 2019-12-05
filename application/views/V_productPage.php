@@ -5,6 +5,7 @@
 </head>
 
 <body>
+
 <!-- product section -->
 <section class="product-section">
 	<div class="container">
@@ -27,17 +28,14 @@
 			</div>
             <?php echo '
 			<div class="col-lg-6 product-details">
-				<h2 class="p-title">'.$product["data_array"][0]->product_name.' - '.$product["data_array"][0]->product_type.'</h2>
+				<h2 class="p-title">'.$product["data_array"][0]->product_name.'</h2>
 				<h3 class="p-price">Rp. '.number_format($product["data_array"][0]->product_price,2,",",".").'</h3>
-				<h4 class="p-stock">Available: <span>'. $stock_status .'<input type="hidden" id ="stock_quota" value="'.$stock.'" /></span></h4>
+				<!--<h4 class="p-stock">Available: <span>'. $stock_status .'<input type="hidden" id ="stock_quota" value="'.$stock.'" /></span></h4>-->
 				<!--<div class="p-review">
 					<a href="">3 reviews</a>|<a href="">Add your review</a>
 				</div>-->
-				<div class="quantity">
-					<p>Quantity</p>
-					<div class="pro-qty"><input type="text" value="1" name="quantity"></div>
-				</div>
-				<a href="#" class="site-btn">SHOP NOW</a>
+				
+				<!--<a href="#" class="site-btn">SHOP NOW</a>-->
 				<div id="accordion" class="accordion-area">
 					<div class="panel">
 						<div class="panel-header" id="headingOne">
@@ -50,7 +48,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="panel">
+					<!--<div class="panel">
 						<div class="panel-header" id="headingTwo">
 							<button class="panel-link" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">care details </button>
 						</div>
@@ -76,7 +74,7 @@
 								</p>
 							</div>
 						</div>
-					</div>
+					</div>-->
 				</div>
 			</div>';
 			?>
@@ -94,7 +92,8 @@
 			<th>Product Code</th>
 			<th>Product Type</th>
 			<th>Quota</th>
-			<th>Description Typr</th>
+			<th>Description Type</th>
+            <th>Quantity</th>
 			<th>order</th>
 		</tr>
         <?php for ($i = 0 ; $i < $product_type["count"] ; $i++ ){
@@ -104,14 +103,19 @@
 			<td>'.$product_type["data_array"][$i]->product_type.'</td>
 			<td>'.$product_type["data_array"][$i]->quota.'</td>
 			<td>'.$product_type["data_array"][$i]->description_type.'</td>
-			<td><a href="'.base_url().'product/'.$product["data_array"][0]->product_id.'/'.$product_type["data_array"][$i]->type_id.'">order</a></td>
+			<td ><div class="quantity">
+					<p>Quantity</p>
+					<div class="pro-qty"><input type="text" value="1" name="quantity"></div>
+				</div></td>
+			<!--<td><a href="'.base_url().'product/'.$product["data_array"][0]->product_id.'/'.$product_type["data_array"][$i]->type_id.'">order</a></td>-->
+			<td><a href="#">order</a></td>
 		</tr>';} ?>
 
 	</table>
 </div>
 <!-- end mini table-->
 
-<!-- RELATED PRODUCTS section -->
+<!-- RELATED PRODUCTS section
 <section class="related-product-section">
 	<div class="container">
 		<div class="section-title">
@@ -187,8 +191,8 @@
 		</div>
 	</div>
 </section>
-<!-- RELATED PRODUCTS section end -->
-<!-- Product filter section -->
+ RELATED PRODUCTS section end -->
+<!-- Product filter section
 <section class="product-filter-section">
 	<div class="container">
 		<div class="section-title">
@@ -323,7 +327,7 @@
 		</div>
 	</div>
 </section>
-<!-- Product filter section end -->
+ Product filter section end -->
 
 <script src="<?php echo base_url(); ?>Asset/js/main.js"></script>
 </body>

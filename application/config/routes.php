@@ -57,6 +57,7 @@ $route['cart'] = 'Order/cart';
 $route['login'] = 'Account/toLogin';
 $route['product/(:num)/(:num)'] = "Product/viewProducts/$1/$2";
 
+
 $route['about'] = "Direct/about";
 $route['howtoorder'] = "Direct/howToOrder";
 $route['payment'] = "Direct/payment";
@@ -64,3 +65,4 @@ $route['delivery'] = "Direct/logistic";
 
 $route['admin/admin/admin/login'] = "Direct/loginAdmin";
 $route['admin/admin/admin/home'] = "Direct/adminHome";
+

@@ -27,7 +27,8 @@ class Welcome extends CI_Controller {
     public function homepage(){
         $data["merk"] = $this->getCategory();
         $data["product"] = $this->getProductByLimit(8);
-        $this->load->view('V_header',$data["merk"]);
+        $data["sub"] = $this->getSubCategory();
+        $this->load->view('V_header',$data);
         $this->load->view('index',$data);
         $this->load->view('footer');
     }
@@ -44,12 +45,24 @@ class Welcome extends CI_Controller {
         return $datas;
     }
 
+    public function getSubCategory(){
+		$this->load->model("M_ProductDB");
+		$data['data'] = $this->M_ProductDB->getSubCategory();
+		return $data;
+	}
+
     public function register(){
+
         $this->load->helper('url');
-        $data["merk"] = $this->getCategory();
-        $this->load->view('V_header',$data["merk"]);
-        $this->load->view('V_registerPage');
-        $this->load->view('footer');
+        if (!isset($_SESSION["email"])) {
+            $data["merk"] = $this->getCategory();
+            $this->load->view('V_header',$data["merk"]);
+            $this->load->view('V_registerPage');
+            $this->load->view('footer');
+        } else {
+            redirect(base_url());
+        }
+
     }
 
     public function footer(){

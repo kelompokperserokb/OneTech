@@ -66,8 +66,8 @@
                                     <td class="product-col">
                                         <img src="<?php echo base_url(); ?>Asset/img/tandatanya.jpg" alt="">
                                         <div class="pc-title">
-                                            <h4>COSRX</h4>
-                                            <p>Sku: CX-OSOCP135</p>
+                                            <h4>CHE40</h4>
+                                            <p>Atlantic Welding ...</p>
                                         </div>
                                     </td>
                                     <td class="quy-col">
@@ -79,18 +79,18 @@
                                         </div>
                                     </td>
                                     <td class="size-col">
-                                        <h4>varian: 70 pads</h4>
+                                        <h4>varian: 80~130 Ampere</h4>
                                     </td>
                                     <td class="total-col">
-                                        <h4>$45.90</h4>
+                                        <h4>Rp. 900.000</h4>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="product-col">
                                         <img src="img/tandatanya.jpg" alt="">
                                         <div class="pc-title">
-                                            <h4>Ruffle Pink Top</h4>
-                                            <p>$45.90</p>
+                                            <h4>CHE43</h4>
+                                            <p>Atlanti Welding ...</p>
                                         </div>
                                     </td>
                                     <td class="quy-col">
@@ -101,10 +101,10 @@
                                         </div>
                                     </td>
                                     <td class="size-col">
-                                        <h4>Size M</h4>
+                                        <h4>50~90 Ampere</h4>
                                     </td>
                                     <td class="total-col">
-                                        <h4>$45.90</h4>
+                                        <h4>Rp. 600.000</h4>
                                     </td>
                                 </tr>
 
@@ -112,7 +112,7 @@
                         </table>
                     </div>
                     <div class="total-cost">
-                        <h6>Total <span>$99.90</span></h6>
+                        <h6>Total <span>Rp. 1.500.000</span></h6>
                     </div>
                 </div>
             </div>

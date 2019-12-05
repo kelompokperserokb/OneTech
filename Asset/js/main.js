@@ -186,13 +186,10 @@ $(window).on('load', function() {
 	proQty.on('click', '.qtybtn', function () {
 		var $button = $(this);
 		var oldValue = $button.parent().find('input').val();
-		var max = document.getElementById('stock_quota').value;
+		/*var max = document.getElementById('stock_quota').value;*/
 		if ($button.hasClass('inc')) {
-			if (oldValue<max) {
 				var newVal = parseFloat(oldValue) + 1;
-			} else {
-				newVal = max;
-			}
+
 		} else {
 			// Don't allow decrementing below zero
 			if (oldValue > 0) {
