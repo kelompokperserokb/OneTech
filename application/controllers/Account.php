@@ -7,7 +7,8 @@ class Account extends CI_Controller {
         $this->load->helper('url');
         if (!isset($_SESSION["email"])) {
             $this->load->model("M_ProductDB");
-            $data['data'] = $this->M_ProductDB->getCategory();
+            $data["cat"] = $this->getCategory();
+            $data["sub"] = $this->getSubCategory();
             $this->load->view('V_header', $data);
             $this->load->view('V_login');
             $this->load->view('footer');
@@ -16,12 +17,25 @@ class Account extends CI_Controller {
         }
     }
 
+    public function getCategory(){
+        $this->load->model("M_ProductDB");
+        $datas['data'] = $this->M_ProductDB->getCategory();
+        return $datas;
+    }
+
+    public function getSubCategory(){
+        $this->load->model("M_ProductDB");
+        $data['data'] = $this->M_ProductDB->getSubCategory();
+        return $data;
+    }
+
 	public function loginAccount()
 	{
 		$this->load->model('m_AccountDB');
 		if($this->m_AccountDB->login($this->input->post('username'), $this->input->post('password'))==TRUE){
-		    $account = $this->m_AccountDB->getAccount($this->input->post('username'));
-		    if ($account[0]->active_status == 1){
+		    $query = $this->m_AccountDB->getAccount($this->input->post('username'));
+		    $account = $query->result();
+		    if ($account[0]->activeStatus == 1){
                 $_SESSION["email"] = $this->input->post('username');
                 $_SESSION["name"] = $account[0]->first_name;
                 echo "true";
@@ -90,15 +104,15 @@ class Account extends CI_Controller {
                     'first_name' => $_POST["first_name"],
                     'last_name' => $_POST["last_name"],
                     'address' => $_POST["address"],
-                    'phone_number' => $_POST["phone_number"],
-                    'active_status' => '0',
+                    'phoneNumber' => $_POST["phone_number"],
+                    'activeStatus' => '0',
                     'accountType' => $_POST["account_type"],
-                    'institution_type' => $_POST["institution_type"],
-                    'institution_name' => $_POST["institution_name"],
-                    'institution_address' => $_POST["institution_address"],
+                    'typeOfInstitution' => $_POST["institution_type"],
+                    'institutionName' => $_POST["institution_name"],
+                    'institutionAddress' => $_POST["institution_address"],
+                    'npwp' => $_POST["npwp"],
                     'hash' => $hash,
                 );
-                $this->load->model("M_AccountDB");
                 $this->M_AccountDB->registAccountToDB($data);
 
                 echo "true";

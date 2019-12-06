@@ -30,6 +30,12 @@ class M_OrderDB extends CI_Model
         $this->db->trans_complete();
     }
 
+    public function addCart($data){
+        $this->db->trans_start();
+        $this->db->insert('cart',$data);
+        $this->db->trans_complete();
+    }
+
 }
 
 ?>

@@ -69,7 +69,7 @@
                         </div>
                         <div class="pi-text">
                             <h6>Rp. '.number_format($product['data']['data_array'][$i]->product_price,2,",",".").'</h6>
-                            <a href="'.base_url().'product/'.$product['data']['data_array'][$i]->product_id.'/">
+                            <a href="'.base_url().'product/'.$product['data']['data_array'][$i]->product_id.'">
                                 <p>'.$product['data']['data_array'][$i]->product_name.'</p>
                             </a>
                         </div>
