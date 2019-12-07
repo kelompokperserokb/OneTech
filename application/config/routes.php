@@ -55,7 +55,9 @@ $route['translate_uri_dashes'] = FALSE;
 $route['register'] = 'Welcome/register';
 $route['cart'] = 'Order/cart';
 $route['login'] = 'Account/toLogin';
-$route['product/(:num)/(:num)'] = "Product/viewProducts/$1/$2";
+$route['allproduct'] = 'Product/viewAllProduct';
+$route['product/(:num)'] = "Product/viewProducts/$1";
+$route['producttype/(:num)/(:num)'] = "Product/viewProductsType/$1/$2";
 
 
 $route['about'] = "Direct/about";

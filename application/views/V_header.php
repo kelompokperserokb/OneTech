@@ -37,27 +37,26 @@
 </div>
 <!-- Header section -->
 <header class="header-section">
-	<div class="h_header-top">
-		<div class="container h_container">
-			<div class="row">
-				<div class="col-lg-2 text-center text-lg-left">
-					<!-- logo -->
-					<a href="<?php echo base_url(); ?>" class="h_site-logo">
-						<img src="<?php echo base_url(); ?>Asset/img/logoot.jpg" alt="">
-					</a>
-				</div>
-				<div class="col-xl-5 col-lg-4">
-					<form class="h_header-search-form">
-						<input type="text" placeholder="Search">
-						<button><i class="fa fa-search"></i></button>
-					</form>
-				</div>
-				<div class="col-xl-5 col-lg-6">
-					<div class="h_user-panel">
-						<?php
-						session_start();
-						if (!isset($_SESSION["email"])) {
-							echo '<div class="h_up-item">
+    <div class="h_header-top">
+        <div class="container h_container">
+            <div class="row">
+                <div class="col-lg-2 text-center text-lg-left">
+                    <!-- logo -->
+                    <a href="<?php echo base_url(); ?>" class="h_site-logo">
+                        <img src="<?php echo base_url(); ?>Asset/img/logoot.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-xl-5 col-lg-4">
+                    <form class="h_header-search-form">
+                        <input type="text" placeholder="Search">
+                        <button><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+                <div class="col-xl-5 col-lg-6">
+                    <div class="h_user-panel">
+                        <?php
+                        if (!isset($_SESSION["email"])) {
+                            echo '<div class="h_up-item">
                                     <i class="fa fa-user"></i>
                                     <a href="' . base_url() . 'login">Log In</a> | <a href="' . base_url() . 'register">Sign Up</a>
                                 </div>';
@@ -78,7 +77,7 @@
 						<!--<button onclick=document.getElementById('id01').style.display='block' style='width:auto;'>Login</button>-->
 						<div class="h_up-item">
 							<i class="fa fa-shopping-cart"></i>
-							<a href="#">My Cart</a>
+							<a href="<?php echo base_url('cart') ?>">My Cart</a>
 						</div>
 					</div>
 				</div>
@@ -91,12 +90,12 @@
 			<ul class="h_main-menu">
 				<?php
 
-				for ($i = 0; $i < $merk['data']["count"]; $i++) {
+				for ($i = 0; $i < $cat['data']["count"]; $i++) {
 					$str2 = "";
-					$str = '<li><a href="#" id="' . $merk['data']["data_array"][$i]->category_id . '" >' . $merk['data']["data_array"][$i]->category_name . '</a>
+					$str = '<li><a href="#" id="' . $cat['data']["data_array"][$i]->category_id . '" >' . $cat['data']["data_array"][$i]->category_name . '</a>
 					<ul class="h_sub-menu">';
 					for ($j = 0; $j < $sub['data']["count"]; $j++) {
-						if ($merk['data']["data_array"][$i]->category_id == $sub['data']["data_array"][$j]->category_id) {
+						if ($cat['data']["data_array"][$i]->category_id == $sub['data']["data_array"][$j]->category_id) {
 							$str2 .= '<li><a href="#" id="' . $sub['data']["data_array"][$j]->subcategory_id . '" >' . $sub['data']["data_array"][$j]->subcategory_name . '</a></li>';
 						}
 					}
@@ -105,7 +104,6 @@
                   </li>';
 
 				}
-
 
 				?>
 			</ul>

@@ -10,14 +10,40 @@ class Order extends CI_Controller {
         $this->load->helper('url');
 	}
 
-	public function addToCart()
+	public function addToCart($type_id, $quantity)
 	{
-
+        if (!isset($_SESSION["email"])) {
+            redirect(base_url('login'));
+        } else {
+            $data = array(
+                'email' => $_SESSION["email"],
+                'type_id' => $type_id,
+                'quantity' => $quantity,
+            );
+            $this->load->model("M_OrderDB");
+            $this->M_OrderDB->addCart($data);
+            redirect(base_url('cart'));
+        }
 	}
 
 	public function cart(){
-        $this->load->view('cart');
-        $this->load->view('footer');
+	    if (isset($_SESSION["email"])) {
+            $this->load->model("M_OrderDB");
+            $data['data'] = $this->M_OrderDB->getCart();
+            $this->load->view('V_cart', $data);
+            $this->load->view('footer');
+        } else {
+            redirect(base_url('login'));
+        }
+    }
+
+    public function updateCart(){
+        $this->load->model("M_OrderDB");
+        $type_id = $this->input->post('type_id') ;
+        $quantity = $this->input->post('quantity');
+        if (isset($_SESSION['email'])) {
+            echo $this->M_OrderDB->updateCart($_SESSION['email'], $type_id, $quantity);
+        }
     }
 
 	public function removeFromCart()

@@ -60,7 +60,7 @@ $(document).ready(function(){
      $('#regist-personal').submit(function(e){
         e.preventDefault();
         var password = document.getElementById('password_p').value;
-        var password_correction = document.getElementById('password_correction_p').value;
+        var password_correction = document.getElementById('password_confirmation_p').value;
         if (password == password_correction) {
             var email = document.getElementById('email_p').value;
             var first_name = document.getElementById('first_name_p').value;
@@ -71,6 +71,7 @@ $(document).ready(function(){
             var institution_name = "";
             var institution_address = "";
             var institution_type = "";
+            var npwp = "";
 
             var url = base_url.toString() + "/OneTech/Account/registData";
             $.ajax({
@@ -78,11 +79,12 @@ $(document).ready(function(){
                 method: 'post',
                 data: {email: email, password: password, first_name : first_name,
                     last_name : last_name, address : address, account_type : account_type, phone_number : phone_number,
-                    institution_name : institution_name, institution_address : institution_address, institution_type : institution_type},
+                    institution_name : institution_name, institution_address : institution_address, institution_type : institution_type, npwp : npwp},
                 beforeSend: function () {
 
                 },
                 success: function (response) {
+                    alert(response);
                     if (response == "true") {
                         alert('Regist Success, Please Check Email to Activate account');
                         window.location.href = base_url.toString() + "/OneTech";
@@ -102,7 +104,7 @@ $(document).ready(function(){
     $('#regist-business').submit(function(e){
         e.preventDefault();
         var password = document.getElementById('password_b').value;
-        var password_correction = document.getElementById('password_correction_b').value;
+        var password_correction = document.getElementById('password_confirmation_b').value;
         if (password == password_correction) {
             var email = document.getElementById('email_b').value;
             var first_name = document.getElementById('first_name_b').value;
@@ -113,6 +115,7 @@ $(document).ready(function(){
             var institution_name = document.getElementById('institution_name_b').value;
             var institution_address = document.getElementById('institution_address_b').value;
             var institution_type = document.getElementById('institution_type_b').value;
+            var npwp = document.getElementById('npwp_b').value;
 
             var url = base_url.toString() + "/OneTech/Account/registData";
             $.ajax({
@@ -120,7 +123,7 @@ $(document).ready(function(){
                 method: 'post',
                 data: {email: email, password: password, first_name : first_name,
                     last_name : last_name, address : address, account_type : account_type, phone_number : phone_number,
-                    institution_name : institution_name, institution_address : institution_address, institution_type : institution_type},
+                    institution_name : institution_name, institution_address : institution_address, institution_type : institution_type, npwp:npwp},
                 beforeSend: function () {
 
                 },
@@ -141,60 +144,56 @@ $(document).ready(function(){
     });
 
     /*Password Correction for personal*/
-    $("#password_correction_p").on(
-        "propertychange change keyup paste input", function() {
+    $("#password_confirmation_p").on("propertychange change keyup paste input", function() {
             var pass = document.getElementById('password_p').value;
-            var passCorrect = document.getElementById('password_correction_p').value;
+            var passCorrect = document.getElementById('password_confirmation_p').value;
 
             if (pass == "" && passCorrect == "") {
-                document.getElementById('password_correction_p').style.backgroundColor = "#F0f0f0";
+                document.getElementById('password_confirmation_p').style.backgroundColor = "#F0f0f0";
             } else if (pass == passCorrect) {
-                document.getElementById('password_correction_p').style.backgroundColor = "lightgreen";
+                document.getElementById('password_confirmation_p').style.backgroundColor = "lightgreen";
             } else {
-                document.getElementById('password_correction_p').style.backgroundColor = "red";
+                document.getElementById('password_confirmation_p').style.backgroundColor = "red";
             }
 
         });
-    $("#password_p").on(
-        "propertychange change keyup paste input", function() {
+    $("#password_p").on("propertychange change keyup paste input", function() {
             var pass = document.getElementById('password_p').value;
-            var passCorrect = document.getElementById('password_correction_p').value;
+            var passCorrect = document.getElementById('password_confirmation_p').value;
 
             if (pass == "" && passCorrect == "") {
-                document.getElementById('password_correction_p').style.backgroundColor = "#F0f0f0";
+                document.getElementById('password_confirmation_p').style.backgroundColor = "#F0f0f0";
             } else if (pass == passCorrect) {
-                document.getElementById('password_correction_p').style.backgroundColor = "lightgreen";
+                document.getElementById('password_confirmation_p').style.backgroundColor = "lightgreen";
             } else {
-                document.getElementById('password_correction_p').style.backgroundColor = "red";
+                document.getElementById('password_confirmation_p').style.backgroundColor = "red";
             }
         });
 
     /*Password Correction for Bussines*/
-    $("#password_correction_b").on(
-        "propertychange change keyup paste input", function() {
+    $("#password_confirmation_b").on("propertychange change keyup paste input", function() {
             var pass = document.getElementById('password_b').value;
-            var passCorrect = document.getElementById('password_correction_b').value;
+            var passCorrect = document.getElementById('password_confirmation_b').value;
 
             if (pass == "" && passCorrect == "") {
-                document.getElementById('password_correction_b').style.backgroundColor = "#F0f0f0";
+                document.getElementById('password_confirmation_b').style.backgroundColor = "#F0f0f0";
             } else if (pass == passCorrect) {
-                document.getElementById('password_correction_b').style.backgroundColor = "lightgreen";
+                document.getElementById('password_confirmation_b').style.backgroundColor = "lightgreen";
             } else {
-                document.getElementById('password_correction_b').style.backgroundColor = "red";
+                document.getElementById('password_confirmation_b').style.backgroundColor = "red";
             }
 
         });
-    $("#password_b").on(
-        "propertychange change keyup paste input", function() {
+    $("#password_b").on("propertychange change keyup paste input", function() {
             var pass = document.getElementById('password_b').value;
-            var passCorrect = document.getElementById('password_correction_b').value;
+            var passCorrect = document.getElementById('password_confirmation_b').value;
 
             if (pass == "" && passCorrect == "") {
-                document.getElementById('password_correction_b').style.backgroundColor = "#F0f0f0";
+                document.getElementById('password_confirmation_b').style.backgroundColor = "#F0f0f0";
             } else if (pass == passCorrect) {
-                document.getElementById('password_correction_b').style.backgroundColor = "lightgreen";
+                document.getElementById('password_confirmation_b').style.backgroundColor = "lightgreen";
             } else {
-                document.getElementById('password_correction_b').style.backgroundColor = "red";
+                document.getElementById('password_confirmation_b').style.backgroundColor = "red";
             }
         });
 });

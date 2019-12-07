@@ -24,7 +24,7 @@
             <h2>See <b>Product</b></h2>
         </div>
         <div class="col-sm-4">
-            <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
+            <button type="button" class="btn btn-info add-new" id="add-new-button"><i class="fa fa-plus"></i> Add New</button>
         </div>
     </div>
 </div>
@@ -93,12 +93,13 @@
         </tr>-->
 
         <tr>
+            <!--<form>
             <td><input type="text" class="form-control" name="category" id="category"></td>
             <td><input type="text" class="form-control" name="merk" id="merk"></td>
             <td><input type="text" class="form-control" name="name-product" id="name-product"></td>
-            <td><input type="file" multiple accept="image/jpeg" class="form-control" name="image-product1" id="image-product1"></td>
-            <td><input type="file" multiple accept="image/jpeg" class="form-control" name="image-product2" id="image-product2"></td>
-            <td><input type="file" multiple accept="image/jpeg" class="form-control" name="image-product3" id="image-product3"></td>
+            <td><input type="file" accept="image/jpeg" class="form-control" name="image-product1" id="image-product1"></td>
+            <td><input type="file" accept="image/jpeg" class="form-control" name="image-product2" id="image-product2"></td>
+            <td><input type="file" accept="image/jpeg" class="form-control" name="image-product3" id="image-product3"></td>
             <td><input type="text" class="form-control" name="code-product" id="code-product"></td>
             <td><input type="text" class="form-control" name="price" id="price"></td>
             <td><input type="text" class="form-control" name="discount" id="discount"></td>
@@ -111,6 +112,7 @@
                 <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                 <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
             </td>
+            </form>-->
         </tr>
         </tbody>
     </div>
@@ -121,6 +123,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/seeprod.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/onetech/product/upload.js"></script>
 </body>
 
 </html>
