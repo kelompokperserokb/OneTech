@@ -20,8 +20,10 @@
 	<link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/jquery-ui.min.css"/>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/owl.carousel.min.css"/>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/animate.css"/>
+	<link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/cat.css"/>
 	<link rel="stylesheet"
 		  href="<?php echo base_url(); ?>Asset/css/header-style.css?<?php echo date('l jS \of F Y h:i:s A'); ?>"/>
+
 
 
 	<!--[if lt IE 9]>
@@ -62,7 +64,7 @@
                                 </div>';
 						} else {
 							echo '<div class="h_up-item h_main-menu">
-                                        <i class="fa fa-user"></i>
+                                         <i class="fa fa-user"></i>
                                         <a href="#">Hi, ' . $_SESSION["name"] . '</a>
                                         <ul class="h_sub-menu">
                                             <li><a href="#">My Profile</a></li>
@@ -94,9 +96,9 @@
 					$str2 = "";
 					$str = '<li><a href="#" id="' . $cat['data']["data_array"][$i]->category_id . '" >' . $cat['data']["data_array"][$i]->category_name . '</a>
 					<ul class="h_sub-menu">';
-					for ($j = 0; $j < $sub['data']["count"]; $j++) {
-						if ($cat['data']["data_array"][$i]->category_id == $sub['data']["data_array"][$j]->category_id) {
-							$str2 .= '<li><a href="#" id="' . $sub['data']["data_array"][$j]->subcategory_id . '" >' . $sub['data']["data_array"][$j]->subcategory_name . '</a></li>';
+					for ($j = 0; $j < $suball['data']["count"]; $j++) {
+						if ($cat['data']["data_array"][$i]->category_id == $suball['data']["data_array"][$j]->category_id) {
+							$str2 .= '<li><a href="#" id="' . $suball['data']["data_array"][$j]->subcategory_id . '" >' . $suball['data']["data_array"][$j]->subcategory_name . '</a></li>';
 						}
 					}
 					echo $str . $str2 .

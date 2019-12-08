@@ -25,17 +25,17 @@ class Welcome extends CI_Controller {
 	}
 
     public function homepage(){
-		$data["product"] = $this->getProductByLimit(8);
+		$data["product"] = $this->getProductByLimit(1, 8);
 		$data["cat"] = $this->getCategory();
-        $data["sub"] = $this->getSubCategory();
+        $data["suball"] = $this->getSubCategory();
         $this->load->view('V_header',$data);
         $this->load->view('index',$data);
         $this->load->view('footer');
     }
 
-    public function getProductByLimit($limit){
+    public function getProductByLimit($start, $limit){
         $this->load->model("M_ProductDB");
-        $datas['data'] = $this->M_ProductDB->getProductByLimit($limit);
+        $datas['data'] = $this->M_ProductDB->getProductByLimit($start, $limit);
         return $datas;
     }
 
@@ -47,7 +47,7 @@ class Welcome extends CI_Controller {
 
     public function getSubCategory(){
 		$this->load->model("M_ProductDB");
-		$data['data'] = $this->M_ProductDB->getSubCategory();
+		$data['data'] = $this->M_ProductDB->getAllSubCategory();
 		return $data;
 	}
 

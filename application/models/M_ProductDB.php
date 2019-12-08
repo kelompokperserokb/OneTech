@@ -56,18 +56,6 @@ class M_ProductDB extends CI_Model
 		$this->db->trans_complete();
 	}
 
-	public function getProducts(){
-		$this->db->select('*');
-		$this->db->from('product');
-		$this->db->order_by('DatePost', 'DESC');
-		$this->db->limit(8);
-		$query = $this->db->get();
-
-		$data['data_array'] = $query->result();
-		$data['count'] = $query->num_rows();
-		return $data;
-	}
-
 	public function getProduct($id){
 		$this->db->select('*');
 		$this->db->from('product');
@@ -100,11 +88,24 @@ class M_ProductDB extends CI_Model
 		return $data;
 	}
 
-	public function getProductByLimit($limit){
+	public function getProductByLimit($start, $limit){
 		$this->db->select('*');
 		$this->db->from('product');
 		$this->db->order_by('DatePost', 'DESC');
-		$this->db->limit($limit);
+		$this->db->limit($limit, $start);
+		$query = $this->db->get();
+
+		$data['limit'] = $limit;
+		$data['data_array'] = $query->result();
+		$data['count'] = $query->num_rows();
+		return $data;
+	}
+
+
+	public function getProductAll(){
+		$this->db->select('*');
+		$this->db->from('product');
+		$this->db->order_by('DatePost', 'DESC');
 		$query = $this->db->get();
 
 		$data['data_array'] = $query->result();
@@ -123,13 +124,60 @@ class M_ProductDB extends CI_Model
 		return $data;
 	}
 
-	public function getSubCategory(){
+	public function getSubCategory($category){
+		$this->db->select('*');
+		$this->db->from('sub-category');
+		$this->db->where('category_id', "$category");
+		$query = $this->db->get();
+
+		$data['data_array'] = $query->result();
+		$data['count'] = $query->num_rows();
+		return $data;
+	}
+
+	public function getAllSubCategory(){
 		$this->db->select('*');
 		$this->db->from('sub-category');
 		$query = $this->db->get();
 
 		$data['data_array'] = $query->result();
 		$data['count'] = $query->num_rows();
+		return $data;
+	}
+
+	public function getProductByCategory($cat_id){
+		$this->db->select('*');
+		$this->db->from('product');
+		$this->db->order_by('DatePost', 'DESC');
+		$this->db->where('category_id', "$cat_id");
+		$query = $this->db->get();
+
+		$data['data_array'] = $query->result();
+		$data['count'] = $query->num_rows();
+		return $data;
+	}
+
+	public function getProductByCategoryLimit($cat_id, $start ,$limit){
+		$this->db->select('*');
+		$this->db->from('product');
+		$this->db->order_by('DatePost', 'DESC');
+		$this->db->where('category_id', $cat_id);
+		$this->db->limit($limit, $start);
+		$query = $this->db->get();
+
+		$data['limit'] = $limit;
+		$data['data_array'] = $query->result();
+		$data['count'] = $query->num_rows();
+		return $data;
+	}
+
+	public function getCategoryName($cat_id){
+		$this->db->select('category_name');
+		$this->db->from('category');
+		$this->db->where('category_id', $cat_id);
+		$query = $this->db->get();
+
+		$data['data_array'] = $query->result();
 		return $data;
 	}
 

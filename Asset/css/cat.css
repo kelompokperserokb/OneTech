@@ -1,0 +1,55 @@
+/* Product Categories and Categories Style */
+.panel-body .nav{
+	padding-left:0;
+	margin-bottom:0;
+	list-style:none;
+}
+
+.panel-body .nav>li{
+	position:relative;
+	display:block;
+	width: 100%;
+}
+
+.panel-body .nav>li>a{
+	position:relative;
+	display:block;
+	padding:10px 15px;
+}
+
+#content .panel.sidebar-menu{
+	box-sizing: border-box;
+	box-shadow: 0px 1px 5px rgba(0, 0, 0, .5);
+	margin-bottom: 20px;
+}
+#content .panel.sidebar-menu .panel-heading{
+	color: #333333;
+	font-size: 16px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	padding: 10px 15px;
+	background: #f0f0f0;
+}
+#content .panel.sidebar-menu .panel-body{
+	color: #333333;
+	font-size: 14px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	padding: 15px 10px 15px 10px;
+	line-height: 1.428;
+	overflow-x: hidden;
+}
+#content .panel.sidebar-menu ul.nav.category-menuu{
+	margin-bottom: 20px;
+}
+#content .panel.sidebar-menu ul.nav.category-menuu li a{
+	text-transform: uppercase;
+	font-weight: 600;
+	color: #337ab7;
+	padding: 10px 15px;
+}
+#content .panel.sidebar-menu h3{
+	padding: 5px 0px;
+	margin: 0px;
+	color: #333333;
+	font-size: 16px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
