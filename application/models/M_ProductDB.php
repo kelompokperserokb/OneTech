@@ -1,24 +1,7 @@
 <?php
 class M_ProductDB extends CI_Model
 {
-    public function adminAddNewProduct($name, $type, $quota, $price, $disc, $startDate, $lastDate, $desc, $image, $date)
-    {
-		$data = array(
-			'productName' => $name,
-			'productType' => $type,
-			'productQuota' => $quota,
-			'productPrice' => $price,
-			'discount' => $disc,
-			'startDateDiscount' => $startDate,
-			'lastDateDiscount' =>  $lastDate,
-			'description' => $desc,
-			'ProductImage' => $image,
-			'DatePost' =>  $date
-		);
-		$this->db->trans_start();
-		$this->db->insert('product',$data);
-		$this->db->trans_complete();
-    }
+	/*ADMIN PRIVILEGE*/
 
     public function adminAddNewMerk($name){
 		$data = array(
@@ -134,6 +117,16 @@ class M_ProductDB extends CI_Model
 		return $data;
 	}
 
+	public function adminGetDependentSubCategory($id){
+		$this->db->select('*');
+		$this->db->from('sub-category');
+		$this->db->where("category_id",$id);
+		$query = $this->db->get();
+
+		$data= $query->result();
+		return $data;
+	}
+
 	public function adminUpdateSubCategory($categoryid, $subcategoryid, $subcategoryname){
         $data = array(
             'category_id' => $categoryid,
@@ -150,6 +143,142 @@ class M_ProductDB extends CI_Model
 		$this->db->delete('sub-category', array('category_id'=>$categoryId, 'subcategory_id'=>$subcategoryId));
 		$this->db->trans_complete();
 	}
+
+	public function adminAddNewProduct($merk_id, $category_id, $subcategory_id, $product_name, $product_code, $product_price, $product_desc, $image_product1, $image_product2, $image_product3, $discount, $startDateDiscount, $lastDateDiscount, $datePost)
+	{
+		$data = array(
+			'merk_id' => $merk_id,
+			'category_id' => $category_id,
+			'subcategory_id' => $subcategory_id,
+			'product_name' => $product_name,
+			'product_code' => $product_code,
+			'product_price' => $product_price,
+			'product_desc' => $product_desc,
+			'product_img_1' => $image_product1,
+			'product_img_2' => $image_product2,
+			'product_img_3' => $image_product3,
+			'discount' => $discount,
+			'startDateDiscount' => $startDateDiscount,
+			'lastDateDiscount' => $startDateDiscount,
+			'datePost' => $datePost,
+		);
+		$this->db->trans_start();
+		$this->db->insert('product',$data);
+		$this->db->trans_complete();
+
+		$this->db->select('product_id');
+		$this->db->from('product');
+		$this->db->where('product_name', $product_name);
+		$this->db->where('merk_id', $merk_id);
+		$this->db->where('category_id', $category_id);
+		$this->db->where('subcategory_id', $subcategory_id);
+		$query = $this->db->get();
+
+		$datas= $query->result();
+		return $datas;
+	}
+
+	public function adminGetProduct(){
+		$this->db->select('*');
+		$this->db->from('product');
+		$this->db->join('sub-category','sub-category.subcategory_id = product.subcategory_id');
+		$this->db->join('category','category.category_id = sub-category.category_id');
+		$this->db->join('merk','merk.merk_id = product.merk_id');
+
+		$query = $this->db->get();
+
+		$data= $query->result();
+		return $data;
+	}
+
+	public function adminUpdateProduct($merk_id, $category_id, $subcategory_id, $product_id, $product_name, $product_code, $product_price, $product_desc, $image_product1, $image_product2, $image_product3, $discount, $startDateDiscount, $lastDateDiscount, $datePost){
+		$data = array(
+			'merk_id' => $merk_id,
+			'category_id' => $category_id,
+			'subcategory_id' => $subcategory_id,
+			'product_name' => $product_name,
+			'product_code' => $product_code,
+			'product_price' => $product_price,
+			'product_desc' => $product_desc,
+			'product_img_1' => $image_product1,
+			'product_img_2' => $image_product2,
+			'product_img_3' => $image_product3,
+			'discount' => $discount,
+			'startDateDiscount' => $startDateDiscount,
+			'lastDateDiscount' => $startDateDiscount,
+			'datePost' => $datePost,
+		);
+		$this->db->trans_start();
+		$this->db->where('product_id', $product_id);
+		$this->db->update('product', $data);
+		$this->db->trans_complete();
+	}
+
+	public function adminDeleteProduct($product_id){
+		$this->db->trans_start();
+		$this->db->delete('product', array('product_id'=>$product_id));
+		$this->db->trans_complete();
+	}
+
+	public function adminGetMerkAndCategory(){
+		$data["merk"] = $this->adminGetMerk();
+		$data["category"] = $this->adminGetCategory();
+		return $data;
+	}
+
+	public function adminAddNewTypeProduct($product_id, $type_name, $quota, $description){
+		$data = array(
+			'product_id' => $product_id,
+			'product_type' => $type_name,
+			'quota' => $quota,
+			'description_type' => $description,
+		);
+
+		$this->db->trans_start();
+		$this->db->insert('type_product',$data);
+		$this->db->trans_complete();
+
+		$this->db->select('type_id');
+		$this->db->from('type_product');
+		$this->db->where('product_type', $type_name);
+		$this->db->where('product_id', $product_id);
+		$query = $this->db->get();
+
+		$data= $query->result();
+		return $data;
+
+	}
+
+	public function adminGetTypeProduct(){
+		$this->db->select('*');
+		$this->db->from('type_product');
+		$this->db->join('product', 'product.product_id = type_product.product_id');
+		$query = $this->db->get();
+
+		$data= $query->result();
+		return $data;
+	}
+
+	public function adminUpdateTypeProduct($product_id, $type_id, $type_name, $quota, $description){
+		$data = array(
+			'product_id' => $product_id,
+			'product_type' => $type_name,
+			'quota' => $quota,
+			'description_type' => $description,
+		);
+		$this->db->trans_start();
+		$this->db->where('type_id', $type_id);
+		$this->db->update('type_product', $data);
+		$this->db->trans_complete();
+	}
+
+	public function adminDeleteTypeProduct($product_id, $type_id){
+		$this->db->trans_start();
+		$this->db->delete('type_product', array('product_id'=>$product_id, 'type_id'=>$type_id));
+		$this->db->trans_complete();
+	}
+
+	/*END OF ADMIN PRIVILEGE*/
 
     public function removeProduct($id)
 	{

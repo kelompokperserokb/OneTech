@@ -48,25 +48,24 @@
     <div class="fixed_header">
         <thead>
         <tr>
+			<th>Merk</th>
             <th>Category</th>
-            <th>Merk</th>
+			<th>Sub Category</th>
             <th>Name Product</th>
+			<th>CodeProduct</th>
+			<th>Price</th>
+			<th>Description</th>
             <th>Image1</th>
             <th>Image2</th>
             <th>Image3</th>
-            <th>CodeProduct</th>
-            <th>Price</th>
             <th>Discount</th>
             <th>Start Date</th>
             <th>Last Date</th>
-            <th>Description</th>
             <th>Actions</th>
         </tr>
         </thead>
         <tbody>
-        <tr>
 
-        </tr>
         </tbody>
     </div>
 </table>
@@ -75,7 +74,9 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="<?php echo base_url(); ?>Asset/js/onetech/product/addproduct.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/onetech/product/getData.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/onetech/product/deleteData.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/onetech/product/product_manipulate.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/onetech/product/upload.js"></script>
 </body>
 

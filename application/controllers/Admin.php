@@ -18,6 +18,10 @@ class Admin extends CI_Controller
 
     public function upload(){
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        	if (!isset($_FILES['image-product1']['name']) || !isset($_FILES['image-product2']['name']) || !isset($_FILES['image-product2']['name'])) {
+        		return;
+			}
+
             $currentDir = getcwd();
             $baseURL = base_url();
             $errors = array();
@@ -169,6 +173,16 @@ class Admin extends CI_Controller
         echo $str;
     }
 
+    public function getDependentSubCategory(){
+		$id = $this->input->post('categoryId');
+    	$str ='';
+		$arr = $this->M_ProductDB->adminGetDependentSubCategory($id);
+		foreach ($arr as $row) {
+			$str.=$row->subcategory_name.';'.$row->subcategory_id.'%';
+		}
+		echo $str;
+	}
+
     public function editSubCategory()
     {
         $categoryId = $this->input->post('categoryId');
@@ -187,20 +201,123 @@ class Admin extends CI_Controller
 
     public function addProduct()
     {
-        $category = $this->input->post('category');
-        $merk = $this->input->post('merk');
-        $name_product = $this->input->post('name_product');
+    	$merk_id = $this->input->post('merk_id');
+		$category_id = $this->input->post('category_id');
+		$subcategory_id = $this->input->post('subcategory_id');
+		$product_name = $this->input->post('product_name');
+		$product_code = $this->input->post('product_code');
+		$product_price = $this->input->post('product_price');
+		$product_desc = $this->input->post('product_desc');
         $image_product1 = $this->input->post('image_product1');
         $image_product2 = $this->input->post('image_product2');
         $image_product3 = $this->input->post('image_product3');
-        $code_product = $this->input->post('code_product');
-        $price = $this->input->post('price');
         $discount = $this->input->post('discount');
         $startDateDiscount = $this->input->post('date_start');
         $lastDateDiscount = $this->input->post('date_end');
-        $description = $this->input->post('desc_product');
         $datePost = date('Y-m-d');
 
-        $this->M_ProductDB->adminAddNewProduct($category, $merk, $name_product, $image_product1, $image_product2, $image_product3, $code_product, $price, $discount, $startDateDiscount, $lastDateDiscount, $description, $datePost);
+        echo ($this->M_ProductDB->adminAddNewProduct($merk_id, $category_id, $subcategory_id, $product_name, $product_code, $product_price,
+			$product_desc, $image_product1, $image_product2, $image_product3, $discount, $startDateDiscount, $lastDateDiscount, $datePost))[0]->product_id;
     }
+
+	public function getProduct(){
+		$str ='';
+		$arr = $this->M_ProductDB->adminGetProduct();
+		foreach ($arr as $row) {
+			$str.=$row->merk_id.'##'.$row->category_id.'##'.$row->subcategory_id."##".$row->product_id."##".$row->merk_name.'##'.$row->category_name.'##'.$row->subcategory_name.'##'
+				.$row->product_name.'##'.$row->product_code.'##'.$row->product_price.'##'.$row->product_desc.'##'.$row->product_img_1.'##'.$row->product_img_2.'##'
+				.$row->product_img_3.'##'.$row->discount.'##'.$row->startDateDiscount.'##'.$row->lastDateDiscount.'##'.'%%';
+		}
+		echo $str;
+	}
+
+	public function editProduct()
+	{
+		$merk_id = $this->input->post('merk_id');
+		$category_id = $this->input->post('category_id');
+		$subcategory_id = $this->input->post('subcategory_id');
+		$product_id = $this->input->post('product_id');
+		$product_name = $this->input->post('product_name');
+		$product_code = $this->input->post('product_code');
+		$product_price = $this->input->post('product_price');
+		$product_desc = $this->input->post('product_desc');
+		$image_product1 = $this->input->post('image_product1');
+		$image_product2 = $this->input->post('image_product2');
+		$image_product3 = $this->input->post('image_product3');
+		$discount = $this->input->post('discount');
+		$startDateDiscount = $this->input->post('date_start');
+		$lastDateDiscount = $this->input->post('date_end');
+		$datePost = date('Y-m-d');
+
+		$this->M_ProductDB->adminUpdateProduct($merk_id, $category_id, $subcategory_id, $product_id, $product_name, $product_code, $product_price,
+			$product_desc, $image_product1, $image_product2, $image_product3, $discount, $startDateDiscount, $lastDateDiscount, $datePost);
+	}
+
+	public function  deleteProduct(){
+		$product_id = $this->input->post('product_id');
+
+		$this->M_ProductDB->adminDeleteProduct($product_id);
+	}
+
+	public function getMerkCategory(){
+		$str ='';
+		$arr = $this->M_ProductDB->adminGetMerkAndCategory();
+		foreach ($arr["merk"] as $row) {
+			$str .= '%'.$row->merk_name.';'.$row->merk_id;
+		}
+		$str .= "##";
+		foreach ($arr["category"] as $row) {
+			$str .= $row->category_name.';'.$row->category_id.'%';
+		}
+
+		echo $str;
+	}
+
+	public function addTypeProduct()
+	{
+		$product_id = $this->input->post('product_id');
+		$type_name = $this->input->post('type_name');
+		$quota = $this->input->post('quota');
+		$description = $this->input->post('description');
+
+		echo ($this->M_ProductDB->adminAddNewTypeProduct($product_id, $type_name, $quota, $description))[0]->type_id;
+	}
+
+	public function getTypeProduct(){
+		$str ='';
+		$arr = $this->M_ProductDB->adminGetTypeProduct();
+		foreach ($arr as $row) {
+			$str.=$row->product_id.";".$row->product_name.";".$row->type_id.';'.$row->product_type.';'.$row->quota.';'.$row->description_type.'%';
+		}
+		echo $str;
+	}
+
+	public function getProductList(){
+		$str ='';
+		$arr = $this->M_ProductDB->adminGetProduct();
+		foreach ($arr as $row) {
+			$str.=$row->product_id.'##'.$row->product_name.'%%';
+		}
+		echo $str;
+	}
+
+	public function editTypeProduct()
+	{
+		$product_id = $this->input->post('product_id');
+		$type_id = $this->input->post('type_id');
+		$type_name = $this->input->post('type_name');
+		$quota = $this->input->post('quota');
+		$description = $this->input->post('description');
+
+		$this->M_ProductDB->adminUpdateTypeProduct($product_id, $type_id, $type_name, $quota, $description);
+	}
+
+	public function  deleteTypeProduct(){
+		$product_id = $this->input->post('product_id');
+		$type_id = $this->input->post('type_id');
+
+		$this->M_ProductDB->adminDeleteTypeProduct($product_id, $type_id);
+	}
 }
+
+

@@ -68,6 +68,7 @@ $route['delivery'] = "Direct/logistic";
 
 $route['admin/admin/admin/login'] = "Direct/loginAdmin";
 $route['admin/admin/admin/product'] = "Direct/product";
+$route['admin/admin/admin/typeproduct'] = "Direct/typeproduct";
 $route['admin/admin/admin/merk'] = "Direct/merk";
 $route['admin/admin/admin/category'] = "Direct/category";
 $route['admin/admin/admin/subcategory'] = "Direct/subcategory";

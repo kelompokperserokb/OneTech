@@ -52,3 +52,40 @@ function deleteSubCategory(categoryid, subcategoryid){
         },
     });
 }
+
+function deleteProduct(productid){
+	var url = base_url.toString() + "/OneTech/Admin/deleteProduct";
+	$.ajax({
+		url: url,
+		method: 'post',
+		data: {
+			product_id: productid,
+		},
+
+		beforeSend: function () {
+
+		},
+		success: function () {
+			alert("Remove Category Success");
+		},
+	});
+}
+
+function deleteTypeProduct(product_id, type_id){
+	var url = base_url.toString() + "/OneTech/Admin/deleteTypeProduct";
+	$.ajax({
+		url: url,
+		method: 'post',
+		data: {
+			product_id: product_id,
+			type_id: type_id,
+		},
+
+		beforeSend: function () {
+
+		},
+		success: function () {
+			alert("Remove Category Success");
+		},
+	});
+}

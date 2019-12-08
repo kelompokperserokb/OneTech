@@ -23,6 +23,8 @@ class Direct extends CI_Controller {
 
 	}
 
+	/*ADMIN PRIVILEGE*/
+
 	public function adminHome()
 	{
         $this->load->helper('url');
@@ -42,6 +44,16 @@ class Direct extends CI_Controller {
             $this->load->view('V_admin_addProduct');
         }
     }
+
+	public function typeproduct()
+	{
+		$this->load->helper('url');
+		if (!isset($_SESSION["admin-authorize"])) {
+			redirect(base_url()."admin/admin/admin/login");
+		} else {
+			$this->load->view('V_admin_addTypeProduct');
+		}
+	}
 
     public function merk()
     {
@@ -82,6 +94,9 @@ class Direct extends CI_Controller {
             redirect(base_url()."admin/admin/admin/home");
         }
 	}
+
+	/*END OF ADMIN PRIVILEGE*/
+
 
     public function about(){
         $this->load->helper('url');
