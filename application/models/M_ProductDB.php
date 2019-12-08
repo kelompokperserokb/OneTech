@@ -310,6 +310,42 @@ class M_ProductDB extends CI_Model
 		$data['data_array'] = $query->result();
 		return $data;
 	}
+
+	public function getProductBySubCategory($subcat_id){
+		$this->db->select('*');
+		$this->db->from('product');
+		$this->db->order_by('DatePost', 'DESC');
+		$this->db->where('subcategory_id', "$subcat_id");
+		$query = $this->db->get();
+
+		$data['data_array'] = $query->result();
+		$data['count'] = $query->num_rows();
+		return $data;
+	}
+
+	public function getProductBySubCategoryLimit($subcat_id, $start ,$limit){
+		$this->db->select('*');
+		$this->db->from('product');
+		$this->db->order_by('DatePost', 'DESC');
+		$this->db->where('subcategory_id', $subcat_id);
+		$this->db->limit($limit, $start);
+		$query = $this->db->get();
+
+		$data['limit'] = $limit;
+		$data['data_array'] = $query->result();
+		$data['count'] = $query->num_rows();
+		return $data;
+	}
+
+	public function getSubCategoryName($subcat_id){
+		$this->db->select('subcategory_name');
+		$this->db->from('sub-category');
+		$this->db->where('subcategory_id', $subcat_id);
+		$query = $this->db->get();
+
+		$data['data_array'] = $query->result();
+		return $data;
+	}
 	
 	public function addProduct(){
 

@@ -10,7 +10,7 @@
 <section class="related-product-section">
 	<div class="container">
 		<?php
-		echo '<a href="' . base_url() . 'allproduct/1"><h6> <-- Back to see all product </h6></a>';
+		echo '<a href="' . base_url() . 'allproduct"><h6> <-- Back to see all product </h6></a>';
 		?>
 		<div class="row">
 			<div class="col-md-12">
@@ -43,7 +43,7 @@
 								<?php
 								for ($i = 0; $i < $cat['data']['count']; $i++) {
 									echo ' <li>
-        								<a href="' . base_url() . 'viewproduct/cat/' . $cat['data']['data_array'][$i]->category_id . '/1">
+        								<a href="' . base_url() . 'viewproduct/cat/' . $cat['data']['data_array'][$i]->category_id . '">
         									' . $cat['data']['data_array'][$i]->category_name . '
         								</a>
         							</li> ';
@@ -60,7 +60,7 @@
 								<?php
 								for ($i = 0; $i < $sub['data']['count']; $i++) {
 									echo ' <li>
-        								<a href="' . base_url() . 'viewproduct/cat/' . $catid . '/1/subcat/' . $sub['data']['data_array'][$i]->subcategory_id . '">
+        								<a href="' . base_url() . 'viewproduct/cat/' . $catid . '/subcat/' . $sub['data']['data_array'][$i]->subcategory_id . '">
         									' . $sub['data']['data_array'][$i]->subcategory_name . '
         								</a>
         							</li> ';

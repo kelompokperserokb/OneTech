@@ -131,6 +131,28 @@ class Product extends CI_Controller
 		$this->load->view('footer');
 	}
 
+	public function viewProductBySubCat($category_id, $subcategory_id, $page){
+		$this->load->helper('url');
+		$limit = 12;
+		$start = ($page-1) * $limit;
+
+		$this->load->model("M_ProductDB");
+		$data["cat"] = $this->getCategory();
+		$data["suball"] = $this->getAllSubCategory();
+		$data["sub"] = $this->getSubCategory($category_id);
+		$data["product"] = $this->M_ProductDB->getProductBySubCategoryLimit($subcategory_id, $start, $limit);
+		$data["allprod"] = $this->M_ProductDB->getProductBySubCategory($subcategory_id);
+		$data["catid"] = $category_id;
+		$data['catname'] = $this->getCategoryName($category_id);
+		$data["subcatid"] = $subcategory_id;
+		$data['subcatname'] = $this->getSubCategoryName($category_id);
+		$data['start'] = $start;
+
+		$this->load->view('V_header', $data);
+		$this->load->view('V_viewSubProduct', $data);
+		$this->load->view('footer');
+	}
+
 	public function getProductAll()
 	{
 		$this->load->model("M_ProductDB");
@@ -156,6 +178,13 @@ class Product extends CI_Controller
 	{
 		$this->load->model("M_ProductDB");
 		$datas['data'] = $this->M_ProductDB->getCategoryName($category_id);
+		return $datas;
+	}
+
+	public function getSubCategoryName($subcategory_id)
+	{
+		$this->load->model("M_ProductDB");
+		$datas['data'] = $this->M_ProductDB->getSubCategoryName($subcategory_id);
 		return $datas;
 	}
 

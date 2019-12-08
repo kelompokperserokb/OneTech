@@ -29,7 +29,7 @@
 								<?php
 								for ($i = 0; $i < $cat['data']['count']; $i++) {
 									echo ' <li>
-        								<a href="' . base_url() . 'viewproduct/cat/' . $cat['data']['data_array'][$i]->category_id . '/1">
+        								<a href="' . base_url() . 'viewproduct/cat/' . $cat['data']['data_array'][$i]->category_id . '">
         									' . $cat['data']['data_array'][$i]->category_name . '
         								</a>
         							</li> ';

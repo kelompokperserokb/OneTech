@@ -60,7 +60,10 @@ $route['cart'] = 'Order/cart';
 $route['allproduct'] = 'Product/viewAllProduct/1';
 $route['allproduct/(:num)'] = 'Product/viewAllProduct/$1';
 $route['viewproduct/cat/(:num)'] = "Product/viewProductByCat/$1/1";
-$route['viewproduct/cat/(:num)/(:num)'] = "Product/viewProductByCat/$1/$1";
+$route['viewproduct/cat/(:num)/(:num)'] = "Product/viewProductByCat/$1/$2";
+$route['viewproduct/cat/(:num)/subcat/(:num)'] = "Product/viewProductBySubCat/$1/$2/1";
+$route['viewproduct/cat/(:num)/subcat/(:num)/(:num)'] = "Product/viewProductBySubCat/$1/$2/$3";
+
 $route['product/(:num)'] = "Product/viewProducts/$1";
 $route['producttype/(:num)/(:num)'] = "Product/viewProductsType/$1/$2";
 
