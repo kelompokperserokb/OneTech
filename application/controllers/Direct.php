@@ -85,8 +85,9 @@ class Direct extends CI_Controller {
 
     public function about(){
         $this->load->helper('url');
-        $data["merk"] = $this->getCategory();
-        $this->load->view('V_header',$data["merk"]);
+		$data["cat"] = $this->getCategory();
+		$data["suball"] = $this->getAllSubCategory();
+        $this->load->view('V_header',$data);
         $this->load->view('V_aboutUs');
         $this->load->view('footer');
     }
@@ -94,8 +95,9 @@ class Direct extends CI_Controller {
 	public function howToOrder()
 	{
         $this->load->helper('url');
-        $data["merk"] = $this->getCategory();
-        $this->load->view('V_header',$data["merk"]);
+		$data["cat"] = $this->getCategory();
+		$data["suball"] = $this->getAllSubCategory();
+        $this->load->view('V_header',$data);
         $this->load->view('V_howToOrder');
         $this->load->view('footer');
 	}
@@ -103,8 +105,9 @@ class Direct extends CI_Controller {
 	public function payment()
 	{
         $this->load->helper('url');
-        $data["merk"] = $this->getCategory();
-        $this->load->view('V_header',$data["merk"]);
+		$data["cat"] = $this->getCategory();
+		$data["suball"] = $this->getAllSubCategory();
+        $this->load->view('V_header',$data);
         $this->load->view('V_payment');
         $this->load->view('footer');
 	}
@@ -112,8 +115,9 @@ class Direct extends CI_Controller {
 	public function logistic()
 	{
         $this->load->helper('url');
-        $data["merk"] = $this->getCategory();
-        $this->load->view('V_header',$data["merk"]);
+		$data["cat"] = $this->getCategory();
+		$data["suball"] = $this->getAllSubCategory();
+        $this->load->view('V_header',$data);
         $this->load->view('V_logistic');
         $this->load->view('footer');
 	}
@@ -123,4 +127,11 @@ class Direct extends CI_Controller {
         $datas['data'] = $this->M_ProductDB->getCategory();
         return $datas;
     }
+
+	public function getAllSubCategory()
+	{
+		$this->load->model("M_ProductDB");
+		$datas['data'] = $this->M_ProductDB->getAllSubCategory();
+		return $datas;
+	}
 }

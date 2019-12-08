@@ -8,7 +8,7 @@ class Account extends CI_Controller {
         if (!isset($_SESSION["email"])) {
             $this->load->model("M_ProductDB");
             $data["cat"] = $this->getCategory();
-            $data["sub"] = $this->getSubCategory();
+            $data["suball"] = $this->getSubCategory();
             $this->load->view('V_header', $data);
             $this->load->view('V_login');
             $this->load->view('footer');
@@ -16,6 +16,19 @@ class Account extends CI_Controller {
             redirect(base_url());
         }
     }
+
+	public function toRegister(){
+		$this->load->helper('url');
+		if (!isset($_SESSION["email"])) {
+			$data["cat"] = $this->getCategory();
+			$data["suball"] = $this->getSubCategory();
+			$this->load->view('V_header',$data);
+			$this->load->view('V_registerPage');
+			$this->load->view('footer');
+		} else {
+			redirect(base_url());
+		}
+	}
 
     public function getCategory(){
         $this->load->model("M_ProductDB");
@@ -25,7 +38,7 @@ class Account extends CI_Controller {
 
     public function getSubCategory(){
         $this->load->model("M_ProductDB");
-        $data['data'] = $this->M_ProductDB->getSubCategory();
+        $data['data'] = $this->M_ProductDB->getAllSubCategory();
         return $data;
     }
 
