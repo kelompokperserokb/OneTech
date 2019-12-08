@@ -18,8 +18,7 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
-	{
+	public function index(){
         $this->load->helper('url');
         $this->homepage();
 	}
@@ -52,7 +51,6 @@ class Welcome extends CI_Controller {
 	}
 
     public function register(){
-
         $this->load->helper('url');
         if (!isset($_SESSION["email"])) {
             $data["cat"] = $this->getCategory();
@@ -63,7 +61,6 @@ class Welcome extends CI_Controller {
         } else {
             redirect(base_url());
         }
-
     }
 
     public function footer(){

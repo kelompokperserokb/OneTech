@@ -9,6 +9,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model("M_ProductDB");
+        $this->load->helper('url');
+    }
 
     public function upload(){
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -84,5 +90,117 @@ class Admin extends CI_Controller
             }
 
         }
+    }
+
+
+    public function addMerk()
+    {
+        $merkName = $this->input->post('merkName');
+        echo ($this->M_ProductDB->adminAddNewMerk($merkName))[0]->merk_id;
+    }
+
+    public function getMerk(){
+        $str ='';
+        $arr = $this->M_ProductDB->adminGetMerk();
+        foreach ($arr as $row) {
+            $str .= $row->merk_name.';'.$row->merk_id.'%';
+        }
+        echo $str;
+    }
+
+    public function editMerk()
+    {
+        $merkName = $this->input->post('merkName');
+        $merkId = $this->input->post('merkId');
+
+        $this->M_ProductDB->adminUpdateMerk($merkName,$merkId);
+    }
+
+    public function  deleteMerk(){
+        $merkId = $this->input->post('merkId');
+
+        $this->M_ProductDB->adminDeleteMerk($merkId);
+    }
+
+    public function addCategory()
+    {
+        $categoryName = $this->input->post('categoryName');
+
+        echo ($this->M_ProductDB->adminAddNewCategory($categoryName))[0]->category_id;
+    }
+
+    public function getCategory(){
+        $str= '';
+        $arr = $this->M_ProductDB->adminGetCategory();
+        foreach ($arr as $row) {
+            $str .= $row->category_name.';'.$row->category_id.'%';
+        }
+        echo $str;
+    }
+
+    public function editCategory()
+    {
+        $categoryName = $this->input->post('categoryName');
+        $categoryId = $this->input->post('categoryId');
+
+        $this->M_ProductDB->adminUpdateCategory($categoryName,$categoryId);
+    }
+
+    public function  deleteCategory(){
+        $categoryId = $this->input->post('categoryId');
+
+        $this->M_ProductDB->adminDeleteCategory($categoryId);
+    }
+
+    public function addSubCategory()
+    {
+        $categoryId = $this->input->post('categoryId');
+        $subCategoryName = $this->input->post('subCategoryName');
+
+        echo ($this->M_ProductDB->adminAddNewSubCategory($categoryId,$subCategoryName))[0]->subcategory_id;
+    }
+
+    public function getSubCategory(){
+        $str ='';
+        $arr = $this->M_ProductDB->adminGetSubCategory();
+        foreach ($arr as $row) {
+            $str.=$row->category_name.';'.$row->category_id.';'.$row->subcategory_name.';'.$row->subcategory_id.'%';
+        }
+        echo $str;
+    }
+
+    public function editSubCategory()
+    {
+        $categoryId = $this->input->post('categoryId');
+        $subCategoryId = $this->input->post('subCategoryId');
+        $subCategoryName = $this->input->post('subCategoryName');
+
+        $this->M_ProductDB->adminUpdateSubCategory($categoryId, $subCategoryId, $subCategoryName);
+    }
+
+    public function  deleteSubCategory(){
+        $categoryId = $this->input->post('categoryId');
+        $subcategoryId = $this->input->post('subcategoryId');
+
+        $this->M_ProductDB->adminDeleteSubCategory($categoryId, $subcategoryId);
+    }
+
+    public function addProduct()
+    {
+        $category = $this->input->post('category');
+        $merk = $this->input->post('merk');
+        $name_product = $this->input->post('name_product');
+        $image_product1 = $this->input->post('image_product1');
+        $image_product2 = $this->input->post('image_product2');
+        $image_product3 = $this->input->post('image_product3');
+        $code_product = $this->input->post('code_product');
+        $price = $this->input->post('price');
+        $discount = $this->input->post('discount');
+        $startDateDiscount = $this->input->post('date_start');
+        $lastDateDiscount = $this->input->post('date_end');
+        $description = $this->input->post('desc_product');
+        $datePost = date('Y-m-d');
+
+        $this->M_ProductDB->adminAddNewProduct($category, $merk, $name_product, $image_product1, $image_product2, $image_product3, $code_product, $price, $discount, $startDateDiscount, $lastDateDiscount, $description, $datePost);
     }
 }

@@ -9,24 +9,6 @@ class Product extends CI_Controller {
 		$this->load->view('V_admin_addProduct');
 	}
 
-	public function addProduct()
-	{
-		$name = $this->input->post('name');
-		$type = $this->input->post('type');
-		$quota = $this->input->post('quota');
-		$price = $this->input->post('price');
-		$discount = 0;
-		$startDateDiscount = null;
-		$lastDateDiscount = null;
-		$description = $this->input->post('description');
-		$image = $this->input->post('image');
-		$datePost = date();
-
-		$this->load->model("M_ProductDB");
-		$this->M_ProductDB->registProduct($name, $type, $quota, $price, $discount, $startDateDiscount, $lastDateDiscount, $description, $image, $datePost);
-		$this->load->view();
-	}
-
 	public function deleteProduct($id) {
 		$this->load->helper('url');
 		$this->load->model("M_ProductDB");

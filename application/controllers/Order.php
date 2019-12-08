@@ -56,9 +56,9 @@ class Order extends CI_Controller {
 
 	}
 
-	public function doOrder()
+	public function order()
 	{
-
+        $this->load->view('V_checkout');
 	}
 
 	public function kirimBukti()

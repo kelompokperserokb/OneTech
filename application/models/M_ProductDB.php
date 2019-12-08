@@ -1,8 +1,7 @@
- <?php
-
+<?php
 class M_ProductDB extends CI_Model
 {
-    public function registProduct($name, $type, $quota, $price, $disc, $startDate, $lastDate, $desc, $image, $date)
+    public function adminAddNewProduct($name, $type, $quota, $price, $disc, $startDate, $lastDate, $desc, $image, $date)
     {
 		$data = array(
 			'productName' => $name,
@@ -20,6 +19,137 @@ class M_ProductDB extends CI_Model
 		$this->db->insert('product',$data);
 		$this->db->trans_complete();
     }
+
+    public function adminAddNewMerk($name){
+		$data = array(
+			'merk_name' => $name,
+		);
+		$this->db->trans_start();
+		$this->db->insert('merk',$data);
+		$this->db->trans_complete();
+
+		$this->db->select('merk_id');
+		$this->db->from('merk');
+		$this->db->where('merk_name', $name);
+		$query = $this->db->get();
+
+		$data= $query->result();
+		return $data;
+	}
+
+	public function adminGetMerk(){
+		$this->db->select('*');
+		$this->db->from('merk');
+		$query = $this->db->get();
+
+		$data= $query->result();
+		return $data;
+	}
+
+	public function adminUpdateMerk($name, $id){
+		$data = array(
+			'merk_name' => $name,
+		);
+		$this->db->trans_start();
+		$this->db->where('merk_id', $id);
+		$this->db->update('merk', $data);
+		$this->db->trans_complete();
+	}
+
+	public function adminDeleteMerk($id){
+		$this->db->trans_start();
+		$this->db->delete('merk', array('merk_id'=>$id));
+		$this->db->trans_complete();
+	}
+
+	public function adminAddNewCategory($name){
+		$data = array(
+			'category_name' => $name,
+		);
+		$this->db->trans_start();
+		$this->db->insert('category',$data);
+		$this->db->trans_complete();
+
+		$this->db->select('category_id');
+		$this->db->from('category');
+		$this->db->where('category_name', $name);
+		$query = $this->db->get();
+
+		$data= $query->result();
+		return $data;
+	}
+
+	public function adminGetCategory(){
+		$this->db->select('*');
+		$this->db->from('category');
+		$query = $this->db->get();
+
+		$data= $query->result();
+		return $data;
+	}
+
+	public function adminUpdateCategory($name, $id){
+		$data = array(
+			'category_name' => $name,
+		);
+		$this->db->trans_start();
+		$this->db->where('category_id', $id);
+		$this->db->update('category', $data);
+		$this->db->trans_complete();
+	}
+
+	public function adminDeleteCategory($id){
+		$this->db->trans_start();
+		$this->db->delete('category', array('category_id'=>$id));
+		$this->db->trans_complete();
+	}
+
+	public function adminAddNewSubCategory($categoryid, $subcategoryname){
+        $data = array(
+            'category_id' => $categoryid,
+            'subcategory_name' => $subcategoryname,
+        );
+        $this->db->trans_start();
+        $this->db->insert('sub-category',$data);
+        $this->db->trans_complete();
+
+        $this->db->select('subcategory_id');
+        $this->db->from('sub-category');
+        $this->db->where('subcategory_name', $subcategoryname);
+        $this->db->where('category_id', $categoryid);
+        $query = $this->db->get();
+
+        $data= $query->result();
+        return $data;
+
+	}
+
+	public function adminGetSubCategory(){
+		$this->db->select('*');
+		$this->db->from('sub-category');
+		$this->db->join('category','category.category_id=sub-category.category_id');
+		$query = $this->db->get();
+
+		$data= $query->result();
+		return $data;
+	}
+
+	public function adminUpdateSubCategory($categoryid, $subcategoryid, $subcategoryname){
+        $data = array(
+            'category_id' => $categoryid,
+            'subcategory_name' => $subcategoryname,
+        );
+        $this->db->trans_start();
+        $this->db->where('subcategory_id', $subcategoryid);
+        $this->db->update('sub-category', $data);
+        $this->db->trans_complete();
+	}
+
+	public function adminDeleteSubCategory($categoryId, $subcategoryId){
+		$this->db->trans_start();
+		$this->db->delete('sub-category', array('category_id'=>$categoryId, 'subcategory_id'=>$subcategoryId));
+		$this->db->trans_complete();
+	}
 
     public function removeProduct($id)
 	{
@@ -133,6 +263,8 @@ class M_ProductDB extends CI_Model
 		return $data;
 	}
 
-}
+	public function addProduct(){
 
+	}
+}
 ?>

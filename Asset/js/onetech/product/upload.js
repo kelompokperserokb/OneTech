@@ -22,7 +22,7 @@ function upload() {
         processData: false,
         contentType: false,
         beforeSend: function () {
-            alert("HHHH");
+
         },
         success: function (response) {
             if (response.length != 0) {
