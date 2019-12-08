@@ -50,19 +50,6 @@ class Welcome extends CI_Controller {
 		return $data;
 	}
 
-    public function register(){
-        $this->load->helper('url');
-        if (!isset($_SESSION["email"])) {
-            $data["cat"] = $this->getCategory();
-            $data["sub"] = $this->getSubCategory();
-            $this->load->view('V_header',$data);
-            $this->load->view('V_registerPage');
-            $this->load->view('footer');
-        } else {
-            redirect(base_url());
-        }
-    }
-
     public function footer(){
         $this->load->view('footer');
     }

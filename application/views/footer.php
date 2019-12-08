@@ -19,9 +19,7 @@
                             <p>
                                 OneTech hadir dengan konsep One Stop Online Shopping untuk menjawab kebutuhan masyarakat
                                 modern akan kemudahan berbelanja, kapanpun dan dimanapun Anda menginginkannya baik
-                                retail maupun grosir.OneTech hadir dengan konsep One Stop Online Shopping untuk menjawab
-                                kebutuhan masyarakat modern akan kemudahan berbelanja, kapanpun dan dimanapun Anda
-                                menginginkannya baik retail maupun grosir.
+                                retail maupun grosir.
                             </p>
                         </div>
                     </div>
@@ -60,16 +58,10 @@
 							<div class="footer-icons">
 								<ul>
 									<li>
-										<a href="#"><i class="fa fa-facebook"></i></a>
-									</li>
-									<li>
-										<a href="#"><i class="fa fa-twitter"></i></a>
+										<a href="#"><i class="fa fa-pinterest"></i></a>
 									</li>
 									<li>
 										<a href="#"><i class="fa fa-google"></i></a>
-									</li>
-									<li>
-										<a href="#"><i class="fa fa-pinterest"></i></a>
 									</li>
 								</ul>
 							</div>

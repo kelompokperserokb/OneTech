@@ -34,8 +34,8 @@
 			</div>
 		</div>
 		<div class="row text-center ab_contents">
-			<div class="col-md-2 col-sm-2 col-xs-12"></div>
-			<div class="col-md-8 col-sm-8 col-xs-12">
+			<div class="col-md-2 col-sm-1 col-xs-12"></div>
+			<div class="col-md-8 col-sm-10 col-xs-12">
 				<div class="row">
 					<div class="about-move">
 						<div class="ab_details">
@@ -69,11 +69,13 @@
 								<h4><a href="http://minindo.co.id">About PT. Minindo Artha Gemilang</a></h4>
 								<p>
 									Dengan pengembangan substansial dan kebutuhan berkelanjutan untuk produk berkualitas
-									tinggi dan layanan penambangan lainnya; <a href="http://minindo.co.id">PT. Minindo Artha Gemilang</a> didirikan
+									tinggi dan layanan penambangan lainnya; <a href="http://minindo.co.id">PT. Minindo
+										Artha Gemilang</a> didirikan
 									untuk menyediakan dan melayani masyarakat penambangan Indonesia secara lebih baik.
 								</p>
 								<p>
-									<a href="http://minindo.co.id">PT. Minindo Artha Gemilang</a> sepenuhnya dimiliki dan dioperasikan oleh orang
+									<a href="http://minindo.co.id">PT. Minindo Artha Gemilang</a> sepenuhnya dimiliki
+									dan dioperasikan oleh orang
 									Indonesia. Tujuan kami adalah untuk menyediakan komponen dan komponen aftermarket
 									berkualitas tinggi. Ini akan memberikan pelanggan kami keunggulan kompetitif dengan
 									menyediakan mereka dengan lebih hemat biaya bagian alternatif, waktu pengiriman
@@ -118,11 +120,11 @@
 									<div class="mapouter">
 										<div class="gmap_canvas">
 											<iframe width="100%" height="500" id="gmap_canvas"
-													src="https://maps.google.com/maps?q=minindo%20artha%20gemilang&t=&z=15&ie=UTF8&iwloc=&output=embed"
+													src="https://maps.google.com/maps?q=Perkantoran%20Plaza%20Pasifik&t=&z=13&ie=UTF8&iwloc=&output=embed"
 													frameborder="0" scrolling="no" marginheight="0"
 													marginwidth="0"></iframe>
-											<a href="https://www.whatismyip-address.com"></a>
-										</div>
+											<a href="https://www.embedgooglemap.net/blog/nordvpn-coupon-code/">nordvpn
+												coupons</a></div>
 										<style>.mapouter {
 												position: relative;
 												text-align: right;
@@ -134,7 +136,7 @@
 												overflow: hidden;
 												background: none !important;
 												height: 500px;
-												width: 650px;
+												width: 100%;
 											}</style>
 									</div>
 								</div>
@@ -143,7 +145,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-2 col-sm-2 col-xs-12"></div>
+			<div class="col-md-2 col-sm-1 col-xs-12"></div>
 		</div>
 	</div>
 </div>
