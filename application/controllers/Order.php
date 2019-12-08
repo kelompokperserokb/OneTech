@@ -10,16 +10,31 @@ class Order extends CI_Controller {
         $this->load->helper('url');
 	}
 
-	public function addToCart()
+	public function addToCart($type_id, $quantity)
 	{
-
+        if (!isset($_SESSION["email"])) {
+            redirect(base_url('login'));
+        } else {
+            $data = array(
+                'email' => $_SESSION["email"],
+                'type_id' => $type_id,
+                'quantity' => $quantity,
+            );
+            $this->load->model("M_OrderDB");
+            $this->M_OrderDB->addCart($data);
+            redirect(base_url('cart'));
+        }
 	}
 
 	public function cart(){
-        $this->load->model("M_OrderDB");
-        $data['data'] = $this->M_OrderDB->getCart();
-        $this->load->view('cart', $data);
-        $this->load->view('footer');
+	    if (isset($_SESSION["email"])) {
+            $this->load->model("M_OrderDB");
+            $data['data'] = $this->M_OrderDB->getCart();
+            $this->load->view('V_cart', $data);
+            $this->load->view('footer');
+        } else {
+            redirect(base_url('login'));
+        }
     }
 
     public function updateCart(){
@@ -41,9 +56,9 @@ class Order extends CI_Controller {
 
 	}
 
-	public function doOrder()
+	public function order()
 	{
-
+        $this->load->view('V_checkout');
 	}
 
 	public function kirimBukti()

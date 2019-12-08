@@ -25,8 +25,8 @@
                             <input type="hidden" value="personal" id="account_type_p">
                             <div class="col-md-12">
                                 <input type="text" placeholder="Email" id="email_p" required>
-                                <input type="text" placeholder="Password" id="password_p" required>
-                                <input type="text" placeholder="Password Confirmation" id="password_confirmation_p" required>
+                                <input type="password" placeholder="Password" id="password_p" required>
+                                <input type="password" placeholder="Password Confirmation" id="password_confirmation_p" required>
                                 <input type="text" placeholder="First Name" id="first_name_p" required>
                                 <input type="text" placeholder="Last Name" id="last_name_p" required>
                                 <input type="text" placeholder="Address" id="address_p" required>
@@ -52,8 +52,8 @@
                             <input type="hidden" value="business" id="account_type_b">
                             <div class="col-md-12">
                                 <input type="text" placeholder="Email" id="email_b" required>
-                                <input type="text" placeholder="Password" id="password_b" required>
-                                <input type="text" placeholder="Password Confirmation" id="password_confirmation_b" required>
+                                <input type="password" placeholder="Password" id="password_b" required>
+                                <input type="password" placeholder="Password Confirmation" id="password_confirmation_b" required>
                                 <input type="text" placeholder="First Name" id="first_name_b" required>
                                 <input type="text" placeholder="Last Name" id="last_name_b" required>
                                 <input type="text" placeholder="Address" id="address_b" required>

@@ -65,6 +65,7 @@
                             <tbody id="table-cart">
                                 <?php
                                     for ($i = 0; $i < $data['count'] ; $i++ ) {
+                                        $total = $data['data_array'][$i]->quantity * $data['data_array'][$i]->product_price;
                                         echo '<tr>
                                             <td class="product-col">
                                                 <img src="' . base_url() . 'Asset/img/tandatanya.jpg" alt="">
@@ -86,7 +87,7 @@
                                                 <h4>' . $data['data_array'][$i]->product_type . '</h4>
                                             </td>
                                             <td class="total-col" id="product-price">
-                                                <h4 class="price">Rp. ' . number_format($data['data_array'][$i]->product_price, 2, ",", ".") . '</h4>
+                                                <h4 class="price">Rp. ' . number_format($total, 2, ",", ".") . '</h4>
                                                 <input class="price-hidden" type="hidden" value="' . $data['data_array'][$i]->product_price . '">
                                             </td>
                                         </tr>';

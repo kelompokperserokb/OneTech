@@ -26,18 +26,56 @@ class Direct extends CI_Controller {
 	public function adminHome()
 	{
         $this->load->helper('url');
-        session_start();
         if (!isset($_SESSION["admin-authorize"])) {
             redirect(base_url()."admin/admin/admin/login");
         } else {
-            $this->load->view('V_admin_mainMenu');
+            $this->load->view('V_admin_main');
         }
 	}
+
+    public function product()
+    {
+        $this->load->helper('url');
+        if (!isset($_SESSION["admin-authorize"])) {
+            redirect(base_url()."admin/admin/admin/login");
+        } else {
+            $this->load->view('V_admin_addProduct');
+        }
+    }
+
+    public function merk()
+    {
+        $this->load->helper('url');
+        if (!isset($_SESSION["admin-authorize"])) {
+            redirect(base_url()."admin/admin/admin/login");
+        } else {
+            $this->load->view('V_admin_addMerk');
+        }
+    }
+
+    public function category()
+    {
+        $this->load->helper('url');
+        if (!isset($_SESSION["admin-authorize"])) {
+            redirect(base_url()."admin/admin/admin/login");
+        } else {
+            $this->load->view('V_admin_addCategory');
+        }
+    }
+
+    public function subcategory()
+    {
+        $this->load->helper('url');
+        if (!isset($_SESSION["admin-authorize"])) {
+            redirect(base_url()."admin/admin/admin/login");
+        } else {
+            $this->load->view('V_admin_addSubCategory');
+        }
+    }
 
 	public function loginAdmin()
 	{
         $this->load->helper('url');
-        session_start();
         if (!isset($_SESSION["admin-authorize"])) {
             $this->load->view('V_admin_loginAdmin');
         } else {

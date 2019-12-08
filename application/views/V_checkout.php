@@ -8,22 +8,22 @@
     <meta name="keywords" content="One Tech">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Favicon -->
-    <link href="img/favicon.png" rel="shortcut icon" />
+    <link href="<?php echo base_url(); ?>img/favicon.png" rel="shortcut icon" />
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
 
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/font-awesome.min.css" />
-    <link rel="stylesheet" href="css/flaticon.css" />
-    <link rel="stylesheet" href="css/slicknav.min.css" />
-    <link rel="stylesheet" href="css/jquery-ui.min.css" />
-    <link rel="stylesheet" href="css/owl.carousel.min.css" />
-    <link rel="stylesheet" href="css/animate.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/style1.css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/flaticon.css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/slicknav.min.css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/jquery-ui.min.css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/animate.css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/style.css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/style1.css" />
 
 
     <!--[if lt IE 9]>
@@ -98,10 +98,10 @@
                     <div class="cf-title">Payment</div>
                     <ul class="payment-list">
                         <li>Paypal
-                            <a href="#"><img src="img/paypal.png" alt=""></a>
+                            <a href="#"><img src="<?php echo base_url(); ?>Asset/img/paypal.png" alt=""></a>
                         </li>
                         <li>Credit / Debit card
-                            <a href="#"><img src="img/mastercart.png" alt=""></a>
+                            <a href="#"><img src="<?php echo base_url(); ?>Asset/img/mastercart.png" alt=""></a>
                         </li>
                         <li>Pay when you get the package</li>
                     </ul>
@@ -113,12 +113,12 @@
                     <h3>Your Cart</h3>
                     <ul class="product-list">
                         <li>
-                            <div class="pl-thumb"><img src="img/tandatanya.jpg" alt=""></div>
+                            <div class="pl-thumb"><img src="<?php echo base_url(); ?>Asset/img/tandatanya.jpg" alt=""></div>
                             <h6>Animal Print Dress</h6>
                             <p>$45.90</p>
                         </li>
                         <li>
-                            <div class="pl-thumb"><img src="img/tandatanya.jpg" alt=""></div>
+                            <div class="pl-thumb"><img src="<?php echo base_url(); ?>Asset/img/tandatanya.jpg" alt=""></div>
                             <h6>Animal Print Dress</h6>
                             <p>$45.90</p>
                         </li>
@@ -236,15 +236,15 @@
 
 
 <!--====== Javascripts & Jquery ======-->
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.slicknav.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.nicescroll.min.js"></script>
-<script src="js/jquery.zoom.min.js"></script>
-<script src="js/jquery-ui.min.js"></script>
-<script src="js/main.js"></script>
-<script src="js/tabs.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/jquery-3.2.1.min.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/jquery.slicknav.min.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/owl.carousel.min.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/jquery.nicescroll.min.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/jquery.zoom.min.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/jquery-ui.min.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/main.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/tabs.js"></script>
 
 
 

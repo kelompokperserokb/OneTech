@@ -18,8 +18,7 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
-	{
+	public function index(){
         $this->load->helper('url');
         $this->homepage();
 	}
@@ -52,17 +51,16 @@ class Welcome extends CI_Controller {
 	}
 
     public function register(){
-
         $this->load->helper('url');
         if (!isset($_SESSION["email"])) {
-            $data["merk"] = $this->getCategory();
-            $this->load->view('V_header',$data["merk"]);
+            $data["cat"] = $this->getCategory();
+            $data["sub"] = $this->getSubCategory();
+            $this->load->view('V_header',$data);
             $this->load->view('V_registerPage');
             $this->load->view('footer');
         } else {
             redirect(base_url());
         }
-
     }
 
     public function footer(){

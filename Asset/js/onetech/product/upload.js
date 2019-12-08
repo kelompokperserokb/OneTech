@@ -1,28 +1,38 @@
-$(document).ready(function() {
-    $(document).on("click", ".add", function() {
-        alert("aaa");
-/*        var username = document.getElementById('image-product1').files;
-        var password = document.getElementById('password').value;*/
-        var image1 = document.getElementById("#image-product1").files[0];
-        var image2 = document.getElementById("#image-product2").files[0];
-        var image3 = document.getElementById("#image-product3").files[0];
+var base_url = window.location.origin;
+function upload() {
+    /*        var username = document.getElementById('image-product1').files;
+            var password = document.getElementById('password').value;*/
 
-        var formData = new FormData();
-        formData.append('image-product1', image1);
-        formData.append('image-product2', image2);
-        formData.append('image-product3', image3);
+    var image1 = $("#image-product1").prop('files')[0];
+    var image2 = $("#image-product2").prop('files')[0];
+    var image3 = $("#image-product3").prop('files')[0];
 
-        var url = base_url.toString() + "/OneTech/Admin/upload";
-        $.ajax({
-            url: url,
-            method: 'post',
-            data : formData,
-            beforeSend: function () {
-            },
-            success: function (response) {
-                alert("a");
-            },
-        });
+
+    var formData = new FormData();
+    formData.append('image-product1', image1);
+    formData.append('image-product2', image2);
+    formData.append('image-product3', image3);
+
+    var url = base_url.toString() + "/OneTech/Admin/upload";
+    alert(url);
+    $.ajax({
+        url: url,
+        method: 'post',
+        data: formData,
+        processData: false,
+        contentType: false,
+        beforeSend: function () {
+
+        },
+        success: function (response) {
+            if (response.length != 0) {
+                var data = response.split(";");
+                $("#preview-image1").attr("src", data[0]);
+                $("#preview-image2").attr("src", data[1]);
+                $("#preview-image3").attr("src", data[2]);
+            } else {
+                alert('file not uploaded');
+            }
+        },
     });
-});
-
+}

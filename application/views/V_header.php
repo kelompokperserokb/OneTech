@@ -79,7 +79,7 @@
 						<!--<button onclick=document.getElementById('id01').style.display='block' style='width:auto;'>Login</button>-->
 						<div class="h_up-item">
 							<i class="fa fa-shopping-cart"></i>
-							<a href="#">My Cart</a>
+							<a href="<?php echo base_url('cart') ?>">My Cart</a>
 						</div>
 					</div>
 				</div>
