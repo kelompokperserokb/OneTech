@@ -124,7 +124,6 @@ class Product extends CI_Controller
 		$data["allprod"] = $this->M_ProductDB->getProductByCategory($category_id);
 		$data["catid"] = $category_id;
 		$data['catname'] = $this->getCategoryName($category_id);
-		$data['start'] = $start;
 
 		$this->load->view('V_header', $data);
 		$this->load->view('V_viewProduct', $data);
@@ -146,10 +145,25 @@ class Product extends CI_Controller
 		$data['catname'] = $this->getCategoryName($category_id);
 		$data["subcatid"] = $subcategory_id;
 		$data['subcatname'] = $this->getSubCategoryName($category_id);
-		$data['start'] = $start;
 
 		$this->load->view('V_header', $data);
 		$this->load->view('V_viewSubProduct', $data);
+		$this->load->view('footer');
+	}
+
+	public function viewSearched($query, $page) {
+		$this->load->helper('url');
+		$limit = 12;
+		$start = ($page-1) * $limit;
+
+		$this->load->model("M_ProductDB");
+		$data["cat"] = $this->getCategory();
+		$data["suball"] = $this->getAllSubCategory();
+		$data["product"] = $this->M_ProductDB->getProductBySubCategoryLimit($query, $start, $limit);
+		$data["allprod"] = $this->M_ProductDB->getProductBySubCategory($query);
+
+		$this->load->view('V_header', $data);
+		$this->load->view('V_viewSearchProduct', $data);
 		$this->load->view('footer');
 	}
 

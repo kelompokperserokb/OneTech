@@ -19,8 +19,8 @@
 					<li data-target="#myCarousel" data-slide-to="1"></li>
 					<li data-target="#myCarousel" data-slide-to="2"></li>
 					<li data-target="#myCarousel" data-slide-to="3"></li>
-				</ol><!-- carousel-indicators Finish -->
-				<div class="carousel-inner"><!-- carousel-inner Begin -->
+				</ol>
+				<div class="carousel-inner">
 					<div class="item active">
 						<img src="<?php echo base_url(); ?>Asset/img/slider/slider-1.jpg" alt="Slider Image 1">
 					</div>
@@ -33,19 +33,19 @@
 					<div class="item">
 						<img src="<?php echo base_url(); ?>Asset/img/slider/slider-3.jpg" alt="Slider Image 4">
 					</div>
-				</div><!-- carousel-inner Finish -->
-				<a href="#myCarousel" class="left carousel-control" data-slide="prev"><!-- left carousel-control Begin -->
+				</div>
+				<a href="#myCarousel" class="left carousel-control" data-slide="prev">
 					<span class="glyphicon glyphicon-chevron-left"></span>
 					<span class="sr-only">Previous</span>
-				</a><!-- left carousel-control Finish -->
-				<a href="#myCarousel" class="right carousel-control" data-slide="next"><!-- left carousel-control Begin -->
+				</a>
+				<a href="#myCarousel" class="right carousel-control" data-slide="next">
 					<span class="glyphicon glyphicon-chevron-right"></span>
 					<span class="sr-only">Next</span>
-				</a><!-- left carousel-control Finish -->
-			</div><!-- carousel slide Finish -->
-		</div><!-- col-md-12 Finish -->
-	</div><!-- container Finish -->
-    <!-- End Slider Area -->
+				</a>
+			</div>
+		</div>
+	</div>
+
 
 
     <!-- Product filter section -->
@@ -79,7 +79,8 @@
 
             </div>
             <div class="text-center pt-5">
-                <button class="site-btn sb-line sb-dark">LOAD MORE</button>
+				<?php echo '<a class = "loadall" href="' . base_url() . 'allproduct"></a>'; ?>
+                <button class="site-btn sb-line sb-dark loadall">LOAD MORE</button>
             </div>
         </div>
     </section>

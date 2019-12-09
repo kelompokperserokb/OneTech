@@ -58,10 +58,10 @@
 							<div class="footer-icons">
 								<ul>
 									<li>
-										<a href="#"><i class="fa fa-pinterest"></i></a>
+										<a href="http://tokopedia.com"><i class="fa fa-pinterest"></i></a>
 									</li>
 									<li>
-										<a href="#"><i class="fa fa-google"></i></a>
+										<a href="http://shopee.com"><i class="fa fa-google"></i></a>
 									</li>
 								</ul>
 							</div>
