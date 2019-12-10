@@ -430,6 +430,32 @@ class M_ProductDB extends CI_Model
 		return $data;
 	}
 
+	public function getProductBySearch($q){
+		$this->db->select('*');
+		$this->db->from('product');
+		$this->db->order_by('DatePost', 'DESC');
+		$this->db->like('category_name', "$q");
+		$query = $this->db->get();
+
+		$data['data_array'] = $query->result();
+		$data['count'] = $query->num_rows();
+		return $data;
+	}
+
+	public function getProductBySearchLimit($q, $start ,$limit){
+		$this->db->select('*');
+		$this->db->from('product');
+		$this->db->order_by('DatePost', 'DESC');
+		$this->db->like('category_name', $q);
+		$this->db->limit($limit, $start);
+		$query = $this->db->get();
+
+		$data['limit'] = $limit;
+		$data['data_array'] = $query->result();
+		$data['count'] = $query->num_rows();
+		return $data;
+	}
+
 	public function getCategoryName($cat_id){
 		$this->db->select('category_name');
 		$this->db->from('category');

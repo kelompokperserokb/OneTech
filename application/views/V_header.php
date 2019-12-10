@@ -94,11 +94,11 @@
 
 				for ($i = 0; $i < $cat['data']["count"]; $i++) {
 					$str2 = "";
-					$str = '<li><a href="#" id="' . $cat['data']["data_array"][$i]->category_id . '" >' . $cat['data']["data_array"][$i]->category_name . '</a>
+					$str = '<li><a href="' . base_url() . 'viewproduct/cat/' . $cat['data']['data_array'][$i]->category_id . '" id="' . $cat['data']["data_array"][$i]->category_id . '" >' . $cat['data']["data_array"][$i]->category_name . '</a>
 					<ul class="h_sub-menu">';
 					for ($j = 0; $j < $suball['data']["count"]; $j++) {
 						if ($cat['data']["data_array"][$i]->category_id == $suball['data']["data_array"][$j]->category_id) {
-							$str2 .= '<li><a href="#" id="' . $suball['data']["data_array"][$j]->subcategory_id . '" >' . $suball['data']["data_array"][$j]->subcategory_name . '</a></li>';
+							$str2 .= '<li><a href="' . base_url() . 'viewproduct/cat/' . $cat['data']['data_array'][$i]->category_id . '/subcat/' . $suball['data']['data_array'][$j]->subcategory_id . '" id="' . $suball['data']["data_array"][$j]->subcategory_id . '" >' . $suball['data']["data_array"][$j]->subcategory_name . '</a></li>';
 						}
 					}
 					echo $str . $str2 .
