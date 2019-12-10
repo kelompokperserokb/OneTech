@@ -46,27 +46,27 @@ $(document).ready(function() {
 			'<input type="hidden" class="form-control" name="category-id" id="category-id" value="null">' +
 			'<input type="hidden" class="form-control" name="subcategory-id" id="subcategory-id" value="null">' +
 			'<input type="hidden" class="form-control" name="product-id" id="product-id" value="null">' +
-			'<td><input type="text" class="form-control" name="merk-name" id="merk-name" list="listmerk" value="">' +
+			'<td><input autocomplete="off"  type="text" class="form-control" name="merk-name" id="merk-name" list="listmerk" value="">' +
 			'<datalist id="listmerk" class="list-category">' +
 			listMerk +
 			'</datalist></td>' +
-			'<td><input type="text" class="form-control" name="category-name" id="category-name" onchange="changeValueCategoryName()" list="listcategory" value="">' +
+			'<td><input autocomplete="off" type="text" class="form-control" name="category-name" id="category-name" onchange="changeValueCategoryName()" list="listcategory" value="">' +
 			'<datalist id="listcategory" class="list-category">' +
 			listCategory +
 			'</datalist></td>' +
-			'<td><input readonly type="text" class="form-control" name="subcategory-name" id="subcategory-name" list="listsubcategory" value="">' +
+			'<td><input autocomplete="off" readonly type="text" class="form-control" name="subcategory-name" id="subcategory-name" list="listsubcategory" value="">' +
 			'<datalist id="listsubcategory" class="list-category">' +
 			'</datalist></td>' +
-			'<td><input type="text" class="form-control" name="product-name" id="product-name" value=""></td>' +
-			'<td><input type="text" class="form-control" name="product-code" id="product-code" value=""></td>' +
-			'<td><input type="number" class="form-control" name="product-price" id="product-price" value="0"></td>' +
-			'<td><input type="text" class="form-control" name="desc-product" id="desc-product" value=""></td>' +
-			'<td><input type="file" accept="image/jpeg" class="form-control" name="image-product1" id="image-product1" value=""><img id="preview-image1" src=""></td>' +
-			'<td><input type="file" accept="image/jpeg" class="form-control" name="image-product2" id="image-product2" value=""><img id="preview-image2" src=""></td>' +
-			'<td><input type="file" accept="image/jpeg" class="form-control" name="image-product3" id="image-product3" value=""><img id="preview-image3" src=""></td>' +
-			'<td><input type="number" class="form-control" name="discount" id="discount" value="0"></td>' +
-			'<td><input type="date" id="start" name="date-start" value="2019-07-22" min="2019-01-01" max="2030-12-31" id="date-start" value=""></td>' +
-			'<td><input type="date" id="start" name="date-end" value="2019-07-22" min="2019-01-01" max="2030-12-31" id="date-end" value=""></td>' +
+			'<td><input autocomplete="off" type="text" class="form-control" name="product-name" id="product-name" value=""></td>' +
+			'<td><input autocomplete="off" type="text" class="form-control" name="product-code" id="product-code" value=""></td>' +
+			'<td><input autocomplete="off" type="number" class="form-control" name="product-price" id="product-price" value="0"></td>' +
+			'<td><input autocomplete="off" type="text" class="form-control" name="desc-product" id="desc-product" value=""></td>' +
+			'<td><input autocomplete="off" type="file" accept="image/jpeg" class="form-control" name="image-product1" id="image-product1" value=""><img id="preview-image1" src=""></td>' +
+			'<td><input autocomplete="off" type="file" accept="image/jpeg" class="form-control" name="image-product2" id="image-product2" value=""><img id="preview-image2" src=""></td>' +
+			'<td><input autocomplete="off" type="file" accept="image/jpeg" class="form-control" name="image-product3" id="image-product3" value=""><img id="preview-image3" src=""></td>' +
+			'<td><input autocomplete="off" type="number" class="form-control" name="discount" id="discount" value="0"></td>' +
+			'<td><input autocomplete="off" type="date" id="start" name="date-start" value="2019-07-22" min="2019-01-01" max="2030-12-31" id="date-start" value=""></td>' +
+			'<td><input autocomplete="off" type="date" id="start" name="date-end" value="2019-07-22" min="2019-01-01" max="2030-12-31" id="date-end" value=""></td>' +
 			'<td>' + actions + '</td>' +
 			'</tr>';
 		$("table").append(row);
@@ -134,14 +134,12 @@ $(document).ready(function() {
 					},
 					success: function (response) {
 						if (response.length != 0) {
-							console.log(response);
 							var data = response.split(";");
 							product_id = input[3].value;
 
 							image_product1 = data[0];
 							image_product2 = data[1];
 							image_product3 = data[2];
-
 
 							var url = base_url.toString() + "/OneTech/Admin/editProduct";
 							$.ajax({
@@ -242,10 +240,6 @@ $(document).ready(function() {
 				var image2 = $("#image-product2").prop('files')[0];
 				var image3 = $("#image-product3").prop('files')[0];
 
-				var image_product1 = $('#preview-image1').attr('src');
-				var image_product2 = $('#preview-image2').attr('src');
-				var image_product3 = $('#preview-image3').attr('src');
-
 				var formData = new FormData();
 				formData.append('image-product1', image1);
 				formData.append('image-product2', image2);
@@ -262,11 +256,16 @@ $(document).ready(function() {
 
 					},
 					success: function (response) {
+						console.log(response);
 						if (response.length != 0) {
 							var data = response.split(";");
 							$("#preview-image1").attr("src", data[0]);
 							$("#preview-image2").attr("src", data[1]);
 							$("#preview-image3").attr("src", data[2]);
+
+							var image_product1 = $('#preview-image1').attr('src');
+							var image_product2 = $('#preview-image2').attr('src');
+							var image_product3 = $('#preview-image3').attr('src');
 
 							var url = base_url.toString() + "/OneTech/Admin/addProduct";
 							$.ajax({
@@ -363,30 +362,30 @@ $(document).ready(function() {
 	});
 
 	function printEditProduct(column, listOptionMerk, listOptionCategory, selectedOptionMerk, selectedOptionCategory){
-		$(column[0]).html('<input type="text" class="form-control" name="merk-name" id="merk-name" list="listmerk" value="'+selectedOptionMerk+'" list="list-category">' +
+		$(column[0]).html('<input autocomplete="off" type="text" class="form-control" name="merk-name" id="merk-name" list="listmerk" value="'+selectedOptionMerk+'" list="list-category">' +
 			'<datalist id="listmerk" class="list-category">' +
 			listOptionMerk +
 			'</datalist>');
-		$(column[1]).html('<input type="text" class="form-control" name="category-name" id="category-name" onchange="changeValueCategoryName()" list="listcategory" value="'+selectedOptionCategory+'" list="list-category">' +
+		$(column[1]).html('<input autocomplete="off" type="text" class="form-control" name="category-name" id="category-name" onchange="changeValueCategoryName()" list="listcategory" value="'+selectedOptionCategory+'" list="list-category">' +
 			'<datalist id="listcategory" class="list-category">' +
 			listOptionCategory +
 			'</datalist>');
-		$(column[2]).html('<input readonly type="text" class="form-control" name="subcategory-name" id="subcategory-name" list="listsubcategory" value="'+$(column[2]).text()+'" list="list-category">' +
+		$(column[2]).html('<input autocomplete="off" readonly type="text" class="form-control" name="subcategory-name" id="subcategory-name" list="listsubcategory" value="'+$(column[2]).text()+'" list="list-category">' +
 			'<datalist id="listsubcategory" class="list-category">' +
 			'</datalist></td>');
 		changeValueCategoryName();
-		$(column[3]).html('<input type="text" class="form-control" name="product-name" id="product-name" value="'+$(column[3]).text()+'">');
-		$(column[4]).html('<input type="text" class="form-control" name="product-code" id="product-code" value="'+$(column[4]).text()+'">');
-		$(column[5]).html('<input type="number" class="form-control" name="product-price" id="product-price" value="'+$(column[5]).text()+'">');
-		$(column[6]).html('<input type="text" class="form-control" name="desc-product" id="desc-product" value="'+$(column[6]).text()+'">');
+		$(column[3]).html('<input autocomplete="off" type="text" class="form-control" name="product-name" id="product-name" value="'+$(column[3]).text()+'">');
+		$(column[4]).html('<input autocomplete="off" type="text" class="form-control" name="product-code" id="product-code" value="'+$(column[4]).text()+'">');
+		$(column[5]).html('<input autocomplete="off" type="number" class="form-control" name="product-price" id="product-price" value="'+$(column[5]).text()+'">');
+		$(column[6]).html('<input autocomplete="off" type="text" class="form-control" name="desc-product" id="desc-product" value="'+$(column[6]).text()+'">');
 
-		$(column[7]).html('<input type="file" accept="image/jpeg" class="form-control" name="image-product1" id="image-product1" value="'+$(column[7]).find('img').attr('src')+'">');
-		$(column[8]).html('<input type="file" accept="image/jpeg" class="form-control" name="image-product2" id="image-product2" value="'+$(column[8]).find('img').attr('src')+'">');
-		$(column[9]).html('<input type="file" accept="image/jpeg" class="form-control" name="image-product3" id="image-product3" value="'+$(column[9]).find('img').attr('src')+'">');
+		$(column[7]).html('<input autocomplete="off" type="file" accept="image/jpeg" class="form-control" name="image-product1" id="image-product1" value="'+$(column[7]).find('img').attr('src')+'">');
+		$(column[8]).html('<input autocomplete="off" type="file" accept="image/jpeg" class="form-control" name="image-product2" id="image-product2" value="'+$(column[8]).find('img').attr('src')+'">');
+		$(column[9]).html('<input autocomplete="off" type="file" accept="image/jpeg" class="form-control" name="image-product3" id="image-product3" value="'+$(column[9]).find('img').attr('src')+'">');
 
-		$(column[10]).html('<input type="number" class="form-control" name="discount" id="discount" value="'+$(column[10]).text()+'">');
-		$(column[11]).html('<input type="date" id="start" name="date-start" value="2019-07-22" min="2019-01-01" max="2030-12-31" id="date-start" value="'+$(column[11]).text()+'">');
-		$(column[12]).html('<input type="date" id="start" name="date-end" value="2019-07-22" min="2019-01-01" max="2030-12-31" id="date-end" value="'+$(column[12]).text()+'">');
+		$(column[10]).html('<input autocomplete="off" type="number" class="form-control" name="discount" id="discount" value="'+$(column[10]).text()+'">');
+		$(column[11]).html('<input autocomplete="off" type="date" id="start" name="date-start" value="2019-07-22" min="2019-01-01" max="2030-12-31" id="date-start" value="'+$(column[11]).text()+'">');
+		$(column[12]).html('<input autocomplete="off" type="date" id="start" name="date-end" value="2019-07-22" min="2019-01-01" max="2030-12-31" id="date-end" value="'+$(column[12]).text()+'">');
 
 		$(".add-new").attr("disabled", "disabled");
 		edit = true;
