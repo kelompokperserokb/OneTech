@@ -35,6 +35,15 @@ class Direct extends CI_Controller {
         }
 	}
 
+	public function verify(){
+		$this->load->helper('url');
+		if (!isset($_SESSION["admin-authorize"])) {
+			redirect(base_url()."admin/admin/admin/login");
+		} else {
+			$this->load->view('V_admin_verifyOrder');
+		}
+	}
+
     public function product()
     {
         $this->load->helper('url');

@@ -82,4 +82,4 @@ $route['admin/admin/admin/typeproduct'] = "Direct/typeproduct";
 $route['admin/admin/admin/merk'] = "Direct/merk";
 $route['admin/admin/admin/category'] = "Direct/category";
 $route['admin/admin/admin/subcategory'] = "Direct/subcategory";
-
+$route['admin/admin/admin/verify-order'] = "Direct/verify";
