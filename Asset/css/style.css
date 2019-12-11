@@ -1504,6 +1504,16 @@ ol {
     color: #414141;
 }
 
+.back-link-itemorder {
+	padding-bottom: 10px;
+	padding-left: 100px;
+}
+
+.back-link-itemorder a {
+	font-size: 12px;
+	color: #414141;
+}
+
 .product-pic-zoom {
     margin-bottom: 35px;
 }

@@ -345,6 +345,16 @@ class Admin extends CI_Controller
 
 		$this->M_OrderDB->adminUnVerifyOrder($order_id, $email);
 	}
+
+	public function getOrderItemsList(){
+		$order_id = $this->input->post('order_id');
+		$arr = $this->M_OrderDB->adminGetOrderItemsList($order_id);
+		$str = '';
+		foreach ($arr as $row) {
+			$str.=$row->merk_name.'##'.$row->category_name.'##'.$row->subcategory_name.'##'.$row->product_name.'##'.$row->product_code.'##'.$row->product_type.'##'. $row->quantity.'%%';
+		}
+		echo $str;
+	}
 }
 
 

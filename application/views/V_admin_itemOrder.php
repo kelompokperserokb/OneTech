@@ -34,47 +34,36 @@
 
 </head>
 <body style="width: 2000px !important;">
+		<input id="param" type="hidden" value="<?php echo (isset($param) ? $param : null); ?>">
 		<div class="row">
 			<div class="col-md-12">
 				<h2 class="heading-verify" data-aos="fade-up">Verify Order</h2>
 			</div>
 		</div>
+		<div class="back-link-itemorder">
+			<a href="<?php echo base_url("admin/admin/admin/verifyorder"); ?>"> &lt;&lt; Back to Verify Order</a>
+		</div>
 		<div class="flex-container">
 			<table >
 				<colgroup>
-					<col width="3%">
-					<col width="8%">
-					<col width="9%">
-					<col width="8%">
-					<col width="9%">
-					<col width="3%">
-					<col width="8%">
 					<col width="10%">
-					<col width="5%">
-					<col width="7%">
-					<col width="8%">
 					<col width="10%">
-					<col width="5%">
-					<col width="5%">
-					<col width="2%">
+					<col width="10%">
+					<col width="20%">
+					<col width="20%">
+					<col width="20%">
+					<col width="10%">
+
 				</colgroup>
 				<thead>
 				<tr>
-					<th>type_id</th>
-					<th>Name</th>
-					<th>Address</th>
-					<th>Phone Number</th>
-					<th>Email</th>
-					<th>Account Type</th>
-					<th>Institution Name</th>
-					<th>Institution Address</th>
-					<th>NPWP</th>
-					<th>Date Order</th>
-					<th>Total Price</th>
-					<th>Proof Of Payment </th>
-					<th>Status</th>
-					<th>Confirm</th>
-					<th>See Item Purchased</th>
+					<th>Merk</th>
+					<th>Category</th>
+					<th>Sub Category</th>
+					<th>Product Name</th>
+					<th>Product Code</th>
+					<th>Product Type</th>
+					<th>Quantity</th>
 				</tr>
 				</thead>
 				<tbody>
@@ -87,6 +76,5 @@
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<script src="<?php echo base_url(); ?>Asset/js/upload.js"></script>
-		<script src="<?php echo base_url(); ?>Asset/js/onetech/order/order_confirmation.js"></script>
+		<script src="<?php echo base_url(); ?>Asset/js/onetech/order/order_items.js"></script>
 </body>

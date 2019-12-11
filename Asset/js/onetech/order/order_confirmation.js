@@ -37,7 +37,6 @@ function getOrderList(){
 }
 
 function printListOrder(data){
-	console.log(data);
 	var row = '<tr>'+
 	'<td>' + data[0] + '</td>' +
 	'<td>' + data[1] + '</td>' +
@@ -53,7 +52,7 @@ function printListOrder(data){
 	'<td><img src="' + data[11] + '"></td>' +
 	'<td>' + (data[12] == 1 ? "Verify" : "Not Verify") + '</td>' +
 	(data[12] == 0 ? '<td><input type="button" class="btn btn-info confirm" value="Verify"></td>' : '<td><input type="button" class="btn btn-danger un_confirm" value="Un-Verify"></td>') +
-	'<td><a href="">Items</a></td>' +
+	'<td><a href="'+ base_url + '/OneTech/admin/admin/admin/verifyorder/items/'+data[0] +'">Items</a></td>' +
 	'</tr>';
 	$("table").append(row);
 }
