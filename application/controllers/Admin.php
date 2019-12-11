@@ -13,6 +13,7 @@ class Admin extends CI_Controller
     {
         parent::__construct();
         $this->load->model("M_ProductDB");
+        $this->load->model("M_OrderDB");
         $this->load->helper('url');
     }
 
@@ -317,6 +318,42 @@ class Admin extends CI_Controller
 		$type_id = $this->input->post('type_id');
 
 		$this->M_ProductDB->adminDeleteTypeProduct($product_id, $type_id);
+	}
+
+
+	public function getOrderList(){
+    	$arr = $this->M_OrderDB->adminGetOrderList();
+    	$str = '';
+		foreach ($arr as $row) {
+			$str.=$row->order_id.'##'.($row->first_name." ".$row->last_name).'##'.$row->order_address.'##'.$row->phoneNumber.'##'.$row->email.'##'.
+				$row->accountType.'##'.($row->institutionName == "" ? "-" : $row->institutionName).'##'.($row->institutionAddress == "" ? "-" : $row->institutionAddress).'##'.($row->npwp == "" ? "-" : $row->npwp).'##'.
+				$row->dateOrder.'##'.$row->totalPrice.'##'.($row->proofOfPayment == "" ? " " : $row->proofOfPayment).'##'.$row->confirmation.'%%';
+		}
+		echo $str;
+	}
+
+	public function  verifyOrder(){
+		$order_id = $this->input->post('order_id');
+		$email = $this->input->post('email');
+
+		$this->M_OrderDB->adminVerifyOrder($order_id, $email);
+	}
+
+	public function  unverifyOrder(){
+		$order_id = $this->input->post('order_id');
+		$email = $this->input->post('email');
+
+		$this->M_OrderDB->adminUnVerifyOrder($order_id, $email);
+	}
+
+	public function getOrderItemsList(){
+		$order_id = $this->input->post('order_id');
+		$arr = $this->M_OrderDB->adminGetOrderItemsList($order_id);
+		$str = '';
+		foreach ($arr as $row) {
+			$str.=$row->merk_name.'##'.$row->category_name.'##'.$row->subcategory_name.'##'.$row->product_name.'##'.$row->product_code.'##'.$row->product_type.'##'. $row->quantity.'%%';
+		}
+		echo $str;
 	}
 }
 

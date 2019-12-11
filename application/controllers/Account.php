@@ -1,6 +1,4 @@
 <?php
-
-
 class Account extends CI_Controller {
 
     public function toLogin(){
@@ -144,10 +142,27 @@ class Account extends CI_Controller {
 	public function checkVerify()
 	{
         $this->load->model("M_AccountDB");
-        if ($this->M_AccountDB->verifyAccount($_GET['email'], $_GET['hash']) == true){
-            echo "Account has Been Verify";
-        } else echo "Uppss something wrong";
 
+        $param1 = "";
+        $param2 = "";
+
+        $data["error"] = false;
+        if ((($this->M_AccountDB->getVerify($_GET['email'], $_GET['hash']))[0])->activeStatus == 0) {
+            $this->M_AccountDB->verifyAccount($_GET['email'], $_GET['hash']);
+            $param1 = "Your Journey Starts Here...";
+            $param2 = "Thank you for confirming your email address. Your sign-up is complete, but your devious journey has just begun... ";
+        } else if ((($this->M_AccountDB->getVerify($_GET['email'], $_GET['hash']))[0])->activeStatus == 1) {
+            $param1 = "Your account was Activated";
+            $param2 = "Thank you for your registration";
+        } else {
+            $data["error"] = true;
+            $param1  = "Upss There is somethig wrong!";
+        }
+
+        $data["param1"] = $param1;
+        $data["param2"] = $param2;
+
+        $this->load->view("V_activation", $data);
 	}
 
 }

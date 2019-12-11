@@ -3,6 +3,32 @@ h4 {
     color: #ff4500;
 }
 
+.table-kepala{
+    margin-top: 50px;
+}
+
+.kepala {
+    color: black;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.kepala span {
+    color: #2e8ece;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.kepala a:hover {
+    color: lightblue;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
 .kepala {
     border-bottom: 2px solid #ff4500;
     background-color: #fff;
