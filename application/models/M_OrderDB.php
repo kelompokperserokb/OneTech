@@ -36,6 +36,45 @@ class M_OrderDB extends CI_Model
         $this->db->trans_complete();
     }
 
+    /*ADMIN PRIVILEGE*/
+
+    public function adminGetOrderList(){
+		$this->db->select('*');
+		$this->db->from('purchaseitem');
+		$this->db->join('order', 'order.order_id = purchaseitem.order_id');
+		$this->db->join('user', 'user.email = order.email');
+		$this->db->order_by('order.dateOrder', 'DESC');
+		$query = $this->db->get();
+
+		$data = $query->result();
+		return $data;
+	}
+
+	public function adminVerifyOrder($order_id, $email){
+		$data = array(
+			'confirmation' => 1,
+		);
+
+		$this->db->trans_start();
+		$this->db->where('order_id', $order_id);
+		$this->db->where('email', $email);
+		$this->db->update('order', $data);
+		$this->db->trans_complete();
+	}
+
+	public function adminUnVerifyOrder($order_id, $email){
+		$data = array(
+			'confirmation' => 0,
+		);
+
+		$this->db->trans_start();
+		$this->db->where('order_id', $order_id);
+		$this->db->where('email', $email);
+		$this->db->update('order', $data);
+		$this->db->trans_complete();
+	}
+
+	/*END OF ADMIN PRIVILEGE*/
 }
 
 ?>

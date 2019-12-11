@@ -60,7 +60,7 @@
 				</colgroup>
 				<thead>
 				<tr>
-					<th>Id order</th>
+					<th>type_id</th>
 					<th>Name</th>
 					<th>Address</th>
 					<th>Phone Number</th>
