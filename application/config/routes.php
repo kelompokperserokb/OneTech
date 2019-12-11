@@ -55,6 +55,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['register'] = 'Account/toRegister';
 $route['login'] = 'Account/toLogin';
+$route['account/verify'] = 'Account/checkVerify';
 $route['cart'] = 'Order/cart';
 $route['order'] = 'Order/order';
 
