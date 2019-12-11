@@ -35,6 +35,12 @@ class M_OrderDB extends CI_Model
         $this->db->trans_complete();
     }
 
+	public function removeFromCart($type_id){
+		$this->db->trans_start();
+		$this->db->delete('cart', array('type_id'=>$type_id));
+		$this->db->trans_complete();
+	}
+
     /*ADMIN PRIVILEGE*/
 
     public function adminGetOrderList(){

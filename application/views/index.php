@@ -79,8 +79,8 @@
 
             </div>
             <div class="text-center pt-5">
-				<?php echo '<a class = "loadall" href="' . base_url() . 'allproduct"></a>'; ?>
-                <button class="site-btn sb-line sb-dark loadall">LOAD MORE</button>
+
+                <a class="site-btn sb-line sb-dark" href="<?php echo base_url("allproduct"); ?>">LOAD MORE</a>
             </div>
         </div>
     </section>

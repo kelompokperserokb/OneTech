@@ -48,7 +48,9 @@ class Order extends CI_Controller {
 
 	public function removeFromCart()
 	{
-
+        $this->load->model("M_OrderDB");
+        $type_id = $this->input->post('type_id') ;
+        $this->M_OrderDB->removeFromCart($type_id);
 	}
 
 	public function removeAll()

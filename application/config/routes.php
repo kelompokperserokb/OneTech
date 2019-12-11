@@ -65,8 +65,9 @@ $route['viewproduct/cat/(:num)'] = "Product/viewProductByCat/$1/1";
 $route['viewproduct/cat/(:num)/(:num)'] = "Product/viewProductByCat/$1/$2";
 $route['viewproduct/cat/(:num)/subcat/(:num)'] = "Product/viewProductBySubCat/$1/$2/1";
 $route['viewproduct/cat/(:num)/subcat/(:num)/(:num)'] = "Product/viewProductBySubCat/$1/$2/$3";
-$route['viewproduct/search/(:any)'] = "Product/viewSearched/$1/1";
-$route['viewproduct/search/(:any)/(:num)'] = "Product/viewSearched/$1/$2";
+/*$route['viewproduct/search/(:any)'] = "Product/viewSearched/$1/1";*/
+$route['viewproduct/search'] = "Product/viewSearched";
+/*$route['viewproduct/search/(:any)/(:num)'] = "Product/viewSearched/$1/$2";*/
 
 
 $route['product/(:num)'] = "Product/viewProducts/$1";

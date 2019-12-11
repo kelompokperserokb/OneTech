@@ -49,9 +49,9 @@
                     </a>
                 </div>
                 <div class="col-xl-5 col-lg-4">
-                    <form class="h_header-search-form">
-                        <input type="text" placeholder="Search">
-                        <button><i class="fa fa-search"></i></button>
+                    <form class="h_header-search-form" id="search" method="get" action="<?php echo base_url('viewproduct/search'); ?>">
+                        <input name="value" type="text" placeholder="Search" id="search-text">
+                        <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
                 </div>
                 <div class="col-xl-5 col-lg-6">
@@ -122,6 +122,7 @@
 <script src="<?php echo base_url(); ?>Asset/js/jquery.zoom.min.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/jquery-ui.min.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/main.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/onetech/search.js"></script>
 
 </body>
 </html>
