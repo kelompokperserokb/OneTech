@@ -149,7 +149,7 @@ class Account extends CI_Controller {
         if ((($this->M_AccountDB->getVerify($_GET['email'], $_GET['hash']))[0])->activeStatus == 0) {
             $this->M_AccountDB->verifyAccount($_GET['email'], $_GET['hash']);
             $param1 = "Your Journey Starts Here...";
-            $param2 = "Thank you for confirming your email address. Your sign-up is complete, but your devious journey has just begun...";
+            $param2 = "Thank you for confirming your email address. Your sign-up is complete, but your devious journey has just begun... ";
         } else if ((($this->M_AccountDB->getVerify($_GET['email'], $_GET['hash']))[0])->activeStatus == 1) {
             $param1 = "Your account was Activated";
             $param2 = "Thank you for your registration";

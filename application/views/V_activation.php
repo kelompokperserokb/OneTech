@@ -11,19 +11,20 @@
 <body>
     <?php if($error == false) {
         echo '
-        <table width="100%">
+        <table class="table-kepala" width="100%">
             <tr>
                 <td align="center">
                     <table width="600" >
                         <tr>
                             <td class="kepala">
-                                <a href="'.base_url().'">One Tech</a>
+                                <span>One</span> Tech
                             </td>
                         </tr>
                         <tr>
                             <td class="text-center">
                                 <h2>'.$param1.'</h2>
                                 <p>'.$param2.'</p>
+                                <br><br><a href='.base_url().'>Click here to back home</a>
     
                             </td>
                         </tr>
