@@ -144,7 +144,7 @@ class Account extends CI_Controller {
 	public function checkVerify()
 	{
         $this->load->model("M_AccountDB");
-        if ($this->M_AccountDB->verifyAccount($_GET['email'], $_GET['hash'])){
+        if ($this->M_AccountDB->verifyAccount($_GET['email'], $_GET['hash']) == true){
             echo "Account has Been Verify";
         } else echo "Uppss something wrong";
 
