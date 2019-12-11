@@ -142,6 +142,7 @@ class Account extends CI_Controller {
 	public function checkVerify()
 	{
         $this->load->model("M_AccountDB");
+
         $param1 = "";
         $param2 = "";
 

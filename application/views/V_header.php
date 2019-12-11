@@ -64,13 +64,15 @@
                                 </div>';
 						} else {
 							echo '<div class="h_up-item h_main-menu">
-                                         <i class="fa fa-user"></i>
+										<li>
+                                        <i class="fa fa-user"></i>
                                         <a href="#">Hi, ' . $_SESSION["name"] . '</a>
                                         <ul class="h_sub-menu">
                                             <li><a href="#">My Profile</a></li>
                                             <li><a href="#">My Order</a></li>
                                             <li><a href="' . base_url() . 'Account/logout">Sign Out</a></li>
                                         </ul>
+                                        </li>
                                     </div>';
 						} ?>
 						<!-- <form action='".base_url('account/logout')."' >

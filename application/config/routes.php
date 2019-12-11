@@ -69,6 +69,7 @@ $route['viewproduct/cat/(:num)/subcat/(:num)/(:num)'] = "Product/viewProductBySu
 $route['viewproduct/search'] = "Product/viewSearched";
 /*$route['viewproduct/search/(:any)/(:num)'] = "Product/viewSearched/$1/$2";*/
 
+$route['invoice'] = "Order/createpdf";
 
 $route['product/(:num)'] = "Product/viewProducts/$1";
 $route['producttype/(:num)/(:num)'] = "Product/viewProductsType/$1/$2";

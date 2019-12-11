@@ -91,6 +91,7 @@ class M_AccountDB extends CI_Model
 		$this->db->where('email',$email);
 		$this->db->update('user', $data);
 		$this->db->trans_complete();
+		return true;
 	}
 }
 ?>

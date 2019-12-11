@@ -83,6 +83,67 @@ class Order extends CI_Controller {
 
 	}
 
+	public function invoice() {
+		$pdf = new FPDF('P', 'mm', 'A5');
+		$pdf->AddPage();
+		$pdf->SetFont('Helvetica', 'B', '22');
+
+		$pdf->SetTextColor(62,193,213);
+		$pdf->Cell(17	,7,'ONE',0,0);
+		$pdf->SetTextColor(4,4,4);
+		$pdf->Cell(10,7,'TECH',0,1);
+
+		$pdf->SetFont('Arial', '', '9');
+		$pdf->cell(100, 7, 'Order ID : ', 0, 0, 'R');
+		$pdf->cell(1, 7, '175150201111048', 0, 1);
+
+		$pdf->SetFont('Arial', '', '14');
+		$pdf->Cell(20,7,'',0,1);
+		$pdf->Cell(20, 7, 'Terima Kasih Atas Pemesanan Anda!', 0, 1);
+
+		$pdf->SetFont('Arial', '', '11');
+		$pdf->SetTextColor(100,100,100);
+		$pdf->Cell(5, 7, "Hi Robertus, kami telah menerima pesanan anda.", 0, 1);
+		$pdf->Cell(20, 7, 'Silahkan Transfer ke Rekening Di Bawah ini:', 0, 1);
+		$pdf->Cell(20, 5, '', 0, 1);
+		$pdf->Cell(20, 7, 'Bank Mandiri 125-002388-3838 a.n. PT Minindo Artha Gemilang', 0, 1);
+		$pdf->Cell(20, 5, '', 0, 1);
+
+		$pdf->SetFont('Arial', '', '10');
+		$pdf->SetTextColor(0,0,0);
+		$pdf->cell(20, 5, 'PENTING: Jika sudah transfer, Anda WAJIB KONFIRMASI', 0, 1);
+		$pdf->cell(20, 5, 'PEMBAYARAN ANDA', 0, 1);
+		$pdf->Cell(20, 5, '', 0, 1);
+		$pdf->Cell(20, 5, '', 0, 1);
+
+		$pdf->Cell(20, 7, 'ORDER DETAILS', 0, 1);
+		$pdf->Cell(20, 3, '', 0, 1);
+
+		$pdf->SetFont('Arial', '', '9');
+		$pdf->Cell(100, 5, 'CHE40 ELECTRODES WELDING', 0, 0);
+		$pdf->Cell(20, 5, 'Rp. 750.000', 0, 1);
+		$pdf->Cell(20, 5, '3 x Rp. 250.000', 0, 1);
+		$pdf->Cell(20, 3, '', 0, 1);
+		$pdf->Cell(100, 5, 'CHE43 ELECTRODES WELDING', 0, 0);
+		$pdf->Cell(20, 5, 'Rp. 800.000', 0, 1);
+		$pdf->Cell(20, 5, '4 x Rp. 200.000', 0, 1);
+		$pdf->Cell(20, 3, '', 0, 1);
+
+		$pdf->Cell(20, 3, '', 0, 1);
+		$pdf->Cell(100, 7, 'Subtotal', 0, 0);
+		$pdf->Cell(20, 7, 'Rp. 1.550.00', 0, 1);
+		$pdf->Cell(98, 7, 'Discount', 0, 0);
+		$pdf->Cell(20, 7, '- Rp. 0', 0, 1);
+		$pdf->Cell(100, 7, 'Delivery Fee', 0, 0);
+		$pdf->Cell(20, 7, 'Rp. 180.000', 0, 1);
+		$pdf->Cell(100, 7, 'Unique Code', 0, 0);
+		$pdf->Cell(20, 7, 'Rp. 131', 0, 1);
+		$pdf->Cell(100, 7, 'TOTAL', 0, 0);
+		$pdf->Cell(20, 7, 'Rp. 1.730.131', 0, 1);
+
+		$pdf->output();
+	}
+
 	public function createpdf() {
 		$pdf = new FPDF('P', 'mm', 'A4');
 		$pdf->AddPage();
