@@ -1,3 +1,4 @@
+var base_url = window.location.origin;
 (function($) {
     $(document).ready(function() {
         recalculateCart();
@@ -77,11 +78,7 @@
     /* Remove item from cart */
     function removeItem(removeButton) {
         /* Remove row from DOM and recalc cart total */
-        var productRow = $(removeButton).parent().parent().parent().parent();
-        productRow.slideUp(fadeTime, function () {
-            productRow.remove();
-            recalculateCart();
-        });
+        $(removeButton).remove();
     }
 
     function addQuantityToDB(id, quantity){
@@ -105,22 +102,44 @@
     proQty.prepend('<span class="dec qtybtn">-</span>');
     proQty.append('<span class="inc qtybtn">+</span>');
     proQty.on('click', '.qtybtn', function () {
-        var $button = $(this);
-        var oldValue = $button.parent().find('input#qty').val();
-        /*var max = document.getElementById('stock_quota').value;*/
+        let $button = $(this);
+        let newVal = 0;
+        let oldValue = parseFloat($button.parent().find('input#qty').val());
+        let max = parseFloat($button.parent().find('input#stock-quota').val());
         if ($button.hasClass('inc')) {
-            var newVal = parseFloat(oldValue) + 1;
-
+            if (oldValue<max) {
+                newVal = oldValue + 1;
+            } else {
+                newVal = max;
+            }
         } else {
             // Don't allow decrementing below zero
             if (oldValue > 0) {
-                var newVal = parseFloat(oldValue) - 1;
+                newVal = oldValue - 1;
             } else {
                 newVal = 0;
             }
         }
+
         addQuantityToDB($button.parent().find('input#type_id').val(), newVal);
         $button.parent().find('input#qty').val(newVal);
         updateQuantity($button.parent());
+
+        if (newVal == 0) {
+            var url = base_url.toString() + "/OneTech/Order/removeFromCart";
+            let type_id = $button.parent().find('input#type_id').val();
+            $.ajax({
+                url: url,
+                method: 'post',
+                data: { type_id: type_id, },
+                beforeSend: function () {
+
+                },
+                success: function () {
+                    removeItem($button.parents('tr'));
+                    updateQuantity($button.parent());
+                }
+            });
+        }
     });
 })(jQuery);

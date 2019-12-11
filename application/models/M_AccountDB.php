@@ -20,6 +20,29 @@ class M_AccountDB extends CI_Model
         $this->db->trans_complete();
     }
 
+	public function getVerify($email, $hash){
+		$this->db->select('activeStatus');
+		$this->db->from('user');
+		$this->db->where('email', $email);
+		$this->db->where('hash', $hash);
+		$query = $this->db->get();
+
+		return $query->result();
+	}
+
+	public function account($email, $hash){
+		$this->db->trans_start();
+		$data = array(
+			'activeStatus' => '1',
+		);
+
+		$this->db->where('email', $email);
+		$this->db->where('hash', $hash);
+		$this->db->where('activeStatus', '0');
+		$this->db->update('user', $data);
+		$this->db->trans_complete();
+	}
+
 	public function login($email, $password)
 	{
 		$cek = array('email' => $email, 'password' => $password);
@@ -68,6 +91,7 @@ class M_AccountDB extends CI_Model
 		$this->db->where('email',$email);
 		$this->db->update('user', $data);
 		$this->db->trans_complete();
+		return true;
 	}
 }
 ?>

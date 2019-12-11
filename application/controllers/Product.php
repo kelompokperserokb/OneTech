@@ -151,16 +151,19 @@ class Product extends CI_Controller
 		$this->load->view('footer');
 	}
 
-	public function viewSearched($query, $page) {
+	public function viewSearched() {
 		$this->load->helper('url');
+		$query = $this->input->get('value');
+		$page = isset($_GET["page"]) ? $this->input->get('page') : 1;
 		$limit = 12;
 		$start = ($page-1) * $limit;
 
 		$this->load->model("M_ProductDB");
 		$data["cat"] = $this->getCategory();
 		$data["suball"] = $this->getAllSubCategory();
-		$data["product"] = $this->M_ProductDB->getProductBySubCategoryLimit($query, $start, $limit);
-		$data["allprod"] = $this->M_ProductDB->getProductBySubCategory($query);
+		$data["product"] = $this->M_ProductDB->getProductBySearchLimit($query, $start, $limit);
+		$data["allprod"] = $this->M_ProductDB->getProductBySearch($query);
+		$data["link"] = base_url()."viewproduct/search?value=".(str_replace(" ","%20",$query))."&page=";
 
 		$this->load->view('V_header', $data);
 		$this->load->view('V_viewSearchProduct', $data);

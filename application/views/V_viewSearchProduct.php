@@ -44,11 +44,11 @@
 				<section class="product-filter-section">
 					<div class="container">
 						<div class="row">
-							<?php for ($i = 0; $i < $product['data']['count']; $i++) {
+							<?php for ($i = 0; $i < $product['count']; $i++) {
 								echo '<div class="col-lg-3 col-sm-6">
                     			<div class="product-item">
                         			<div class="pi-pic">
-                            			<a href="' . base_url() . 'product/' . $product['data']['data_array'][$i]->product_id . '/">
+                            			<a href="' . base_url() . 'product/' . $product['data_array'][$i]->product_id . '/">
                                 			<img src="' . base_url() . 'Asset/img/products/' . ($i + 1) . '.jpg" alt="">
                             			</a>
                             			<div class="pi-links">
@@ -57,9 +57,9 @@
                             			</div>
                         			</div>
                         			<div class="pi-text">
-                            			<h6>Rp. ' . number_format($product['data']['data_array'][$i]->product_price, 2, ",", ".") . '</h6>
-                            			<a href="' . base_url() . 'product/' . $product['data']['data_array'][$i]->product_id . '/">
-                                			<p>' . $product['data']['data_array'][$i]->product_name . '</p>
+                            			<h6>Rp. ' . number_format($product['data_array'][$i]->product_price, 2, ",", ".") . '</h6>
+                            			<a href="' . base_url() . 'product/' . $product['data_array'][$i]->product_id . '/">
+                                			<p>' . $product['data_array'][$i]->product_name . '</p>
                             			</a>
                         			</div>
                         		</div>
@@ -72,15 +72,15 @@
 			<center>
 				<ul class="pagination">
 					<?php
-					$result = $product['data']['data_array'];
-					$total_records = $allprod['data']['count'];
+					$result = $product['data_array'];
+					$total_records = $allprod['count'];
 					$limit = 12;
 					$total_pages = ceil($total_records / $limit);
 					if($total_pages==0)
 						$total_pages=1;
 					echo "
                 <li>
-                	<a href='" . base_url() . "allproduct/1/'>
+                	<a href='" . $link . "1'>
                 		" . 'First Page' . "
                 	</a>
                 </li>
@@ -88,7 +88,7 @@
 					for ($i = 1; $i <= $total_pages; $i++) {
 						echo "
 					<li>
-						<a href='" . base_url() . "allproduct/" . $i . "/'>
+						<a href='" . $link . $i . "/'>
                 			" . $i . "
                 		</a>
 					</li>
@@ -96,7 +96,7 @@
 					};
 					echo "
 				<li>
-					<a href='" . base_url() . "allproduct/" . $total_pages . "/'>
+					<a href='" . $link . $total_pages . "'>
                 		" . 'Last Page' . "
                 	</a>
 				</li>

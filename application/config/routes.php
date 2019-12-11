@@ -55,6 +55,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['register'] = 'Account/toRegister';
 $route['login'] = 'Account/toLogin';
+$route['account/verify'] = 'Account/checkVerify';
 $route['cart'] = 'Order/cart';
 $route['order'] = 'Order/order';
 
@@ -64,9 +65,11 @@ $route['viewproduct/cat/(:num)'] = "Product/viewProductByCat/$1/1";
 $route['viewproduct/cat/(:num)/(:num)'] = "Product/viewProductByCat/$1/$2";
 $route['viewproduct/cat/(:num)/subcat/(:num)'] = "Product/viewProductBySubCat/$1/$2/1";
 $route['viewproduct/cat/(:num)/subcat/(:num)/(:num)'] = "Product/viewProductBySubCat/$1/$2/$3";
-$route['viewproduct/search/(:any)'] = "Product/viewSearched/$1/1";
-$route['viewproduct/search/(:any)/(:num)'] = "Product/viewSearched/$1/$2";
+/*$route['viewproduct/search/(:any)'] = "Product/viewSearched/$1/1";*/
+$route['viewproduct/search'] = "Product/viewSearched";
+/*$route['viewproduct/search/(:any)/(:num)'] = "Product/viewSearched/$1/$2";*/
 
+$route['invoice'] = "Order/createpdf";
 
 $route['product/(:num)'] = "Product/viewProducts/$1";
 $route['producttype/(:num)/(:num)'] = "Product/viewProductsType/$1/$2";
@@ -82,4 +85,5 @@ $route['admin/admin/admin/typeproduct'] = "Direct/typeproduct";
 $route['admin/admin/admin/merk'] = "Direct/merk";
 $route['admin/admin/admin/category'] = "Direct/category";
 $route['admin/admin/admin/subcategory'] = "Direct/subcategory";
-
+$route['admin/admin/admin/verifyorder'] = "Direct/verify";
+$route['admin/admin/admin/verifyorder/items/(:num)'] = "Direct/getOrderItems/$1";
