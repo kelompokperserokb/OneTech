@@ -46,7 +46,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
-                <div class="cart-table">
+                <div class="cart-cart-table">
                     <h3>Your Cart</h3>
                     <div class="cart-table-warp">
                         <table>
@@ -56,10 +56,10 @@
                                 <col width="20%">
                                 <col width="28%">
                                 <tr">
-                                    <th class="product-th text-center">Product</th>
-                                    <th class="quy-th text-center">Quantity</th>
-                                    <th class="size-th text-center">Attributes</th>
-                                    <th class="total-th text-center">Price</th>
+                                    <th class="product-th">Product</th>
+                                    <th class="quy-th">Quantity</th>
+                                    <th class="attributes">Attributes</th>
+                                    <th class="total-th">Price</th>
                                 </tr>
                             </thead>
                             <tbody id="table-cart">
@@ -67,9 +67,9 @@
                                     for ($i = 0; $i < $data['count'] ; $i++ ) {
                                         $total = $data['data_array'][$i]->quantity * $data['data_array'][$i]->product_price;
                                         echo '<tr>
-                                            <td class="product-col">
+                                            <td class="cart-product-col">
                                                 <img src="' . base_url() . 'Asset/img/tandatanya.jpg" alt="">
-                                                <div class="pc-title">
+                                                <div class="cart-pc-title">
                                                     <h4>' . $data['data_array'][$i]->product_name . '</h4>
                                                     <p>' . $data['data_array'][$i]->product_code . '</p>
                                                 </div>
@@ -83,10 +83,10 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td class="size-col">
+                                            <td class="cart-attributes-col">
                                                 <h4>' . $data['data_array'][$i]->product_type . '</h4>
                                             </td>
-                                            <td class="total-col" id="product-price">
+                                            <td class="cart-total-col" id="product-price">
                                                 <h4 class="price">Rp. ' . number_format($total, 2, ",", ".") . '</h4>
                                                 <input class="price-hidden" type="hidden" value="' . $data['data_array'][$i]->product_price . '">
                                             </td>
