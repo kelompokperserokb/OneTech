@@ -48,11 +48,11 @@
 
 		<div class="row">
 			<div class="col-md-4 order-md-2 mb-4">
-				<!--<h4 class="d-flex justify-content-between align-items-center mb-3">
+				<h4 class="d-flex justify-content-between align-items-center mb-3">
 					<span class="text-muted">Your cart</span>
 					  <span class="badge badge-secondary badge-pill">3</span>
 				</h4>-->
-				<!--  <ul class="list-group mb-3">
+				<ul class="list-group mb-3">
 					<li class="list-group-item d-flex justify-content-between lh-condensed">
 						<div>
 							<h6 class="my-0">Product name</h6>
@@ -94,7 +94,7 @@
 							<button type="submit" class="btn btn-secondary">Redeem</button>
 						</div>
 					</div>
-				</form>-->
+				</form>
 			</div>
 			<div class="col-md-8 order-md-1">
 				<h4 class="mb-3">Checkout</h4>
@@ -107,14 +107,14 @@
 
 					</div>
 
-					<!-- <div class="row">
+					<div class="row">
 						<div class="col-md-5 mb-3">
 							<button type="submit" class="btn btn-secondary">Pilih Alamat lain</button>
 						</div>
 						<div class="col-md-5 mb-3">
 							<button type="submit" class="btn btn-secondary">Kirim ke beberapa alamat</button>
 						</div>
-					</div> -->
+					</div>
 					<div class="mb-3">
 						<label for="alamat">Alamat </label>
 						<input type="alamat" class="form-control" id="alamat" placeholder="1234 Main St" required>
