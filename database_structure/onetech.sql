@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Des 2019 pada 12.21
--- Versi server: 10.4.6-MariaDB
--- Versi PHP: 7.3.9
+-- Generation Time: Dec 15, 2019 at 03:56 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
@@ -33,16 +33,16 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`password`) VALUES
-('sayangbirujingga');
+('kucing');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `cart`
+-- Table structure for table `cart`
 --
 
 CREATE TABLE `cart` (
@@ -51,10 +51,17 @@ CREATE TABLE `cart` (
   `quantity` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`type_id`, `email`, `quantity`) VALUES
+(22, 'robert.unix98@gmail.com', 4);
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `category`
+-- Table structure for table `category`
 --
 
 CREATE TABLE `category` (
@@ -63,7 +70,7 @@ CREATE TABLE `category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `category`
+-- Dumping data for table `category`
 --
 
 INSERT INTO `category` (`category_id`, `category_name`) VALUES
@@ -77,7 +84,7 @@ INSERT INTO `category` (`category_id`, `category_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `merk`
+-- Table structure for table `merk`
 --
 
 CREATE TABLE `merk` (
@@ -86,7 +93,7 @@ CREATE TABLE `merk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `merk`
+-- Dumping data for table `merk`
 --
 
 INSERT INTO `merk` (`merk_id`, `merk_name`) VALUES
@@ -96,23 +103,34 @@ INSERT INTO `merk` (`merk_id`, `merk_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `order`
+-- Table structure for table `order`
 --
 
 CREATE TABLE `order` (
-  `order_id` varchar(9) NOT NULL,
+  `order_id` int(9) NOT NULL,
   `email` varchar(127) NOT NULL,
   `dateOrder` date NOT NULL,
   `totalPrice` int(9) NOT NULL,
   `proofOfPayment` varchar(255) NOT NULL,
   `confirmation` tinyint(1) NOT NULL,
-  `invoice` varchar(255) NOT NULL
+  `invoice` varchar(255) NOT NULL,
+  `logistic_price` int(7) DEFAULT NULL,
+  `unique_price` int(3) NOT NULL,
+  `address_order` varchar(256) DEFAULT NULL,
+  `phonenumber_order` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `order`
+--
+
+INSERT INTO `order` (`order_id`, `email`, `dateOrder`, `totalPrice`, `proofOfPayment`, `confirmation`, `invoice`, `logistic_price`, `unique_price`, `address_order`, `phonenumber_order`) VALUES
+(1, 'robert.unix98@gmail.com', '2019-12-16', 1000, '', 0, '', 1000, 999, NULL, 0);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `product`
+-- Table structure for table `product`
 --
 
 CREATE TABLE `product` (
@@ -121,9 +139,9 @@ CREATE TABLE `product` (
   `product_name` varchar(255) NOT NULL,
   `product_desc` text NOT NULL,
   `product_price` int(15) NOT NULL,
-  `product_img_1` text DEFAULT NULL,
-  `product_img_2` text DEFAULT NULL,
-  `product_img_3` text DEFAULT NULL,
+  `product_img_1` text,
+  `product_img_2` text,
+  `product_img_3` text,
   `category_id` int(6) NOT NULL,
   `subcategory_id` int(6) NOT NULL,
   `merk_id` int(6) NOT NULL,
@@ -134,7 +152,7 @@ CREATE TABLE `product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `product`
+-- Dumping data for table `product`
 --
 
 INSERT INTO `product` (`product_id`, `product_code`, `product_name`, `product_desc`, `product_price`, `product_img_1`, `product_img_2`, `product_img_3`, `category_id`, `subcategory_id`, `merk_id`, `discount`, `startDateDiscount`, `lastDateDiscount`, `datePost`) VALUES
@@ -159,19 +177,26 @@ INSERT INTO `product` (`product_id`, `product_code`, `product_name`, `product_de
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `purchaseitem`
+-- Table structure for table `purchaseitem`
 --
 
 CREATE TABLE `purchaseitem` (
   `type_id` int(6) NOT NULL,
-  `order_id` varchar(9) NOT NULL,
+  `order_id` int(9) NOT NULL,
   `quantity` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `purchaseitem`
+--
+
+INSERT INTO `purchaseitem` (`type_id`, `order_id`, `quantity`) VALUES
+(24, 1, 5);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `sub-category`
+-- Table structure for table `sub-category`
 --
 
 CREATE TABLE `sub-category` (
@@ -181,7 +206,7 @@ CREATE TABLE `sub-category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `sub-category`
+-- Dumping data for table `sub-category`
 --
 
 INSERT INTO `sub-category` (`subcategory_id`, `subcategory_name`, `category_id`) VALUES
@@ -213,7 +238,7 @@ INSERT INTO `sub-category` (`subcategory_id`, `subcategory_name`, `category_id`)
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `type_product`
+-- Table structure for table `type_product`
 --
 
 CREATE TABLE `type_product` (
@@ -225,7 +250,7 @@ CREATE TABLE `type_product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `type_product`
+-- Dumping data for table `type_product`
 --
 
 INSERT INTO `type_product` (`type_id`, `product_type`, `quota`, `description_type`, `product_id`) VALUES
@@ -268,7 +293,7 @@ INSERT INTO `type_product` (`type_id`, `product_type`, `quota`, `description_typ
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -288,37 +313,44 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`email`, `password`, `first_name`, `last_name`, `address`, `phoneNumber`, `activeStatus`, `accountType`, `typeOfInstitution`, `institutionName`, `institutionAddress`, `npwp`, `hash`) VALUES
+('robert.unix98@gmail.com', '123', 'Robertus Dwi', 'Ari Utomo', 'Jl. Sigura gura V no.31', '0895396106041', 1, 'personal', '', '', '', '', 'e506f85b012b21df66808f7b6fe0bacb');
+
+--
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `cart`
+-- Indexes for table `cart`
 --
 ALTER TABLE `cart`
   ADD KEY `email` (`email`),
   ADD KEY `idProduct` (`type_id`);
 
 --
--- Indeks untuk tabel `category`
+-- Indexes for table `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`category_id`);
 
 --
--- Indeks untuk tabel `merk`
+-- Indexes for table `merk`
 --
 ALTER TABLE `merk`
   ADD PRIMARY KEY (`merk_id`);
 
 --
--- Indeks untuk tabel `order`
+-- Indexes for table `order`
 --
 ALTER TABLE `order`
   ADD PRIMARY KEY (`order_id`),
   ADD KEY `email` (`email`);
 
 --
--- Indeks untuk tabel `product`
+-- Indexes for table `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`product_id`),
@@ -327,97 +359,103 @@ ALTER TABLE `product`
   ADD KEY `subcategory_id` (`subcategory_id`);
 
 --
--- Indeks untuk tabel `purchaseitem`
+-- Indexes for table `purchaseitem`
 --
 ALTER TABLE `purchaseitem`
   ADD KEY `idOrder` (`order_id`),
   ADD KEY `idProduct` (`type_id`);
 
 --
--- Indeks untuk tabel `sub-category`
+-- Indexes for table `sub-category`
 --
 ALTER TABLE `sub-category`
   ADD PRIMARY KEY (`subcategory_id`),
   ADD KEY `category_id` (`category_id`);
 
 --
--- Indeks untuk tabel `type_product`
+-- Indexes for table `type_product`
 --
 ALTER TABLE `type_product`
   ADD PRIMARY KEY (`type_id`),
   ADD KEY `product_id` (`product_id`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`email`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `cart`
+-- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `type_id` int(6) NOT NULL AUTO_INCREMENT;
+  MODIFY `type_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT untuk tabel `category`
+-- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
   MODIFY `category_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `merk`
+-- AUTO_INCREMENT for table `merk`
 --
 ALTER TABLE `merk`
   MODIFY `merk_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `product`
+-- AUTO_INCREMENT for table `order`
+--
+ALTER TABLE `order`
+  MODIFY `order_id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
   MODIFY `product_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT untuk tabel `purchaseitem`
+-- AUTO_INCREMENT for table `purchaseitem`
 --
 ALTER TABLE `purchaseitem`
-  MODIFY `type_id` int(6) NOT NULL AUTO_INCREMENT;
+  MODIFY `type_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT untuk tabel `sub-category`
+-- AUTO_INCREMENT for table `sub-category`
 --
 ALTER TABLE `sub-category`
   MODIFY `subcategory_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT untuk tabel `type_product`
+-- AUTO_INCREMENT for table `type_product`
 --
 ALTER TABLE `type_product`
   MODIFY `type_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `cart`
+-- Constraints for table `cart`
 --
 ALTER TABLE `cart`
   ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`email`) REFERENCES `user` (`email`),
   ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`type_id`) REFERENCES `type_product` (`type_id`);
 
 --
--- Ketidakleluasaan untuk tabel `order`
+-- Constraints for table `order`
 --
 ALTER TABLE `order`
   ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`email`) REFERENCES `user` (`email`);
 
 --
--- Ketidakleluasaan untuk tabel `product`
+-- Constraints for table `product`
 --
 ALTER TABLE `product`
   ADD CONSTRAINT `merk_id` FOREIGN KEY (`merk_id`) REFERENCES `merk` (`merk_id`),
@@ -425,20 +463,20 @@ ALTER TABLE `product`
   ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`subcategory_id`) REFERENCES `sub-category` (`subcategory_id`);
 
 --
--- Ketidakleluasaan untuk tabel `purchaseitem`
+-- Constraints for table `purchaseitem`
 --
 ALTER TABLE `purchaseitem`
   ADD CONSTRAINT `purchaseitem_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `order` (`order_id`),
   ADD CONSTRAINT `purchaseitem_ibfk_2` FOREIGN KEY (`type_id`) REFERENCES `type_product` (`type_id`);
 
 --
--- Ketidakleluasaan untuk tabel `sub-category`
+-- Constraints for table `sub-category`
 --
 ALTER TABLE `sub-category`
   ADD CONSTRAINT `sub-category_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`);
 
 --
--- Ketidakleluasaan untuk tabel `type_product`
+-- Constraints for table `type_product`
 --
 ALTER TABLE `type_product`
   ADD CONSTRAINT `product_id` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`);
