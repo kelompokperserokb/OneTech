@@ -79,15 +79,15 @@
                     </ul>
 			    </div>
                 <div class="col-md-8 order-md-1">
-                    <h4 class="mb-3">Checkout</h4>
+                    <h4 class="mb-3">Alamat Pengiriman</h4>
                     <form class="needs-validation" novalidate>
     
                         <div id="first-address-form">
                             <div class="col-md-6 mb-3">
-                                <label for="cc-name">Alamat Pengirim</label>
-                                <p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
-                                <small class="text-muted">Full name as displayed on card</small>
-        
+                                <label id="address-detail">Alamat</label>
+                                <p>'. $order->address_order .'</p>
+                                <label id="telephone-detail">No Telepon</label>
+                                <p>'. $order->phonenumber_order .'</p>
                             </div>
                         </div>
                         <div id="another-address-form" class="none">
@@ -124,22 +124,24 @@
     
                         <div class="row">
                             <div class="col-md-12">
-                                <h4 class="mb-3">Product</h4>
-                                <div class="row">
-                                    <div class="col-sm-2 hidden-xs"><img src="<?php echo base_url(); ?>Asset/img/tandatanya.jpg" alt="..." class="img-responsive" /></div>
-                                    <div class="col-sm-10">
-                                        <h4 class="mb-3">Product 1</h4>
-                                        <p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
-                                        <small class="text-muted">Rp.20.000</small>
-                                        <br> <small class="text-muted">2 barang</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12 sub-total">
-                            
-                                <h4 >Subtotal</h4> 
-                                <p  align="right">Rp. 250.000,00</p>
-                            </div>
+                                <h4 class="mb-3">Product</h4>';
+                                foreach ($orderitem as $row){
+                                	echo '
+									<div class="row">
+										<div class="col-sm-2 hidden-xs"><img src="'.$row->product_img_1.'" alt="image product" class="img-responsive" /></div>
+										<div class="col-sm-10">
+											<h4 class="mb-3">'. $row->product_name .'</h4>
+											<p>'. $row->product_desc .'</p>
+											<small class="text-muted">Rp. ' . number_format($row->product_price, 2, ",", ".") . '</small>
+											<br> <small class="text-muted">'. $row->quantity .' barang</small>
+										</div>
+										<div class="col-md-12 sub-total">
+											<h4 >Subtotal</h4> 
+											<p  align="right">Rp. ' . number_format(($row->product_price * $row->quantity), 2, ",", ".") . '</p>
+										</div>
+									</div>';
+								}
+                            echo '</div>
                         </div>';
 
                 if ($status == 0) {

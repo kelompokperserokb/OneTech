@@ -1,3 +1,4 @@
+var base_url = window.location.origin;
 $(document).ready(function() {
     $("#first-address-button").click(function(e) {
         e.preventDefault();
@@ -17,6 +18,22 @@ $(document).ready(function() {
 
     $("#save-address").click(function(e) {
         e.preventDefault();
+
+		var url = base_url.toString() + "/OneTech/Order/changeAddress";
+		$.ajax({
+			url: url,
+			method: 'post',
+			data:{
+
+			},
+			beforeSend: function () {
+
+			},
+			success: function (response) {
+
+			},
+		});
+
         $("#first-address-button").addClass("select-button");
         $("#first-address-form").removeClass("none");
         $("#another-address-button").removeClass("select-button");

@@ -42,7 +42,7 @@ class M_OrderDB extends CI_Model
 	public function getOrderNotConfirmBy($email){
 		if (isset($_SESSION["email"])) {
 			$this->db->select('*');
-			$this->db->from('order');
+			$this->db->from('orderitem');
 			$this->db->where('email',$email);
 			$this->db->where('confirmation',0);
 			$query = $this->db->get();
@@ -56,7 +56,7 @@ class M_OrderDB extends CI_Model
 	public function getOrder($email)
 	{
 		$this->db->select('*');
-		$this->db->from('order');
+		$this->db->from('orderitem');
 		$this->db->where('email', $email);
 		$this->db->order_by('dateOrder', 'DESC');
 		$query = $this->db->get();
@@ -74,7 +74,9 @@ class M_OrderDB extends CI_Model
 	{
 		$this->db->select('*');
 		$this->db->from('purchaseitem');
-		$this->db->where('order_id', $order_id);s
+		$this->db->join('type_product','type_product.type_id = purchaseitem.type_id');
+		$this->db->join('product','product.product_id = type_product.product_id');
+		$this->db->where('order_id', $order_id);
 		$query = $this->db->get();
 
 		if ($query) {
@@ -101,7 +103,7 @@ class M_OrderDB extends CI_Model
 		);
 
 		$this->db->trans_start();
-		$this->db->insert('order',$data);
+		$this->db->insert('orderitem',$data);
 		$this->db->trans_complete();
 	}
 

@@ -55,7 +55,21 @@
     margin: 10px 0px;
 }
 
+.sub-total {
+	margin-bottom: 20px;
+}
+
 .checkout {
     margin-bottom: 100px;
 }
 
+#address-detail{
+	display: block;
+	margin-bottom: 5px;
+}
+
+#telephone-detail {
+	display: block;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}

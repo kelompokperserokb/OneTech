@@ -70,7 +70,7 @@ class Order extends CI_Controller {
                 $item = $this->M_OrderDB->getOrderItem($data->order_id);
                 $message["orderitem_count"] = $item["count"];
                 if ($message["orderitem_count"] > 0) {
-                    $message["orderitem"] = ($item["data_array"])[0];
+                    $message["orderitem"] = $item["data_array"];
                 }
                 if ($data->confirmation == 0) {
                     $message["text"] = "Order telah dilakukan, order sedang menunggu konfirmasi admin. Mohon tunggu waktu kerja maksimum 3x24 jam.";
