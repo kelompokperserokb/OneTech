@@ -13,7 +13,7 @@ class Welcome extends CI_Controller {
         $data["suball"] = $this->getSubCategory();
         $this->load->view('V_header',$data);
         $this->load->view('index',$data);
-        $this->load->view('footer');
+        $this->load->view('V_footer');
     }
 
     public function getProductByLimit($start, $limit){
@@ -35,7 +35,7 @@ class Welcome extends CI_Controller {
 	}
 
     public function footer(){
-        $this->load->view('footer');
+        $this->load->view('V_footer');
     }
 
 }

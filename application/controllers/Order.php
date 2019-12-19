@@ -31,7 +31,7 @@ class Order extends CI_Controller {
             $this->load->model("M_OrderDB");
             $data['data'] = $this->M_OrderDB->getCart();
             $this->load->view('V_cart', $data);
-            $this->load->view('footer');
+            $this->load->view('V_footer');
         } else {
             redirect(base_url('login'));
         }

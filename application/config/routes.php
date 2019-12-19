@@ -87,3 +87,5 @@ $route['admin/admin/admin/category'] = "Direct/category";
 $route['admin/admin/admin/subcategory'] = "Direct/subcategory";
 $route['admin/admin/admin/verifyorder'] = "Direct/verify";
 $route['admin/admin/admin/verifyorder/items/(:num)'] = "Direct/getOrderItems/$1";
+
+$route['tes'] = "Product/tes";

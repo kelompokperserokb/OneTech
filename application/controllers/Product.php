@@ -10,6 +10,13 @@ class Product extends CI_Controller
 		$this->load->view('V_admin_addProduct');
 	}
 
+	public function tes(){
+		$this->load->helper('url');
+
+		$this->load->view('V_admin_header');
+		$this->load->view('V_admin_index');
+	}
+
 	public function addProduct()
 	{
 		$name = $this->input->post('name');
@@ -75,7 +82,7 @@ class Product extends CI_Controller
 
 		$this->load->view('V_header', $data);
 		$this->load->view('V_productPage', $data);
-		$this->load->view('footer');
+		$this->load->view('V_footer');
 	}
 
 	public function viewProductsType($prod_id, $type_id)
@@ -92,7 +99,7 @@ class Product extends CI_Controller
 
 		$this->load->view('V_header', $data);
 		$this->load->view('V_productPage', $data);
-		$this->load->view('footer');
+		$this->load->view('V_footer');
 	}
 
 	public function viewAllProduct($page)
@@ -108,7 +115,7 @@ class Product extends CI_Controller
 
 		$this->load->view('V_header', $data);
 		$this->load->view('V_allProductPage', $data);
-		$this->load->view('footer');
+		$this->load->view('V_footer');
 	}
 
 	public function viewProductByCat($category_id, $page){
@@ -127,7 +134,7 @@ class Product extends CI_Controller
 
 		$this->load->view('V_header', $data);
 		$this->load->view('V_viewProduct', $data);
-		$this->load->view('footer');
+		$this->load->view('V_footer');
 	}
 
 	public function viewProductBySubCat($category_id, $subcategory_id, $page){
@@ -148,7 +155,7 @@ class Product extends CI_Controller
 
 		$this->load->view('V_header', $data);
 		$this->load->view('V_viewSubProduct', $data);
-		$this->load->view('footer');
+		$this->load->view('V_footer');
 	}
 
 	public function viewSearched() {
@@ -167,7 +174,7 @@ class Product extends CI_Controller
 
 		$this->load->view('V_header', $data);
 		$this->load->view('V_viewSearchProduct', $data);
-		$this->load->view('footer');
+		$this->load->view('V_footer');
 	}
 
 	public function getProductAll()
