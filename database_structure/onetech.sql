@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2019 at 03:56 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.3
+-- Generation Time: Dec 19, 2019 at 03:48 AM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.1.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -103,10 +103,10 @@ INSERT INTO `merk` (`merk_id`, `merk_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order`
+-- Table structure for table `orderitem`
 --
 
-CREATE TABLE `order` (
+CREATE TABLE `orderitem` (
   `order_id` int(9) NOT NULL,
   `email` varchar(127) NOT NULL,
   `dateOrder` date NOT NULL,
@@ -117,15 +117,15 @@ CREATE TABLE `order` (
   `logistic_price` int(7) DEFAULT NULL,
   `unique_price` int(3) NOT NULL,
   `address_order` varchar(256) DEFAULT NULL,
-  `phonenumber_order` int(11) NOT NULL
+  `phonenumber_order` varchar(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `order`
+-- Dumping data for table `orderitem`
 --
 
-INSERT INTO `order` (`order_id`, `email`, `dateOrder`, `totalPrice`, `proofOfPayment`, `confirmation`, `invoice`, `logistic_price`, `unique_price`, `address_order`, `phonenumber_order`) VALUES
-(1, 'robert.unix98@gmail.com', '2019-12-16', 1000, '', 0, '', 1000, 999, NULL, 0);
+INSERT INTO `orderitem` (`order_id`, `email`, `dateOrder`, `totalPrice`, `proofOfPayment`, `confirmation`, `invoice`, `logistic_price`, `unique_price`, `address_order`, `phonenumber_order`) VALUES
+(1, 'robert.unix98@gmail.com', '2019-12-16', 1000, '', 0, '', 1000, 999, 'Jl Sigura-gura V no 31, 65145 Malang', '0895396100000');
 
 -- --------------------------------------------------------
 
@@ -139,9 +139,9 @@ CREATE TABLE `product` (
   `product_name` varchar(255) NOT NULL,
   `product_desc` text NOT NULL,
   `product_price` int(15) NOT NULL,
-  `product_img_1` text,
-  `product_img_2` text,
-  `product_img_3` text,
+  `product_img_1` text DEFAULT NULL,
+  `product_img_2` text DEFAULT NULL,
+  `product_img_3` text DEFAULT NULL,
   `category_id` int(6) NOT NULL,
   `subcategory_id` int(6) NOT NULL,
   `merk_id` int(6) NOT NULL,
@@ -191,7 +191,9 @@ CREATE TABLE `purchaseitem` (
 --
 
 INSERT INTO `purchaseitem` (`type_id`, `order_id`, `quantity`) VALUES
-(24, 1, 5);
+(24, 1, 5),
+(31, 1, 1),
+(30, 1, 10);
 
 -- --------------------------------------------------------
 
@@ -343,9 +345,9 @@ ALTER TABLE `merk`
   ADD PRIMARY KEY (`merk_id`);
 
 --
--- Indexes for table `order`
+-- Indexes for table `orderitem`
 --
-ALTER TABLE `order`
+ALTER TABLE `orderitem`
   ADD PRIMARY KEY (`order_id`),
   ADD KEY `email` (`email`);
 
@@ -408,9 +410,9 @@ ALTER TABLE `merk`
   MODIFY `merk_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `order`
+-- AUTO_INCREMENT for table `orderitem`
 --
-ALTER TABLE `order`
+ALTER TABLE `orderitem`
   MODIFY `order_id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
@@ -423,7 +425,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `purchaseitem`
 --
 ALTER TABLE `purchaseitem`
-  MODIFY `type_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `type_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `sub-category`
@@ -449,10 +451,10 @@ ALTER TABLE `cart`
   ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`type_id`) REFERENCES `type_product` (`type_id`);
 
 --
--- Constraints for table `order`
+-- Constraints for table `orderitem`
 --
-ALTER TABLE `order`
-  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`email`) REFERENCES `user` (`email`);
+ALTER TABLE `orderitem`
+  ADD CONSTRAINT `orderitem_ibfk_1` FOREIGN KEY (`email`) REFERENCES `user` (`email`);
 
 --
 -- Constraints for table `product`
@@ -466,7 +468,7 @@ ALTER TABLE `product`
 -- Constraints for table `purchaseitem`
 --
 ALTER TABLE `purchaseitem`
-  ADD CONSTRAINT `purchaseitem_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `order` (`order_id`),
+  ADD CONSTRAINT `purchaseitem_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orderitem` (`order_id`),
   ADD CONSTRAINT `purchaseitem_ibfk_2` FOREIGN KEY (`type_id`) REFERENCES `type_product` (`type_id`);
 
 --
