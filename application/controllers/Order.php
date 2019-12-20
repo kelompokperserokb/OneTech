@@ -31,7 +31,7 @@ class Order extends CI_Controller {
 	    if (isset($_SESSION["email"])) {
             $data['data'] = $this->M_OrderDB->getCart($_SESSION["email"]);
             $this->load->view('V_cart', $data);
-            $this->load->view('footer');
+            $this->load->view('V_footer');
         } else {
             redirect(base_url('login'));
         }

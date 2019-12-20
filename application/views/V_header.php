@@ -21,8 +21,7 @@
 	<link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/owl.carousel.min.css"/>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/animate.css"/>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/cat.css"/>
-	<link rel="stylesheet"
-		  href="<?php echo base_url(); ?>Asset/css/header-style.css?<?php echo date('l jS \of F Y h:i:s A'); ?>"/>
+	<link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/header-style.css"/>
 
 
 

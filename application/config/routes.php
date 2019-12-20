@@ -93,3 +93,5 @@ $route['admin/admin/admin/logistic/items/(:num)'] = "Direct/getOrderItems/$1";
 $route['admin/admin/admin/verifyorder/items/(:num)'] = "Direct/getOrderItems/$1";
 $route['admin/admin/admin/resi/items/(:num)'] = "Direct/getOrderItems/$1";
 $route['admin/admin/admin/listorder/items/(:num)'] = "Direct/getOrderItems/$1";
+$route['tes'] = "Product/tes";
+

@@ -150,7 +150,7 @@ class Direct extends CI_Controller {
 		$data["suball"] = $this->getAllSubCategory();
         $this->load->view('V_header',$data);
         $this->load->view('V_aboutUs');
-        $this->load->view('footer');
+        $this->load->view('V_footer');
     }
 
 	public function howToOrder()
@@ -160,7 +160,7 @@ class Direct extends CI_Controller {
 		$data["suball"] = $this->getAllSubCategory();
         $this->load->view('V_header',$data);
         $this->load->view('V_howToOrder');
-        $this->load->view('footer');
+        $this->load->view('V_footer');
 	}
 
 	public function payment()
@@ -170,7 +170,7 @@ class Direct extends CI_Controller {
 		$data["suball"] = $this->getAllSubCategory();
         $this->load->view('V_header',$data);
         $this->load->view('V_payment');
-        $this->load->view('footer');
+        $this->load->view('V_footer');
 	}
 
 	public function logistic()
@@ -180,7 +180,7 @@ class Direct extends CI_Controller {
 		$data["suball"] = $this->getAllSubCategory();
         $this->load->view('V_header',$data);
         $this->load->view('V_logistic');
-        $this->load->view('footer');
+        $this->load->view('V_footer');
 	}
 
     public function getCategory(){
