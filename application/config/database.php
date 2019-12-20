@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'Ozhkavosh',
+	'hostname' => 'localhost',
 	'username' => 'root',
-	'password' => 'tatsu11211',
-	'database' => 'OneTech',
+	'password' => '',
+	'database' => 'onetech',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

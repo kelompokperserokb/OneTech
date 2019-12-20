@@ -40,7 +40,7 @@ $(document).ready(function() {
             var id = '';
 
             if (edit == true) {
-                var url = base_url.toString() + "/OneTech/Admin/editMerk";
+                var url = base_url.toString() + "/onetech/Admin/editMerk";
                 id = $(input[0]).val();
                 $.ajax({
                     url: url,
@@ -57,7 +57,7 @@ $(document).ready(function() {
                     },
                 });
             } else {
-                var url = base_url.toString() + "/OneTech/Admin/addMerk";
+                var url = base_url.toString() + "/onetech/Admin/addMerk";
                 $.ajax({
                     url: url,
                     method: 'post',

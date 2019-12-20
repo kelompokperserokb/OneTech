@@ -142,4 +142,14 @@ var base_url = window.location.origin;
             });
         }
     });
+
+    /*-------------------
+            Proceed to Order
+        --------------------- */
+    $('#proceed-order').click(function(e) {
+        e.preventDefault();
+        var url = base_url.toString() + "/OneTech/Order/moveToOrder";
+        window.location.href = url;
+    });
+
 })(jQuery);

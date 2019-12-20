@@ -41,7 +41,7 @@ $(document).ready(function() {
             var id = '';
 
             if (edit == true) {
-                var url = base_url.toString() + "/OneTech/Admin/editCategory";
+                var url = base_url.toString() + "/onetech/Admin/editCategory";
                 id = $(input[0]).val();
                 $.ajax({
                     url: url,
@@ -61,7 +61,7 @@ $(document).ready(function() {
                     },
                 });
             } else {
-                var url = base_url.toString() + "/OneTech/Admin/addCategory";
+                var url = base_url.toString() + "/onetech/Admin/addCategory";
                 $.ajax({
                     url: url,
                     method: 'post',

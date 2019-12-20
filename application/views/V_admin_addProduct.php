@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/style.css" />
 </head>
 
-<body>
 <body style="width: 2500px !important;">
 <div class="flex-container">
     <!--<div class="table-wrapper">-->

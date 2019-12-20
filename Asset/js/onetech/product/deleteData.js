@@ -1,5 +1,5 @@
 function deleteMerk(id){
-    var url = base_url.toString() + "/OneTech/Admin/deleteMerk";
+    var url = base_url.toString() + "/onetech/Admin/deleteMerk";
     $.ajax({
         url: url,
         method: 'post',
@@ -17,7 +17,7 @@ function deleteMerk(id){
 }
 
 function deleteCategory(id){
-    var url = base_url.toString() + "/OneTech/Admin/deleteCategory";
+    var url = base_url.toString() + "/onetech/Admin/deleteCategory";
     $.ajax({
         url: url,
         method: 'post',
@@ -35,7 +35,7 @@ function deleteCategory(id){
 }
 
 function deleteSubCategory(categoryid, subcategoryid){
-    var url = base_url.toString() + "/OneTech/Admin/deleteSubCategory";
+    var url = base_url.toString() + "/onetech/Admin/deleteSubCategory";
     $.ajax({
         url: url,
         method: 'post',
@@ -54,7 +54,7 @@ function deleteSubCategory(categoryid, subcategoryid){
 }
 
 function deleteProduct(productid){
-	var url = base_url.toString() + "/OneTech/Admin/deleteProduct";
+	var url = base_url.toString() + "/onetech/Admin/deleteProduct";
 	$.ajax({
 		url: url,
 		method: 'post',
@@ -72,7 +72,7 @@ function deleteProduct(productid){
 }
 
 function deleteTypeProduct(product_id, type_id){
-	var url = base_url.toString() + "/OneTech/Admin/deleteTypeProduct";
+	var url = base_url.toString() + "/onetech/Admin/deleteTypeProduct";
 	$.ajax({
 		url: url,
 		method: 'post',

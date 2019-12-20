@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/animate.css" />
     <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/style.css" />
     <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/style1.css" />
+    <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/order.css" />
 
 
     <!--[if lt IE 9]>
@@ -39,145 +40,138 @@
 <body>
 
 
-	<div class="container">
+	<div class="container checkout">
 		<div class="py-5 text-center">
-			<img class="d-block mx-auto mb-4" src="<?php echo base_url(); ?>Asset/img/tandatanya.jpg" alt="" width="72" height="72">
+			<!--<img class="d-block mx-auto mb-4" src="<?php /*echo base_url(); */?>Asset/img/tandatanya.jpg" alt="" width="72" height="72">-->
 			<h2>Checkout form</h2>
 			<!-- <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>-->
 		</div>
 
-		<div class="row">
-			<div class="col-md-4 order-md-2 mb-4">
-				<!--<h4 class="d-flex justify-content-between align-items-center mb-3">
-					<span class="text-muted">Your cart</span>
-					  <span class="badge badge-secondary badge-pill">3</span>
-				</h4>-->
-				<!--  <ul class="list-group mb-3">
-					<li class="list-group-item d-flex justify-content-between lh-condensed">
-						<div>
-							<h6 class="my-0">Product name</h6>
-							<small class="text-muted">Brief description</small>
-						</div>
-						<span class="text-muted">$12</span>
-					</li>
-					<li class="list-group-item d-flex justify-content-between lh-condensed">
-						<div>
-							<h6 class="my-0">Third item</h6>
-							<small class="text-muted">Brief description</small>
-						</div>
-						<span class="text-muted">$8</span>
-					</li>
-					<li class="list-group-item d-flex justify-content-between lh-condensed">
-						<div>
-							<h6 class="my-0">Third item</h6>
-							<small class="text-muted">Brief description</small>
-						</div>
-						<span class="text-muted">$5</span>
-					</li>
-					<li class="list-group-item d-flex justify-content-between bg-light">
-						<div class="text-success">
-							<h6 class="my-0">Promo code</h6>
-							<small>EXAMPLECODE</small>
-						</div>
-						<span class="text-success">-$5</span>
-					</li>
-				<li class="list-group-item d-flex justify-content-between">
-					<span>Total (USD)</span>
-					<strong>$20</strong>
-				</li>
-				</ul>
+        <?php
+            if ($status == -1) {
+                echo '<div class="col-md-12 text-center"><strong>'.$text.'</strong></div>';
+            }
+            else {
+                $total_price = $order->totalPrice + $order->logistic_price + $order->unique_price;
+                echo '<div class="row">
+                <div class="col-md-4 order-md-2 mb-4">
+                    <input type="hidden" id="o-id" value="'.$order->order_id.'">
+                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="text-muted">Your Order</span>
+                          <span class="badge badge-secondary badge-pill">'. $orderitem_count .'</span>
+                    </h4>
+                    <ul class="list-group mb-3">
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Total Harga Barang</span>
+                            <strong>Rp. ' . number_format($order->totalPrice, 2, ",", ".") . '</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Biaya Kirim</span>
+                            <strong>Rp. ' . number_format($order->logistic_price, 2, ",", ".") . '</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Kode Unik</span>
+                            <strong>Rp. ' . number_format($order->unique_price, 2, ",", ".") . '</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <strong s>Total Pembayaran</strong>
+                            <strong>Rp. ' . number_format($total_price, 2, ",", ".") . '</strong>
+                        </li>
+                    </ul>
+			    </div>
+                <div class="col-md-8 order-md-1">
+                    <h4 class="mb-3">Alamat Pengiriman</h4>
+                    <form class="needs-validation" novalidate>
+    
+                        <div id="first-address-form">
+                            <div class="col-md-6 mb-3">
+                                <label id="address-detail">Alamat</label>
+                                <p id="address-detail-value">'. $order->address_order .'</p>
+                                <label id="telephone-detail">No Telepon</label>
+                                <p id="telephone-detail-value">'. $order->phonenumber_order .'</p>
+                            </div>
+                        </div>
+                        <div id="another-address-form" class="none">
+                            <div class="mb-3">
+                                <label for="alamat">Alamat </label>
+                                <input type="alamat" class="form-control" id="alamat" placeholder="Jl. Jakarta" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid address for shipping updates.
+                                </div>
+                            </div>
+        
+                            <div class="mb-3">
+                                <label for="phone">No. HP</label>
+                                <input type="phone" class="form-control" id="phone" placeholder="0833xxx" required>
+                                <div class="invalid-feedback">
+                                    Please enter your no. hp address.
+                                </div>
+                            </div>
+                            <div class="col-md-5 mb-3">
+                                <button class="button select-button" id="save-address">Simpan Alamat</button>
+                            </div>                
+                        </div>'.
+                        ($status == 0 ?
+                         '<div class="row">
+                            <div class="col-md-5 mb-3">
+                                <button class="button select-button" id="first-address-button">Alamat Anda</button>
+                            </div>
+                            <div class="col-md-5 mb-3">
+                                <button class="button" id="another-address-button">Kirim ke beberapa alamat</button>
+                            </div>
+                        </div>' : '')
+                        .'
+                        
+                        <br>
+    
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4 class="mb-3">Product</h4>';
+                                foreach ($orderitem as $row){
+                                	echo '
+									<div class="row">
+										<div class="col-sm-2 hidden-xs"><img src="'.$row->product_img_1.'" alt="image product" class="img-responsive" /></div>
+										<div class="col-sm-10">
+											<h4 class="mb-3">'. $row->product_name .'</h4>
+											<p>'. $row->product_desc .'</p>
+											<small class="text-muted">Rp. ' . number_format($row->product_price, 2, ",", ".") . '</small>
+											<br> <small class="text-muted">'. $row->quantity .' barang</small>
+										</div>
+										<div class="col-md-12 sub-total">
+											<h4 >Subtotal</h4> 
+											<p  align="right">Rp. ' . number_format(($row->product_price * $row->quantity), 2, ",", ".") . '</p>
+										</div>
+									</div>';
+								}
+                            echo '</div>
+                        </div>';
 
-				<form class="card p-2">
-					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Promo code">
-						<div class="input-group-append">
-							<button type="submit" class="btn btn-secondary">Redeem</button>
-						</div>
-					</div>
-				</form>-->
+                if ($status == 0) {
+                    echo $text;
+                } else if ($status == 1) {
+                    echo '
+                                <div class="row">
+                                    <div class="col-md-5 mb-3">
+                                        <h4 class="mb-3">Bukti Pembayaran</h4>
+                                        <input type=\'file\' onchange="readURL(this);">
+                                    </div>
+                                </div>';
+                    echo $text;
+                } else if ($status == 2) {
+                    echo $text;
+                }
+            }
+
+				echo '</form>
 			</div>
-			<div class="col-md-8 order-md-1">
-				<h4 class="mb-3">Checkout</h4>
-				<form class="needs-validation" novalidate>
+		</div>'; ?>
 
-					<div class="col-md-6 mb-3">
-						<label for="cc-name">Alamat Pengirim</label>
-						<p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
-						<small class="text-muted">Full name as displayed on card</small>
-
-					</div>
-
-					<!-- <div class="row">
-						<div class="col-md-5 mb-3">
-							<button type="submit" class="btn btn-secondary">Pilih Alamat lain</button>
-						</div>
-						<div class="col-md-5 mb-3">
-							<button type="submit" class="btn btn-secondary">Kirim ke beberapa alamat</button>
-						</div>
-					</div> -->
-					<div class="mb-3">
-						<label for="alamat">Alamat </label>
-						<input type="alamat" class="form-control" id="alamat" placeholder="1234 Main St" required>
-						<div class="invalid-feedback">
-							Please enter a valid address for shipping updates.
-						</div>
-					</div>
-
-					<div class="mb-3">
-						<label for="phone">no. hp</label>
-						<input type="phone" class="form-control" id="phone" placeholder="081" required>
-						<div class="invalid-feedback">
-							Please enter your no. hp address.
-						</div>
-					</div>
-					<br>
-
-					<div class="row">
-						<div class="col-md-6 mb-3">
-							<h4 class="mb-3">Product</h4>
-							<div class="row">
-								<div class="col-sm-2 hidden-xs"><img src="<?php echo base_url(); ?>Asset/img/tandatanya.jpg" alt="..." class="img-responsive" /></div>
-								<div class="col-sm-10">
-									<h4 class="mb-3">Product 1</h4>
-									<p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
-									<small class="text-muted">Rp.20.000</small>
-									<br> <small class="text-muted">2 barang</small>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 mb-3">
-							<h4>
-
-							</h4>
-
-							<br>
-							<h4 class="mb-3">Subtotal</h4>
-							<td data-th="Price">$1.99</td>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-5 mb-3">
-							<h4 class="mb-3">Bukti Pembayaran</h4>
-							<input type='file' onchange="readURL(this);">
-						</div>
-
-					</div>
-
-				</form>
-			</div>
-		</div>
-
-		<footer class="my-5 pt-5 text-muted text-center text-small">
-			<p class="mb-1">&copy; 2017-{{ site.time | date: "%Y" }} Company Name</p>
-			<ul class="list-inline">
-				<li class="list-inline-item"><a href="#">Privacy</a></li>
-				<li class="list-inline-item"><a href="#">Terms</a></li>
-				<li class="list-inline-item"><a href="#">Support</a></li>
-			</ul>
-		</footer>
 	</div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="<?php echo base_url(); ?>Asset/js/form-validation.js"></script>
+    <script src="<?php echo base_url(); ?>Asset/js/onetech/order/order.js"></script>
+    <script src="<?php echo base_url(); ?>Asset/js/onetech/math.js"></script>
 </body>
 
 </html>

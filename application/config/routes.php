@@ -85,5 +85,13 @@ $route['admin/admin/admin/typeproduct'] = "Direct/typeproduct";
 $route['admin/admin/admin/merk'] = "Direct/merk";
 $route['admin/admin/admin/category'] = "Direct/category";
 $route['admin/admin/admin/subcategory'] = "Direct/subcategory";
-$route['admin/admin/admin/verifyorder'] = "Direct/verify";
+$route['admin/admin/admin/logistic'] = "Direct/adminLogistic";
+$route['admin/admin/admin/verifyorder'] = "Direct/adminVerify";
+$route['admin/admin/admin/resi'] = "Direct/adminResi";
+$route['admin/admin/admin/listorder'] = "Direct/adminListorder";
+$route['admin/admin/admin/logistic/items/(:num)'] = "Direct/getOrderItems/$1";
 $route['admin/admin/admin/verifyorder/items/(:num)'] = "Direct/getOrderItems/$1";
+$route['admin/admin/admin/resi/items/(:num)'] = "Direct/getOrderItems/$1";
+$route['admin/admin/admin/listorder/items/(:num)'] = "Direct/getOrderItems/$1";
+$route['tes'] = "Product/tes";
+

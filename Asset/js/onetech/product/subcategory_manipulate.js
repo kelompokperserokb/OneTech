@@ -16,7 +16,7 @@ $(document).ready(function() {
 
         var index = $("table tbody tr:last-child").index();
 
-        var url = base_url.toString() + "/OneTech/Admin/getCategory";
+        var url = base_url.toString() + "/onetech/Admin/getCategory";
         $.ajax({
             url: url,
             beforeSend: function () {
@@ -75,7 +75,7 @@ $(document).ready(function() {
             var subCategoryId = '';
 
             if (edit == true) {
-                var url = base_url.toString() + "/OneTech/Admin/editSubCategory";
+                var url = base_url.toString() + "/onetech/Admin/editSubCategory";
                 subCategoryId = $(input[1]).val();
                 $.ajax({
                     url: url,
@@ -97,7 +97,7 @@ $(document).ready(function() {
                     },
                 });
             } else {
-                var url = base_url.toString() + "/OneTech/Admin/addSubCategory";
+                var url = base_url.toString() + "/onetech/Admin/addSubCategory";
                 $.ajax({
                     url: url,
                     method: 'post',
@@ -131,7 +131,7 @@ $(document).ready(function() {
     });
     // Edit row on edit button click
     $(document).on("click", ".edit", function() {
-        var url = base_url.toString() + "/OneTech/Admin/getCategory";
+        var url = base_url.toString() + "/onetech/Admin/getCategory";
         let column = $(this).parents("tr").find("td:not(:last-child)");
         $.ajax({
             url: url,

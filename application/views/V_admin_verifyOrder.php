@@ -23,7 +23,6 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/owl.carousel.min.css" />
     <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/animate.css" />
     <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/style.css" />
-    <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/style1.css" />
 
 
 
@@ -39,21 +38,26 @@
 				<h2 class="heading-verify" data-aos="fade-up">Verify Order</h2>
 			</div>
 		</div>
-		<div class="flex-container">
+		<div class="flex-container table-verify">
 			<table >
 				<colgroup>
-					<col width="3%">
-					<col width="8%">
-					<col width="9%">
-					<col width="8%">
-					<col width="9%">
-					<col width="3%">
-					<col width="8%">
-					<col width="10%">
-					<col width="5%">
+					<col width="4%">
+					<col width="6%">
+					<col width="6%">
+					<col width="6%">
 					<col width="7%">
-					<col width="8%">
+					<col width="3%">
+					<col width="7%">
+					<col width="6%">
+					<col width="5%">
 					<col width="10%">
+
+                    <col width="3%">
+					<col width="6%">
+                    <col width="6%">
+                    <col width="6%">
+
+					<col width="7%">
 					<col width="5%">
 					<col width="5%">
 					<col width="2%">
@@ -70,9 +74,14 @@
 					<th>Institution Address</th>
 					<th>NPWP</th>
 					<th>Date Order</th>
-					<th>Total Price</th>
+
+                    <th>Unique Price</th>
+                    <th>Total Item Price</th>
+                    <th>Logistic Price</th>
+                    <th>Total Price</th>
+
 					<th>Proof Of Payment </th>
-					<th>Status</th>
+					<th>Logistic</th>
 					<th>Confirm</th>
 					<th>See Item Purchased</th>
 				</tr>

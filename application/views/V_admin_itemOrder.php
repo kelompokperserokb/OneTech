@@ -23,7 +23,6 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/owl.carousel.min.css" />
     <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/animate.css" />
     <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/style.css" />
-    <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/style1.css" />
 
 
 
@@ -34,14 +33,14 @@
 
 </head>
 <body style="width: 2000px !important;">
-		<input id="param" type="hidden" value="<?php echo (isset($param) ? $param : null); ?>">
+		<input id="param" type="hidden" value="<?php echo $param1; ?>">
 		<div class="row">
 			<div class="col-md-12">
-				<h2 class="heading-verify" data-aos="fade-up">Verify Order</h2>
+				<h2 class="heading-verify" data-aos="fade-up">Order Item</h2>
 			</div>
 		</div>
 		<div class="back-link-itemorder">
-			<a href="<?php echo base_url("admin/admin/admin/verifyorder"); ?>"> &lt;&lt; Back to Verify Order</a>
+			<a href="javascript:history.back()"> &lt;&lt; Back</a>
 		</div>
 		<div class="flex-container">
 			<table >

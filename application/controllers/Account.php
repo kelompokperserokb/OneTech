@@ -9,7 +9,7 @@ class Account extends CI_Controller {
             $data["suball"] = $this->getSubCategory();
             $this->load->view('V_header', $data);
             $this->load->view('V_login');
-            $this->load->view('footer');
+            $this->load->view('V_footer');
         } else {
             redirect(base_url());
         }
@@ -22,7 +22,7 @@ class Account extends CI_Controller {
 			$data["suball"] = $this->getSubCategory();
 			$this->load->view('V_header',$data);
 			$this->load->view('V_registerPage');
-			$this->load->view('footer');
+			$this->load->view('V_footer');
 		} else {
 			redirect(base_url());
 		}
