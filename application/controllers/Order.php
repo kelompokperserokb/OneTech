@@ -8,6 +8,8 @@ class Order extends CI_Controller {
 		parent::__construct();
 		$this->load->library('pdf');
         $this->load->helper('url');
+        $this->load->model("M_OrderDB");
+        $this->load->model("M_AccountDB");
 	}
 
 	public function addToCart($type_id, $quantity)
@@ -20,7 +22,6 @@ class Order extends CI_Controller {
                 'type_id' => $type_id,
                 'quantity' => $quantity,
             );
-            $this->load->model("M_OrderDB");
             $this->M_OrderDB->addCart($data);
             redirect(base_url('cart'));
         }
@@ -28,7 +29,6 @@ class Order extends CI_Controller {
 
 	public function cart(){
 	    if (isset($_SESSION["email"])) {
-            $this->load->model("M_OrderDB");
             $data['data'] = $this->M_OrderDB->getCart($_SESSION["email"]);
             $this->load->view('V_cart', $data);
             $this->load->view('footer');
@@ -38,7 +38,6 @@ class Order extends CI_Controller {
     }
 
     public function updateCart(){
-        $this->load->model("M_OrderDB");
         $type_id = $this->input->post('type_id') ;
         $quantity = $this->input->post('quantity');
         if (isset($_SESSION['email'])) {
@@ -48,7 +47,6 @@ class Order extends CI_Controller {
 
 	public function removeFromCart()
 	{
-        $this->load->model("M_OrderDB");
         $type_id = $this->input->post('type_id') ;
         $this->M_OrderDB->removeFromCart($type_id);
 	}
@@ -61,7 +59,6 @@ class Order extends CI_Controller {
 	public function order()
 	{
 	    if (isset($_SESSION["email"])) {
-            $this->load->model("M_OrderDB");
             $order = $this->M_OrderDB->getOrder($_SESSION["email"]);
 
             if ($order["count"] > 0) {
@@ -73,13 +70,19 @@ class Order extends CI_Controller {
                     $message["orderitem"] = $item["data_array"];
                 }
                 if ($data->confirmation == 0) {
-                    $message["text"] = "Order telah dilakukan, order sedang menunggu konfirmasi admin. Mohon tunggu waktu kerja maksimum 3x24 jam.";
+                    $message["text"] = "Order telah dilakukan, order sedang menunggu konfirmasi admin. Mohon tunggu waktu kerja maksimum 1x24 jam.";
                     $message["status"] = 0;
                 } else if ($data->confirmation == 1) {
                     $message["text"] = "Order telah dikonfirmasi admin. Mohon segera upload bukti pembayaran sesuai dengan harga yang tertera.";
                     $message["status"] = 1;
-                } else if ($data->confirmation == 2){
-                    $message["text"] = "Pembayaran telah dikonfirmasi admin. Proses pengiriman barang.";
+                } else if ($data->confirmation == 2) {
+                    $message["text"] = "Bukti telah diupload. Mohon tunggu untuk verifikasi admin.";
+                    $message["status"] = 2;
+                }else if ($data->confirmation == 3){
+                        $message["text"] = "Pembayaran valid. Barang sedang dalang pengemasan.";
+                        $message["status"] = 2;
+                } else if ($data->confirmation == 4){
+                    $message["text"] = "Barang sedang dalam proses pengiriman menggunakan ".$message["order"]->kurir.", dengan no Resi : ".$message["order"]->resi;
                     $message["status"] = 2;
                 }
             } else {
@@ -98,6 +101,15 @@ class Order extends CI_Controller {
         }
     }
 
+    public function changeAddress(){
+        $address = $this->input->post('address') ;
+        $telephone = $this->input->post('phone');
+        $order_id = $this->input->post('order_id');
+        $email = $_SESSION["email"];
+
+        $this->M_OrderDB->changeAddress($order_id, $email, $address, $telephone);
+    }
+
     public function getCategory(){
         $this->load->model("M_ProductDB");
         $datas['data'] = $this->M_ProductDB->getCategory();
@@ -111,14 +123,13 @@ class Order extends CI_Controller {
     }
 
 	public function moveToOrder(){
-        $this->load->model("M_OrderDB");
         $email = $_SESSION["email"];
 
 	    $dataCart = $this->getItemCart($email);
 
         $this->createNewOrder($email, $dataCart);
         $order = ($this->M_OrderDB->getOrderNotConfirmBy($email));
-        $this->addItemToOrder($email, $order["data_array"], $dataCart);
+        $this->addItemToOrder($email, $order["data_array"][0], $dataCart);
 
         redirect(base_url('order'));
 
@@ -132,7 +143,6 @@ class Order extends CI_Controller {
     }
 
     public function getItemCart($email){
-        $this->load->model("M_OrderDB");
         $rawdata = $this->M_OrderDB->getCart($email);
         $totalprice = 0;
         foreach ($rawdata["data_array"] as $row){
@@ -146,16 +156,22 @@ class Order extends CI_Controller {
 
     public function addItemToOrder($email, $dataOrder ,$data){
         foreach($data["data"] as $row){
-            $this->load->addToOrder($dataOrder->order_id, $row->type_id, $row->quantity);
+            $this->M_OrderDB->addToOrder($dataOrder->order_id, $row->type_id, $row->quantity);
+            $this->M_ProductDB->updateQuantity($row->type_id, $row->quantity);
         }
         $this->removeCart($email);
     }
 
     public function createNewOrder($email,$data){
-        $unique_price = random_int(50,999);
+        $unique_price = random_int(1,500);
+        $user = ($this->getInfoUser($email))[0];
         $totalPrice = $data["total"];
-        $dateOrder = date();
-	    $this->load->createNewOrder($email, $dateOrder, $totalPrice, $unique_price);
+        $dateOrder = date('Y-m-d');
+	    $this->M_OrderDB->createNewOrder($email, $dateOrder, $totalPrice, $unique_price, $user->address, $user->phoneNumber);
+    }
+
+    public function getInfoUser($email){
+	    return ($this->M_AccountDB->getAccount($email))->result();
     }
 
     public function removeCart($email)

@@ -321,16 +321,51 @@ class Admin extends CI_Controller
 	}
 
 
+    public function getOrderListLogistic(){
+        $arr = $this->M_OrderDB->adminGetOrderList();
+        $str = '';
+        foreach ($arr as $row) {
+            $str.=$row->order_id.'##'.($row->first_name." ".$row->last_name).'##'.$row->address_order.'##'.$row->phonenumber_order.'##'.$row->email.'##'.
+                $row->accountType.'##'.($row->institutionName == "" ? "-" : $row->institutionName).'##'.($row->institutionAddress == "" ? "-" : $row->institutionAddress).'##'.($row->npwp == "" ? "-" : $row->npwp).'##'.
+                $row->dateOrder.'##'.$row->unique_price.'##'.$row->totalPrice.'##'.$row->logistic_price.'##'.$row->confirmation.'%%';
+        }
+        echo $str;
+    }
+
 	public function getOrderList(){
     	$arr = $this->M_OrderDB->adminGetOrderList();
     	$str = '';
 		foreach ($arr as $row) {
-			$str.=$row->order_id.'##'.($row->first_name." ".$row->last_name).'##'.$row->order_address.'##'.$row->phoneNumber.'##'.$row->email.'##'.
+			$str.=$row->order_id.'##'.($row->first_name." ".$row->last_name).'##'.$row->address_order.'##'.$row->phonenumber_order.'##'.$row->email.'##'.
 				$row->accountType.'##'.($row->institutionName == "" ? "-" : $row->institutionName).'##'.($row->institutionAddress == "" ? "-" : $row->institutionAddress).'##'.($row->npwp == "" ? "-" : $row->npwp).'##'.
-				$row->dateOrder.'##'.$row->totalPrice.'##'.($row->proofOfPayment == "" ? " " : $row->proofOfPayment).'##'.$row->confirmation.'%%';
+				$row->dateOrder.'##'.$row->unique_price.'##'.$row->totalPrice.'##'.$row->logistic_price.'##'.($row->proofOfPayment == "" ? " " : $row->proofOfPayment).'##'.$row->confirmation.'%%';
 		}
 		echo $str;
 	}
+
+    public function getOrderListResi(){
+        $arr = $this->M_OrderDB->adminGetOrderList();
+        $str = '';
+        foreach ($arr as $row) {
+            $str.=$row->order_id.'##'.($row->first_name." ".$row->last_name).'##'.$row->address_order.'##'.$row->phonenumber_order.'##'.$row->email.'##'.
+                $row->accountType.'##'.($row->institutionName == "" ? "-" : $row->institutionName).'##'.($row->institutionAddress == "" ? "-" : $row->institutionAddress).'##'.($row->npwp == "" ? "-" : $row->npwp).'##'.
+                $row->dateOrder.'##'.$row->unique_price.'##'.$row->totalPrice.'##'.$row->logistic_price.'##'.($row->proofOfPayment == "" ? " " : $row->proofOfPayment).'##'.
+                ($row->resi == "" ? "-" : $row->resi).'##'.($row->kurir == "" ? "-" : $row->kurir).'##'.$row->confirmation.'%%';
+        }
+        echo $str;
+    }
+
+    public function getListorderFinal(){
+        $arr = $this->M_OrderDB->adminGetOrderList();
+        $str = '';
+        foreach ($arr as $row) {
+            $str.=$row->order_id.'##'.($row->first_name." ".$row->last_name).'##'.$row->address_order.'##'.$row->phonenumber_order.'##'.$row->email.'##'.
+                $row->accountType.'##'.($row->institutionName == "" ? "-" : $row->institutionName).'##'.($row->institutionAddress == "" ? "-" : $row->institutionAddress).'##'.($row->npwp == "" ? "-" : $row->npwp).'##'.
+                $row->dateOrder.'##'.$row->unique_price.'##'.$row->totalPrice.'##'.$row->logistic_price.'##'.($row->proofOfPayment == "" ? " " : $row->proofOfPayment).'##'.
+                ($row->resi == "" ? "-" : $row->resi).'##'.($row->kurir == "" ? "-" : $row->kurir).'##'.$row->confirmation.'%%';
+        }
+        echo $str;
+    }
 
 	public function  verifyOrder(){
 		$order_id = $this->input->post('order_id');
@@ -339,12 +374,29 @@ class Admin extends CI_Controller
 		$this->M_OrderDB->adminVerifyOrder($order_id, $email);
 	}
 
-	public function  unverifyOrder(){
-		$order_id = $this->input->post('order_id');
-		$email = $this->input->post('email');
+    public function edit_status($status){
+        $order_id = $this->input->post('order_id');
+        $email = $this->input->post('email');
 
-		$this->M_OrderDB->adminUnVerifyOrder($order_id, $email);
-	}
+        $this->M_OrderDB->adminEditStatus($order_id, $email, $status);
+    }
+
+    public function  updateLogistic(){
+        $order_id = $this->input->post('order_id');
+        $email = $this->input->post('email');
+        $logistic_price = $this->input->post('logistic_price');
+
+        $this->M_OrderDB->adminUpdateLogistic($order_id, $email , $logistic_price);
+    }
+
+    public function  updateResi(){
+        $order_id = $this->input->post('order_id');
+        $email = $this->input->post('email');
+        $resi = $this->input->post('resi');
+        $kurir = $this->input->post('kurir');
+
+        $this->M_OrderDB->adminUpdateResi($order_id, $email , $resi, $kurir);
+    }
 
 	public function getOrderItemsList(){
 		$order_id = $this->input->post('order_id');

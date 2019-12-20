@@ -4331,3 +4331,10 @@ modal-open {
 	position: absolute;
 	z-index: 1070;
 }
+
+.heading-verify {
+    font-family: 'Raleway', sans-serif;
+    margin: 0 0 15px;
+    color: #444;
+    font-weight: 500;
+}

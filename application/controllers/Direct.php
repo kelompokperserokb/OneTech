@@ -35,7 +35,16 @@ class Direct extends CI_Controller {
         }
 	}
 
-	public function verify(){
+    public function adminLogistic(){
+        $this->load->helper('url');
+        if (!isset($_SESSION["admin-authorize"])) {
+            redirect(base_url()."admin/admin/admin/login");
+        } else {
+            $this->load->view('V_admin_inputLogistic');
+        }
+    }
+
+	public function adminVerify(){
 		$this->load->helper('url');
 		if (!isset($_SESSION["admin-authorize"])) {
 			redirect(base_url()."admin/admin/admin/login");
@@ -44,12 +53,31 @@ class Direct extends CI_Controller {
 		}
 	}
 
+    public function adminResi(){
+        $this->load->helper('url');
+        if (!isset($_SESSION["admin-authorize"])) {
+            redirect(base_url()."admin/admin/admin/login");
+        } else {
+            $this->load->view('V_admin_resiInput');
+        }
+    }
+
+    public function adminListorder(){
+        $this->load->helper('url');
+        if (!isset($_SESSION["admin-authorize"])) {
+            redirect(base_url()."admin/admin/admin/login");
+        } else {
+            $this->load->view('V_admin_listorder');
+        }
+    }
+
 	public function getOrderItems($param1){
 		$this->load->helper('url');
 		if (!isset($_SESSION["admin-authorize"])) {
 			redirect(base_url()."admin/admin/admin/login");
 		} else {
-			$this->load->view('V_admin_itemOrder',$param1);
+		    $param['param1'] = $param1;
+			$this->load->view('V_admin_itemOrder',$param);
 		}
 	}
 

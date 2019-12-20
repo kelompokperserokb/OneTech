@@ -1,6 +1,11 @@
 <?php
 class M_OrderDB extends CI_Model
 {
+	//0 Menunggu admin input logistic
+	//1 Menunggu user upload bukti
+	//2 Bukti terupload
+	//3 Menunggu resi
+	//4 Resi telah ada dan barang dikirim
     public function getCart($email)
 	{
 		$this->db->select('*');
@@ -88,6 +93,19 @@ class M_OrderDB extends CI_Model
 		return $data;
 	}
 
+	public function changeAddress($order_id, $email, $address, $phone){
+        $data = array(
+            'address_order' => $address,
+            'phonenumber_order' => $phone,
+        );
+
+        $this->db->trans_start();
+        $this->db->where('order_id', $order_id);
+        $this->db->where('email', $email);
+        $this->db->update('orderitem', $data);
+        $this->db->trans_complete();
+    }
+
 	public function createNewOrder($email, $dateOrder, $totalPrice, $unique_price, $address_order, $phonenumber_order){
 		$data = array(
 			'email' => $email,
@@ -141,7 +159,7 @@ class M_OrderDB extends CI_Model
 
 	public function adminVerifyOrder($order_id, $email){
 		$data = array(
-			'confirmation' => 1,
+			'confirmation' => 2,
 		);
 
 		$this->db->trans_start();
@@ -151,9 +169,36 @@ class M_OrderDB extends CI_Model
 		$this->db->trans_complete();
 	}
 
-	public function adminUnVerifyOrder($order_id, $email){
+	public function adminUpdateLogistic($order_id, $email , $logistic_price) {
 		$data = array(
-			'confirmation' => 0,
+			'confirmation' => 1,
+			'logistic_price' => $logistic_price,
+		);
+
+		$this->db->trans_start();
+		$this->db->where('order_id', $order_id);
+		$this->db->where('email', $email);
+		$this->db->update('orderitem', $data);
+		$this->db->trans_complete();
+	}
+
+	public function adminUpdateResi($order_id, $email , $resi, $kurir) {
+		$data = array(
+			'confirmation' => 3,
+			'resi' => $resi,
+			'kurir' => $kurir,
+		);
+
+		$this->db->trans_start();
+		$this->db->where('order_id', $order_id);
+		$this->db->where('email', $email);
+		$this->db->update('orderitem', $data);
+		$this->db->trans_complete();
+	}
+
+	public function adminEditStatus($order_id, $email, $status){
+		$data = array(
+			'confirmation' => $status,
 		);
 
 		$this->db->trans_start();
@@ -172,6 +217,7 @@ class M_OrderDB extends CI_Model
 		$this->db->join('merk', 'merk.merk_id = product.merk_id');
 		$this->db->join('category', 'category.category_id = product.category_id');
 		$this->db->join('sub-category', 'sub-category.subcategory_id = product.subcategory_id');
+		$this->db->where("purchaseitem.order_id",$id);
 
 		$query = $this->db->get();
 

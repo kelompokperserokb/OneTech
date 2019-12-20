@@ -8,8 +8,14 @@ $(document).ready(function() {
 function getOrderItemsList(){
 
 	var url = base_url.toString() + "/OneTech/Admin/getOrderItemsList";
+	var param = $("#param").val();
+
 	$.ajax({
 		url: url,
+		data: {
+			order_id : param,
+		},
+		method : 'post',
 		beforeSend: function () {
 
 		},
@@ -25,7 +31,6 @@ function getOrderItemsList(){
 }
 
 function printListOrderItems(data){
-	console.log(data);
 	var row = '<tr>'+
 		'<td>' + data[0] + '</td>' +
 		'<td>' + data[1] + '</td>' +

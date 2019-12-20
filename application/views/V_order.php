@@ -55,6 +55,7 @@
                 $total_price = $order->totalPrice + $order->logistic_price + $order->unique_price;
                 echo '<div class="row">
                 <div class="col-md-4 order-md-2 mb-4">
+                    <input type="hidden" id="o-id" value="'.$order->order_id.'">
                     <h4 class="d-flex justify-content-between align-items-center mb-3">
                         <span class="text-muted">Your Order</span>
                           <span class="badge badge-secondary badge-pill">'. $orderitem_count .'</span>
@@ -85,9 +86,9 @@
                         <div id="first-address-form">
                             <div class="col-md-6 mb-3">
                                 <label id="address-detail">Alamat</label>
-                                <p>'. $order->address_order .'</p>
+                                <p id="address-detail-value">'. $order->address_order .'</p>
                                 <label id="telephone-detail">No Telepon</label>
-                                <p>'. $order->phonenumber_order .'</p>
+                                <p id="telephone-detail-value">'. $order->phonenumber_order .'</p>
                             </div>
                         </div>
                         <div id="another-address-form" class="none">
@@ -109,16 +110,17 @@
                             <div class="col-md-5 mb-3">
                                 <button class="button select-button" id="save-address">Simpan Alamat</button>
                             </div>                
-                        </div>
-    
-                         <div class="row">
+                        </div>'.
+                        ($status == 0 ?
+                         '<div class="row">
                             <div class="col-md-5 mb-3">
                                 <button class="button select-button" id="first-address-button">Alamat Anda</button>
                             </div>
                             <div class="col-md-5 mb-3">
                                 <button class="button" id="another-address-button">Kirim ke beberapa alamat</button>
                             </div>
-                        </div> 
+                        </div>' : '')
+                        .'
                         
                         <br>
     
@@ -153,7 +155,8 @@
                                         <h4 class="mb-3">Bukti Pembayaran</h4>
                                         <input type=\'file\' onchange="readURL(this);">
                                     </div>
-                                </div>;';
+                                </div>';
+                    echo $text;
                 } else if ($status == 2) {
                     echo $text;
                 }

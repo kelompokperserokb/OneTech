@@ -9,11 +9,11 @@ $(document).ready(function() {
 		verify(order_id, email, row);
 	});
 
-	$(document).on("click", ".un_confirm", function() {
+	$(document).on("click", ".edit_logistic", function() {
 		var row = $(this).parents("tr").find("td");
 		var order_id = $(row[0]).text();
 		var email = $(row[4]).text();
-		unverify(order_id, email, row);
+		edit_logistic(order_id, email, row);
 	});
 });
 
@@ -30,7 +30,7 @@ function getOrderList(){
 
 			for (var i = 0; i<data.length -1 ; i++){
 				var subData = data[i].split('##');
-				printListOrder(subData);
+				if (subData[14] == 1) printListOrder(subData);
 			}
 		},
 	});
@@ -48,10 +48,15 @@ function printListOrder(data){
 	'<td>' + data[7] + '</td>' +
 	'<td>' + data[8] + '</td>' +
 	'<td>' + data[9] + '</td>' +
+
 	'<td>' + data[10] + '</td>' +
-	'<td><img src="' + data[11] + '"></td>' +
-	'<td>' + (data[12] == 1 ? "Verify" : "Not Verify") + '</td>' +
-	(data[12] == 0 ? '<td><input type="button" class="btn btn-info confirm" value="Verify"></td>' : '<td><input type="button" class="btn btn-danger un_confirm" value="Un-Verify"></td>') +
+	'<td>' + data[11] + '</td>' +
+	'<td>' + data[12] + '</td>' +
+	'<td>' + (parseInt(data[10])+parseInt(data[11])+parseInt(data[12])) + '</td>' +
+
+	'<td><img src="' + data[13] + '"></td>' +
+	'<td><input type="button" class="btn btn-danger edit_logistic" value="Edit Logistic"> </td>' +
+	'<td><input type="button" class="btn btn-info confirm" value="Verify"></td>' +
 	'<td><a href="'+ base_url + '/OneTech/admin/admin/admin/verifyorder/items/'+data[0] +'">Items</a></td>' +
 	'</tr>';
 	$("table").append(row);
@@ -72,14 +77,13 @@ function verify(id, email, row) {
 		},
 		success: function () {
 			alert('Verify Complete');
-			$(row[12]).html('Verify');
-			$(row[13]).html('<input type="button" class="btn btn-danger un_confirm" value="Un-Verify">');
+			row.remove();
 		},
 	});
 }
 
-function unverify(id, email, row) {
-	var url = base_url.toString() + "/OneTech/Admin/unverifyOrder";
+function edit_logistic(id, email, row) {
+	var url = base_url.toString() + "/OneTech/Admin/edit_status/0";
 	$.ajax({
 		url: url,
 		method: 'post',
@@ -92,9 +96,8 @@ function unverify(id, email, row) {
 
 		},
 		success: function () {
-			alert('Verify Complete');
-			$(row[12]).html('Not Verify');
-			$(row[13]).html('<input type="button" class="btn btn-info confirm" value="Verify">');
+			alert('Edit Logistic Complete, order transfered to Logistic page');
+			row.remove();
 		},
 	});
 }

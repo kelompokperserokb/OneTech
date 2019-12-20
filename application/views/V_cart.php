@@ -105,7 +105,7 @@
                     <input type="text" placeholder="Enter promo code">
                     <button>Submit</button>
                 </form>-->
-                <a href="" class="site-btn">Proceed to checkout</a>
+                <?php if ($data['count'] > 0) echo '<a href="" class="site-btn" id="proceed-order" >Proceed to checkout</a>'; ?>
                 <a href="" class="site-btn sb-dark">Continue shopping</a>
             </div>
         </div>

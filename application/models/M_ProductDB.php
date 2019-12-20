@@ -280,6 +280,29 @@ class M_ProductDB extends CI_Model
 
 	/*END OF ADMIN PRIVILEGE*/
 
+	public function updateQuantity($type_id, $quantity){
+
+		$quota = ((int)($this->getQuotaProduct($type_id))[0]->quota) - (int) $quantity;
+
+		$data = array(
+			'quota' => $quota,
+		);
+		$this->db->trans_start();
+		$this->db->where('type_id', $type_id);
+		$this->db->update('type_product', $data);
+		$this->db->trans_complete();
+	}
+
+	private function getQuotaProduct($type_id){
+		$this->db->select('*');
+		$this->db->from('type_product');
+		$this->db->where("type_id", $type_id);
+		$query = $this->db->get();
+
+		$data= $query->result();
+		return $data;
+	}
+
     public function removeProduct($id)
 	{
 		$this->db->trans_start();

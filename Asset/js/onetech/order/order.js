@@ -17,26 +17,37 @@ $(document).ready(function() {
     });
 
     $("#save-address").click(function(e) {
-        e.preventDefault();
+        var address = $("#alamat").val();
+        var phone = $("#phone").val();
+        var orderid = $("#o-id").val();
 
-		var url = base_url.toString() + "/OneTech/Order/changeAddress";
-		$.ajax({
-			url: url,
-			method: 'post',
-			data:{
+        if (address && phone) {
+            e.preventDefault();
 
-			},
-			beforeSend: function () {
+            var url = base_url.toString() + "/OneTech/Order/changeAddress";
+            $.ajax({
+                url: url,
+                method: 'post',
+                data:{
+                    address : address,
+                    phone : phone,
+                    order_id : orderid,
+                },
+                beforeSend: function () {
 
-			},
-			success: function (response) {
+                },
+                success: function () {
+                    alert("Alamat telah diupdate");
 
-			},
-		});
+                    $("#first-address-button").addClass("select-button");
+                    $("#first-address-form").removeClass("none");
+                    $("#another-address-button").removeClass("select-button");
+                    $("#another-address-form").addClass("none");
 
-        $("#first-address-button").addClass("select-button");
-        $("#first-address-form").removeClass("none");
-        $("#another-address-button").removeClass("select-button");
-        $("#another-address-form").addClass("none");
+                    $("#address-detail-value").html(address);
+                    $("#telephone-detail-value").html(phone);
+                },
+            });
+        }
     });
 });
