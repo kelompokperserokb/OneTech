@@ -7,7 +7,7 @@ $(document).ready(function() {
 
 function getOrderItemsList(){
 
-	var url = base_url.toString() + "/OneTech/Admin/getOrderItemsList";
+	var url = base_url.toString() + "/onetech/Admin/getOrderItemsList";
 	var param = $("#param").val();
 
 	$.ajax({

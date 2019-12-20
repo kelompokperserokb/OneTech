@@ -15,7 +15,7 @@ $(document).ready(function() {
 
 function getOrderListLogistic(){
 
-    var url = base_url.toString() + "/OneTech/Admin/getOrderListLogistic";
+    var url = base_url.toString() + "/onetech/Admin/getOrderListLogistic";
     $.ajax({
         url: url,
         beforeSend: function () {
@@ -57,7 +57,7 @@ function printListOrder(data){
 }
 
 function updateLogistic(id, email, row, logistic_price) {
-    var url = base_url.toString() + "/OneTech/Admin/updateLogistic";
+    var url = base_url.toString() + "/onetech/Admin/updateLogistic";
     $.ajax({
         url: url,
         method: 'post',

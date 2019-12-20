@@ -19,7 +19,7 @@ $(document).ready(function() {
 
 function getOrderList(){
 
-	var url = base_url.toString() + "/OneTech/Admin/getOrderList";
+	var url = base_url.toString() + "/onetech/Admin/getOrderList";
 	$.ajax({
 		url: url,
 		beforeSend: function () {
@@ -63,7 +63,7 @@ function printListOrder(data){
 }
 
 function verify(id, email, row) {
-	var url = base_url.toString() + "/OneTech/Admin/verifyOrder";
+	var url = base_url.toString() + "/onetech/Admin/verifyOrder";
 	$.ajax({
 		url: url,
 		method: 'post',
@@ -83,7 +83,7 @@ function verify(id, email, row) {
 }
 
 function edit_logistic(id, email, row) {
-	var url = base_url.toString() + "/OneTech/Admin/edit_status/0";
+	var url = base_url.toString() + "/onetech/Admin/edit_status/0";
 	$.ajax({
 		url: url,
 		method: 'post',

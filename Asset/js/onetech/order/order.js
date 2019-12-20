@@ -24,7 +24,7 @@ $(document).ready(function() {
         if (address && phone) {
             e.preventDefault();
 
-            var url = base_url.toString() + "/OneTech/Order/changeAddress";
+            var url = base_url.toString() + "/onetech/Order/changeAddress";
             $.ajax({
                 url: url,
                 method: 'post',

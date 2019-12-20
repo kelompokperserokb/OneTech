@@ -15,7 +15,7 @@ $(document).ready(function() {
 
         var index = $("table tbody tr:last-child").index();
 
-		var url = base_url.toString() + "/OneTech/Admin/getMerkCategory";
+		var url = base_url.toString() + "/onetech/Admin/getMerkCategory";
 		$.ajax({
 			url: url,
 			beforeSend: function () {
@@ -141,7 +141,7 @@ $(document).ready(function() {
 							image_product2 = data[1];
 							image_product3 = data[2];
 
-							var url = base_url.toString() + "/OneTech/Admin/editProduct";
+							var url = base_url.toString() + "/onetech/Admin/editProduct";
 							$.ajax({
 								url: url,
 								method: 'post',
@@ -187,7 +187,7 @@ $(document).ready(function() {
 								},
 							});
 						} else {
-							var url = base_url.toString() + "/OneTech/Admin/editProduct";
+							var url = base_url.toString() + "/onetech/Admin/editProduct";
 							$.ajax({
 								url: url,
 								method: 'post',
@@ -245,7 +245,7 @@ $(document).ready(function() {
 				formData.append('image-product2', image2);
 				formData.append('image-product3', image3);
 
-				var url = base_url.toString() + "/OneTech/Admin/upload";
+				var url = base_url.toString() + "/onetech/Admin/upload";
 				$.ajax({
 					url: url,
 					method: 'post',
@@ -267,7 +267,7 @@ $(document).ready(function() {
 							var image_product2 = $('#preview-image2').attr('src');
 							var image_product3 = $('#preview-image3').attr('src');
 
-							var url = base_url.toString() + "/OneTech/Admin/addProduct";
+							var url = base_url.toString() + "/onetech/Admin/addProduct";
 							$.ajax({
 								url: url,
 								method: 'post',
@@ -325,7 +325,7 @@ $(document).ready(function() {
 
     // Edit row on edit button click
 	$(document).on("click", ".edit", function() {
-		var url = base_url.toString() + "/OneTech/Admin/getMerkCategory";
+		var url = base_url.toString() + "/onetech/Admin/getMerkCategory";
 		let column = $(this).parents("tr").find("td:not(:last-child)");
 
 		$.ajax({
@@ -404,7 +404,7 @@ $(document).ready(function() {
 function changeValueCategoryName() {
 	let categoryid = $("#"+($('#category-name').val()).replace(/ /g, "-")).val();
 	if (categoryid != null) {
-		var url = base_url.toString() + "/OneTech/Admin/getDependentSubCategory";
+		var url = base_url.toString() + "/onetech/Admin/getDependentSubCategory";
 		$.ajax({
 			url: url,
 			method: 'post',

@@ -4,7 +4,7 @@ var actions = '<a class="add" title="Add" data-toggle="tooltip"><i class="materi
 
 function getMerk(){
 
-    var url = base_url.toString() + "/OneTech/Admin/getMerk";
+    var url = base_url.toString() + "/onetech/Admin/getMerk";
     $.ajax({
         url: url,
         beforeSend: function () {
@@ -33,7 +33,7 @@ function printMerk(data){
 
 function getCategory(){
 
-    var url = base_url.toString() + "/OneTech/Admin/getCategory";
+    var url = base_url.toString() + "/onetech/Admin/getCategory";
     $.ajax({
         url: url,
         beforeSend: function () {
@@ -62,7 +62,7 @@ function printCategory(data){
 
 function getSubCategory(){
 
-    var url = base_url.toString() + "/OneTech/Admin/getSubCategory";
+    var url = base_url.toString() + "/onetech/Admin/getSubCategory";
     $.ajax({
         url: url,
         beforeSend: function () {
@@ -90,7 +90,7 @@ function printSubCategory(data){
 }
 
 function getProduct(){
-	var url = base_url.toString() + "/OneTech/Admin/getProduct";
+	var url = base_url.toString() + "/onetech/Admin/getProduct";
 	$.ajax({
 		url: url,
 		beforeSend: function () {
@@ -135,7 +135,7 @@ function printProduct(data){
 
 function getTypeProduct(){
 
-	var url = base_url.toString() + "/OneTech/Admin/getTypeProduct";
+	var url = base_url.toString() + "/onetech/Admin/getTypeProduct";
 	$.ajax({
 		url: url,
 		beforeSend: function () {

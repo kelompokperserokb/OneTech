@@ -5,7 +5,7 @@ $(document).ready(function(){
         var username = document.getElementById('username').value;
         var password = document.getElementById('password').value;
 
-        var url = base_url.toString()+"/OneTech/Account/loginAccount";
+        var url = base_url.toString()+"/onetech/Account/loginAccount";
         $.ajax({
             url: url ,
             method: 'post',
@@ -16,7 +16,7 @@ $(document).ready(function(){
             success: function(response) {
                 if (response == "true") {
                     alert('Login Success');
-                    window.location.href = base_url.toString()+"/OneTech";
+                    window.location.href = base_url.toString()+"/onetech";
                 } else if (response == "false") {
                     $('#message').text("Login Failed, Wrong Username or Password");
                 } else {
@@ -30,7 +30,7 @@ $(document).ready(function(){
         e.preventDefault();
 
         var password = document.getElementById('password').value;
-        var url = base_url.toString()+"/OneTech/Account/loginAdmin";
+        var url = base_url.toString()+"/onetech/Account/loginAdmin";
 
         $.ajax({
             url: url ,
@@ -42,7 +42,7 @@ $(document).ready(function(){
             success: function(response) {
                 if (response == "true") {
                     alert('Login Success');
-                    window.location.href = base_url.toString()+"/OneTech/admin/admin/admin/home";
+                    window.location.href = base_url.toString()+"/onetech/admin/admin/admin/home";
                 } else {
                     alert("Login Failed, Wrong Password");
                 }
@@ -73,7 +73,7 @@ $(document).ready(function(){
             var institution_type = "";
             var npwp = "";
 
-            var url = base_url.toString() + "/OneTech/Account/registData";
+            var url = base_url.toString() + "/onetech/Account/registData";
             $.ajax({
                 url: url,
                 method: 'post',
@@ -87,7 +87,7 @@ $(document).ready(function(){
                     alert(response);
                     if (response == "true") {
                         alert('Regist Success, Please Check Email to Activate account');
-                        window.location.href = base_url.toString() + "/OneTech";
+                        window.location.href = base_url.toString() + "/onetech";
                     } else if (response == "false") {
                         alert("Email is registered");
                     } else {
@@ -117,7 +117,7 @@ $(document).ready(function(){
             var institution_type = document.getElementById('institution_type_b').value;
             var npwp = document.getElementById('npwp_b').value;
 
-            var url = base_url.toString() + "/OneTech/Account/registData";
+            var url = base_url.toString() + "/onetech/Account/registData";
             $.ajax({
                 url: url,
                 method: 'post',
@@ -130,7 +130,7 @@ $(document).ready(function(){
                 success: function (response) {
                     if (response == "true") {
                         alert('Regist Success, Please Check Email to Activate account');
-                        window.location.href = base_url.toString() + "/OneTech";
+                        window.location.href = base_url.toString() + "/onetech";
                     } else if (response == "false") {
                         alert("Email is registered");
                     } else {

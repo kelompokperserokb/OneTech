@@ -27,7 +27,7 @@ $(document).ready(function() {
 
 function getOrderList(){
 
-    var url = base_url.toString() + "/OneTech/Admin/getOrderListResi";
+    var url = base_url.toString() + "/onetech/Admin/getOrderListResi";
     $.ajax({
         url: url,
         beforeSend: function () {
@@ -73,7 +73,7 @@ function printListOrder(data){
 }
 
 function confirm_resi(id, email, resi, kurir, row) {
-    var url = base_url.toString() + "/OneTech/Admin/updateResi";
+    var url = base_url.toString() + "/onetech/Admin/updateResi";
     $.ajax({
         url: url,
         method: 'post',
@@ -95,7 +95,7 @@ function confirm_resi(id, email, resi, kurir, row) {
 }
 
 function edit_verifikasi(id, email, row) {
-    var url = base_url.toString() + "/OneTech/Admin/edit_status/3";
+    var url = base_url.toString() + "/onetech/Admin/edit_status/3";
     $.ajax({
         url: url,
         method: 'post',

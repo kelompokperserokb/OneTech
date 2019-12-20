@@ -16,7 +16,7 @@ $(document).ready(function() {
 
         var index = $("table tbody tr:last-child").index();
 
-        var url = base_url.toString() + "/OneTech/Admin/getProductList";
+        var url = base_url.toString() + "/onetech/Admin/getProductList";
         $.ajax({
             url: url,
             beforeSend: function () {
@@ -80,7 +80,7 @@ $(document).ready(function() {
             var type_id = '';
 
             if (edit == true) {
-                var url = base_url.toString() + "/OneTech/Admin/editTypeProduct";
+                var url = base_url.toString() + "/onetech/Admin/editTypeProduct";
                 type_id = $(input[1]).val();
                 $.ajax({
                     url: url,
@@ -106,7 +106,7 @@ $(document).ready(function() {
                     },
                 });
             } else {
-                var url = base_url.toString() + "/OneTech/Admin/addTypeProduct";
+                var url = base_url.toString() + "/onetech/Admin/addTypeProduct";
                 $.ajax({
                     url: url,
                     method: 'post',
@@ -147,7 +147,7 @@ $(document).ready(function() {
     $(document).on("click", ".edit", function() {
         let column = $(this).parents("tr").find("td:not(:last-child)");
 
-		var url = base_url.toString() + "/OneTech/Admin/getProductList";
+		var url = base_url.toString() + "/onetech/Admin/getProductList";
 		$.ajax({
 			url: url,
 			beforeSend: function () {
