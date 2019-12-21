@@ -31,7 +31,8 @@ class Direct extends CI_Controller {
         if (!isset($_SESSION["admin-authorize"])) {
             redirect(base_url()."admin/admin/admin/login");
         } else {
-            $this->load->view('V_admin_main');
+			$this->load->view('V_admin_header');
+			$this->load->view('V_admin_index');
         }
 	}
 
@@ -87,7 +88,8 @@ class Direct extends CI_Controller {
         if (!isset($_SESSION["admin-authorize"])) {
             redirect(base_url()."admin/admin/admin/login");
         } else {
-            $this->load->view('V_admin_addProduct');
+			$this->load->view('V_admin_header');
+            $this->load->view('V_admin_product');
         }
     }
 
@@ -97,7 +99,8 @@ class Direct extends CI_Controller {
 		if (!isset($_SESSION["admin-authorize"])) {
 			redirect(base_url()."admin/admin/admin/login");
 		} else {
-			$this->load->view('V_admin_addTypeProduct');
+			$this->load->view('V_admin_header');
+			$this->load->view('V_admin_typeProduct');
 		}
 	}
 
@@ -107,7 +110,8 @@ class Direct extends CI_Controller {
         if (!isset($_SESSION["admin-authorize"])) {
             redirect(base_url()."admin/admin/admin/login");
         } else {
-            $this->load->view('V_admin_addMerk');
+			$this->load->view('V_admin_header');
+            $this->load->view('V_admin_merk');
         }
     }
 
@@ -117,7 +121,8 @@ class Direct extends CI_Controller {
         if (!isset($_SESSION["admin-authorize"])) {
             redirect(base_url()."admin/admin/admin/login");
         } else {
-            $this->load->view('V_admin_addCategory');
+			$this->load->view('V_admin_header');
+            $this->load->view('V_admin_category');
         }
     }
 
@@ -127,7 +132,8 @@ class Direct extends CI_Controller {
         if (!isset($_SESSION["admin-authorize"])) {
             redirect(base_url()."admin/admin/admin/login");
         } else {
-            $this->load->view('V_admin_addSubCategory');
+        	$this->load->view('V_admin_header');
+            $this->load->view('V_admin_subCategory');
         }
     }
 

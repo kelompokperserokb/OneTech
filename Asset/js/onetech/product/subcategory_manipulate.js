@@ -1,21 +1,24 @@
 var base_url = window.location.origin;
 $(document).ready(function() {
     getSubCategory();
-
     $('[data-toggle="tooltip"]').tooltip();
 
     var edit = false;
 
-    var actions = '<a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>' +
-        '<a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>' +
-        '<a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>';
+    // var actions = '<a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>' +
+    //     '<a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>' +
+    //     '<a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>';
+	var addbutton = '<button type="button" name="add" id="" class="btn btn-success btn-xs add" data-toggle="tooltip"><i class="fa fa-plus"></i> Add</button>';
+	var editbutton = '<button type="button" name="edit" id="" class="btn btn-warning btn-xs edit" data-toggle="tooltip"><i class="fa fa-edit"></i> Edit</button>';
+	var addeditbutton = '<button type="button" name="add" id="" class="btn btn-success btn-xs add" data-toggle="tooltip"><i class="fa fa-plus"></i> Add</button>' +
+		'<button type="button" name="edit" id="" class="btn btn-warning btn-xs edit" data-toggle="tooltip"><i class="fa fa-edit"></i> Edit</button>';
+	var deletebutton = '<button type="button" name="delete" id="" class="btn btn-danger btn-xs delete" data-toggle="tooltip"><i class="fa fa-remove"></i> Cancel</button>';
 
     // Append table with add row form on add new button click
     $(".add-new").click(function() {
         $(this).attr("disabled", "disabled");
 
         var index = $("table tbody tr:last-child").index();
-
         var url = base_url.toString() + "/onetech/Admin/getCategory";
         $.ajax({
             url: url,
@@ -44,7 +47,8 @@ $(document).ready(function() {
             listOption +
             '</datalist></td>' +
             '<td><input type="text" class="form-control" name="subcategory-name" id="subcategory-name" value=""></td>' +
-            '<td>' + actions + '</td>' +
+            '<td>' + addeditbutton + '</td>' +
+			'<td>' + deletebutton + '</td>' +
             '</tr>';
         $("table").append(row);
 
@@ -56,8 +60,6 @@ $(document).ready(function() {
     $(document).on("click", ".add", function() {
         var empty = false;
         var input = $(this).parents("tr").find('input').not('.list-category');
-
-
         input.each(function() {
             if (!$(this).val()) {
                 $(this).addClass("error");
@@ -171,9 +173,10 @@ $(document).ready(function() {
     $(document).on("click", ".delete", function() {
         var categoryid = ($(this).parents("tr").find('input'))[0].value;
         var subcategoryid = ($(this).parents("tr").find('input'))[1].value;
-        deleteSubCategory(categoryid, subcategoryid);
-        $(this).parents("tr").remove();
-        $(".add-new").removeAttr("disabled");
+        if (deleteSubCategory(categoryid, subcategoryid)) {
+			$(this).parents("tr").remove();
+			$(".add-new").removeAttr("disabled");
+		}
     });
 });
 

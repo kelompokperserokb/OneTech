@@ -5,17 +5,24 @@ $(document).ready(function() {
 
     var edit = false;
 
-    var actions = '<a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>' +
-        '<a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>' +
-        '<a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>';
-    // Append table with add row form on add new button click
+    // var actions = '<a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>' +
+    //     '<a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>' +
+    //     '<a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>';
+	var addbutton = '<button type="button" name="add" id="" class="btn btn-success btn-xs add" data-toggle="tooltip"><i class="fa fa-plus"></i> Add</button>';
+	var editbutton = '<button type="button" name="edit" id="" class="btn btn-warning btn-xs edit" data-toggle="tooltip"><i class="fa fa-edit"></i> Edit</button>';
+	var addeditbutton = '<button type="button" name="add" id="" class="btn btn-success btn-xs add" data-toggle="tooltip"><i class="fa fa-plus"></i> Add</button>' +
+		'<button type="button" name="edit" id="" class="btn btn-warning btn-xs edit" data-toggle="tooltip"><i class="fa fa-edit"></i> Edit</button>';
+	var deletebutton = '<button type="button" name="delete" id="" class="btn btn-danger btn-xs delete" data-toggle="tooltip"><i class="fa fa-remove"></i> Cancel</button>';
+
+	// Append table with add row form on add new button click
     $(".add-new").click(function() {
         $(this).attr("disabled", "disabled");
 
         var index = $("table tbody tr:last-child").index();
         var row = '<tr><input type="hidden" class="form-control" name="merk-id" id="merk-id" value="null">' +
             '<td><input type="text" class="form-control" name="merk-name" id="merk-name" value=""></td>' +
-            '<td>' + actions + '</td>' +
+			'<td>' + addeditbutton + '</td>' +
+			'<td>' + deletebutton + '</td>' +
             '</tr>';
         $("table").append(row);
 
@@ -79,14 +86,8 @@ $(document).ready(function() {
                     },
                 });
             }
-
             $(this).parents("tr").find(".error").first().focus();
-
-
             $(input[1]).parent("td").html(merkName);
-
-
-
             $(this).parents("tr").find(".add, .edit").toggle();
             $(".add-new").removeAttr("disabled");
 
@@ -104,9 +105,10 @@ $(document).ready(function() {
     // Delete row on delete button click
     $(document).on("click", ".delete", function() {
         var id = ($(this).parents("tr").find('input'))[0].value;
-        deleteMerk(id);
-        $(this).parents("tr").remove();
-        $(".add-new").removeAttr("disabled");
+        if(deleteMerk(id)) {
+			$(this).parents("tr").remove();
+			$(".add-new").removeAttr("disabled");
+		}
     });
 });
 

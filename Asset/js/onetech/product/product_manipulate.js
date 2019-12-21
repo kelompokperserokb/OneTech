@@ -5,9 +5,14 @@ $(document).ready(function() {
 
 	var edit = false;
 
-    var actions = '<a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>' +
-        '<a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>' +
-        '<a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>';
+	// var actions = '<a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>' +
+	//     '<a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>' +
+	//     '<a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>';
+	var addbutton = '<button type="button" name="add" id="" class="btn btn-success btn-xs add" data-toggle="tooltip"><i class="fa fa-plus"></i> Add</button>';
+	var editbutton = '<button type="button" name="edit" id="" class="btn btn-warning btn-xs edit" data-toggle="tooltip"><i class="fa fa-edit"></i> Edit</button>';
+	var addeditbutton = '<button type="button" name="add" id="" class="btn btn-success btn-xs add" data-toggle="tooltip"><i class="fa fa-plus"></i> Add</button>' +
+		'<button type="button" name="edit" id="" class="btn btn-warning btn-xs edit" data-toggle="tooltip"><i class="fa fa-edit"></i> Edit</button>';
+	var deletebutton = '<button type="button" name="delete" id="" class="btn btn-danger btn-xs delete" data-toggle="tooltip"><i class="fa fa-remove"></i> Cancel</button>';
 
 	// Append table with add row form on add new button click
     $(".add-new").click(function() {
@@ -67,7 +72,8 @@ $(document).ready(function() {
 			'<td><input autocomplete="off" type="number" class="form-control" name="discount" id="discount" value="0"></td>' +
 			'<td><input autocomplete="off" type="date" id="start" name="date-start" value="2019-07-22" min="2019-01-01" max="2030-12-31" id="date-start" value=""></td>' +
 			'<td><input autocomplete="off" type="date" id="start" name="date-end" value="2019-07-22" min="2019-01-01" max="2030-12-31" id="date-end" value=""></td>' +
-			'<td>' + actions + '</td>' +
+			'<td>' + addeditbutton + '</td>' +
+			'<td>' + deletebutton + '</td>' +
 			'</tr>';
 		$("table").append(row);
 
@@ -395,9 +401,10 @@ $(document).ready(function() {
     // Delete row on delete button click
     $(document).on("click", ".delete", function() {
 		var productid = ($(this).parents("tr").find('input'))[3].value;
-		deleteProduct(productid);
-        $(this).parents("tr").remove();
-        $(".add-new").removeAttr("disabled");
+		if(deleteProduct(productid)) {
+			$(this).parents("tr").remove();
+			$(".add-new").removeAttr("disabled");
+		}
     });
 });
 

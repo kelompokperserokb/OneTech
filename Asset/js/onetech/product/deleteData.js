@@ -15,6 +15,7 @@ function deleteMerk(id){
 				alert("Remove Merk Success");
 			},
 		});
+		return true;
 	} else {
 		return false;
 	}
@@ -37,6 +38,7 @@ function deleteCategory(id){
 				alert("Remove Category Success");
 			},
 		});
+		return true;
 	} else {
 		return false;
 	}
@@ -61,6 +63,7 @@ function deleteSubCategory(categoryid, subcategoryid){
 				alert("Remove Category Success");
 			},
 		});
+		return true;
 	} else {
 		return false;
 	}
@@ -83,6 +86,7 @@ function deleteProduct(productid){
 				alert("Remove Category Success");
 			},
 		});
+		return true;
 	} else {
 		return false;
 	}
@@ -106,6 +110,7 @@ function deleteTypeProduct(product_id, type_id){
 				alert("Remove Category Success");
 			},
 		});
+		return true;
 	} else {
 		return false;
 	}

@@ -1651,6 +1651,7 @@ header .form-inline {
   border-radius: 3;
   cursor: pointer; }
 
+/* create manual */
 .add-new {
 	margin-top: 15px;
 }
@@ -1660,11 +1661,22 @@ header .form-inline {
 	display: block;
 	margin: auto;
 	padding: 1px 10px;
+
 }
 
 .mid {
 	position: center;
 	text-align: center;
+}
+
+.add {
+	display: none;
+}
+
+.form-auto{
+	width: auto;
+	display: block;
+	margin: auto;
 }
 
 /* Icons */

@@ -60,7 +60,8 @@
             <th>Discount</th>
             <th>Start Date</th>
             <th>Last Date</th>
-            <th>Actions</th>
+			<th class="mid">Add / Edit</th>
+			<th class="mid">Delete</th>
         </tr>
         </thead>
         <tbody>

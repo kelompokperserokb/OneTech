@@ -45,7 +45,8 @@
                     <th>Type Product Name</th>
 					<th>Quota</th>
 					<th>Description</th>
-                    <th>Actions</th>
+					<th class="mid">Add / Edit</th>
+					<th class="mid">Delete</th>
                 </tr>
                 </thead>
                 <tbody>
