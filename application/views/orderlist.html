@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- layout: examples title: Checkout example extra_css: "form-validation.css" extra_js: "form-validation.js" body_class: "bg-light" --->
+
+<head>
+    <title>OneTech</title>
+    <meta charset="UTF-8">
+    <meta name="description" content=" One Tech">
+    <meta name="keywords" content="One Tech">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link href="img/favicon.png" rel="shortcut icon" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
+
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/flaticon.css" />
+    <link rel="stylesheet" href="css/slicknav.min.css" />
+    <link rel="stylesheet" href="css/jquery-ui.min.css" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style1.css" />
+
+    <script src="js/dropdown.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+
+
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+</head>
+
+
+<body>
+
+
+    <div class="container">
+        <div class="py-5 text-center">
+            <img class="d-block mx-auto mb-4" src="img/tandatanya.jpg" alt="" width="72" height="72">
+            <h2>Order List</h2>
+            <!-- <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>-->
+        </div>
+        <div class="container">
+            <div class="row">
+
+                <label>Select Date: </label>
+                <div>
+                    <td><input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31"></td>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="dropdown">
+                        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Uruitan
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Terbaru</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="search-container">
+                    <form action="/action_page.php">
+                        <input type="text" placeholder="Search.." name="search">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <label>Status: </label>
+                <div>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <br>
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Semua</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Menunggu Konfirmasi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Sedang dikirim</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="flex-container">
+
+                                <table>
+                                    <tr>
+                                        <th>Id order</th>
+                                        <th>Nama Barang</th>
+                                        <th>Jumlah Barang</th>
+                                        <th>Total Price</th>
+                                        <th>Alamat </th>
+
+                                    </tr>
+                                    <tr>
+                                        <td>1234124</td>
+                                        <td>xxxxxxx</td>
+                                        <td>2</td>
+                                        <td>Rp. 300.000</td>
+                                        <td>Jl karang besuki </td>
+
+                                    </tr>
+
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="flex-container">
+
+                                <table>
+                                    <tr>
+                                        <th>Id order</th>
+                                        <th>Nama Barang</th>
+                                        <th>Jumlah Barang</th>
+                                        <th>Total Price</th>
+                                        <th>Alamat </th>
+
+                                    </tr>
+                                    <tr>
+                                        <td>1234124</td>
+                                        <td>xxxxxxx</td>
+                                        <td>2</td>
+                                        <td>Rp. 300.000</td>
+                                        <td>Jl karang besuki </td>
+
+                                    </tr>
+
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                            <div class="flex-container">
+
+                                <table>
+                                    <tr>
+                                        <th>Id order</th>
+                                        <th>Nama Barang</th>
+                                        <th>Jumlah Barang</th>
+                                        <th>Total Price</th>
+                                        <th>Alamat </th>
+
+                                    </tr>
+                                    <tr>
+                                        <td>1234124</td>
+                                        <td>xxxxxxx</td>
+                                        <td>2</td>
+                                        <td>Rp. 300.000</td>
+                                        <td>Jl karang besuki </td>
+
+                                    </tr>
+
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="row">
+                    <div class="col-md-5 mb-3">
+                        <button type="submit" class="btn btn-secondary">Pilih Alamat lain</button>
+                    </div>
+                    <div class="col-md-5 mb-3">
+                        <button type="submit" class="btn btn-secondary">Kirim ke beberapa alamat</button>
+                    </div>
+                </div> -->
+
+
+    </form>
+    </div>
+    </div>
+    </div>
+    </div>
