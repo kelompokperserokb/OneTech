@@ -14,7 +14,7 @@ class Product extends CI_Controller
 		$this->load->helper('url');
 
 		$this->load->view('V_admin_header');
-		$this->load->view('V_admin_index');
+		$this->load->view('V_admin_category');
 	}
 
 	public function addProduct()

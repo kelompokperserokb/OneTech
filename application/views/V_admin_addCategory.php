@@ -36,10 +36,12 @@
                 <colgroup>
                     <col width="95%">
                     <col width="5%">
+					<col width="5%">
                 </colgroup>
                 <tr>
                     <th>Category Name</th>
-                    <th>Actions</th>
+                    <th>Add / Edit</th>
+					<th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>

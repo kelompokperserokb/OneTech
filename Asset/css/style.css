@@ -4024,6 +4024,8 @@ img {
 .fixed_header thead {
     background: black;
     color: #fff;
+	position: center;
+	text-align: center;
 }
 
 .fixed_header th,

@@ -1651,6 +1651,22 @@ header .form-inline {
   border-radius: 3;
   cursor: pointer; }
 
+.add-new {
+	margin-top: 15px;
+}
+
+.btn-xs {
+	text-align: center;
+	display: block;
+	margin: auto;
+	padding: 1px 10px;
+}
+
+.mid {
+	position: center;
+	text-align: center;
+}
+
 /* Icons */
 .icon-section {
   margin: 0 0 3em;

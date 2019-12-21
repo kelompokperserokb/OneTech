@@ -5,9 +5,15 @@ $(document).ready(function() {
 
     var edit = false;
 
-    var actions = '<a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>' +
-        '<a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>' +
-        '<a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>';
+    // var actions = '<a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>' +
+    //     '<a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>' +
+    //     '<a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>';
+	var addbutton = '<button type="button" name="add" id="" class="btn btn-success btn-xs add" data-toggle="tooltip"><i class="fa fa-plus"></i> Add</button>';
+	var editbutton = '<button type="button" name="edit" id="" class="btn btn-warning btn-xs edit" data-toggle="tooltip"><i class="fa fa-edit"></i> Edit</button>';
+	var addeditbutton = '<button type="button" name="add" id="" class="btn btn-success btn-xs add" data-toggle="tooltip"><i class="fa fa-plus"></i> Add</button>' +
+		'<button type="button" name="edit" id="" class="btn btn-warning btn-xs edit" data-toggle="tooltip"><i class="fa fa-edit"></i> Edit</button>';
+	var deletebutton = '<button type="button" name="delete" id="" class="btn btn-danger btn-xs delete" data-toggle="tooltip"><i class="fa fa-remove"></i> Cancel</button>';
+
     // Append table with add row form on add new button click
     $(".add-new").click(function() {
         $(this).attr("disabled", "disabled");
@@ -15,17 +21,19 @@ $(document).ready(function() {
         var index = $("table tbody tr:last-child").index();
         var row = '<tr><input type="hidden" class="form-control" name="category-id" id="category-id" value="null">' +
             '<td><input type="text" class="form-control" name="category-name" id="category-name" value=""></td>' +
-            '<td>' + actions + '</td>' +
+            '<td>' + addeditbutton + '</td>' +
+			'<td>' + deletebutton + '</td>' +
             '</tr>';
         $("table").append(row);
 
         $("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
         $('[data-toggle="tooltip"]').tooltip();
     });
+
     // Add row on add button click
     $(document).on("click", ".add", function() {
         var empty = false;
-        var input = $(this).parents("tr").find('input');
+        var input = $(this).parents("tr").find('input'); //tag input
         input.each(function() {
             if (!$(this).val()) {
                 $(this).addClass("error");
@@ -89,7 +97,9 @@ $(document).ready(function() {
             $(".add-new").removeAttr("disabled");
         }
     });
+
     // Edit row on edit button click
+	// nampilin input box
     $(document).on("click", ".edit", function() {
         $(this).parents("tr").find("td:not(:last-child)").each(function() {
             $(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
@@ -98,6 +108,7 @@ $(document).ready(function() {
         $(".add-new").attr("disabled", "disabled");
         edit = true;
     });
+
     // Delete row on delete button click
     $(document).on("click", ".delete", function() {
         var id = ($(this).parents("tr").find('input'))[0].value;

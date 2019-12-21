@@ -1,6 +1,11 @@
-var actions = '<a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>' +
-    '<a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>' +
-    '<a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>';
+// var actions = '<a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>' +
+//     '<a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>' +
+//     '<a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>';
+var addbutton = '<button type="button" name="add" id="" class="btn btn-success btn-xs add" data-toggle="tooltip"><i class="fa fa-plus"></i> Add</button>';
+var editbutton = '<button type="button" name="edit" id="" class="btn btn-warning btn-xs edit" data-toggle="tooltip"><i class="fa fa-edit"></i> Edit</button>';
+var addeditbutton = '<button type="button" name="add" id="" class="btn btn-success btn-xs add" data-toggle="tooltip"><i class="fa fa-plus"></i> Add</button>' +
+	'<button type="button" name="edit" id="" class="btn btn-warning btn-xs edit" data-toggle="tooltip"><i class="fa fa-edit"></i> Edit</button>';
+var deletebutton = '<button type="button" name="delete" id="" class="btn btn-danger btn-xs delete" data-toggle="tooltip"><i class="fa fa-trash"></i> Delete</button>';
 
 function getMerk(){
 
@@ -26,7 +31,8 @@ function getMerk(){
 function printMerk(data){
     var row = '<tr><input type="hidden" class="form-control" name="merk-id" id="merk-id" value="'+ data[1] +'">' +
         '<td>'+ data[0] +'</td>' +
-        '<td>' + actions + '</td>' +
+        '<td>' + addeditbutton + '</td>' +
+		'<td>' + deletebutton + '</td>' +
         '</tr>';
     $("table").append(row);
 }
@@ -55,7 +61,8 @@ function getCategory(){
 function printCategory(data){
     var row = '<tr><input type="hidden" class="form-control" name="category-id" id="category-id" value="'+ data[1] +'">' +
         '<td>'+ data[0] +'</td>' +
-        '<td>' + actions + '</td>' +
+        '<td>' + addeditbutton + '</td>' +
+		'<td>' + deletebutton + '</td>' +
         '</tr>';
     $("table").append(row);
 }
@@ -84,7 +91,8 @@ function printSubCategory(data){
         '<input type="hidden" class="form-control" name="subcategory-id" id="subcategory-id" value="'+ data[3] +'">' +
         '<td>'+ data[0] +'</td>' +
         '<td>'+ data[2] +'</td>' +
-        '<td>' + actions + '</td>' +
+        '<td>' + addeditbutton + '</td>' +
+		'<td>' + deletebutton + '</td>' +
         '</tr>';
     $("table").append(row);
 }
@@ -128,7 +136,8 @@ function printProduct(data){
 		'<td>'+ data[14] +'</td>' +
 		'<td>'+ data[15] +'</td>' +
 		'<td>'+ data[16] +'</td>' +
-		'<td>' + actions + '</td>' +
+		'<td>' + addeditbutton + '</td>' +
+		'<td>' + deletebutton + '</td>' +
 		'</tr>';
 	$("table").append(row);
 }
@@ -160,7 +169,8 @@ function printTypeProduct(data){
 		'<td>'+ data[3] +'</td>' +
 		'<td>'+ data[4] +'</td>' +
 		'<td>'+ data[5] +'</td>' +
-		'<td>' + actions + '</td>' +
+		'<td>' + addeditbutton + '</td>' +
+		'<td>' + deletebutton + '</td>' +
 		'</tr>';
 	$("table").append(row);
 }

@@ -95,7 +95,7 @@ class Order extends CI_Controller {
 
             $this->load->view('V_header',$datas);
             $this->load->view('V_order',$message);
-            $this->load->view('footer');
+            $this->load->view('V_footer');
         } else {
             redirect(base_url('login'));
         }
