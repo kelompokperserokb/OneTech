@@ -47,16 +47,11 @@
                                 <table id="bootstrap-data-table" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
-											<th>Merk</th>
-											<th>Category</th>
-											<th>Sub Category</th>
 											<th>Name Product</th>
 											<th>CodeProduct</th>
-											<th>Price</th>
-											<th>Description</th>
-											<th>Image1</th>
-											<th>Image2</th>
-											<th>Image3</th>
+											<th>Discount</th>
+											<th>Start Date</th>
+											<th>Last Date</th>
 											<th class="mid">Add / Edit</th>
 											<th class="mid">Delete</th>
                                         </tr>
@@ -107,8 +102,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="<?php echo base_url(); ?>Asset/js/onetech/product/getData.js"></script>
 	<script src="<?php echo base_url(); ?>Asset/js/onetech/product/deleteData.js"></script>
-	<script src="<?php echo base_url(); ?>Asset/js/onetech/product/product_manipulate.js"></script>
-	<script src="<?php echo base_url(); ?>Asset/js/onetech/product/upload.js"></script>
+	<script src="<?php echo base_url(); ?>Asset/js/onetech/product/discount_manipulate.js"></script>
 
     <script src="<?php echo base_url(); ?>Asset/js/admin/lib/data-table/datatables.min.js"></script>
 	<script src="<?php echo base_url(); ?>Asset/js/admin/lib/data-table/jquery.dataTables.min.js"></script>

@@ -10,6 +10,7 @@ class Order extends CI_Controller {
         $this->load->helper('url');
         $this->load->model("M_OrderDB");
         $this->load->model("M_AccountDB");
+		$this->load->model("M_ProductDB");
 	}
 
 	public function addToCart($type_id, $quantity)
@@ -115,13 +116,11 @@ class Order extends CI_Controller {
     }
 
     public function getCategory(){
-        $this->load->model("M_ProductDB");
         $datas['data'] = $this->M_ProductDB->getCategory();
         return $datas;
     }
 
     public function getSubCategory(){
-        $this->load->model("M_ProductDB");
         $data['data'] = $this->M_ProductDB->getAllSubCategory();
         return $data;
     }

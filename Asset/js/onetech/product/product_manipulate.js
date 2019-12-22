@@ -69,9 +69,6 @@ $(document).ready(function() {
 			'<td><input autocomplete="off" type="file" accept="image/jpeg" class="form-control" name="image-product1" id="image-product1" value=""><img id="preview-image1" src=""></td>' +
 			'<td><input autocomplete="off" type="file" accept="image/jpeg" class="form-control" name="image-product2" id="image-product2" value=""><img id="preview-image2" src=""></td>' +
 			'<td><input autocomplete="off" type="file" accept="image/jpeg" class="form-control" name="image-product3" id="image-product3" value=""><img id="preview-image3" src=""></td>' +
-			'<td><input autocomplete="off" type="number" class="form-control" name="discount" id="discount" value="0"></td>' +
-			'<td><input autocomplete="off" type="date" id="start" name="date-start" value="2019-07-22" min="2019-01-01" max="2030-12-31" id="date-start" value=""></td>' +
-			'<td><input autocomplete="off" type="date" id="start" name="date-end" value="2019-07-22" min="2019-01-01" max="2030-12-31" id="date-end" value=""></td>' +
 			'<td>' + addeditbutton + '</td>' +
 			'<td>' + deletebutton + '</td>' +
 			'</tr>';
@@ -108,10 +105,6 @@ $(document).ready(function() {
 		var product_code = input[8].value;
 		var product_price = input[9].value;
 		var product_desc = input[10].value;
-
-		var discount = input[14].value;
-		var date_start = input[15].value;
-		var date_end = input[16].value;
 
         if (!empty) {
 			if (edit == true) {
@@ -163,9 +156,6 @@ $(document).ready(function() {
 									image_product1: image_product1,
 									image_product2: image_product2,
 									image_product3: image_product3,
-									discount: discount,
-									date_start: date_start,
-									date_end: date_end,
 								},
 								beforeSend: function () {
 
@@ -187,9 +177,6 @@ $(document).ready(function() {
 									$(input[11]).parent("td").html('<img id="preview-image1" src="' + image_product1 + '">');
 									$(input[12]).parent("td").html('<img id="preview-image2" src="' + image_product2 + '">');
 									$(input[13]).parent("td").html('<img id="preview-image3" src="' + image_product3 + '">');
-									$(input[14]).parent("td").html(discount);
-									$(input[15]).parent("td").html(date_start);
-									$(input[16]).parent("td").html(date_end);
 								},
 							});
 						} else {
@@ -209,9 +196,6 @@ $(document).ready(function() {
 									image_product1: image_product1,
 									image_product2: image_product2,
 									image_product3: image_product3,
-									discount: discount,
-									date_start: date_start,
-									date_end: date_end,
 								},
 								beforeSend: function () {
 
@@ -233,9 +217,6 @@ $(document).ready(function() {
 									$(input[11]).parent("td").html('<img id="preview-image1" src="' + image_product1 + '">');
 									$(input[12]).parent("td").html('<img id="preview-image2" src="' + image_product2 + '">');
 									$(input[13]).parent("td").html('<img id="preview-image3" src="' + image_product3 + '">');
-									$(input[14]).parent("td").html(discount);
-									$(input[15]).parent("td").html(date_start);
-									$(input[16]).parent("td").html(date_end);
 								},
 							});
 						}
@@ -289,9 +270,9 @@ $(document).ready(function() {
 									image_product1: image_product1,
 									image_product2: image_product2,
 									image_product3: image_product3,
-									discount: discount,
-									date_start: date_start,
-									date_end: date_end,
+									discount: 0,
+									date_start: "0000-00-00",
+									date_end: "0000-00-00",
 								},
 
 								beforeSend: function () {
@@ -315,9 +296,6 @@ $(document).ready(function() {
 							$(input[11]).parent("td").html('<img id="preview-image1" src="' + image_product1 + '">');
 							$(input[12]).parent("td").html('<img id="preview-image2" src="' + image_product2 + '">');
 							$(input[13]).parent("td").html('<img id="preview-image3" src="' + image_product3 + '">');
-							$(input[14]).parent("td").html(discount);
-							$(input[15]).parent("td").html(date_start);
-							$(input[16]).parent("td").html(date_end);
 
 							$(".add-new").removeAttr("disabled");
 						}
@@ -388,10 +366,6 @@ $(document).ready(function() {
 		$(column[7]).html('<input autocomplete="off" type="file" accept="image/jpeg" class="form-control" name="image-product1" id="image-product1" value="'+$(column[7]).find('img').attr('src')+'">');
 		$(column[8]).html('<input autocomplete="off" type="file" accept="image/jpeg" class="form-control" name="image-product2" id="image-product2" value="'+$(column[8]).find('img').attr('src')+'">');
 		$(column[9]).html('<input autocomplete="off" type="file" accept="image/jpeg" class="form-control" name="image-product3" id="image-product3" value="'+$(column[9]).find('img').attr('src')+'">');
-
-		$(column[10]).html('<input autocomplete="off" type="number" class="form-control" name="discount" id="discount" value="'+$(column[10]).text()+'">');
-		$(column[11]).html('<input autocomplete="off" type="date" id="start" name="date-start" value="2019-07-22" min="2019-01-01" max="2030-12-31" id="date-start" value="'+$(column[11]).text()+'">');
-		$(column[12]).html('<input autocomplete="off" type="date" id="start" name="date-end" value="2019-07-22" min="2019-01-01" max="2030-12-31" id="date-end" value="'+$(column[12]).text()+'">');
 
 		$(".add-new").attr("disabled", "disabled");
 		edit = true;

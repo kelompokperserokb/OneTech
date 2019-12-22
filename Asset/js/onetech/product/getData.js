@@ -133,9 +133,6 @@ function printProduct(data){
 		'<td><img src="'+data[11] +'" ></td>' +
 		'<td><img src="'+data[12] +'" ></td>' +
 		'<td><img src="'+data[13] +'" ></td>' +
-		'<td>'+ data[14] +'</td>' +
-		'<td>'+ data[15] +'</td>' +
-		'<td>'+ data[16] +'</td>' +
 		'<td>' + addeditbutton + '</td>' +
 		'<td>' + deletebutton + '</td>' +
 		'</tr>';

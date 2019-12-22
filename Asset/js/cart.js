@@ -83,7 +83,7 @@ var base_url = window.location.origin;
 
     function addQuantityToDB(id, quantity){
         var type_id = id;
-        var url = base_url.toString()+"/OneTech/Order/updateCart";;
+        var url = base_url.toString()+"/onetech/Order/updateCart";;
 
         $.ajax({
             url: url ,
@@ -126,7 +126,7 @@ var base_url = window.location.origin;
         updateQuantity($button.parent());
 
         if (newVal == 0) {
-            var url = base_url.toString() + "/OneTech/Order/removeFromCart";
+            var url = base_url.toString() + "/onetech/Order/removeFromCart";
             let type_id = $button.parent().find('input#type_id').val();
             $.ajax({
                 url: url,
@@ -148,7 +148,7 @@ var base_url = window.location.origin;
         --------------------- */
     $('#proceed-order').click(function(e) {
         e.preventDefault();
-        var url = base_url.toString() + "/OneTech/Order/moveToOrder";
+        var url = base_url.toString() + "/onetech/Order/moveToOrder";
         window.location.href = url;
     });
 
