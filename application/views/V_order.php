@@ -1,46 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
-
 <!-- layout: examples title: Checkout example extra_css: "form-validation.css" extra_js: "form-validation.js" body_class: "bg-light" --->
-
 <head>
-    <title>OneTech</title>
-    <meta charset="UTF-8">
-    <meta name="description" content=" One Tech">
-    <meta name="keywords" content="One Tech">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Favicon -->
-    <link href="img/favicon.png" rel="shortcut icon" />
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
-
-
     <!-- Stylesheets -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/flaticon.css" />
-    <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/slicknav.min.css" />
-    <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/jquery-ui.min.css" />
-    <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/owl.carousel.min.css" />
-    <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/animate.css" />
     <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/style.css" />
     <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/style1.css" />
     <link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/order.css" />
 
-
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
-
+  	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
 </head>
 
-
 <body>
-
-
-	<div class="container checkout">
+s	<div class="container checkout">
 		<div class="py-5 text-center">
 			<!--<img class="d-block mx-auto mb-4" src="<?php /*echo base_url(); */?>Asset/img/tandatanya.jpg" alt="" width="72" height="72">-->
 			<h2>Checkout form</h2>
@@ -80,29 +54,30 @@
                     </ul>
 			    </div>
                 <div class="col-md-8 order-md-1">
+                	<div class="container card">
                     <h4 class="mb-3">Alamat Pengiriman</h4>
                     <form class="needs-validation" novalidate>
     
                         <div id="first-address-form">
                             <div class="col-md-6 mb-3">
-                                <label id="address-detail">Alamat</label>
+                                <label id="address-detail">Alamat :</label>
                                 <p id="address-detail-value">'. $order->address_order .'</p>
-                                <label id="telephone-detail">No Telepon</label>
+                                <label id="telephone-detail">No Telepon :</label>
                                 <p id="telephone-detail-value">'. $order->phonenumber_order .'</p>
                             </div>
                         </div>
                         <div id="another-address-form" class="none">
-                            <div class="mb-3">
+                            <div class="col-md-12 mb-3">
                                 <label for="alamat">Alamat </label>
-                                <input type="alamat" class="form-control" id="alamat" placeholder="Jl. Jakarta" required>
+                                <input type="alamat" class="form-control" id="alamat" placeholder="" required>
                                 <div class="invalid-feedback">
                                     Please enter a valid address for shipping updates.
                                 </div>
                             </div>
         
-                            <div class="mb-3">
+                            <div class="col-md-12 mb-3">
                                 <label for="phone">No. HP</label>
-                                <input type="phone" class="form-control" id="phone" placeholder="0833xxx" required>
+                                <input type="phone" class="form-control" id="phone" placeholder="" required>
                                 <div class="invalid-feedback">
                                     Please enter your no. hp address.
                                 </div>
@@ -112,18 +87,19 @@
                             </div>                
                         </div>'.
                         ($status == 0 ?
-                         '<div class="row">
+                         '<div class="row marg">
                             <div class="col-md-5 mb-3">
                                 <button class="button select-button" id="first-address-button">Alamat Anda</button>
                             </div>
                             <div class="col-md-5 mb-3">
-                                <button class="button" id="another-address-button">Kirim ke beberapa alamat</button>
+                                <button class="button" id="another-address-button">Pilih alamat lain</button>
                             </div>
                         </div>' : '')
                         .'
-                        
+                        </form>
+                        </div>
                         <br>
-    
+                        
                         <div class="row">
                             <div class="col-md-12">
                                 <h4 class="mb-3">Product</h4>';
@@ -134,8 +110,7 @@
 										<div class="col-sm-10">
 											<h4 class="mb-3">'. $row->product_name .'</h4>
 											<p>'. $row->product_desc .'</p>
-											<small class="text-muted">Rp. ' . number_format($row->product_price, 2, ",", ".") . '</small>
-											<br> <small class="text-muted">'. $row->quantity .' barang</small>
+											<small class="text-muted">Rp. ' . number_format($row->product_price, 2, ",", ".") . ' x '. $row->quantity .' barang</small>
 										</div>
 										<div class="col-md-12 sub-total">
 											<h4 >Subtotal</h4> 
@@ -144,25 +119,24 @@
 									</div>';
 								}
                             echo '</div>
-                        </div>';
-
-                if ($status == 0) {
-                    echo $text;
-                } else if ($status == 1) {
-                    echo '
-                                <div class="row">
-                                    <div class="col-md-5 mb-3">
-                                        <h4 class="mb-3">Bukti Pembayaran</h4>
-                                        <input type=\'file\' onchange="readURL(this);">
-                                    </div>
-                                </div>';
-                    echo $text;
-                } else if ($status == 2) {
-                    echo $text;
-                }
-            }
-
-				echo '</form>
+                        </div>
+                        <div class="container card">';
+                			if ($status == 0) {
+                   				echo $text;
+                			} else if ($status == 1) {
+                    			echo '
+                                	<div class="row">
+                                    	<div class="col-md-5 mb-3">
+                                        	<h4 class="mb-3">Bukti Pembayaran</h4>
+                                        	<input type=\'file\' onchange="readURL(this);">
+                                    	</div>
+                                	</div>';
+                    			echo $text;
+                			} else if ($status == 2) {
+                    			echo $text;
+                			}
+            			}
+            	echo '</div>
 			</div>
 		</div>'; ?>
 

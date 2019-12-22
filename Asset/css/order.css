@@ -73,3 +73,13 @@
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
+
+.boxer {
+	border: 5px black;
+	margin: 5px;
+}
+
+.marg {
+	padding: 0px 15px;
+}
+
