@@ -92,6 +92,29 @@ function deleteProduct(productid){
 	}
 }
 
+function deleteProductDiscount(productid){
+	if(confirm("Are you sure you want to delete this?")) {
+		var url = base_url.toString() + "/onetech/Admin/deleteProductDiscount";
+		$.ajax({
+			url: url,
+			method: 'post',
+			data: {
+				product_id: productid,
+			},
+
+			beforeSend: function () {
+
+			},
+			success: function () {
+				alert("Remove Discount success");
+			},
+		});
+		return true;
+	} else {
+		return false;
+	}
+}
+
 function deleteTypeProduct(product_id, type_id){
 	if(confirm("Are you sure you want to delete this?")) {
 		var url = base_url.toString() + "/onetech/Admin/deleteTypeProduct";

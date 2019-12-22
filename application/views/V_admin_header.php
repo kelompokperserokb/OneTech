@@ -44,28 +44,29 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                        aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Product Properties</a>
                     <ul class="sub-menu children dropdown-menu">
-						<?php echo '<li><i class="fa fa-tag"></i><a href="' . base_url() . 'Direct/category">Category</a></li>';?>
-						<?php echo '<li><i class="fa fa-tags"></i><a href="' . base_url() . 'Direct/subcategory">Sub-Category</a></li>';?>
-						<?php echo '<li><i class="fa fa-bars"></i><a href="' . base_url() . 'Direct/merk">Merk</a></li>';?>
+						<?php echo '<li><i class="fa fa-tag"></i><a href="' . base_url('admin/admin/admin/category').'">Category</a></li>';?>
+						<?php echo '<li><i class="fa fa-tags"></i><a href="' . base_url('admin/admin/admin/subcategory') . '">Sub-Category</a></li>';?>
+						<?php echo '<li><i class="fa fa-bars"></i><a href="' . base_url('admin/admin/admin/merk') . '">Merk</a></li>';?>
                     </ul>
                 </li>
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                        aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Product</a>
                     <ul class="sub-menu children dropdown-menu">
-						<?php echo '<li><i class="fa fa-list"></i><a href="' . base_url() . 'Direct/product">Product</a></li>';?>
-						<?php echo '<li><i class="fa fa-clipboard"></i><a href="' . base_url() . 'Direct/typeproduct">Product Specification</a></li>';?>
+						<?php echo '<li><i class="fa fa-list"></i><a href="' . base_url('admin/admin/admin/product') . '">Product</a></li>';?>
+						<?php echo '<li><i class="fa fa-clipboard"></i><a href="' . base_url('admin/admin/admin/typeproduct') . '">Product Specification</a></li>';?>
+						<?php echo '<li><i class="fa fa-dollar"></i><a href="' . base_url('admin/admin/admin/discount') . '">Add Discount Product</a></li>';?>
                     </ul>
                 </li>
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                        aria-expanded="false"> <i class="menu-icon fa fa-shopping-cart"></i>Order</a>
                     <ul class="sub-menu children dropdown-menu">
-						<?php echo '<li><i class="menu-icon fa fa-dollar"></i><a href="' . base_url() . 'Direct/product">1. Input shipping cost estimation</a></li>';?>
-						<?php echo '<li><i class="menu-icon fa fa-print"></i><a href="' . base_url() . 'Direct/product">2. Waiting for proof of payment</a></li>';?>
-						<?php echo '<li><i class="menu-icon fa fa-money"></i><a href="' . base_url() . 'Direct/product">3. Verify payment</a></li>';?>
-						<?php echo '<li><i class="menu-icon fa fa-truck"></i><a href="' . base_url() . 'Direct/product">4. Input delivery</a></li>';?>
-						<?php echo '<li><i class="menu-icon fa fa-check"></i><a href="' . base_url() . 'Direct/product">5. Order success</a></li>';?>
+						<?php echo '<li><i class="menu-icon fa fa-dollar"></i><a href="' . base_url("admin/admin/admin/logistic") . '">1. Input shipping cost estimation</a></li>';?>
+						<?php echo '<li><i class="menu-icon fa fa-print"></i><a href="' . base_url('admin/admin/admin/waitingorder') . '">2. Waiting for proof of payment</a></li>';?>
+						<?php echo '<li><i class="menu-icon fa fa-money"></i><a href="' . base_url('admin/admin/admin/verify') . '">3. Verify payment</a></li>';?>
+						<?php echo '<li><i class="menu-icon fa fa-truck"></i><a href="' . base_url('admin/admin/admin/delivery') . '">4. Input delivery</a></li>';?>
+						<?php echo '<li><i class="menu-icon fa fa-check"></i><a href="' . base_url('admin/admin/admin/ordered') . '">5. Order success</a></li>';?>
                     </ul>
                 </li>
             </ul>

@@ -51,7 +51,7 @@ function printListOrder(data){
         '<td> <input type="number" class="logistic_price" value="' + data[12] + '"> </td>' +
         '<td>' + (parseInt(data[10])+parseInt(data[11])+parseInt(data[12])) + '</td>' +
         '<td><input type="button" class="btn btn-info confirm" value="Input"></td>' +
-        '<td><a href="'+ base_url + '/OneTech/admin/admin/admin/logisticui/items/'+data[0] +'">Items</a></td>' +
+        '<td><a href="'+ base_url + '/onetech/admin/admin/admin/logistic/items/'+data[0] +'">Items</a></td>' +
         '</tr>';
     $("table").append(row);
 }

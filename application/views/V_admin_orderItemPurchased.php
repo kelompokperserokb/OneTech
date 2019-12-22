@@ -23,8 +23,9 @@
                             <div class="page-title">
                                 <ol class="breadcrumb text-right">
                                     <li><a href="#">Dashboard</a></li>
-                                    <li><a href="#">Product Properties</a></li>
-                                    <li class="active">Product table</li>
+                                    <li><a href="#">Order Properties</a></li>
+									<li><a href="#">Order table</a></li>
+									<li class="active">Item Purchased</li>
                                 </ol>
                             </div>
                         </div>
@@ -40,20 +41,21 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">Product Table</strong>
+                                <strong class="card-title">Item Purchased Table</strong>
                             </div>
                             <div class="card-body">
+								<input id="param" type="hidden" value="<?php echo $param1; ?>">
 
                                 <table id="bootstrap-data-table" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
-											<th>Name Product</th>
-											<th>CodeProduct</th>
-											<th>Discount</th>
-											<th>Start Date</th>
-											<th>Last Date</th>
-											<th class="mid">Add / Edit</th>
-											<th class="mid">Delete</th>
+											<th>Merk</th>
+											<th>Category</th>
+											<th>Sub Category</th>
+											<th>Product Name</th>
+											<th>Product Code</th>
+											<th>Product Type</th>
+											<th>Quantity</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -97,9 +99,7 @@
     <script src="<?php echo base_url(); ?>Asset/js/admin/main.js"></script>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="<?php echo base_url(); ?>Asset/js/onetech/product/getData.js"></script>
-	<script src="<?php echo base_url(); ?>Asset/js/onetech/product/deleteData.js"></script>
-	<script src="<?php echo base_url(); ?>Asset/js/onetech/product/discount_manipulate.js"></script>
+	<script src="<?php echo base_url(); ?>Asset/js/onetech/order/order_items.js"></script>
 
     <script src="<?php echo base_url(); ?>Asset/js/admin/lib/data-table/datatables.min.js"></script>
 	<script src="<?php echo base_url(); ?>Asset/js/admin/lib/data-table/jquery.dataTables.min.js"></script>

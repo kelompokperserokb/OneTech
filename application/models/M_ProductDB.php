@@ -191,7 +191,7 @@ class M_ProductDB extends CI_Model
 		return $data;
 	}
 
-	public function adminUpdateProduct($merk_id, $category_id, $subcategory_id, $product_id, $product_name, $product_code, $product_price, $product_desc, $image_product1, $image_product2, $image_product3, $discount, $startDateDiscount, $lastDateDiscount, $datePost){
+	public function adminUpdateProduct($merk_id, $category_id, $subcategory_id, $product_id, $product_name, $product_code, $product_price, $product_desc, $image_product1, $image_product2, $image_product3, $datePost){
 		$data = array(
 			'merk_id' => $merk_id,
 			'category_id' => $category_id,
@@ -203,9 +203,6 @@ class M_ProductDB extends CI_Model
 			'product_img_1' => $image_product1,
 			'product_img_2' => $image_product2,
 			'product_img_3' => $image_product3,
-			'discount' => $discount,
-			'startDateDiscount' => $startDateDiscount,
-			'lastDateDiscount' => $startDateDiscount,
 			'datePost' => $datePost,
 		);
 		$this->db->trans_start();
@@ -217,6 +214,40 @@ class M_ProductDB extends CI_Model
 	public function adminDeleteProduct($product_id){
 		$this->db->trans_start();
 		$this->db->delete('product', array('product_id'=>$product_id));
+		$this->db->trans_complete();
+	}
+
+	public function adminGetProductDiscount(){
+		$this->db->select('*');
+		$this->db->from('product');
+
+		$query = $this->db->get();
+
+		$data= $query->result();
+		return $data;
+	}
+
+	public function adminUpdateProductDiscount($product_id, $discount, $startDateDiscount, $lastDateDiscount){
+		$data = array(
+			'discount' => $discount,
+			'startDateDiscount' => $startDateDiscount,
+			'lastDateDiscount' => $lastDateDiscount,
+		);
+		$this->db->trans_start();
+		$this->db->where('product_id', $product_id);
+		$this->db->update('product', $data);
+		$this->db->trans_complete();
+	}
+
+	public function adminDeleteProductDiscount($product_id){
+		$data = array(
+			'discount' => 0,
+			'startDateDiscount' => "0000-00-00",
+			'lastDateDiscount' => "0000-00-00",
+		);
+		$this->db->trans_start();
+		$this->db->where('product_id', $product_id);
+		$this->db->update('product', $data);
 		$this->db->trans_complete();
 	}
 

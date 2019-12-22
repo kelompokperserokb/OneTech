@@ -23,8 +23,8 @@
                             <div class="page-title">
                                 <ol class="breadcrumb text-right">
                                     <li><a href="#">Dashboard</a></li>
-                                    <li><a href="#">Product Properties</a></li>
-                                    <li class="active">Product table</li>
+                                    <li><a href="#">Order Properties</a></li>
+                                    <li class="active">Verify Order table</li>
                                 </ol>
                             </div>
                         </div>
@@ -40,20 +40,33 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">Product Table</strong>
+                                <strong class="card-title">Verify Order Table</strong>
                             </div>
                             <div class="card-body">
 
                                 <table id="bootstrap-data-table" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
-											<th>Name Product</th>
-											<th>CodeProduct</th>
-											<th>Discount</th>
-											<th>Start Date</th>
-											<th>Last Date</th>
-											<th class="mid">Add / Edit</th>
-											<th class="mid">Delete</th>
+											<th>Id order</th>
+											<th>Name</th>
+											<th>Address</th>
+											<th>Phone Number</th>
+											<th>Email</th>
+											<th>Account Type</th>
+											<th>Institution Name</th>
+											<th>Institution Address</th>
+											<th>NPWP</th>
+											<th>Date Order</th>
+
+											<th>Unique Price</th>
+											<th>Total Item Price</th>
+											<th>Logistic Price</th>
+											<th>Total Price</th>
+
+											<th>Proof Of Payment </th>
+											<th>Logistic</th>
+											<th>Confirm</th>
+											<th>See Item Purchased</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -97,9 +110,8 @@
     <script src="<?php echo base_url(); ?>Asset/js/admin/main.js"></script>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="<?php echo base_url(); ?>Asset/js/onetech/product/getData.js"></script>
-	<script src="<?php echo base_url(); ?>Asset/js/onetech/product/deleteData.js"></script>
-	<script src="<?php echo base_url(); ?>Asset/js/onetech/product/discount_manipulate.js"></script>
+	<script src="<?php echo base_url(); ?>Asset/js/upload.js"></script>
+	<script src="<?php echo base_url(); ?>Asset/js/onetech/order/order_confirmation.js"></script>
 
     <script src="<?php echo base_url(); ?>Asset/js/admin/lib/data-table/datatables.min.js"></script>
 	<script src="<?php echo base_url(); ?>Asset/js/admin/lib/data-table/jquery.dataTables.min.js"></script>

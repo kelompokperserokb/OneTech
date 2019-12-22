@@ -227,7 +227,7 @@ class Admin extends CI_Controller
 		foreach ($arr as $row) {
 			$str.=$row->merk_id.'##'.$row->category_id.'##'.$row->subcategory_id."##".$row->product_id."##".$row->merk_name.'##'.$row->category_name.'##'.$row->subcategory_name.'##'
 				.$row->product_name.'##'.$row->product_code.'##'.$row->product_price.'##'.$row->product_desc.'##'.$row->product_img_1.'##'.$row->product_img_2.'##'
-				.$row->product_img_3.'##'.$row->discount.'##'.$row->startDateDiscount.'##'.$row->lastDateDiscount.'##'.'%%';
+				.$row->product_img_3.'%%';
 		}
 		echo $str;
 	}
@@ -245,19 +245,41 @@ class Admin extends CI_Controller
 		$image_product1 = $this->input->post('image_product1');
 		$image_product2 = $this->input->post('image_product2');
 		$image_product3 = $this->input->post('image_product3');
-		$discount = $this->input->post('discount');
-		$startDateDiscount = $this->input->post('date_start');
-		$lastDateDiscount = $this->input->post('date_end');
 		$datePost = date('Y-m-d');
 
 		$this->M_ProductDB->adminUpdateProduct($merk_id, $category_id, $subcategory_id, $product_id, $product_name, $product_code, $product_price,
-			$product_desc, $image_product1, $image_product2, $image_product3, $discount, $startDateDiscount, $lastDateDiscount, $datePost);
+			$product_desc, $image_product1, $image_product2, $image_product3, $datePost);
 	}
 
 	public function  deleteProduct(){
 		$product_id = $this->input->post('product_id');
 
 		$this->M_ProductDB->adminDeleteProduct($product_id);
+	}
+
+	public function getProductDiscount(){
+		$str ='';
+		$arr = $this->M_ProductDB->adminGetProductDiscount();
+		foreach ($arr as $row) {
+			$str.=$row->product_id."##" .$row->product_name.'##'.$row->product_code.'##'.$row->discount.'##'.$row->startDateDiscount.'##'.$row->lastDateDiscount.'##'.'%%';
+		}
+		echo $str;
+	}
+
+	public function editProductDiscount()
+	{
+		$product_id = $this->input->post('product_id');
+		$discount = $this->input->post('discount');
+		$startDateDiscount = $this->input->post('date_start');
+		$lastDateDiscount = $this->input->post('date_end');
+
+		$this->M_ProductDB->adminUpdateProductDiscount($product_id, $discount, $startDateDiscount, $lastDateDiscount);
+	}
+
+	public function  deleteProductDiscount(){
+		$product_id = $this->input->post('product_id');
+
+		$this->M_ProductDB->adminDeleteProductDiscount($product_id);
 	}
 
 	public function getMerkCategory(){

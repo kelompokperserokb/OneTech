@@ -49,44 +49,59 @@ class Direct extends CI_Controller {
         if (!isset($_SESSION["admin-authorize"])) {
             redirect(base_url()."admin/admin/admin/login");
         } else {
-            $this->load->view('V_admin_inputLogistic');
+			$this->load->view('V_admin_header');
+            $this->load->view('V_admin_orderLogistic');
         }
     }
+
+	public function adminWaitingUploadOrder(){
+		$this->load->helper('url');
+		if (!isset($_SESSION["admin-authorize"])) {
+			redirect(base_url()."admin/admin/admin/login");
+		} else {
+			$this->load->view('V_admin_header');
+			$this->load->view('V_admin_orderWaitingUpload');
+		}
+	}
 
 	public function adminVerify(){
 		$this->load->helper('url');
 		if (!isset($_SESSION["admin-authorize"])) {
 			redirect(base_url()."admin/admin/admin/login");
 		} else {
-			$this->load->view('V_admin_verifyOrder');
+			$this->load->view('V_admin_header');
+			$this->load->view('V_admin_orderVerify');
 		}
 	}
 
-    public function adminResi(){
+    public function adminDeliveryInput(){
         $this->load->helper('url');
         if (!isset($_SESSION["admin-authorize"])) {
             redirect(base_url()."admin/admin/admin/login");
         } else {
-            $this->load->view('V_admin_resiInput');
+			$this->load->view('V_admin_header');
+            $this->load->view('V_admin_orderDeliveryInput');
         }
     }
 
-    public function adminListorder(){
+    public function adminOrderSuccess(){
         $this->load->helper('url');
         if (!isset($_SESSION["admin-authorize"])) {
             redirect(base_url()."admin/admin/admin/login");
         } else {
-            $this->load->view('V_admin_listorder');
+			$this->load->view('V_admin_header');
+            $this->load->view('V_admin_orderSuccess');
         }
     }
 
-	public function getOrderItems($param1){
+	public function adminGetOrderItems($param1){
 		$this->load->helper('url');
 		if (!isset($_SESSION["admin-authorize"])) {
 			redirect(base_url()."admin/admin/admin/login");
 		} else {
 		    $param['param1'] = $param1;
-			$this->load->view('V_admin_itemOrder',$param);
+			$this->load->view('V_admin_header');
+			$this->load->view('V_admin_orderItemPurchased',$param);
 		}
 	}
 
@@ -100,6 +115,17 @@ class Direct extends CI_Controller {
             $this->load->view('V_admin_product');
         }
     }
+
+	public function discountproduct()
+	{
+		$this->load->helper('url');
+		if (!isset($_SESSION["admin-authorize"])) {
+			redirect(base_url()."admin/admin/admin/login");
+		} else {
+			$this->load->view('V_admin_header');
+			$this->load->view('V_admin_discount');
+		}
+	}
 
 	public function typeproduct()
 	{

@@ -159,7 +159,7 @@ class M_OrderDB extends CI_Model
 
 	public function adminVerifyOrder($order_id, $email){
 		$data = array(
-			'confirmation' => 2,
+			'confirmation' => 3,
 		);
 
 		$this->db->trans_start();
@@ -184,7 +184,7 @@ class M_OrderDB extends CI_Model
 
 	public function adminUpdateResi($order_id, $email , $resi, $kurir) {
 		$data = array(
-			'confirmation' => 3,
+			'confirmation' => 4,
 			'resi' => $resi,
 			'kurir' => $kurir,
 		);
