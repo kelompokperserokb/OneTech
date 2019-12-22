@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+		<link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/bootstrap.min.css"/>
 </head>
 
 <body>

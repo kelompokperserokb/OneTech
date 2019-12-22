@@ -30,6 +30,10 @@ class Order extends CI_Controller {
 	public function cart(){
 	    if (isset($_SESSION["email"])) {
             $data['data'] = $this->M_OrderDB->getCart($_SESSION["email"]);
+			$datas["cat"] = $this->getCategory();
+			$datas["suball"] = $this->getSubCategory();
+
+//			$this->load->view('V_header',$datas);
             $this->load->view('V_cart', $data);
             $this->load->view('V_footer');
         } else {

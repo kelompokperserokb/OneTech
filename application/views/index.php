@@ -18,20 +18,16 @@
 					<li class="active" data-target="#myCarousel" data-slide-to="0"></li>
 					<li data-target="#myCarousel" data-slide-to="1"></li>
 					<li data-target="#myCarousel" data-slide-to="2"></li>
-					<li data-target="#myCarousel" data-slide-to="3"></li>
 				</ol>
 				<div class="carousel-inner">
 					<div class="item active">
-						<img src="<?php echo base_url(); ?>Asset/img/slider/slider-1.jpg" alt="Slider Image 1">
+						<img src="<?php echo base_url(); ?>Asset/img/slider/1.jpg" alt="Slider Image 1">
 					</div>
 					<div class="item">
-						<img src="<?php echo base_url(); ?>Asset/img/slider/slider-2.jpg" alt="Slider Image 2">
+						<img src="<?php echo base_url(); ?>Asset/img/slider/2.jpg" alt="Slider Image 2">
 					</div>
 					<div class="item">
-						<img src="<?php echo base_url(); ?>Asset/img/slider/slider-3.jpg" alt="Slider Image 3">
-					</div>
-					<div class="item">
-						<img src="<?php echo base_url(); ?>Asset/img/slider/slider-3.jpg" alt="Slider Image 4">
+						<img src="<?php echo base_url(); ?>Asset/img/slider/3.jpg" alt="Slider Image 3">
 					</div>
 				</div>
 				<a href="#myCarousel" class="left carousel-control" data-slide="prev">
@@ -45,8 +41,6 @@
 			</div>
 		</div>
 	</div>
-
-
 
     <!-- Product filter section -->
     <section class="product-section">
@@ -62,10 +56,6 @@
                             <a href="'.base_url().'product/'.$product['data']['data_array'][$i]->product_id.'/">
                                 <img src="'.base_url().'Asset/img/products/'.($i+1).'.jpg" alt="">
                             </a>
-                            <div class="pi-links">
-                                <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-<!--                                <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>-->
-                            </div>
                         </div>
                         <div class="pi-text">
                             <h6>Rp. '.number_format($product['data']['data_array'][$i]->product_price,2,",",".").'</h6>

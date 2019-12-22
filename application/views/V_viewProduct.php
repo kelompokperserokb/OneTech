@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-
+	<link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/bootstrap.min.css"/>
 </head>
 
 
@@ -83,10 +83,6 @@
                             			<a href="' . base_url() . 'product/' . $product['data_array'][$i]->product_id . '/">
                                 			<img src="' . base_url() . 'Asset/img/products/' . ($i + 1) . '.jpg" alt="">
                             			</a>
-                            			<div class="pi-links">
-                                			<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
-											<!-- <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>-->
-                            			</div>
                         			</div>
                         			<div class="pi-text">
                             			<h6>Rp. ' . number_format($product['data_array'][$i]->product_price, 2, ",", ".") . '</h6>

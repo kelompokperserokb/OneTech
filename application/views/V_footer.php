@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-	<link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/bootstrap.min.css"/>
-	<link rel="stylesheet"
-		  href="<?php echo base_url(); ?>Asset/css/style.css?<?php echo date('l jS \of F Y h:i:s A'); ?>"/>
+<!--	<link rel="stylesheet" href="--><?php //echo base_url(); ?><!--Asset/css/bootstrap.min.css"/>-->
+<!--	<link rel="stylesheet" href="--><?php //echo base_url(); ?><!--Asset/css/bootstrap-337.min.css">-->
+	<link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/style.css?<?php echo date('l jS \of F Y h:i:s A'); ?>"/>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/style1.css"/>
 </head>
 <!-- Start Footer bottom Area -->
