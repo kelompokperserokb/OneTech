@@ -43,7 +43,7 @@ function printListOrder(data){
         '<td><img src="' + data[13] + '"></td>' +
         '<td>' + data[14] + '</td>' +
         '<td>' + data[15] + '</td>' +
-        '<td><a href="'+ base_url + '/onetech/admin/admin/admin/listorder/items/'+data[0] +'">Items</a></td>' +
+        '<td><a href="'+ base_url + '/onetech/admin/admin/admin/ordered/items/'+data[0] +'">Items</a></td>' +
         '</tr>';
     $("table").append(row);
 }

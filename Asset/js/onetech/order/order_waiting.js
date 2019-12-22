@@ -2,13 +2,6 @@ var base_url = window.location.origin;
 $(document).ready(function() {
 	getOrderList();
 
-	$(document).on("click", ".confirm", function() {
-		var row = $(this).parents("tr").find("td");
-		var order_id = $(row[0]).text();
-		var email = $(row[4]).text();
-		verify(order_id, email, row);
-	});
-
 	$(document).on("click", ".edit_logistic", function() {
 		var row = $(this).parents("tr").find("td");
 		var order_id = $(row[0]).text();
@@ -30,7 +23,7 @@ function getOrderList(){
 
 			for (var i = 0; i<data.length -1 ; i++){
 				var subData = data[i].split('##');
-				if (subData[14] == 2) printListOrder(subData);
+				if (subData[14] == 1) printListOrder(subData);
 			}
 		},
 	});
@@ -56,31 +49,11 @@ function printListOrder(data){
 
 	'<td><img src="' + data[13] + '"></td>' +
 	'<td><input type="button" class="btn btn-danger edit_logistic" value="Edit Logistic"> </td>' +
-	'<td><input type="button" class="btn btn-info confirm" value="Verify"></td>' +
-	'<td><a href="'+ base_url + '/onetech/admin/admin/admin/verifyorder/items/'+data[0] +'">Items</a></td>' +
+	'<td><a href="'+ base_url + '/onetech/admin/admin/admin/waitingorder/items/'+data[0] +'">Items</a></td>' +
 	'</tr>';
 	$("table").append(row);
 }
 
-function verify(id, email, row) {
-	var url = base_url.toString() + "/onetech/Admin/verifyOrder";
-	$.ajax({
-		url: url,
-		method: 'post',
-		data: {
-			order_id: id,
-			email: email,
-		},
-
-		beforeSend: function () {
-
-		},
-		success: function () {
-			alert('Verify Complete');
-			row.remove();
-		},
-	});
-}
 
 function edit_logistic(id, email, row) {
 	var url = base_url.toString() + "/onetech/Admin/edit_status/0";

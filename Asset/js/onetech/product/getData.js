@@ -139,6 +139,40 @@ function printProduct(data){
 	$("table").append(row);
 }
 
+function getProductDiscount(){
+	var url = base_url.toString() + "/onetech/Admin/getProductDiscount";
+	$.ajax({
+		url: url,
+		beforeSend: function () {
+
+		},
+		success: function (response) {
+			var data = response.split('%%');
+
+			for (var i = 0; i<data.length -1 ; i++){
+				var subData = data[i].split('##');
+				printProductDiscount(subData);
+			}
+		},
+	});
+
+
+}
+
+function printProductDiscount(data){
+	var row = '<tr>'+
+		'<input type="hidden" class="form-control" name="product-id" id="product-id" value="'+ data[0] +'">' +
+		'<td>'+ data[1] +'</td>' +
+		'<td>'+ data[2] +'</td>' +
+		'<td>'+ data[3] +'</td>' +
+		'<td>'+ data[4] +'</td>' +
+		'<td>'+ data[5] +'</td>' +
+		'<td>' + addeditbutton + '</td>' +
+		'<td>' + deletebutton + '</td>' +
+		'</tr>';
+	$("table").append(row);
+}
+
 function getTypeProduct(){
 
 	var url = base_url.toString() + "/onetech/Admin/getTypeProduct";

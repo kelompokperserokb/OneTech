@@ -67,7 +67,7 @@ function printListOrder(data){
         '<td> <input class="form-control kurir" type="text" value="' + data[15] + '" required> </td>' +
         '<td><input type="button" class="btn btn-danger edit_verifikasi" value="Edit Verifikasi"> </td>' +
         '<td><input type="button" class="btn btn-info confirm" value="Confirm"></td>' +
-        '<td><a href="'+ base_url + '/OneTech/admin/admin/admin/resi/items/'+data[0] +'">Items</a></td>' +
+        '<td><a href="'+ base_url + '/onetech/admin/admin/admin/delivery/items/'+data[0] +'">Items</a></td>' +
         '</tr>';
     $("table").append(row);
 }

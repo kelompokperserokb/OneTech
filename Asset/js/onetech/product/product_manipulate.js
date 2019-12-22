@@ -121,7 +121,7 @@ $(document).ready(function() {
 				formData.append('image-product2', image2);
 				formData.append('image-product3', image3);
 
-				var url = base_url.toString() + "/OneTech/Admin/upload";
+				var url = base_url.toString() + "/onetech/Admin/upload";
 				$.ajax({
 					url: url,
 					method: 'post',
