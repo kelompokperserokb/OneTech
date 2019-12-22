@@ -169,6 +169,7 @@ class Product extends CI_Controller
 		$data["product"] = $this->M_ProductDB->getProductBySearchLimit($query, $start, $limit);
 		$data["allprod"] = $this->M_ProductDB->getProductBySearch($query);
 		$data["link"] = base_url()."viewproduct/search?value=".(str_replace(" ","%20",$query))."&page=";
+		$data["query"] = $query;
 
 		$this->load->view('V_header', $data);
 		$this->load->view('V_viewSearchProduct', $data);

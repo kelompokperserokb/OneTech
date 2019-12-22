@@ -15,7 +15,7 @@
 					<h3>Browse all of product</h3>
 				</div>
 				<div class="section-title">
-					<h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, atque dolorem doloribus, ea excepturi inventore laudantium nulla numquam perferendis praesentium, quae quaerat quia quidem rem saepe sit temporibus voluptate voluptatum!</h5>
+					<!--<h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, atque dolorem doloribus, ea excepturi inventore laudantium nulla numquam perferendis praesentium, quae quaerat quia quidem rem saepe sit temporibus voluptate voluptatum!</h5>-->
 				</div>
 			</div>
 			<div class="col-md-3">
@@ -65,7 +65,7 @@
 					</div>
 				</section>
 			</div>
-			<center>
+			<center class="paginationbox">
 				<ul class="pagination">
 					<?php
 					$result = $product['data']['data_array'];

@@ -11,12 +11,21 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="section-title">
-					<h3>Browse all of product</h3>
-				</div>
-				<div class="section-title">
-					<h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, atque dolorem doloribus, ea excepturi inventore laudantium nulla numquam perferendis praesentium, quae quaerat quia quidem rem saepe sit temporibus voluptate voluptatum!</h5>
-				</div>
+				<?php
+				if($product['count'] == 0) {
+					echo '<div class="section-title">
+						<h3>Sorry, it seems like we dont have the product that you are looking for</h3>
+					</div>';
+				} else {
+
+					echo '<div class="section-title">
+						<h3>Viewing products for : ' .$query. '</h3>
+					</div>
+					<div class="section-title">
+						<!--<h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, atque dolorem doloribus, ea excepturi inventore laudantium nulla numquam perferendis praesentium, quae quaerat quia quidem rem saepe sit temporibus voluptate voluptatum!</h5>-->
+					</div>';
+				}
+				?>
 			</div>
 			<div class="col-md-3">
 				<div id="content">
@@ -65,7 +74,7 @@
 					</div>
 				</section>
 			</div>
-			<center>
+			<center class="paginationbox">
 				<ul class="pagination">
 					<?php
 					$result = $product['data_array'];

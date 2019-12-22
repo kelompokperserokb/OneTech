@@ -3912,7 +3912,14 @@
     .center {
         text-align: center;
     }
-    
+
+	.paginationbox {
+		position: center;
+		text-align: center;
+		display: block;
+		margin: auto;
+	}
+
     .pagination {
         text-align: center;
         display: compact;
