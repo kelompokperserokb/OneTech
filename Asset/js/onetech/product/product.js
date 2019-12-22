@@ -27,6 +27,6 @@ proQty.on('click', '.qtybtn', function () {
     var $order = $button.parent().parent().parent().parent().find('.order-product');
     var quantity = $order.parent().parent().find('.quantity-item').val();
     var type_id = $order.parent().parent().find('.type_id').val();
-    var base_url = window.location.origin+"/OneTech/Order/addToCart/"+type_id+"/"+quantity;
+    var base_url = window.location.origin+"/onetech/Order/addToCart/"+type_id+"/"+quantity;
     $('.order-product').attr('href',base_url);
 });
