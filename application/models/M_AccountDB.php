@@ -93,5 +93,12 @@ class M_AccountDB extends CI_Model
 		$this->db->trans_complete();
 		return true;
 	}
+
+	public function count(){
+		$this->load->database();
+		$query = $this->db->query("SELECT COUNT(*) AS 'total' FROM user ;");
+		$data['data_array'] = $query->result();
+		return $data;
+	}
 }
 ?>

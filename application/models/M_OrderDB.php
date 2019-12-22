@@ -225,6 +225,28 @@ class M_OrderDB extends CI_Model
 		return $data;
 	}
 
+	public function ordercount() {
+		$this->load->database();
+		$query = $this->db->query("SELECT COUNT(*) AS 'total' FROM orderitem ;");
+		$data['data_array'] = $query->result();
+		return $data;
+	}
+
+	public function incomecount() {
+		$this->load->database();
+		$query = $this->db->query("SELECT (SUM(totalPrice)+SUM(unique_price)+SUM(logistic_price)) AS 'total' FROM orderitem AS i;");
+		$data['data_array'] = $query->result();
+		return $data;
+
+	}
+
+	public function productcount() {
+		$this->load->database();
+		$query = $this->db->query("SELECT (SUM(quantity)) AS 'total' FROM purchaseitem;");
+		$data['data_array'] = $query->result();
+		return $data;
+	}
+
 	/*END OF ADMIN PRIVILEGE*/
 }
 

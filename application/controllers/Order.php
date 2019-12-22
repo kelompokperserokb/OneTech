@@ -33,7 +33,7 @@ class Order extends CI_Controller {
 			$datas["cat"] = $this->getCategory();
 			$datas["suball"] = $this->getSubCategory();
 
-//			$this->load->view('V_header',$datas);
+			$this->load->view('V_header',$datas);
             $this->load->view('V_cart', $data);
             $this->load->view('V_footer');
         } else {

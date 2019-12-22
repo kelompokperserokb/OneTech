@@ -28,11 +28,19 @@ class Direct extends CI_Controller {
 	public function adminHome()
 	{
         $this->load->helper('url');
+		$this->load->model("M_AccountDB");
+		$this->load->model("M_OrderDB");
+
+		$data["usercount"] =  $this->M_AccountDB->count();
+		$data["ordercount"] = $this->M_OrderDB->ordercount();
+		$data["incomecount"] = $this->M_OrderDB->incomecount();
+		$data["productcount"] = $this->M_OrderDB->productcount();
+
         if (!isset($_SESSION["admin-authorize"])) {
             redirect(base_url()."admin/admin/admin/login");
         } else {
 			$this->load->view('V_admin_header');
-			$this->load->view('V_admin_index');
+			$this->load->view('V_admin_index', $data);
         }
 	}
 

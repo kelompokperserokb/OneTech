@@ -21,7 +21,7 @@
                                 </div>
                                 <div class="stat-content">
                                     <div class="text-left dib">
-                                        <div class="stat-text">Rp.<span class="count">132750000</span></div>
+										<?php echo'<div class="stat-text">Rp.<span class="count">'.$incomecount['data_array'][0]->total.'</span></div>'; ?>
                                         <div class="stat-heading">Total Incomes</div>
                                     </div>
                                 </div>
@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="stat-content">
                                     <div class="text-left dib">
-                                        <div class="stat-text"><span class="count">94</span></div>
+										<?php echo'<div class="stat-text"><span class="count">'.$ordercount['data_array'][0]->total.'</span></div>'; ?>
                                         <div class="stat-heading">Total Orders</div>
                                     </div>
                                 </div>
@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="stat-content">
                                     <div class="text-left dib">
-                                        <div class="stat-text"><span class="count">128</span></div>
+										<?php echo'<div class="stat-text"><span class="count">'.$productcount['data_array'][0]->total.'</span></div>'; ?>
                                         <div class="stat-heading">Product Purchase</div>
                                     </div>
                                 </div>
@@ -75,7 +75,7 @@
                                 </div>
                                 <div class="stat-content">
                                     <div class="text-left dib">
-                                        <div class="stat-text"><span class="count">78</span></div>
+										<?php echo'<div class="stat-text"><span class="count">'.$usercount['data_array'][0]->total.'</span></div>'; ?>
                                         <div class="stat-heading">Total Clients</div>
                                     </div>
                                 </div>
