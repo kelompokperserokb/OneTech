@@ -127,7 +127,7 @@ class Order extends CI_Controller {
                     $message["orderitem"] = $item["data_array"];
                 }
                 if ($data->confirmation == 0) {
-                    $message["text"] = "Order telah dilakukan, order sedang menunggu konfirmasi admin. Mohon tunggu waktu kerja maksimum 1x24 jam.";
+                    $message["text"] = "Order telah dilakukan, order sedang menunggu konfirmasi admin dan input biaya pengiriman. Mohon tunggu waktu kerja maksimum 1x24 jam.";
                     $message["status"] = 0;
                 } else if ($data->confirmation == 1) {
                     $message["text"] = "Order telah dikonfirmasi admin. Mohon segera upload bukti pembayaran sesuai dengan harga yang tertera.";
@@ -157,6 +157,12 @@ class Order extends CI_Controller {
             redirect(base_url('login'));
         }
     }
+
+    public function checkOrderActive(){
+		$order_check = $this->M_OrderDB->getOrderNotFinished($_SESSION["email"]);
+		if ($order_check == "0") echo "false";
+		else echo "true";
+	}
 
     public function changeAddress(){
         $address = $this->input->post('address') ;

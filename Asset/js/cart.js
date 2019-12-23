@@ -1,6 +1,7 @@
 var base_url = window.location.origin;
 (function($) {
     $(document).ready(function() {
+    	CheckActiveOrder();
         recalculateCart();
     });
 
@@ -138,10 +139,25 @@ var base_url = window.location.origin;
                 success: function () {
                     removeItem($button.parents('tr'));
                     updateQuantity($button.parent());
+					$('#proceed-order').attr('disabled','disabled');
                 }
             });
         }
     });
+
+    function CheckActiveOrder(){
+		if ($("#proceed-order").is(":disabled")) return;
+		var url = base_url.toString() + "/onetech/Order/checkOrderActive";
+		$.ajax({
+			url: url,
+			success: function (response) {
+				if (response == "true") {
+					alert("You have an active order, complete your order first");
+					$('#proceed-order').attr('disabled','disabled');
+				}
+			}
+		});
+	}
 
     /*-------------------
             Proceed to Order
@@ -151,5 +167,7 @@ var base_url = window.location.origin;
         var url = base_url.toString() + "/onetech/Order/moveToOrder";
         window.location.href = url;
     });
+
+
 
 })(jQuery);

@@ -75,6 +75,22 @@ class M_OrderDB extends CI_Model
 		return $data;
 	}
 
+	public function getOrderNotFinished($email){
+		if (isset($_SESSION["email"])) {
+			$this->db->select('*');
+			$this->db->from('orderitem');
+			$this->db->where('email',$email);
+			$this->db->where('confirmation',0);
+			$this->db->or_where('confirmation',1);
+			$this->db->or_where('confirmation',2);
+			$this->db->or_where('confirmation',3);
+			$query = $this->db->get();
+
+			if ($query) return $query->num_rows();
+			else return 0;
+		}
+	}
+
 	public function getOrderItem($order_id)
 	{
 		$this->db->select('*');

@@ -3,6 +3,9 @@
 
 <head>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/bootstrap.min.css"/>
+	<style>
+		.site-btn.disabled, .site-btn:disabled {cursor: not-allowed;}
+	</style>
 </head>
 
 <body>
@@ -83,10 +86,11 @@
 			<div class="col-lg-6 card-right">
 			</div>
 			<div class="col-lg-3 card-right">
-				<a href="" class="site-btn sb-dark">Continue shopping</a>
+				<a href="<?php echo base_url() ?>" class="site-btn sb-dark">Continue shopping</a>
 			</div>
 			<div class="col-lg-3 card-right">
-				<?php if ($data['count'] > 0) echo '<a href="" class="site-btn" id="proceed-order" >Proceed to checkout</a>'; ?>
+				<?php if ($data['count'] > 0) echo '<button class="site-btn" id="proceed-order" >Proceed to checkout</button>';
+				else echo '<button disabled="disabled" class="site-btn" id="proceed-order" >Proceed to checkout</button>'; ?>
 			</div>
         </div>
     </div>
