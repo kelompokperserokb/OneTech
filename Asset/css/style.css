@@ -893,11 +893,22 @@
     
     .product-item .pi-text h6 {
         float: right;
-        padding-left: 40px;
+        padding-left: 10px;
+		margin-bottom: 0px;
         overflow: hidden;
         font-weight: 700;
         color: #111111;
     }
+
+	.product-item .pi-text h5 {
+		float: right;
+		padding-left: 5px;
+		margin-bottom: 0px;
+		overflow: hidden;
+		font-weight: 400;
+		color: #111111;
+		font-size: 12px;
+	}
     
     .product-item .pi-text p {
         font-size: 16px;
@@ -1519,14 +1530,9 @@
     
     .product-details .p-stock {
         font-size: 12px;
-        color: #000;
-        font-weight: 700;
+        font-weight: 300;
         color: #414141;
-        margin-bottom: 10px;
-    }
-    
-    .product-details .p-stock span {
-        color: #f51167;
+        margin-bottom: 0px;
     }
     
     .product-details .p-rating {
