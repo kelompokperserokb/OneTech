@@ -14,7 +14,7 @@
 </head>
 
 <body>
-s	<div class="container checkout">
+	<div class="container checkout">
 		<div class="py-5 text-center">
 			<!--<img class="d-block mx-auto mb-4" src="<?php /*echo base_url(); */?>Asset/img/tandatanya.jpg" alt="" width="72" height="72">-->
 			<h2>Checkout form</h2>

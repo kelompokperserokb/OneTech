@@ -119,8 +119,8 @@ class Order extends CI_Controller {
             $order = $this->M_OrderDB->getOrder($_SESSION["email"]);
 
             if ($order["count"] > 0) {
-                $data = ($order["data_array"])[$order["count"] - 1];
-                $message["order"] = ($order["data_array"])[$order["count"] - 1];
+                $data = ($order["data_array"])[0];
+                $message["order"] = ($order["data_array"])[0];
                 $item = $this->M_OrderDB->getOrderItem($data->order_id);
                 $date = ($this->M_OrderDB->getOrderDate($data->order_id))["data_array"][0];
                 $message["orderitem_count"] = $item["count"];
