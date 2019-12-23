@@ -47,7 +47,9 @@
                             <tbody id="table-cart">
                                 <?php
                                     for ($i = 0; $i < $data['count'] ; $i++ ) {
-                                        $total = $data['data_array'][$i]->quantity * $data['data_array'][$i]->product_price;
+                                    	$discountRate = ($data['data_array'][$i]->discount != null ? $data['data_array'][$i]->discount : 0);
+										$discountPrice = $data['data_array'][$i]->product_price - ($data['data_array'][$i]->product_price * ($discountRate/100));
+                                        $total = $data['data_array'][$i]->quantity * $discountPrice;
                                         echo '<tr>
                                             <td class="cart-product-col">
                                                 <img src="' . base_url() . 'Asset/img/tandatanya.jpg" alt="">
@@ -70,7 +72,7 @@
                                             </td>
                                             <td class="cart-total-col" id="product-price">
                                                 <h4 class="price">Rp. ' . number_format($total, 2, ",", ".") . '</h4>
-                                                <input class="price-hidden" type="hidden" value="' . $data['data_array'][$i]->product_price . '">
+                                                <input class="price-hidden" type="hidden" value="' . $discountPrice . '">
                                             </td>
                                         </tr>';
                                     }

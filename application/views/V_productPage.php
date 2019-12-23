@@ -32,7 +32,7 @@
             <?php echo '
 			<div class="col-lg-6 product-details">
 				<h2 class="p-title">'.$product["data_array"][0]->product_name.'</h2>
-				<h3 class="p-price">Rp. '.number_format($product["data_array"][0]->product_price,2,",",".").'</h3>
+				<h3 class="p-price" id="p-price">Rp. '.number_format($product["data_array"][0]->product_price,2,",",".").'</h3>
 				<!--<h4 class="p-stock">Available: <span>'. $stock_status .'<input type="hidden" id ="stock_quota" value="'.$stock.'" /></span></h4>-->
 				<!--<div class="p-review">
 					<a href="">3 reviews</a>|<a href="">Add your review</a>
@@ -95,12 +95,12 @@
 			<td class="mid">'.$availability.'</td>
 			<td class="mid"><div class="quantity">
 					<!--<p>Quantity</p>-->
-					<div class="pro-qty"><input type="text" value="1" name="quantity" class="quantity-item"></div>
+					<div class="pro-qty"><input type="text" value="'.($product_type["data_array"][$i]->quota > 0 ? "1" : "0") .'" name="quantity" class="quantity-item"></div>
 					<input type="hidden" value="'.$product_type["data_array"][$i]->quota.'" class="quota_prod" >
 					<input type="hidden" value="'.$product_type["data_array"][$i]->type_id.'" class="type_id">
 				</div></td>
 			<!--<td><a href="'.base_url().'product/'.$product["data_array"][0]->product_id.'">order</a></td>-->
-			<td class="mid"><a href="'.base_url('Order/addToCart').'/'.$product_type["data_array"][$i]->type_id.'/1" class="order-product">Add to cart</a></td>
+			<td class="mid"><a href="'.base_url('Order/addToCart').'/'.$product_type["data_array"][$i]->type_id.'/'.($product_type["data_array"][$i]->quota > 0 ? "1" : "0") .'" class="order-product">Add to cart</a></td>
 			<!--<td><button type="button" id="" class="order-product btn btn-success"><i class="fa fa-plus"></i> Add to cart</button></td>-->
 		</tr>';} ?>
 	</table>
@@ -108,8 +108,8 @@
 </div>
 <!-- end mini table-->
 
-
-
+<script src="<?php echo base_url(); ?>Asset/js/onetech/math.js"></script>
+<script> generateDiskon(<?php echo json_encode($product["data_array"][0]); ?>); </script>
 <script src="<?php echo base_url(); ?>Asset/js/main.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/onetech/product/product.js"></script>
 </body>

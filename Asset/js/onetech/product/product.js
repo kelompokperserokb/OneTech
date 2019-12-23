@@ -30,3 +30,17 @@ proQty.on('click', '.qtybtn', function () {
     var base_url = window.location.origin+"/onetech/Order/addToCart/"+type_id+"/"+quantity;
     $('.order-product').attr('href',base_url);
 });
+
+$(document).ready(function() {
+	$(".order-product").click(function (e) {
+		var quantity = $(this).parents("tr").find("input").val();
+		var quota = $(this).parents("tr").find(".quota_prod").val();
+		if (quota == 0)  {
+			alert("Product is out of stock");
+			e.preventDefault();
+		} else if (quantity == 0){
+			alert("Please order at least 1 item");
+			e.preventDefault();
+		}
+	});
+});
