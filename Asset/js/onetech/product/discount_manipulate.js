@@ -97,5 +97,9 @@ $(document).ready(function() {
 			$(column[3]).html("0000-00-00");
 			$(column[4]).html("0000-00-00");
 		}
+		if($(this).parents("tr").find(".add").is(':visible'))
+		{
+			$(this).parents("tr").find(".add, .edit").toggle();
+		}
 	});
 });
