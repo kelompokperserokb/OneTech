@@ -26,6 +26,7 @@ s	<div class="container checkout">
                 echo '<div class="col-md-12 text-center"><strong>'.$text.'</strong></div>';
             }
             else {
+            	$normal_price = $order->totalPrice + $total_discount;
                 $total_price = $order->totalPrice + $order->logistic_price + $order->unique_price;
                 echo '<div class="row">
                 <div class="col-md-4 order-md-2 mb-4">
@@ -37,7 +38,7 @@ s	<div class="container checkout">
                     <ul class="list-group mb-3">
                         <li class="list-group-item d-flex justify-content-between">
                             <span>Total Harga Barang</span>
-                            <strong>Rp. ' . number_format($order->totalPrice, 2, ",", ".") . '</strong>
+                            <strong>Rp. ' . number_format($normal_price, 2, ",", ".") . '</strong>
                         </li>
                         <li class="list-group-item d-flex justify-content-between">
                             <span>Biaya Kirim</span>
@@ -46,6 +47,10 @@ s	<div class="container checkout">
                         <li class="list-group-item d-flex justify-content-between">
                             <span>Kode Unik</span>
                             <strong>Rp. ' . number_format($order->unique_price, 2, ",", ".") . '</strong>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Discount</span>
+                            <strong>- Rp. ' . number_format($total_discount, 2, ",", ".") . '</strong>
                         </li>
                         <li class="list-group-item d-flex justify-content-between">
                             <strong s>Total Pembayaran</strong>
@@ -104,17 +109,27 @@ s	<div class="container checkout">
                             <div class="col-md-12">
                                 <h4 class="mb-3">Product</h4>';
                                 foreach ($orderitem as $row){
+									$pricetoview = $row->product_price;
+									if($row->discount > 0 && $row->discount < 100) {
+										$order_date = date("Y-m-d");
+										$order_date = date('Y-m-d', strtotime($order_date));
+										$begin = date('Y-m-d', strtotime($row->startDateDiscount));
+										$end = date('Y-m-d', strtotime($row->lastDateDiscount));
+										if(($order_date >= $begin) && ($order_date <= $end)) {
+											$pricetoview = $row->product_price - ($row->product_price * ($row->discount/100));
+										}
+									}
                                 	echo '
 									<div class="row">
 										<div class="col-sm-2 hidden-xs"><img src="'.$row->product_img_1.'" alt="image product" class="img-responsive" /></div>
 										<div class="col-sm-10">
 											<h4 class="mb-3">'. $row->product_name .'</h4>
 											<p>'. $row->product_desc .'</p>
-											<small class="text-muted">Rp. ' . number_format($row->product_price, 2, ",", ".") . ' x '. $row->quantity .' barang</small>
+											<small class="text-muted">Rp. ' . number_format($pricetoview, 2, ",", ".") . ' x '. $row->quantity .' barang</small>
 										</div>
 										<div class="col-md-12 sub-total">
 											<h4 >Subtotal</h4> 
-											<p  align="right">Rp. ' . number_format(($row->product_price * $row->quantity), 2, ",", ".") . '</p>
+											<p  align="right">Rp. ' . number_format(($pricetoview * $row->quantity), 2, ",", ".") . '</p>
 										</div>
 									</div>';
 								}

@@ -49,6 +49,7 @@ var base_url = window.location.origin;
             $('.total-cost').find('span').html("Rp. "+currencyIndonesia(total.toFixed(2)));
             if (total == 0) {
                 $('.checkout').fadeOut(fadeTime);
+				$('#proceed-order').attr('disabled','disabled');
             } else {
                 $('.checkout').fadeIn(fadeTime);
             }
@@ -139,7 +140,6 @@ var base_url = window.location.origin;
                 success: function () {
                     removeItem($button.parents('tr'));
                     updateQuantity($button.parent());
-					$('#proceed-order').attr('disabled','disabled');
                 }
             });
         }

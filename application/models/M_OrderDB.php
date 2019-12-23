@@ -64,7 +64,7 @@ class M_OrderDB extends CI_Model
 		$this->db->from('orderitem');
 		$this->db->where('email', $email);
 		$this->db->order_by('dateOrder', 'DESC');
-		$this->db->order_by('confirmation', 'ASC');
+		$this->db->order_by('confirmation', 'DESC');
 		$query = $this->db->get();
 
 		if ($query) {
@@ -107,6 +107,19 @@ class M_OrderDB extends CI_Model
 		} else {
 			$data["count"] = 0;
 		}
+		return $data;
+	}
+
+	public function getOrderDate($order_id)
+	{
+		$this->db->select('dateOrder');
+		$this->db->from('orderitem');
+		$this->db->where('order_id', $order_id);
+		$query = $this->db->get();
+
+		$data['data_array'] = $query->result();
+		$data["count"] = $query->num_rows();
+
 		return $data;
 	}
 

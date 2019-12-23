@@ -119,12 +119,15 @@ class Order extends CI_Controller {
             $order = $this->M_OrderDB->getOrder($_SESSION["email"]);
 
             if ($order["count"] > 0) {
-                $data = ($order["data_array"])[0];
-                $message["order"] = ($order["data_array"])[0];
+                $data = ($order["data_array"])[$order["count"] - 1];
+                $message["order"] = ($order["data_array"])[$order["count"] - 1];
                 $item = $this->M_OrderDB->getOrderItem($data->order_id);
+                $date = ($this->M_OrderDB->getOrderDate($data->order_id))["data_array"][0];
                 $message["orderitem_count"] = $item["count"];
+                $message["order_date"] = $date->dateOrder;
                 if ($message["orderitem_count"] > 0) {
                     $message["orderitem"] = $item["data_array"];
+					$message["total_discount"] = $this->getTotalDiscount($item["data_array"], $date->dateOrder);
                 }
                 if ($data->confirmation == 0) {
                     $message["text"] = "Order telah dilakukan, order sedang menunggu konfirmasi admin dan input biaya pengiriman. Mohon tunggu waktu kerja maksimum 1x24 jam.";
@@ -157,6 +160,23 @@ class Order extends CI_Controller {
             redirect(base_url('login'));
         }
     }
+
+    private function getTotalDiscount($data, $date){
+		$totalDiscount = 0;
+		foreach($data as $row){
+			if ($this->validateDiscount($row->startDateDiscount, $row->lastDateDiscount, $date)) {
+				$discountRate = $row->discount != null ? $row->discount : 0;
+			} else {
+				$discountRate = 0;
+			}
+			$totalDiscount += $row->quantity *  ($row->product_price * ($discountRate/100));
+		}
+		return $totalDiscount;
+	}
+
+	private function getPriceProduct(){
+
+	}
 
     public function checkOrderActive(){
 		$order_check = $this->M_OrderDB->getOrderNotFinished($_SESSION["email"]);
@@ -193,21 +213,26 @@ class Order extends CI_Controller {
         $this->addItemToOrder($email, $order["data_array"][0], $dataCart);
 
         redirect(base_url('order'));
-
-
-        //Special request
-	    /*if ($order["count"] != 0) {
-            $this->addItemToOrder($email, $order["data_array"], $dataCart);
-        } else {
-	        $this->createNewOrder($email, $dataCart);
-        }*/
     }
+
+    private function validateDiscount($startDate, $lastDate, $currentDate){
+		if ($startDate == null || $lastDate == null) return false;
+		if (strtotime($currentDate) >= strtotime($startDate) && strtotime($currentDate) <= strtotime($lastDate)) return true;
+		else return false;
+	}
 
     public function getItemCart($email){
         $rawdata = $this->M_OrderDB->getCart($email);
+        $discountRate = 0;
         $totalprice = 0;
         foreach ($rawdata["data_array"] as $row){
-            $totalprice += $row->quantity * $row->product_price;
+
+        	if ($this->validateDiscount($row->startDateDiscount, $row->lastDateDiscount, date("Y-m-d h:i:sa"))) {
+        		$discountRate = $row->discount != null ? $row->discount : 0;
+			} else {
+				$discountRate = 0;
+			}
+            $totalprice += $row->quantity * ($row->product_price - ($row->product_price * ($discountRate/100)));
         }
 
         $data["data"] = $rawdata["data_array"];
