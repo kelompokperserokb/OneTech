@@ -50,4 +50,63 @@ $(document).ready(function() {
             });
         }
     });
+
+	$("#upload-bukti").click(function(e) {
+		e.preventDefault();
+		uploadBukti();
+	});
 });
+
+function uploadBukti(){
+	var image = $("#bukti_pembayaran").prop('files')[0];
+
+	var formData = new FormData();
+	formData.append('bukti_pembayaran', image);
+
+	var url = base_url.toString() + "/onetech/Order/uploadBukti";
+	$.ajax({
+		url: url,
+		method: 'post',
+		data: formData,
+		processData: false,
+		contentType: false,
+		beforeSend: function () {
+
+		},
+		success: function (response) {
+			console.log(response);
+			if (response.length != 0) {
+				var data = response.split(";");
+				if (data[0] != "error") {
+					/*$("#preview-bukti_pembayaran").attr("src", data[0]);
+
+					var image_bukti = $('#preview-bukti_pembayaran').attr('src');*/
+
+					let image_bukti = data[0];
+					let order_id = $("#o-id").val();
+
+					var url = base_url.toString() + "/onetech/Order/updateBukti";
+					$.ajax({
+						url: url,
+						method: 'post',
+						data: {
+							order_id: order_id,
+							image_bukti: image_bukti,
+						},
+						beforeSend: function () {
+
+						},
+						success: function () {
+							alert('Upload Success');
+							location.reload();
+						},
+					});
+
+				} else {
+					alert(data[1]);
+				}
+
+			}
+		},
+	});
+}

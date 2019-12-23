@@ -19,13 +19,15 @@ class Admin extends CI_Controller
 
     public function upload(){
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+			$errors = array();
         	if (!isset($_FILES['image-product1']['name']) || !isset($_FILES['image-product2']['name']) || !isset($_FILES['image-product2']['name'])) {
+        		$errors[] = "File is not allow to null";
+				echo "error".";".$errors[0];
         		return;
 			}
 
             $currentDir = getcwd();
             $baseURL = base_url();
-            $errors = array();
             $path = "/Asset/uploads/";
             $extensions = array('jpg', 'jpeg', 'png', 'gif');
 
@@ -89,7 +91,7 @@ class Admin extends CI_Controller
                 move_uploaded_file($file_tmp_3, $currentDir.$file_image3);
             }
 
-            if ($errors) echo $errors[0];
+            if ($errors) echo "error".";".$errors[0];
             else {
                 echo $baseURL.$file_image1.";".$baseURL.$file_image2.";".$baseURL.$file_image3;
             }

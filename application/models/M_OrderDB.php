@@ -125,6 +125,20 @@ class M_OrderDB extends CI_Model
 		$this->db->trans_complete();
 	}
 
+	public function updateBukti($email, $order_id, $image_bukti)
+	{
+		$data = array(
+			'confirmation' => 2,
+			'proofOfPayment' => $image_bukti,
+		);
+
+		$this->db->trans_start();
+		$this->db->where('order_id', $order_id);
+		$this->db->where('email', $email);
+		$this->db->update('orderitem', $data);
+		$this->db->trans_complete();
+	}
+
 	public function removeCart($email){
 		$this->db->trans_start();
 		$this->db->delete('cart', array('email'=>$email));
