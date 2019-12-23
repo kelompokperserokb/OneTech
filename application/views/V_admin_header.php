@@ -37,14 +37,13 @@
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active">
-                    <a href="index.html"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+					<?php echo '<a href="' . base_url('admin/admin/admin').'"><i class="menu-icon fa fa-laptop"></i>Dashboard</a>';?>
                 </li>
                 <li class="menu-title">Admin authority</li><!-- /.menu-title -->
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                        aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Product Properties</a>
                     <ul class="sub-menu children dropdown-menu">
-						<?php echo '<li><i class="fa fa-tag"></i><a href="' . base_url('admin/admin/admin/category').'">Category</a></li>';?>
 						<?php echo '<li><i class="fa fa-tags"></i><a href="' . base_url('admin/admin/admin/subcategory') . '">Sub-Category</a></li>';?>
 						<?php echo '<li><i class="fa fa-bars"></i><a href="' . base_url('admin/admin/admin/merk') . '">Merk</a></li>';?>
                     </ul>
@@ -81,8 +80,8 @@
         <div class="top-left">
             <div class="navbar-header">
                 <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
-                <a class="navbar-brand" href="#"><img src="<?php echo base_url(); ?>Asset/img/logo/OneTechAdmin.png" alt="Logo"></a>
-                <a class="navbar-brand hidden" href="#"><img src="<?php echo base_url(); ?>Asset/img/logo/OTA.png" alt="Logo"></a>
+                <?php echo '<a class="navbar-brand" href="' . base_url('admin/admin/admin').'"><img src="'.base_url().'Asset/img/logo/OneTechAdmin.png" alt="Logo"></a>
+                <a class="navbar-brand hidden" href="' . base_url('admin/admin/admin').'"><img src="<?php echo base_url(); ?>Asset/img/logo/OTA.png" alt="Logo"></a>';?>
             </div>
         </div>
         <div class="top-right">

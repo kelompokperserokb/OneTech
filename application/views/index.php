@@ -50,14 +50,30 @@
             </div>
             <div class="row">
                 <?php for($i = 0 ; $i<$product['data']['count']; $i++){
+                	$view = false;
+                	if($product['data']['data_array'][$i]->discount > 0 && $product['data']['data_array'][$i]->discount < 100) {
+                		$today = date("Y-m-d");
+						$today = date('Y-m-d', strtotime($today));
+						$begin = date('Y-m-d', strtotime($product['data']['data_array'][$i]->startDateDiscount));
+						$end = date('Y-m-d', strtotime($product['data']['data_array'][$i]->lastDateDiscount));
+                		if(($today >= $begin) && ($today <= $end))
+                			$view = true;
+					}
                    echo '<div class="col-lg-3 col-sm-6">
                     <div class="product-item">
                         <div class="pi-pic">
                             <a href="'.base_url().'product/'.$product['data']['data_array'][$i]->product_id.'/">
-                                <img src="'.base_url().'Asset/img/products/'.($i+1).'.jpg" alt="">
-                            </a>
+                                <img src="'.$product['data']['data_array'][$i]->product_img_1.'" alt="">
+                            </a>';
+                			if($view) {
+                				echo '<div class="pi-links">
+									<a href="#" class="add-card"><i class="flaticon-tag"></i><span>'.$product['data']['data_array'][$i]->discount.'% Discount</span></a>
+								</div>';
+							}
+						echo'	
                         </div>
                         <div class="pi-text">
+                            <!--<h5>Rp. '.number_format($product['data']['data_array'][$i]->product_price,2,",",".").'</h5>-->
                             <h6>Rp. '.number_format($product['data']['data_array'][$i]->product_price,2,",",".").'</h6>
                             <a href="'.base_url().'product/'.$product['data']['data_array'][$i]->product_id.'">
                                 <p>'.$product['data']['data_array'][$i]->product_name.'</p>

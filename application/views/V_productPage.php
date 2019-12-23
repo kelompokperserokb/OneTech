@@ -17,27 +17,34 @@
 		</div>
 		<div class="row">
 			<div class="col-lg-6">
-				<div class="product-pic-zoo">
-					<img class="product-big-im" src="<?php echo base_url(); ?>Asset/img/tandatanya.jpg" alt="">
-				</div>
+				<?php echo'<div class="">
+					<img class="product-big-img" src="'.$product["data_array"][0]->product_img_1.'" alt="">
+				</div>'; ?>
 				<div class="product-thumbs" tabindex="1" style="overflow: hidden; outline: none;">
 					<div class="product-thumbs-track">
-						<div class="pt active" data-imgbigurl="<?php echo base_url(); ?>Asset/img/tandatanya.jpg"><img src="<?php echo base_url(); ?>Asset/img/tandatanya.jpg" alt=""></div>
-						<div class="pt" data-imgbigurl="<?php echo base_url(); ?>Asset/img/tandatanya.jpg"><img src="<?php echo base_url(); ?>Asset/img/tandatanya.jpg" alt=""></div>
-						<div class="pt" data-imgbigurl="<?php echo base_url(); ?>Asset/img/tandatanya.jpg"><img src="<?php echo base_url(); ?>Asset/img/tandatanya.jpg" alt=""></div>
-						<div class="pt" data-imgbigurl="<?php echo base_url(); ?>Asset/img/tandatanya.jpg"><img src="<?php echo base_url(); ?>Asset/img/tandatanya.jpg" alt=""></div>
+						<?php echo '
+							<div class="pt active" data-imgbigurl="'.$product["data_array"][0]->product_img_1.'"><img src="'.$product["data_array"][0]->product_img_1.'" alt=""></div>
+							<div class="pt" data-imgbigurl="'.$product["data_array"][0]->product_img_2.'"><img src="'.$product["data_array"][0]->product_img_2.'" alt=""></div>
+							<div class="pt" data-imgbigurl="'.$product["data_array"][0]->product_img_3.'"><img src="'.$product["data_array"][0]->product_img_3.'" alt=""></div>
+						'; ?>
 					</div>
 				</div>
 			</div>
             <?php echo '
 			<div class="col-lg-6 product-details">
-				<h2 class="p-title">'.$product["data_array"][0]->product_name.'</h2>
-				<h3 class="p-price">Rp. '.number_format($product["data_array"][0]->product_price,2,",",".").'</h3>
-				<!--<h4 class="p-stock">Available: <span>'. $stock_status .'<input type="hidden" id ="stock_quota" value="'.$stock.'" /></span></h4>-->
-				<!--<div class="p-review">
-					<a href="">3 reviews</a>|<a href="">Add your review</a>
-				</div>-->
-				
+				<h2 class="p-title">'.$product["data_array"][0]->product_name.'</h2>';?>
+				<?php
+				$discount = $product["data_array"][0]->discount;
+				$pricenow = $product["data_array"][0]->product_price;
+				if($discount > 0) {
+					$pricenow = $pricenow - ($pricenow*$discount/100);
+					echo'<h4 class="p-stock"><strike><i>Rp. '.number_format($product["data_array"][0]->product_price,2,",",".").'</i></strike></h4>
+					<h3 class="p-price">Rp. '.number_format($pricenow,2,",",".").'</h3>';
+				} else {
+					echo'<h3 class="p-price">Rp. '.number_format($pricenow,2,",",".").'</h3>';
+				}
+				?>
+				<?php echo'
 				<!--<a href="#" class="site-btn">SHOP NOW</a>-->
 				<div id="accordion" class="accordion-area">
 					<div class="panel">
