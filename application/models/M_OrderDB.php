@@ -64,6 +64,7 @@ class M_OrderDB extends CI_Model
 		$this->db->from('orderitem');
 		$this->db->where('email', $email);
 		$this->db->order_by('dateOrder', 'DESC');
+		$this->db->order_by('confirmation', 'ASC');
 		$query = $this->db->get();
 
 		if ($query) {

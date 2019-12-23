@@ -133,7 +133,7 @@ s	<div class="container checkout">
                                     	</div>
                                 	</div>';
                     			echo $text;
-                			} else if ($status == 2) {
+                			} else {
                     			echo $text;
                 			}
             			}

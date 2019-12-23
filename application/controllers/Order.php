@@ -137,10 +137,10 @@ class Order extends CI_Controller {
                     $message["status"] = 2;
                 }else if ($data->confirmation == 3){
                         $message["text"] = "Pembayaran valid. Barang sedang dalang pengemasan.";
-                        $message["status"] = 2;
+                        $message["status"] = 3;
                 } else if ($data->confirmation == 4){
                     $message["text"] = "Barang sedang dalam proses pengiriman menggunakan ".$message["order"]->kurir.", dengan no Resi : ".$message["order"]->resi;
-                    $message["status"] = 2;
+                    $message["status"] = 4;
                 }
             } else {
                 $message["text"] = "Anda belum melakukan order";
