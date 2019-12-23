@@ -129,6 +129,7 @@
         line-height: normal;
         cursor: pointer;
         text-align: center;
+		padding: 10px 0px;
     }
     
     .site-btn:hover {
@@ -1456,7 +1457,7 @@
     
     .product-section {
         padding-top: 70px;
-        padding-bottom: 65px;
+        padding-bottom: 40px;
     }
     
     .back-link {
@@ -1614,7 +1615,7 @@
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
-        margin-bottom: 40px;
+        /*margin-bottom: 40px;*/
     }
     
     .quantity p {
@@ -1630,10 +1631,11 @@
     .quantity .pro-qty {
         width: 94px;
         height: 36px;
-        border: 1px solid #ddd;
+        border: 1px solid #3ec1d5;
         padding: 0 15px;
         border-radius: 40px;
         float: left;
+		vertical-align: middle;
     }
     
     .quantity .pro-qty .qtybtn {
@@ -3890,6 +3892,15 @@
 		text-align: center;
 		display: block;
 		margin: auto;
+	}
+
+	.mid {
+		position: center;
+		text-align: center;
+	}
+
+	.lilmargin{
+		margin-bottom: 50px;
 	}
 
     .pagination {

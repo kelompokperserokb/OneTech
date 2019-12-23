@@ -10,7 +10,7 @@
 <section class="related-product-section">
 	<div class="container">
 		<?php
-		echo '<a href="' . base_url() . 'allproduct"><h6> <-- Back to see all product </h6></a>';
+		echo '<a href="' . base_url() . 'allproduct"><h6> << Back to see all product </h6></a>';
 		?>
 		<div class="row">
 			<div class="col-md-12">

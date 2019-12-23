@@ -555,7 +555,54 @@ class M_ProductDB extends CI_Model
 		$data['data_array'] = $query->result();
 		return $data;
 	}
-	
+
+	public function getProductCategory($prod_id){
+		$this->db->select('category_name');
+		$this->db->from('category');
+		$this->db->join('product','category.category_id=product.category_id');
+		$this->db->where('product_id', $prod_id);
+		$query = $this->db->get();
+
+		$data= $query->result();
+		return $data;
+	}
+
+	public function getProductSubCategory($prod_id){
+		$this->db->select('subcategory_name');
+		$this->db->from('sub-category');
+		$this->db->join('product','sub-category.subcategory_id=product.subcategory_id');
+		$this->db->where('product_id', $prod_id);
+		$query = $this->db->get();
+
+		$data= $query->result();
+		return $data;
+	}
+
+	public function getProductMerk($prod_id){
+		$this->db->select('merk_name');
+		$this->db->from('merk');
+		$this->db->join('product','merk.merk_id=product.merk_id');
+		$this->db->where('product_id', $prod_id);
+		$query = $this->db->get();
+
+		$data= $query->result();
+		return $data;
+	}
+
+	public function GetProductInfo($prod_id){
+		$this->db->select('*');
+		$this->db->from('product');
+		$this->db->join('sub-category','sub-category.subcategory_id = product.subcategory_id');
+		$this->db->join('category','category.category_id = sub-category.category_id');
+		$this->db->join('merk','merk.merk_id = product.merk_id');
+		$this->db->where('product_id', $prod_id);
+
+		$query = $this->db->get();
+
+		$data['data_array']= $query->result();
+		return $data;
+	}
+
 	public function addProduct(){
 
 

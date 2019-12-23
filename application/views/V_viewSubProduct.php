@@ -11,7 +11,7 @@
 	<div class="container">
 		<?php
 		$categoryname = $catname['data']['data_array'][0]->category_name;
-		echo '<a href="' . base_url() . 'viewproduct/cat/' . $catid . '"><h6> <-- Back to see all ' . $categoryname . ' </h6></a>';
+		echo '<a href="' . base_url() . 'viewproduct/cat/' . $catid . '"><h6> << Back to see all ' . $categoryname . ' </h6></a>';
 		?>
 		<div class="row">
 			<div class="col-md-12">
