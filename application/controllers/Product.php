@@ -78,6 +78,8 @@ class Product extends CI_Controller
 		$data["stock"] = $data["product_type"]["data_array"][0]->quota;
 		$data["stock_status"] = $data["stock"] > 0 ? "In Stock" : "Sold Out";
 
+		$data["prodinfo"] = $this->M_ProductDB->GetProductInfo($prod_id);
+
 		$this->load->view('V_header', $data);
 		$this->load->view('V_productPage', $data);
 		$this->load->view('V_footer');
@@ -222,6 +224,14 @@ class Product extends CI_Controller
 	{
 		$this->load->model("M_ProductDB");
 		$datas['data'] = $this->M_ProductDB->getAllSubCategory();
+		return $datas;
+	}
+
+	public function getProductInfo($p) {
+		$this->load->model("M_ProductDB");
+		$datas['cat'] = $this->M_ProductDB->getProductCategory($p);
+		$datas['subcat'] = $this->M_ProductDB->getProductSubCategory($p);
+		$datas['merk'] = $this->M_ProductDB->getProductMerk($p);
 		return $datas;
 	}
 

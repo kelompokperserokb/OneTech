@@ -68,7 +68,6 @@
                                         <i class="fa fa-user"></i>
                                         <a href="#">Hi, ' . $_SESSION["name"] . '</a>
                                         <ul class="h_sub-menu">
-                                            <li><a href="#">My Profile</a></li>
                                             <li><a href="' . base_url("order") . '">My Order</a></li>
                                             <li><a href="' . base_url() . 'Account/logout">Sign Out</a></li>
                                         </ul>
