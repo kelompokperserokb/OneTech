@@ -123,12 +123,13 @@ s	<div class="container checkout">
                         <div class="container card">';
                 			if ($status == 0) {
                    				echo $text;
-                			} else if ($status == 1) {
+                			} else if ($status == 1 || $status == 2) {
                     			echo '
                                 	<div class="row">
                                     	<div class="col-md-5 mb-3">
                                         	<h4 class="mb-3">Bukti Pembayaran</h4>
-                                        	<input type=\'file\' onchange="readURL(this);">
+                                        	<input accept="image/jpeg,image/png" id="bukti_pembayaran" type="file">
+                                        	<input id="upload-bukti" type="submit">
                                     	</div>
                                 	</div>';
                     			echo $text;

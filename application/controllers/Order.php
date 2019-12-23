@@ -13,6 +13,58 @@ class Order extends CI_Controller {
 		$this->load->model("M_ProductDB");
 	}
 
+	public function uploadBukti(){
+		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+			if (!isset($_FILES['bukti_pembayaran']['name'])) {
+				$errors[] = "File is not allow to null";
+				echo "error".";".$errors[0];
+				return;
+			}
+
+			$currentDir = getcwd();
+			$baseURL = base_url();
+			$errors = array();
+			$path = "/Asset/uploads/order/bukti/";
+			$extensions = array('jpg', 'jpeg', 'png', 'gif');
+
+			//Image 1
+			$file_name = time().$_FILES['bukti_pembayaran']['name'];
+			$file_tmp = $_FILES['bukti_pembayaran']['tmp_name'];
+			$file_type = $_FILES['bukti_pembayaran']['type'];
+			$file_size = $_FILES['bukti_pembayaran']['size'];
+			$temp = explode('.', $file_name);
+			$file_ext = strtolower(end($temp));
+
+			$file_image = $path . $file_name;
+
+			if (!in_array($file_ext, $extensions)) {
+				$errors[] = 'Extension not allowed: ' . $file_name . ' ' . $file_type;
+			}
+
+			if ($file_size > 2097152) {
+				$errors[] = 'File size exceeds limit: ' . $file_name . ' ' . $file_type;
+			}
+
+			if (empty($errors)) {
+				move_uploaded_file($file_tmp, $currentDir.$file_image);
+			}
+
+			if ($errors) echo "error".";".$errors[0];
+			else {
+				echo $baseURL.$file_image;
+			}
+
+		}
+	}
+
+	public function updateBukti(){
+		$order_id = $this->input->post('order_id') ;
+		$image_bukti = $this->input->post('image_bukti');
+		if (isset($_SESSION['email'])) {
+			echo $this->M_OrderDB->updateBukti($_SESSION['email'], $order_id, $image_bukti);
+		}
+	}
+
 	public function addToCart($type_id, $quantity)
 	{
         if (!isset($_SESSION["email"])) {
