@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+	<link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/bootstrap.min.css" />
+
 </head>
 
 <body>
@@ -11,15 +13,16 @@
 		<h2> Register a New Account</h2>
 	</center>
 
-    <button class="tablink" onclick="openPage('Personal Account', this, 'red') " id="defaultOpen">Personal Account</button>
-    <button class="tablink" onclick="openPage('Business Account', this, 'green')" >Business Account</button>
-
-
+	<div class="row paginationbox">
+		<button class="tablink" onclick="openPage('Personal Account', this, 'mediumblue') " id="defaultOpen">Personal Account</button>
+		<button class="tablink" onclick="openPage('Business Account', this, 'blue')" >Business Account</button>
+	</div>
 
     <div id="Personal Account" class="tabcontent">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 order-2 order-lg-1">
+            <div class="row paginationbox">
+                <div class="col-lg-8 order-2 order-lg-1 paginationbox">
+					<h4>Register for personal Account</h4>
                     <form class="checkout-form" id="regist-personal" method="post">
                         <div class="row">
                             <input type="hidden" value="personal" id="account_type_p">
@@ -45,9 +48,10 @@
 
     <div id="Business Account" class="tabcontent">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 order-2 order-lg-1">
-                    <form class="checkout-form" id="regist-business" method="post">
+            <div class="row paginationbox">
+                <div class="col-lg-8 order-2 order-lg-1 paginationbox">
+					<h4>Register for business Account</h4>
+					<form class="checkout-form" id="regist-business" method="post">
                         <div class="row">
                             <input type="hidden" value="business" id="account_type_b">
                             <div class="col-md-12">

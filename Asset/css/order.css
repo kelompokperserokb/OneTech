@@ -41,9 +41,9 @@
     color: whitesmoke !important;
 }
 
-.sub-total h4,p{
-    display: inline-block;
-}
+/*.sub-total h4,p{*/
+/*    display: inline-block;*/
+/*}*/
 
 .sub-total h4 {
     float:left;

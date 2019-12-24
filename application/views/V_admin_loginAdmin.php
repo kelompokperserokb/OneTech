@@ -2,9 +2,14 @@
 <html lang="en">
 
 <head>
-    <title>Admin</title>
+    <title>Admin - OneTech, Your Mining Solution Service</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Admin OneTech, Your Mining Solution Service">
+	<meta name="keywords" content="OneTech, Mining">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="apple-touch-icon" href="<?php echo base_url(); ?>Asset/img/logo/OTA.jpg">
+	<link rel="shortcut icon" href="<?php echo base_url(); ?>Asset/img/logo/OTA.jpg">
     <!--===============================================================================================-->
 
     <!--===============================================================================================-->

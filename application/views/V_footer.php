@@ -56,14 +56,15 @@
 								<p><span>WA:</span> 081808558855</p>
 							</div>
 							<div class="footer-icons">
-<!--								<ul>-->
-<!--									<li>-->
-<!--										<a href="http://tokopedia.com"><i class="fa fa-pinterest"></i></a>-->
-<!--									</li>-->
-<!--									<li>-->
-<!--										<a href="http://shopee.com"><i class="fa fa-google"></i></a>-->
-<!--									</li>-->
-<!--								</ul>-->
+								<h6 class="mid">Our Official Merchant Site</h6>
+								<ul class="mid">
+									<li>
+										<a href="http://tokopedia.com"><img src="<?php echo base_url(); ?>Asset/img/Social/tokopedia.png" alt=""</img></a>
+									</li>
+									<li>
+										<a href="http://shopee.com"><img src="<?php echo base_url(); ?>Asset/img/Social/shopee.png" alt=""</img></a>
+									</li>
+								</ul>
 							</div>
 						</div>
 						<div class="col-md-6 col-sm-6 col-xs-12 footer-contacts">

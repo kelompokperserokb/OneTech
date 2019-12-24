@@ -130,20 +130,17 @@ class Order extends CI_Controller {
 					$message["total_discount"] = $this->getTotalDiscount($item["data_array"], $date->dateOrder);
                 }
                 if ($data->confirmation == 0) {
-                    $message["text"] = "Order telah dilakukan, order sedang menunggu konfirmasi admin dan input biaya pengiriman. Mohon tunggu waktu kerja maksimum 1x24 jam.";
                     $message["status"] = 0;
                 } else if ($data->confirmation == 1) {
-                    $message["text"] = "Order telah dikonfirmasi admin. Mohon segera upload bukti pembayaran sesuai dengan harga yang tertera.";
                     $message["status"] = 1;
                 } else if ($data->confirmation == 2) {
-                    $message["text"] = "Bukti telah diupload. Mohon tunggu untuk verifikasi admin.";
                     $message["status"] = 2;
                 }else if ($data->confirmation == 3){
-                        $message["text"] = "Pembayaran valid. Barang sedang dalang pengemasan.";
-                        $message["status"] = 3;
+                    $message["status"] = 3;
                 } else if ($data->confirmation == 4){
-                    $message["text"] = "Barang sedang dalam proses pengiriman menggunakan ".$message["order"]->kurir.", dengan no Resi : ".$message["order"]->resi;
-                    $message["status"] = 4;
+					$message["kurir"] = $message["order"]->kurir;
+					$message["resi"] = $message["order"]->resi;
+					$message["status"] = 4;
                 }
             } else {
                 $message["text"] = "Anda belum melakukan order";

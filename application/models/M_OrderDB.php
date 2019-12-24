@@ -279,7 +279,7 @@ class M_OrderDB extends CI_Model
 
 	public function incomecount() {
 		$this->load->database();
-		$query = $this->db->query("SELECT (SUM(totalPrice)+SUM(unique_price)+SUM(logistic_price)) AS 'total' FROM orderitem AS i;");
+		$query = $this->db->query("SELECT (SUM(totalPrice)+SUM(unique_price)+SUM(logistic_price)) AS 'total' FROM orderitem WHERE confirmation = 4;");
 		$data['data_array'] = $query->result();
 		return $data;
 

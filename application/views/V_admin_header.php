@@ -44,6 +44,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                        aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Product Properties</a>
                     <ul class="sub-menu children dropdown-menu">
+						<?php echo '<li><i class="fa fa-tag"></i><a href="' . base_url('admin/admin/admin/category') . '">Category</a></li>';?>
 						<?php echo '<li><i class="fa fa-tags"></i><a href="' . base_url('admin/admin/admin/subcategory') . '">Sub-Category</a></li>';?>
 						<?php echo '<li><i class="fa fa-bars"></i><a href="' . base_url('admin/admin/admin/merk') . '">Merk</a></li>';?>
                     </ul>

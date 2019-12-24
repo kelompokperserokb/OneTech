@@ -108,6 +108,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <h4 class="mb-3">Product</h4>';
+                				$subtotal = 0;
                                 foreach ($orderitem as $row){
 									$pricetoview = $row->product_price;
 									if($row->discount > 0 && $row->discount < 100) {
@@ -120,35 +121,53 @@
 										}
 									}
                                 	echo '
-									<div class="row">
+									<div class="row orderbox">
 										<div class="col-sm-2 hidden-xs"><img src="'.$row->product_img_1.'" alt="image product" class="img-responsive" /></div>
 										<div class="col-sm-10">
 											<h4 class="mb-3">'. $row->product_name .'</h4>
 											<p>'. $row->product_desc .'</p>
 											<small class="text-muted">Rp. ' . number_format($pricetoview, 2, ",", ".") . ' x '. $row->quantity .' barang</small>
 										</div>
-										<div class="col-md-12 sub-total">
-											<h4 >Subtotal</h4> 
-											<p  align="right">Rp. ' . number_format(($pricetoview * $row->quantity), 2, ",", ".") . '</p>
-										</div>
-									</div>';
+									</div>
+									';
+									$subtotal = $subtotal + ($pricetoview * $row->quantity);
 								}
-                            echo '</div>
-                        </div>
-                        <div class="container card">';
+                            	echo '<div class="row">
+									<div class="col-md-12 sub-total">
+										<h4 >Subtotal</h4> 
+										<p  align="right"><strong>Rp. ' . number_format(($subtotal), 2, ",", ".") . '</strong></p>
+									</div>
+								</div></div>
+                        	</div>
+                        <div class="container card">
+                        	<h3>Status order saat ini : </h3>';
                 			if ($status == 0) {
-                   				echo $text;
-                			} else if ($status == 1 || $status == 2) {
-                    			echo '
+								echo '<h5>Menunggu estimasi biaya kirim</h5>';
+								echo '<p>Terima kasih atas pemesanan anda.<br> Order anda sedang menunggu konfirmasi dari admin untuk tambahan estimasi biaya pengiriman.<br> Pastikan alamat pengiriman telah benar.<br> Anda dapat merubah alamat pengiriman lewat menu diatas.<br> Admin akan mengkonfirmasi pemesanan anda selambat-lambatnya 1x24 jam di saat hari kerja</p>';
+                			} else if ($status == 1) {
+								echo '<h5>Upload bukti pembayaran</h5>';
+								echo '<p>Pemesanan anda telah dikonfirmasi admin.<br> Total harga yang perlu dibayar adalah : <strong>Rp. ' . number_format($total_price, 2, ",", ".") . '</strong>.<br> Mohon segera upload bukti pembayaran sesuai dengan harga yang tertera.</p>';
+								echo '
                                 	<div class="row">
                                     	<div class="col-md-5 mb-3">
-                                        	<h4 class="mb-3">Bukti Pembayaran</h4>
-                                        	<input accept="image/jpeg,image/png" id="bukti_pembayaran" type="file">
-                                        	<input id="upload-bukti" type="submit">
+                                        	<h5 class="mb-3">Bukti Pembayaran : </h5>
+                                        	<div class="form-input">
+                                        		<input accept="image/jpeg,image/png,image/jpg" id="bukti_pembayaran" type="file">
+                                        		<input id="upload-bukti" type="submit">
+											</div>
                                     	</div>
                                 	</div>';
-                    			echo $text;
-                			} else {
+							} else if ($status == 2) {
+								echo '<h5>Menunggu konfirmasi bukti pembayaran</h5>';
+								echo '<p>Bukti pembayaran anda sedang menunggu konfirmasi dari admin.<br> Admin akan mengkonfirmasi pemesanan anda selambat-lambatnya 1x24 jam di saat hari kerja</p>';
+							} else if ($status == 3) {
+								echo '<h5>Pengemasan barang</h5>';
+								echo '<p>Pembayaran anda telah kami terima.<br> Barang sedang dalam proses pengemasan</p>';
+							} else if ($status == 4) {
+								echo '<h5>Pemesanan sukses</h5>';
+								echo '<p>Barang sedang dalam proses pengiriman menggunakan <strong>'.$kurir.'</strong>, dengan nomor Resi : <strong>'.$resi.'</strong></p>';
+								echo '<p><strong>Penting : </strong>Harap catat jenis kurir dan nomor resi sebelum melakukan pemesanan lainnya jika barang belum sampai</p>';
+							} else {
                     			echo $text;
                 			}
             			}

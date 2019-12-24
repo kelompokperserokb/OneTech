@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 23 Des 2019 pada 16.14
+-- Waktu pembuatan: 24 Des 2019 pada 10.12
 -- Versi server: 10.4.6-MariaDB
 -- Versi PHP: 7.3.9
 
@@ -37,7 +37,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`password`) VALUES
-('kucing');
+('Eo5H3zN7');
 
 -- --------------------------------------------------------
 
@@ -121,7 +121,9 @@ CREATE TABLE `orderitem` (
 
 INSERT INTO `orderitem` (`order_id`, `email`, `dateOrder`, `totalPrice`, `proofOfPayment`, `confirmation`, `invoice`, `logistic_price`, `unique_price`, `address_order`, `phonenumber_order`, `resi`, `kurir`) VALUES
 (5, 'robert.unix98@gmail.com', '2019-12-22', 4000000, '', 4, '', 0, 115, 'singosariiii', '0819459703333', '999', 'anda'),
-(6, 'robert.unix98@gmail.com', '2019-12-23', 7600000, 'http://localhost/onetech//Asset/uploads/order/bukti/1577077654logoot.jpg', 4, '', 50000, 414, 'Jl. Sigura gura V no.31', '0895396106041', '10000-', '-JNE');
+(6, 'robert.unix98@gmail.com', '2019-12-23', 7600000, 'http://localhost/onetech//Asset/uploads/order/bukti/1577077654logoot.jpg', 4, '', 50000, 414, 'Jl. Sigura gura V no.31', '0895396106041', '10000-', '-JNE'),
+(7, 'robert.unix98@gmail.com', '2019-12-24', 600000, 'http://localhost/onetech//Asset/uploads/order/bukti/15771685331.jpg', 4, '', 20000, 140, 'Jl. Sigura gura V no.31', '0895396106041', '123456', 'JNE'),
+(8, 'robert.unix98@gmail.com', '2019-12-24', 1600000, 'http://localhost/onetech//Asset/uploads/order/bukti/15771722261.jpg', 4, '', 20000, 325, 'SIngosari', '098xxxxxx', '1233444', 'JN3');
 
 -- --------------------------------------------------------
 
@@ -189,7 +191,9 @@ CREATE TABLE `purchaseitem` (
 INSERT INTO `purchaseitem` (`type_id`, `order_id`, `quantity`) VALUES
 (15, 5, 2),
 (1, 6, 2),
-(10, 6, 2);
+(10, 6, 2),
+(18, 7, 2),
+(2, 8, 2);
 
 -- --------------------------------------------------------
 
@@ -252,7 +256,7 @@ CREATE TABLE `type_product` (
 
 INSERT INTO `type_product` (`type_id`, `product_type`, `quota`, `description_type`, `product_id`) VALUES
 (1, 'Current 40~80 Ampere | 2.0 mm', 6, 'Lorem Ipsum', 1),
-(2, 'Current 50~90 Ampere | 2.5 mm', 6, 'Lorem Ipsum', 1),
+(2, 'Current 50~90 Ampere | 2.5 mm', 4, 'Lorem Ipsum', 1),
 (3, 'Current 80~130 Ampere | 3.2 mm', 11, 'Lorem Ipsum', 1),
 (4, 'Current 130~190 Ampere | 4.0 mm', 12, 'Lorem Ipsum', 1),
 (5, 'Current 180~250 Ampere | 5.0 mm', 13, 'Lorem Ipsum', 1),
@@ -268,7 +272,7 @@ INSERT INTO `type_product` (`type_id`, `product_type`, `quota`, `description_typ
 (15, 'Current 80~140 Ampere | 3.2 mm', 17, 'Lorem Ipsum', 4),
 (16, 'Current 130~170 Ampere | 4.0 mm', 10, 'Lorem Ipsum', 4),
 (17, 'Current 190~240 Ampere | 5.0 mm', 18, 'Lorem Ipsum', 4),
-(18, 'Current 50~90 Ampere | 2.5 mm', 16, 'Lorem Ipsum', 5),
+(18, 'Current 50~90 Ampere | 2.5 mm', 14, 'Lorem Ipsum', 5),
 (19, 'Current 60~110 Ampere | 3.2 mm', 12, 'Lorem Ipsum', 5),
 (20, 'Current 100~150 Ampere | 4.0 mm', 6, 'Lorem Ipsum', 5),
 (21, 'Current 30~50 Ampere | 2.0 mm', 7, 'Lorem Ipsum', 6),
@@ -415,7 +419,7 @@ ALTER TABLE `merk`
 -- AUTO_INCREMENT untuk tabel `orderitem`
 --
 ALTER TABLE `orderitem`
-  MODIFY `order_id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `order_id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `product`

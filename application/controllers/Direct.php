@@ -235,4 +235,9 @@ class Direct extends CI_Controller {
 		$datas['data'] = $this->M_ProductDB->getAllSubCategory();
 		return $datas;
 	}
+
+	public function page404() {
+    	$this->load->helper('url');
+    	$this->load->view('V_404');
+}
 }
