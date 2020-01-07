@@ -95,7 +95,7 @@
                             			</a>';
                 						if($view) {
                 						echo '<div class="pi-links">
-											<a href="#" class="add-card"><i class="flaticon-tag"></i><span>'.$product['data_array'][$i]->discount.'% Discount</span></a>
+											<a href="#" class="wishlist-btn"><i class="flaticon-tag"></i><span><strong>&ensp;'.$product['data']['data_array'][$i]->discount.'% DISCOUNT</strong></span></a>
 										</div>';
 										}
 									echo'

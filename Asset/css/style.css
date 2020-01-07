@@ -835,11 +835,11 @@
     
     .product-item .pi-links a {
         display: inline-table;
-        width: 36px;
+        width: 120px;
         height: 36px;
         background: #fff;
         border-radius: 60px;
-        font-size: 18px;
+        font-size: 12px;
         line-height: 18px;
         padding-top: 9px;
         overflow: hidden;
@@ -989,7 +989,6 @@
     
     .footer-section {
         background: #282828;
-        padding-top: 60px;
     }
     
     .footer-logo {
@@ -1109,8 +1108,8 @@
     }
     
     .social-links-warp {
-        border-top: 2px solid #3b3535;
-        padding: 46px 0;
+        border-top: 1px solid #3b3535;
+		margin: 0px 0px;
     }
     
     .social-links a {
@@ -3964,6 +3963,10 @@
 	#upload-bukti {
 		margin: 0px 10px;
 		padding: 1px 15px;
+	}
+
+	.rata {
+		margin: 8px 0 !important;
 	}
     /* Modal */
     
