@@ -54,8 +54,9 @@
 
 										if($data['data_array'][$i]->discount > 0 && ($today >= $begin) && ($today <= $end)) {
 											$discountRate = ($data['data_array'][$i]->discount != null ? $data['data_array'][$i]->discount : 0);
+                                            $originalPrice = $data['data_array'][$i]->product_price;
 											$discountPrice = $data['data_array'][$i]->product_price - ($data['data_array'][$i]->product_price * ($discountRate/100));
-											$totalawal = $data['data_array'][$i]->quantity * $data['data_array'][$i]->product_price;
+											$totalawal = $data['data_array'][$i]->quantity * $originalPrice;
 											$total = $data['data_array'][$i]->quantity * $discountPrice;
 										} else {
 											$discountPrice = $data['data_array'][$i]->product_price;
@@ -86,7 +87,8 @@
                                                 ';
                                         		if($data['data_array'][$i]->discount > 0 && ($today >= $begin) && ($today <= $end)) {
 													echo'<h5 class="firstprice"><strike>Rp. ' . number_format($totalawal, 2, ",", ".") . '</strike></h5>
-                                                	<h4 class="price">Rp. ' . number_format($total, 2, ",", ".") . '</h4>';
+                                                	<h4 class="price">Rp. ' . number_format($total, 2, ",", ".") . '</h4>
+                                                    <input class="first-price-hidden" type="hidden" value="' . $originalPrice . '">';
 												} else {
 													echo'<h4 class="price">Rp. ' . number_format($total, 2, ",", ".") . '</h4>';
 												}
