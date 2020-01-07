@@ -146,7 +146,14 @@
 								echo '<p>Terima kasih atas pemesanan anda.<br> Order anda sedang menunggu konfirmasi dari admin untuk tambahan estimasi biaya pengiriman.<br> Pastikan alamat pengiriman telah benar.<br> Anda dapat merubah alamat pengiriman lewat menu diatas.<br> Admin akan mengkonfirmasi pemesanan anda selambat-lambatnya 1x24 jam di saat hari kerja</p>';
                 			} else if ($status == 1) {
 								echo '<h5>Upload bukti pembayaran</h5>';
-								echo '<p>Pemesanan anda telah dikonfirmasi admin.<br> Total harga yang perlu dibayar adalah : <strong>Rp. ' . number_format($total_price, 2, ",", ".") . '</strong>.<br> Mohon segera upload bukti pembayaran sesuai dengan harga yang tertera.</p>';
+								echo '<p>Pemesanan anda telah dikonfirmasi admin.<br> Total harga yang perlu dibayar adalah : <strong>Rp. ' . number_format($total_price, 2, ",", ".") . '</strong>.<br><br> Harap segera bayar dengan cara transfer ke rekening Bank Mandiri<br> Dengan nomor <strong>125-002388-3838</strong> atas nama <strong>PT. Minindo Artha Gemilang</strong> .<br><br> Mohon segera upload bukti pembayaran sesuai dengan harga yang tertera.</p>';
+								echo '
+                                	<div class="row">
+                                    	<div class="col-md-5 mb-3 form-input rata">
+                                        	<h5 class="mb-3">Unduh invoice : &ensp;</h5>
+                                        	<button class="btn btn-outline-secondary btn-sm" onclick=" window.open(\'http://google.com\',\'_blank\')"> Google</button>
+                                    	</div>
+                                	</div>';
 								echo '
                                 	<div class="row">
                                     	<div class="col-md-5 mb-3">
