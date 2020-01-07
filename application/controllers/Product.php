@@ -12,7 +12,7 @@ class Product extends CI_Controller
 
 	public function tes(){
 		$this->load->helper('url');
-		$this->load->view('V_slider');
+		$this->load->view('V_headertest');
 	}
 
 	public function addProduct()

@@ -2,8 +2,6 @@
 <html lang="en">
 
 <head>
-<!--	<link rel="stylesheet" href="--><?php //echo base_url(); ?><!--Asset/css/bootstrap.min.css"/>-->
-<!--	<link rel="stylesheet" href="--><?php //echo base_url(); ?><!--Asset/css/bootstrap-337.min.css">-->
 	<link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/style.css?<?php echo date('l jS \of F Y h:i:s A'); ?>"/>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/style1.css"/>
 </head>
@@ -147,6 +145,8 @@
 <script src="<?php echo base_url(); ?>Asset/js/jquery.nicescroll.min.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/jquery.zoom.min.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/jquery-ui.min.js"></script>
+
+
 <script src="<?php echo base_url(); ?>Asset/js/jcarousel/jquery.jcarousel.min.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/jquery.fancybox.pack.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/jquery.fancybox-media.js"></script>
