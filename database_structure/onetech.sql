@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 24 Des 2019 pada 10.12
+-- Waktu pembuatan: 07 Jan 2020 pada 13.17
 -- Versi server: 10.4.6-MariaDB
 -- Versi PHP: 7.3.9
 
@@ -50,6 +50,15 @@ CREATE TABLE `cart` (
   `email` varchar(127) NOT NULL,
   `quantity` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `cart`
+--
+
+INSERT INTO `cart` (`type_id`, `email`, `quantity`) VALUES
+(20, 'robert.unix98@gmail.com', 5),
+(24, 'robert.unix98@gmail.com', 3),
+(7, 'robert.unix98@gmail.com', 4);
 
 -- --------------------------------------------------------
 
@@ -155,7 +164,7 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`product_id`, `product_code`, `product_name`, `product_desc`, `product_price`, `product_img_1`, `product_img_2`, `product_img_3`, `category_id`, `subcategory_id`, `merk_id`, `discount`, `startDateDiscount`, `lastDateDiscount`, `datePost`) VALUES
 (1, 'CHE40 AWS A5.1 E6013 JIS Z 3211 D4313', 'CHE40 ATLANTIC WELDING ELECTRODES FOR MILD STEEL', 'CHE40  is  mild  steel  welding  electrode  with  high  titania  type  coating.  It  has excellent  welding  performance  such  as  arc  stability,  easy  slag  removal,  good re-striking, and shiny appearance and designed for all position welding. It has widely  used  for  general  purpose;  shipbuilding,  vehicles,  constructions,  and especially suitable for welding sheet steel and small work pieces. Current: AC, DC±. Approved grade 2 by: BKI, LR, ABS, BV, CCS, CWB, DNV, GL, NK.', 2000000, 'http://localhost/onetech//Asset/uploads/CHE40-1.jpg', 'http://localhost/onetech//Asset/uploads/CHE40-2.jpg', 'http://localhost/onetech//Asset/uploads/CHE40-3.jpg', 1, 1, 1, 60, '2019-12-20', '2019-12-28', '2019-12-23'),
-(2, 'CHE43 AWS A5.1 E6013 JIS Z 3211 D4313', 'CHE43 ATLANTIC WELDING ELECTRODES FOR MILD STEEL', 'CHE43  is  mild  steel  welding  electrode  with  iron  oxide  titania  (ilmenite),.  It  is suitable  for  welding  All  position,  especially  for  ?at  and  horizontal  ?llet.  It  is suitable  for  medium  and  thick  armor  plate  structure,  such  as  ships,  bridges, machinery and building, etc. Current: AC, DC±. Approved grade 2 by: LR, ABS, BV, CCS, GL, DNV, NK.', 1200000, 'http://localhost/onetech//Asset/uploads/CHE43-1.jpg', 'http://localhost/onetech//Asset/uploads/CHE43-2.jpg', 'http://localhost/onetech//Asset/uploads/CHE43-3.jpg', 1, 1, 1, 40, '2019-12-16', '2019-12-30', '2019-12-23'),
+(2, 'CHE43 AWS A5.1 E6013 JIS Z 3211 D4313', 'CHE43 ATLANTIC WELDING ELECTRODES FOR MILD STEEL', 'CHE43  is  mild  steel  welding  electrode  with  iron  oxide  titania  (ilmenite),.  It  is suitable  for  welding  All  position,  especially  for  ?at  and  horizontal  ?llet.  It  is suitable  for  medium  and  thick  armor  plate  structure,  such  as  ships,  bridges, machinery and building, etc. Current: AC, DC±. Approved grade 2 by: LR, ABS, BV, CCS, GL, DNV, NK.', 1200000, 'http://localhost/onetech//Asset/uploads/CHE43-1.jpg', 'http://localhost/onetech//Asset/uploads/CHE43-2.jpg', 'http://localhost/onetech//Asset/uploads/CHE43-3.jpg', 1, 1, 1, 40, '2019-07-22', '2020-03-04', '2019-12-23'),
 (3, 'CHE56 AWS A5.1 E7016 JIS Z 3212 D5016', 'CHE56 ATLANTIC WELDING ELECTRODES FOR HIGH TENSILE STEEL', 'Kawat las kekuatan tinggi salutan low hydrogen, memiliki sifat tangguh dan tahan retak yang sangat baik. Digunakan secara luas untuk fabrikasi baja kekuatan tinggi 50 kgf/mm2, seperti; kapal, boiler, jembatan dan pressure vessel. Arus: AC, DC±. Approved', 1800000, 'http://localhost/onetech//Asset/uploads/CHE56-1.jpg', 'http://localhost/onetech//Asset/uploads/CHE56-2.jpg', 'http://localhost/onetech//Asset/uploads/CHE56-3.jpg', 1, 1, 1, 0, '0000-00-00', '0000-00-00', '2019-12-23'),
 (4, 'CHE58-1 AWS A5.1 E7018-1 AWS A5.1 E7018 JIS Z 3212 D5016', 'CHE58-1 ATLANTIC WELDING ELECTRODES FOR HIGH TENSILE STEEL', 'Kawat las kekuatan tinggi salutan iron powder low hydrogen, memiliki sifat tangguh pada suhu rendah dan tahan terhadap retak. Dengan kandungan iron powder meningkatkan efisiensi las sekitar 110%. Digunakan untuk fabrikasi baja kekuatan tinggi 50 kgf/mm2, seperti; high pressure vessels, jembatan, pembangkit listrik dan oshore drilling platforms. Arust: AC, DC', 2000000, 'http://localhost/onetech//Asset/uploads/CHE58-1 (1).jpg', 'http://localhost/onetech//Asset/uploads/CHE58-1 (4).jpg', 'http://localhost/onetech//Asset/uploads/CHE58-1 (7).jpg', 1, 1, 1, 20, '2019-12-26', '2019-12-29', '2019-12-23'),
 (5, 'CHE505GX AWS A5.5 E7010-P1', 'CHE505GX ATLANTIC WELDING ELECTRODES FOR HIGH TENSILE STEEL', 'Kawat las kekuatan tinggi salutan cellulose sodium, memiliki mampu las yang sangat baik pada semua posisi las, termasuk vertikal turun. Menghasilkan dua sisi las pada pengelasan satu sisi seperti las root pass. Cocok untuk hot pass dan capping pada fabrikasi sambungan', 3000000, 'http://localhost/onetech//Asset/uploads/CHE505GX (2).jpg', 'http://localhost/onetech//Asset/uploads/CHE505GX (6).jpg', 'http://localhost/onetech//Asset/uploads/CHE505GX (9).jpg', 1, 1, 1, 90, '2019-12-20', '2019-12-28', '2019-12-23'),
@@ -401,7 +410,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `type_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `type_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT untuk tabel `category`
@@ -425,7 +434,7 @@ ALTER TABLE `orderitem`
 -- AUTO_INCREMENT untuk tabel `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `product_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT untuk tabel `purchaseitem`
