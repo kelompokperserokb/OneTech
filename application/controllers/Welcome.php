@@ -8,7 +8,7 @@ class Welcome extends CI_Controller {
 	}
 
     public function homepage(){
-		$data["product"] = $this->getProductByLimit(1, 8);
+		$data["product"] = $this->getProductByLimit(0, 8);
 		$data["cat"] = $this->getCategory();
         $data["suball"] = $this->getSubCategory();
         $this->load->view('V_header',$data);

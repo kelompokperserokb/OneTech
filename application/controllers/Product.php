@@ -12,7 +12,7 @@ class Product extends CI_Controller
 
 	public function tes(){
 		$this->load->helper('url');
-		$this->load->view('V_slider');
+		$this->load->view('V_headertest');
 	}
 
 	public function addProduct()
@@ -75,8 +75,10 @@ class Product extends CI_Controller
 		$data['product'] = $this->M_ProductDB->getProduct($prod_id);
 		$data['product_type'] = $this->M_ProductDB->getProductTypeData($prod_id);
 
-		$data["stock"] = $data["product_type"]["data_array"][0]->quota;
-		$data["stock_status"] = $data["stock"] > 0 ? "In Stock" : "Sold Out";
+		if($data["product_type"]["count"] > 0) {
+			$data["stock"] = $data["product_type"]["data_array"][0]->quota;
+			$data["stock_status"] = $data["stock"] > 0 ? "In Stock" : "Sold Out";
+		}
 
 		$data["prodinfo"] = $this->M_ProductDB->GetProductInfo($prod_id);
 

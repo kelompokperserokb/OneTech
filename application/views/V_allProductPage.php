@@ -58,7 +58,7 @@
                     			<div class="product-item">
                         			<div class="pi-pic">
                             			<a href="' . base_url() . 'product/' . $product['data']['data_array'][$i]->product_id . '/">
-                                			<img src="' . base_url() . 'Asset/img/products/' . ($i + 1) . '.jpg" alt="">
+                                			<img src="'.$product['data']['data_array'][$i]->product_img_1.'" alt="">
                             			</a>';
                 						if($view) {
                 						echo '<div class="pi-links">

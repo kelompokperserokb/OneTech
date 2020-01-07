@@ -45,7 +45,7 @@
                 <div class="col-lg-2 text-center text-lg-left">
                     <!-- logo -->
                     <a href="<?php echo base_url(); ?>" class="h_site-logo">
-                        <img src="<?php echo base_url(); ?>Asset/img/Logo/OneTechReal.png" alt="">
+                        <img src="<?php echo base_url(); ?>Asset/img/logoot.jpg" alt="">
                     </a>
                 </div>
                 <div class="col-xl-5 col-lg-4">
@@ -117,13 +117,13 @@
 <!--====== Javascripts & Jquery ======-->
 <script src="<?php echo base_url(); ?>Asset/js/jquery-3.2.1.min.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/bootstrap.min.js"></script>
-<script src="<?php echo base_url(); ?>Asset/js/jquery.slicknav.min.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/owl.carousel.min.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/jquery.nicescroll.min.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/jquery.zoom.min.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/jquery-ui.min.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/main.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/onetech/search.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/jquery.slicknav.min.js"></script>
 
 </body>
 </html>

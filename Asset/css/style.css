@@ -1794,11 +1794,25 @@
     }
     
     .cart-cart-table .cart-attributes-col h4,
-    .cart-cart-table .cart-total-col h4 {
+    .cart-cart-table {
         font-size: 14px;
         color: #414141;
         font-weight: 500;
     }
+
+	.cart-total-col h4 {
+		font-size: 16px;
+		color: #414141;
+		font-weight: 500;
+	}
+
+	.cart-cart-table .cart-attributes-col h5,
+	.cart-cart-table .cart-total-col h5 {
+		font-size: 11px;
+		color: #414141;
+		font-weight: 500;
+		margin-bottom: 0px;
+	}
     
     .cart-cart-table .cart-attributes-col h4 {}
     
