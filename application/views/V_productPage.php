@@ -36,7 +36,11 @@
 				<?php
 				$discount = $product["data_array"][0]->discount;
 				$pricenow = $product["data_array"][0]->product_price;
-				if($discount > 0) {
+				$today = date("Y-m-d");
+				$today = date('Y-m-d', strtotime($today));
+				$begin = date('Y-m-d', strtotime($product['data_array'][0]->startDateDiscount));
+				$end = date('Y-m-d', strtotime($product['data_array'][0]->lastDateDiscount));
+				if($discount > 0 && ($today >= $begin) && ($today <= $end)) {
 					$pricenow = $pricenow - ($pricenow*$discount/100);
 					echo'<h4 class="p-stock"><strike><i>Rp. '.number_format($product["data_array"][0]->product_price,2,",",".").'</i></strike></h4>
 					<h3 class="p-price">Rp. '.number_format($pricenow,2,",",".").'</h3>';
@@ -77,6 +81,8 @@
 </section>
 <!-- product section end -->
 
+<?php
+?>
 <!-- mini table-->
 <div class="container paginationbox lilmargin">
 <div class="flex-container">

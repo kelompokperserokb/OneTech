@@ -47,14 +47,26 @@
                             <tbody id="table-cart">
                                 <?php
                                     for ($i = 0; $i < $data['count'] ; $i++ ) {
-                                    	$discountRate = ($data['data_array'][$i]->discount != null ? $data['data_array'][$i]->discount : 0);
-										$discountPrice = $data['data_array'][$i]->product_price - ($data['data_array'][$i]->product_price * ($discountRate/100));
-                                        $total = $data['data_array'][$i]->quantity * $discountPrice;
+										$today = date("Y-m-d");
+										$today = date('Y-m-d', strtotime($today));
+										$begin = date('Y-m-d', strtotime($data['data_array'][$i]->startDateDiscount));
+										$end = date('Y-m-d', strtotime($data['data_array'][$i]->lastDateDiscount));
+
+										if($data['data_array'][$i]->discount > 0 && ($today >= $begin) && ($today <= $end)) {
+											$discountRate = ($data['data_array'][$i]->discount != null ? $data['data_array'][$i]->discount : 0);
+											$discountPrice = $data['data_array'][$i]->product_price - ($data['data_array'][$i]->product_price * ($discountRate/100));
+											$totalawal = $data['data_array'][$i]->quantity * $data['data_array'][$i]->product_price;
+											$total = $data['data_array'][$i]->quantity * $discountPrice;
+										} else {
+											$discountPrice = $data['data_array'][$i]->product_price;
+											$total = $data['data_array'][$i]->quantity * $data['data_array'][$i]->product_price;
+										}
+
                                         echo '<tr>
                                             <td class="cart-product-col">
-                                                <img src="' . base_url() . 'Asset/img/tandatanya.jpg" alt="">
+                                                <a href="'.base_url().'product/'.$data['data_array'][$i]->product_id.'"><img src="' . $data['data_array'][$i]->product_img_1 . '" alt=""></a>                                              
                                                 <div class="cart-pc-title">
-                                                    <h4>' . $data['data_array'][$i]->product_name . '</h4>
+                                                    <a href="'.base_url().'product/'.$data['data_array'][$i]->product_id.'"><h4>' . $data['data_array'][$i]->product_name . '</h4></a>
                                                     <p>' . $data['data_array'][$i]->product_code . '</p>
                                                 </div>
                                             </td>
@@ -71,7 +83,14 @@
                                                 <h4>' . $data['data_array'][$i]->product_type . '</h4>
                                             </td>
                                             <td class="cart-total-col" id="product-price">
-                                                <h4 class="price">Rp. ' . number_format($total, 2, ",", ".") . '</h4>
+                                                ';
+                                        		if($data['data_array'][$i]->discount > 0 && ($today >= $begin) && ($today <= $end)) {
+													echo'<h5 class="firstprice"><strike>Rp. ' . number_format($totalawal, 2, ",", ".") . '</strike></h5>
+                                                	<h4 class="price">Rp. ' . number_format($total, 2, ",", ".") . '</h4>';
+												} else {
+													echo'<h4 class="price">Rp. ' . number_format($total, 2, ",", ".") . '</h4>';
+												}
+                                        		echo'
                                                 <input class="price-hidden" type="hidden" value="' . $discountPrice . '">
                                             </td>
                                         </tr>';
