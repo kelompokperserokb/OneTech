@@ -108,56 +108,6 @@ class Order extends CI_Controller {
         $this->M_OrderDB->removeFromCart($type_id);
 	}
 
-	public function removeAll()
-	{
-
-	}
-
-	public function order()
-	{
-	    if (isset($_SESSION["email"])) {
-            $order = $this->M_OrderDB->getOrder($_SESSION["email"]);
-
-            if ($order["count"] > 0) {
-                $data = ($order["data_array"])[0];
-                $message["order"] = ($order["data_array"])[0];
-                $item = $this->M_OrderDB->getOrderItem($data->order_id);
-                $date = ($this->M_OrderDB->getOrderDate($data->order_id))["data_array"][0];
-                $message["orderitem_count"] = $item["count"];
-                $message["order_date"] = $date->dateOrder;
-                if ($message["orderitem_count"] > 0) {
-                    $message["orderitem"] = $item["data_array"];
-					$message["total_discount"] = $this->getTotalDiscount($item["data_array"], $date->dateOrder);
-                }
-                if ($data->confirmation == 0) {
-                    $message["status"] = 0;
-                } else if ($data->confirmation == 1) {
-                    $message["status"] = 1;
-                } else if ($data->confirmation == 2) {
-                    $message["status"] = 2;
-                }else if ($data->confirmation == 3){
-                    $message["status"] = 3;
-                } else if ($data->confirmation == 4){
-					$message["kurir"] = $message["order"]->kurir;
-					$message["resi"] = $message["order"]->resi;
-					$message["status"] = 4;
-                }
-            } else {
-                $message["text"] = "Anda belum melakukan order";
-                $message["status"] = -1;
-            }
-
-            $datas["cat"] = $this->getCategory();
-            $datas["suball"] = $this->getSubCategory();
-
-            $this->load->view('V_header',$datas);
-            $this->load->view('V_order',$message);
-            $this->load->view('V_footer');
-        } else {
-            redirect(base_url('login'));
-        }
-    }
-
     private function getTotalDiscount($data, $date){
 		$totalDiscount = 0;
 		foreach($data as $row){
@@ -282,8 +232,69 @@ class Order extends CI_Controller {
 
 	}
 
+	public function removeAll()
+	{
+
+	}
+
+	public function order()
+	{
+		if (isset($_SESSION["email"])) {
+			$order = $this->M_OrderDB->getOrder($_SESSION["email"]);
+
+			if ($order["count"] > 0) {
+				$data = ($order["data_array"])[0];
+				$message["order"] = ($order["data_array"])[0];
+				$item = $this->M_OrderDB->getOrderItem($data->order_id);
+				$date = ($this->M_OrderDB->getOrderDate($data->order_id))["data_array"][0];
+				$message["orderitem_count"] = $item["count"];
+				$message["order_date"] = $date->dateOrder;
+				if ($message["orderitem_count"] > 0) {
+					$message["orderitem"] = $item["data_array"];
+					$message["total_discount"] = $this->getTotalDiscount($item["data_array"], $date->dateOrder);
+				}
+				if ($data->confirmation == 0) {
+					$message["status"] = 0;
+				} else if ($data->confirmation == 1) {
+					$message["status"] = 1;
+				} else if ($data->confirmation == 2) {
+					$message["status"] = 2;
+				}else if ($data->confirmation == 3){
+					$message["status"] = 3;
+				} else if ($data->confirmation == 4){
+					$message["kurir"] = $message["order"]->kurir;
+					$message["resi"] = $message["order"]->resi;
+					$message["status"] = 4;
+				}
+			} else {
+				$message["text"] = "Anda belum melakukan order";
+				$message["status"] = -1;
+			}
+
+			$datas["cat"] = $this->getCategory();
+			$datas["suball"] = $this->getSubCategory();
+
+			$this->load->view('V_header',$datas);
+			$this->load->view('V_order',$message);
+			$this->load->view('V_footer');
+		} else {
+			redirect(base_url('login'));
+		}
+	}
+
 	public function invoice() {
+		$order = $this->M_OrderDB->getOrder($_SESSION["email"]);
+		$data = ($order["data_array"])[0];
+		$item = $this->M_OrderDB->getOrderItem($data->order_id);
+		$date = ($this->M_OrderDB->getOrderDate($data->order_id))["data_array"][0];
+		$orderitem = $item["data_array"];
+		$total_discount = $this->getTotalDiscount($item["data_array"], $date->dateOrder);
+		$normal_price = $data->totalPrice + $total_discount;
+		$total_price = $data->totalPrice + $data->logistic_price + $data->unique_price;
+
 		$pdf = new FPDF('P', 'mm', 'A5');
+		$pdf->SetTitle('OneTech, Your Mining Solution Service');
+		$pdf->SetKeywords('OneTech, Mining');
 		$pdf->AddPage();
 		$pdf->SetFont('Helvetica', 'B', '22');
 
@@ -319,28 +330,43 @@ class Order extends CI_Controller {
 		$pdf->Cell(20, 3, '', 0, 1);
 
 		$pdf->SetFont('Arial', '', '9');
-		$pdf->Cell(100, 5, 'CHE40 ELECTRODES WELDING', 0, 0);
-		$pdf->Cell(20, 5, 'Rp. 750.000', 0, 1);
-		$pdf->Cell(20, 5, '3 x Rp. 250.000', 0, 1);
-		$pdf->Cell(20, 3, '', 0, 1);
-		$pdf->Cell(100, 5, 'CHE43 ELECTRODES WELDING', 0, 0);
-		$pdf->Cell(20, 5, 'Rp. 800.000', 0, 1);
-		$pdf->Cell(20, 5, '4 x Rp. 200.000', 0, 1);
-		$pdf->Cell(20, 3, '', 0, 1);
+		foreach ($orderitem as $row) {
+			$pricetoview = $row->product_price;
+			if ($row->discount > 0 && $row->discount < 100) {
+				$order_date = date("Y-m-d");
+				$order_date = date('Y-m-d', strtotime($order_date));
+				$begin = date('Y-m-d', strtotime($row->startDateDiscount));
+				$end = date('Y-m-d', strtotime($row->lastDateDiscount));
+				if (($order_date >= $begin) && ($order_date <= $end)) {
+					$pricetoview = $row->product_price - ($row->product_price * ($row->discount / 100));
+				}
+			}
+			$name = implode(' ', array_slice(explode(' ', $row->product_name), 0, 4));
+			$hargasatuan = number_format($pricetoview, 2, ",", ".");
+			$hargatotal = number_format($pricetoview * $row->quantity, 2, ",", ".");
+
+			$pdf->Cell(100, 5, ''.$name.'', 0, 0);
+			$pdf->Cell(20, 5, 'Rp. '.$hargatotal.'', 0, 1);
+			$pdf->Cell(20, 5, ''.$row->quantity.' x Rp. '.$hargasatuan.'', 0, 1);
+			$pdf->Cell(20, 3, '', 0, 1);
+		}
 
 		$pdf->Cell(20, 3, '', 0, 1);
 		$pdf->Cell(100, 7, 'Subtotal', 0, 0);
-		$pdf->Cell(20, 7, 'Rp. 1.550.00', 0, 1);
+		$pdf->Cell(20, 7, 'Rp. ' . number_format($normal_price, 2, ",", ".") . '', 0, 1);
 		$pdf->Cell(98, 7, 'Discount', 0, 0);
-		$pdf->Cell(20, 7, '- Rp. 0', 0, 1);
+		$pdf->Cell(20, 7, '- Rp. ' . number_format($total_discount, 2, ",", ".") . '', 0, 1);
 		$pdf->Cell(100, 7, 'Delivery Fee', 0, 0);
-		$pdf->Cell(20, 7, 'Rp. 180.000', 0, 1);
+		$pdf->Cell(20, 7, 'Rp. ' . number_format($data->logistic_price, 2, ",", ".") . '', 0, 1);
 		$pdf->Cell(100, 7, 'Unique Code', 0, 0);
-		$pdf->Cell(20, 7, 'Rp. 131', 0, 1);
+		$pdf->Cell(20, 7, 'Rp. ' . number_format($data->unique_price, 2, ",", ".") . '', 0, 1);
 		$pdf->Cell(100, 7, 'TOTAL', 0, 0);
-		$pdf->Cell(20, 7, 'Rp. 1.730.131', 0, 1);
+		$pdf->Cell(20, 7, 'Rp. ' . number_format($total_price, 2, ",", ".") . '', 0, 1);
 
 		$pdf->output();
+
+		$this->load->view('V_invoice');
+
 	}
 
 	public function createpdf() {

@@ -58,6 +58,7 @@ $route['login'] = 'Account/toLogin';
 $route['account/verify'] = 'Account/checkVerify';
 $route['cart'] = 'Order/cart';
 $route['order'] = 'Order/order';
+$route['invoice'] = 'Order/invoice';
 
 $route['allproduct'] = 'Product/viewAllProduct/1';
 $route['allproduct/(:num)'] = 'Product/viewAllProduct/$1';
@@ -67,8 +68,6 @@ $route['viewproduct/cat/(:num)/subcat/(:num)'] = "Product/viewProductBySubCat/$1
 $route['viewproduct/cat/(:num)/subcat/(:num)/(:num)'] = "Product/viewProductBySubCat/$1/$2/$3";
 $route['viewproduct/search'] = "Product/viewSearched";
 $route['product/(:num)'] = "Product/viewProducts/$1";
-
-$route['invoice'] = "Order/createpdf";
 
 //$route['producttype/(:num)/(:num)'] = "Product/viewProductsType/$1/$2";
 

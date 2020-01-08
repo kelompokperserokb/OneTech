@@ -3968,6 +3968,10 @@
 	.rata {
 		margin: 8px 0 !important;
 	}
+
+	.samain {
+		padding: 1px 8px;
+	}
     /* Modal */
     
     modal-open {
