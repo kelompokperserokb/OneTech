@@ -99,3 +99,5 @@ $route['admin/admin/admin/delivery/items/(:num)'] = "Direct/adminGetOrderItems/$
 $route['admin/admin/admin/ordered/items/(:num)'] = "Direct/adminGetOrderItems/$1";
 $route['tes'] = "Product/tes";
 
+$route['emailtes'] = "Account/sendConfirmationRegist";
+

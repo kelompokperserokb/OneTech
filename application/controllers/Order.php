@@ -6,7 +6,7 @@ class Order extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->library('pdf');
+		$this->load->library('Pdf');
         $this->load->helper('url');
         $this->load->model("M_OrderDB");
         $this->load->model("M_AccountDB");
