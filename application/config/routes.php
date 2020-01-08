@@ -77,6 +77,7 @@ $route['payment'] = "Direct/payment";
 $route['delivery'] = "Direct/logistic";
 
 $route['admin/admin/admin'] = "Direct/adminHome";
+$route['admin/admin/admin/logout'] = "Direct/logoutAdmin";
 $route['admin/admin/admin/home'] = "Direct/adminHome";
 $route['admin/admin/admin/login'] = "Direct/loginAdmin";
 $route['admin/admin/admin/product'] = "Direct/product";
@@ -96,4 +97,6 @@ $route['admin/admin/admin/verifyorder/items/(:num)'] = "Direct/adminGetOrderItem
 $route['admin/admin/admin/delivery/items/(:num)'] = "Direct/adminGetOrderItems/$1";
 $route['admin/admin/admin/ordered/items/(:num)'] = "Direct/adminGetOrderItems/$1";
 $route['tes'] = "Product/tes";
+
+$route['emailtes'] = "Account/sendConfirmationRegist";
 

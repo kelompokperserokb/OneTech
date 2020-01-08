@@ -1,5 +1,18 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 class Account extends CI_Controller {
+
+	public function __construct() {
+		parent::__construct();
+
+		require APPPATH.'libraries/phpmailer/src/Exception.php';
+		require APPPATH.'libraries/phpmailer/src/PHPMailer.php';
+		require APPPATH.'libraries/phpmailer/src/SMTP.php';
+
+	}
 
     public function toLogin(){
         $this->load->helper('url');
@@ -126,17 +139,103 @@ class Account extends CI_Controller {
                 );
                 $this->M_AccountDB->registAccountToDB($data);
 
-                echo "true";
+                if ($this->sendConfirmationRegist($email,$hash)) echo "true";
+                else echo "error";
             } catch (Exception $ex) {
                 echo "error";
             }
         }
-        /*if (isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["first_name"])&& isset($_POST["last_name"]) && isset($_POST["address"]) && isset($_POST["phone_number"])
-            && isset($_POST["account_type"]) && isset($_POST["institution_type"]) && isset($_POST["institution_name"]) && isset($_POST["institution_address"])){
+	}
 
-        } else {
-            header('Location: '.base_url(''));
-        }*/
+    public function sendConfirmationRegist($email, $hash){
+
+        // PHPMailer object
+        $response = false;
+        $mail = new PHPMailer();
+
+
+        // SMTP configuration
+        $mail->isSMTP();
+        $mail->Host     = 'onetech.co.id'; //sesuaikan sesuai nama domain hosting/server yang digunakan
+        $mail->SMTPAuth = true;
+        $mail->Username = 'business@onetech.co.id'; // user email
+        $mail->Password = 'Minindo228'; // password email
+        $mail->SMTPSecure = 'ssl';
+        $mail->Port     = 465;
+
+        $mail->setFrom('business@onetech.co.id', 'Onetech (noreply)'); // user email
+
+        // Add a recipient
+        $mail->addAddress($email); //email tujuan pengiriman email
+
+        // Email subject
+        $mail->Subject = 'Verifikasi Akun'; //subject email
+
+        // Set email format to HTML
+        $mail->isHTML(true);
+
+        // Email body content
+        $mailContent = "
+			<html>
+			<head>
+				<style>
+					.site-btn {
+						vertical-align: middle;
+						display: inline-block;
+						border: none;
+						font-size: 14px;
+						font-weight: 600;
+						min-width: 167px;
+						border-radius: 50px;
+						text-transform: uppercase;
+						background: #38b6c9;
+						color: #fff !important;
+						line-height: normal;
+						cursor: pointer;
+						text-align: center;
+						padding: 10px 0px;
+					}
+					
+					.site-btn:hover {
+						color: #fff;
+					}
+					
+					.site-btn.sb-white {
+						background: #fff;
+						color: #111111;
+					}
+					
+					.site-btn.sb-line {
+						background: transparent;
+						color: #fff;
+						-webkit-box-shadow: inset 0 0 0 1px #fff;
+						box-shadow: inset 0 0 0 1px #fff;
+					}
+					
+					.site-btn.sb-dark {
+						background: #413a3a;
+					}
+					
+					.site-btn.sb-dark.sb-line {
+						background-color: transparent;
+						color: #140e0e;
+						-webkit-box-shadow: inset 0 0 0 1px #111111;
+						box-shadow: inset 0 0 0 1px #111111;
+					}
+				</style>
+			</head>
+			<body>
+				<img src='".base_url('Asset/img/Logo/OneTech.png')."' />
+				<h2 style='margin:40px auto'>Terimakasih atas registrasi yang dilakukan</h2>
+				<p>Selangkah lebih dekat dengan kami, segera lakukan konfirmasi pada link yang dilampirkan dibawah untuk mengaktifkan akun OneTech anda. Menjadi bagian dari kami
+				untuk berbelanja dengan mudah dan aman.</p>
+				<a style='margin:30px auto; text-decoration: none;' class='site-btn' href='https://onetech.co.id/account/verify?email=".$email."&hash=".$hash."'>Konfirmasi akun</a>
+            </body>
+            </html>
+            "; // isi email
+		$mail->Body = $mailContent;
+
+		return $mail->send();
 	}
 
 	public function checkVerify()

@@ -62,15 +62,24 @@ var base_url = window.location.origin;
     function updateQuantity(quantityInput) {
         /* Calculate line price */
         var productRow = (($(quantityInput).parent()).parent()).parent();
+        var firstprice = parseFloat(productRow.find('td').children('.first-price-hidden').val());
         var price = parseFloat(productRow.find('td').children('.price-hidden').val());
         var quantity = $(quantityInput).find('input').val();
         var linePrice = price * quantity;
+        var totalfirstprice = firstprice * quantity;
 
         /* Update line price display and recalc cart totals */
         productRow.find('td').children('.price').each(function () {
             $(this).fadeOut(fadeTime, function () {
                 $(this).text("Rp. "+currencyIndonesia(linePrice.toFixed(2)));
                 recalculateCart();
+                $(this).fadeIn(fadeTime);
+            });
+        });
+
+        productRow.find('td').children('.firstprice').each(function () {
+            $(this).fadeOut(fadeTime, function () {
+                $(this).find("strike").text("Rp. "+currencyIndonesia(totalfirstprice.toFixed(2)));
                 $(this).fadeIn(fadeTime);
             });
         });

@@ -172,7 +172,7 @@
 <!--                        <a class="nav-link" href="#"><i class="fa fa-power-off"></i>Logout</a>-->
 <!--                    </div>-->
 <!--                </div>-->
-					<a class="dropdown" href="#"><i class="fa fa-power-off"></i> Logout</a>
+					<a class="dropdown" href=" <?php echo base_url('admin/admin/admin/logout'); ?>"><i class="fa fa-power-off"></i> Logout</a>
             </div>
         </div>
     </header>

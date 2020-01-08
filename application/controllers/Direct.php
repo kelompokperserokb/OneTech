@@ -181,6 +181,13 @@ class Direct extends CI_Controller {
         }
 	}
 
+    public function logoutAdmin()
+    {
+        $this->load->helper('url');
+        unset($_SESSION["admin-authorize"]);
+        redirect(base_url()."admin/admin/admin/login");
+    }
+
 	/*END OF ADMIN PRIVILEGE*/
 
 

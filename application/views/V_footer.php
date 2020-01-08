@@ -69,34 +69,34 @@
 							<div class="form contact-form">
 								<div id="sendmessage">Your message has been sent. Thank you!</div>
 								<div id="errormessage"></div>
-								<form action="" method="post" role="form" class="contactForm">
+								<form id="email-msg" method="post" role="form" class="contactForm">
 									<div class="form-group">
-										<input type="text" name="name" class="form-control" id="name"
+										<input type="text" name="name" class="form-control" id="name-msg"
 											   placeholder="Your Name" data-rule="minlen:4"
 											   data-msg="Please enter at least 4 chars"/>
 										<div class="validation"></div>
 									</div>
 									<div class="form-group">
-										<input type="email" class="form-control" name="email" id="email"
+										<input type="email" class="form-control" name="email" id="emailfrom-msg"
 											   placeholder="Your Email" data-rule="email"
 											   data-msg="Please enter a valid email"/>
 										<div class="validation"></div>
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control" name="subject" id="subject"
+										<input type="text" class="form-control" name="subject" id="subject-msg"
 											   placeholder="Subject" data-rule="minlen:4"
 											   data-msg="Please enter at least 8 chars of subject"/>
 										<div class="validation"></div>
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control" name="message" rows="5"
+										<input type="text" class="form-control" name="message" rows="5" id="message-msg"
 											   data-rule="required"
 											   data-msg="Please write something for us"
 											   placeholder="Message"></textarea>
 										<div class="validation"></div>
 									</div>
 									<div class="text-center">
-										<button onclick="giveAlert()" type="submit">Send Message</button>
+										<button type="submit">Send Message</button>
 									</div>
 								</form>
 							</div>
@@ -135,12 +135,6 @@
 
 <!-- Footer section end -->
 
-<script>
-    function giveAlert() {
-        alert("Terima kasih. Email anda telah kami terima. Email balasan akan dikirim dalam waktu 1-2 hari kerja. Jika tidak ada cek folder spam");
-    }
-</script>
-
 <!--====== Javascripts & Jquery ======-->
 <script src="<?php echo base_url(); ?>Asset/js/jquery-3.2.1.min.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/bootstrap.min.js"></script>
@@ -164,6 +158,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/onetech/authentication.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/onetech/email.js"></script>
 
 
 </body>

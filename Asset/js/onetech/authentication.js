@@ -84,7 +84,7 @@ $(document).ready(function(){
 
                 },
                 success: function (response) {
-                    alert(response);
+
                     if (response == "true") {
                         alert('Regist Success, Please Check Email to Activate account');
                         window.location.href = base_url.toString() + "/onetech";
