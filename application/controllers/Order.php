@@ -291,6 +291,7 @@ class Order extends CI_Controller {
 		$total_discount = $this->getTotalDiscount($item["data_array"], $date->dateOrder);
 		$normal_price = $data->totalPrice + $total_discount;
 		$total_price = $data->totalPrice + $data->logistic_price + $data->unique_price;
+		$nama = implode(' ', array_slice(explode(' ', $_SESSION["name"]), 0, 1));
 
 		$pdf = new FPDF('P', 'mm', 'A5');
 		$pdf->SetTitle('OneTech, Your Mining Solution Service');
@@ -305,7 +306,7 @@ class Order extends CI_Controller {
 
 		$pdf->SetFont('Arial', '', '9');
 		$pdf->cell(100, 7, 'Order ID : ', 0, 0, 'R');
-		$pdf->cell(1, 7, '175150201111048', 0, 1);
+		$pdf->cell(1, 7, ''.$data->order_id.'', 0, 1);
 
 		$pdf->SetFont('Arial', '', '14');
 		$pdf->Cell(20,7,'',0,1);
@@ -313,7 +314,7 @@ class Order extends CI_Controller {
 
 		$pdf->SetFont('Arial', '', '11');
 		$pdf->SetTextColor(100,100,100);
-		$pdf->Cell(5, 7, "Hi Robertus, kami telah menerima pesanan anda.", 0, 1);
+		$pdf->Cell(5, 7, "Hi $nama, kami telah menerima pesanan anda.", 0, 1);
 		$pdf->Cell(20, 7, 'Silahkan Transfer ke Rekening Di Bawah ini:', 0, 1);
 		$pdf->Cell(20, 5, '', 0, 1);
 		$pdf->Cell(20, 7, 'Bank Mandiri 125-002388-3838 a.n. PT Minindo Artha Gemilang', 0, 1);

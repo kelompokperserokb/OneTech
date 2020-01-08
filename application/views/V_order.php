@@ -167,13 +167,34 @@
 							} else if ($status == 2) {
 								echo '<h5>Menunggu konfirmasi bukti pembayaran</h5>';
 								echo '<p>Bukti pembayaran anda sedang menunggu konfirmasi dari admin.<br> Admin akan mengkonfirmasi pemesanan anda selambat-lambatnya 1x24 jam di saat hari kerja</p>';
+								echo '
+                                	<div class="row">
+                                    	<div class="col-md-5 mb-3 form-input">
+                                        	<h5 class="rata mb-3">Unduh invoice : &ensp;</h5>
+                                        	<button class="btn btn-outline-primary btn-sm samain" onclick=" window.open(\''.base_url().'invoice\',\'_blank\')"> Unduh</button>
+                                    	</div>
+                                	</div>';
 							} else if ($status == 3) {
 								echo '<h5>Pengemasan barang</h5>';
 								echo '<p>Pembayaran anda telah kami terima.<br> Barang sedang dalam proses pengemasan</p>';
+								echo '
+                                	<div class="row">
+                                    	<div class="col-md-5 mb-3 form-input">
+                                        	<h5 class="rata mb-3">Unduh invoice : &ensp;</h5>
+                                        	<button class="btn btn-outline-primary btn-sm samain" onclick=" window.open(\''.base_url().'invoice\',\'_blank\')"> Unduh</button>
+                                    	</div>
+                                	</div>';
 							} else if ($status == 4) {
 								echo '<h5>Pemesanan sukses</h5>';
 								echo '<p>Barang sedang dalam proses pengiriman menggunakan <strong>'.$kurir.'</strong>, dengan nomor Resi : <strong>'.$resi.'</strong></p>';
 								echo '<p><strong>Penting : </strong>Harap catat jenis kurir dan nomor resi sebelum melakukan pemesanan lainnya jika barang belum sampai</p>';
+								echo '
+                                	<div class="row">
+                                    	<div class="col-md-5 mb-3 form-input">
+                                        	<h5 class="rata mb-3">Unduh invoice : &ensp;</h5>
+                                        	<button class="btn btn-outline-primary btn-sm samain" onclick=" window.open(\''.base_url().'invoice\',\'_blank\')"> Unduh</button>
+                                    	</div>
+                                	</div>';
 							} else {
                     			echo $text;
                 			}
