@@ -71,14 +71,14 @@
                             			</a>';
                 						if($view) {
                 						echo '<div class="pi-links">
-											<a href="#" class="wishlist-btn"><i class="flaticon-tag"></i><span><strong>&ensp;'.$product['data']['data_array'][$i]->discount.'% DISCOUNT</strong></span></a>
+											<a href="#" class="wishlist-btn"><i class="flaticon-tag"></i><span><strong>&ensp;'.$product['data_array'][$i]->discount.'% DISCOUNT</strong></span></a>
 										</div>';
 										}
 									echo'
                         			</div>
                         			<div class="pi-text">
                             			<h6>Rp. ' . number_format($product['data_array'][$i]->product_price, 2, ",", ".") . '</h6>
-                            			<a href="' . base_url() . 'product/' . $product['data_array'][$i]->product_id . '/">
+                            			<a href="' . base_url() . 'product/' . $product['data_array'][$i]->product_id . '">
                                 			<p>' . $product['data_array'][$i]->product_name . '</p>
                             			</a>
                         			</div>

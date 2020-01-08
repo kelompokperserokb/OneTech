@@ -147,35 +147,35 @@ class Account extends CI_Controller {
         }
 	}
 
-	public function sendConfirmationRegist($email, $hash){
+    public function sendConfirmationRegist($email, $hash){
 
-		// PHPMailer object
-		$response = false;
-		$mail = new PHPMailer();
+        // PHPMailer object
+        $response = false;
+        $mail = new PHPMailer();
 
 
-		// SMTP configuration
-		$mail->isSMTP();
-		$mail->Host     = 'onetech.co.id'; //sesuaikan sesuai nama domain hosting/server yang digunakan
-		$mail->SMTPAuth = true;
-		$mail->Username = 'business@onetech.co.id'; // user email
-		$mail->Password = 'Minindo228'; // password email
-		$mail->SMTPSecure = 'ssl';
-		$mail->Port     = 465;
+        // SMTP configuration
+        $mail->isSMTP();
+        $mail->Host     = 'onetech.co.id'; //sesuaikan sesuai nama domain hosting/server yang digunakan
+        $mail->SMTPAuth = true;
+        $mail->Username = 'business@onetech.co.id'; // user email
+        $mail->Password = 'Minindo228'; // password email
+        $mail->SMTPSecure = 'ssl';
+        $mail->Port     = 465;
 
-		$mail->setFrom('business@onetech.co.id', 'Onetech'); // user email
+        $mail->setFrom('business@onetech.co.id', 'Onetech (noreply)'); // user email
 
-		// Add a recipient
-		$mail->addAddress($email); //email tujuan pengiriman email
+        // Add a recipient
+        $mail->addAddress($email); //email tujuan pengiriman email
 
-		// Email subject
-		$mail->Subject = 'Test Codeigniter'; //subject email
+        // Email subject
+        $mail->Subject = 'Verifikasi Akun'; //subject email
 
-		// Set email format to HTML
-		$mail->isHTML(true);
+        // Set email format to HTML
+        $mail->isHTML(true);
 
-		// Email body content
-		$mailContent = "
+        // Email body content
+        $mailContent = "
 			<html>
 			<head>
 				<style>
