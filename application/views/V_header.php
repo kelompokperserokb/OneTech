@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +26,7 @@
 	<link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/cat.css"/>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>Asset/css/header-style.css"/>
 
-
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css" rel="stylesheet">
 
 	<!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -66,7 +68,7 @@
 							echo '<div class="h_up-item h_main-menu">
 										<li>
                                         <i class="fa fa-user"></i>
-                                        <a href="#">Hi, ' . $_SESSION["name"] . '</a>
+                                        <a class="h_nopad" href="#">Hi, ' . $_SESSION["name"] . '</a>
                                         <ul class="h_sub-menu">
                                             <li><a href="' . base_url("order") . '">My Order</a></li>
                                             <li><a href="' . base_url() . 'Account/logout">Sign Out</a></li>
@@ -81,6 +83,15 @@
 						<div class="h_up-item">
 							<i class="fa fa-shopping-cart"></i>
 							<a href="<?php echo base_url('cart') ?>">My Cart</a>
+						</div>
+						<div class="h_up-item h_main-menu">
+							<li>
+								<a class="languagestyle" href="#"><span class="flag-icon flag-icon-us"></span>  Eng</a>
+								<ul class="h_sub-menu">
+									<li><a href="#us"><span class="flag-icon flag-icon-us"> </span>  English</a></li>
+									<li><a href="#id"><span class="flag-icon flag-icon-id"> </span>  Indonesian</a></li>
+								</ul>
+							</li>
 						</div>
 					</div>
 				</div>
@@ -117,13 +128,14 @@
 <!--====== Javascripts & Jquery ======-->
 <script src="<?php echo base_url(); ?>Asset/js/jquery-3.2.1.min.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url(); ?>Asset/js/jquery.slicknav.min.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/owl.carousel.min.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/jquery.nicescroll.min.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/jquery.zoom.min.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/jquery-ui.min.js"></script>
+
 <script src="<?php echo base_url(); ?>Asset/js/main.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/onetech/search.js"></script>
-<script src="<?php echo base_url(); ?>Asset/js/jquery.slicknav.min.js"></script>
 
 </body>
 </html>

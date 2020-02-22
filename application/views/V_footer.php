@@ -48,7 +48,7 @@
 						<h4>--Connect With Us--</h4>
 					</div>
 					<div class="row">
-						<div class="col-md-6 col-sm-6 col-xs-12">
+						<div class="col-md-5 col-sm-5 col-xs-12">
 							<div class="footer-content text-center">
 								<p><span>CS:</span> 021 4584 1156</p>
 								<p><span>WA:</span> 081808558855</p>
@@ -65,7 +65,7 @@
 								</ul>
 							</div>
 						</div>
-						<div class="col-md-6 col-sm-6 col-xs-12 footer-contacts">
+						<div class="col-md-7 col-sm-7 col-xs-12 footer-contacts">
 							<div class="form contact-form">
 								<div id="sendmessage">Your message has been sent. Thank you!</div>
 								<div id="errormessage"></div>
@@ -89,7 +89,7 @@
 										<div class="validation"></div>
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control" name="message" rows="5" id="message-msg"
+										<textarea class="form-control" name="message" rows="5" id="message-msg"
 											   data-rule="required"
 											   data-msg="Please write something for us"
 											   placeholder="Message"></textarea>
@@ -143,7 +143,6 @@
 <script src="<?php echo base_url(); ?>Asset/js/jquery.nicescroll.min.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/jquery.zoom.min.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/jquery-ui.min.js"></script>
-
 
 <script src="<?php echo base_url(); ?>Asset/js/jcarousel/jquery.jcarousel.min.js"></script>
 <script src="<?php echo base_url(); ?>Asset/js/jquery.fancybox.pack.js"></script>
