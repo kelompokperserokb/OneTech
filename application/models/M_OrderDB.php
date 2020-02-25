@@ -77,6 +77,23 @@ class M_OrderDB extends CI_Model
 		return $data;
 	}
 
+	public function getSpecificOrder($email, $orderid)
+	{
+		$this->db->select('*');
+		$this->db->from('orderitem');
+		$this->db->where('email', $email);
+		$this->db->where('order_id', $orderid);
+		$query = $this->db->get();
+
+		if ($query) {
+			$data['data_array'] = $query->result();
+			$data["count"] = $query->num_rows();
+		} else {
+			$data["count"] = 0;
+		}
+		return $data;
+	}
+
 	public function getOrderNotFinished($email){
 		if (isset($_SESSION["email"])) {
 			$this->db->select('*');
