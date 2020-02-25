@@ -151,7 +151,12 @@
                                 	<div class="row">
                                     	<div class="col-md-5 mb-3 form-input">
                                         	<h5 class="rata mb-3">Unduh invoice : &ensp;</h5>
-                                        	<button class="btn btn-outline-primary btn-sm samain" onclick=" window.open(\''.base_url().'invoice\',\'_blank\')"> Unduh</button>
+                                        	
+                                        	<form method="post" action="'.base_url("invoice").'" target="_blank">
+                                                <input type="hidden" name="email" value="Robertus Dwi">
+                                                <input type="hidden" name="order_id" value="'.$order->order_id.'">
+                                                <button type="submit" class="btn btn-outline-primary btn-sm samain" id="unduh-invoice"> Unduh </button>
+                                            </form>
                                     	</div>
                                 	</div>';
 								echo '
@@ -171,7 +176,12 @@
                                 	<div class="row">
                                     	<div class="col-md-5 mb-3 form-input">
                                         	<h5 class="rata mb-3">Unduh invoice : &ensp;</h5>
-                                        	<button class="btn btn-outline-primary btn-sm samain" onclick=" window.open(\''.base_url().'invoice\',\'_blank\')"> Unduh</button>
+                                        	
+                                        	<form method="post" action="'.base_url("invoice").'" target="_blank">
+                                                <input type="hidden" name="email" value="Robertus Dwi">
+                                                <input type="hidden" name="order_id" value="'.$order->order_id.'">
+                                                <button type="submit" class="btn btn-outline-primary btn-sm samain" id="unduh-invoice"> Unduh </button>
+                                            </form>
                                     	</div>
                                 	</div>';
 							} else if ($status == 3) {
@@ -181,7 +191,12 @@
                                 	<div class="row">
                                     	<div class="col-md-5 mb-3 form-input">
                                         	<h5 class="rata mb-3">Unduh invoice : &ensp;</h5>
-                                        	<button class="btn btn-outline-primary btn-sm samain" onclick=" window.open(\''.base_url().'invoice\',\'_blank\')"> Unduh</button>
+                                        	
+                                        	<form method="post" action="'.base_url("invoice").'" target="_blank">
+                                                <input type="hidden" name="email" value="Robertus Dwi">
+                                                <input type="hidden" name="order_id" value="'.$order->order_id.'">
+                                                <button type="submit" class="btn btn-outline-primary btn-sm samain" id="unduh-invoice"> Unduh </button>
+                                            </form>
                                     	</div>
                                 	</div>';
 							} else if ($status == 4) {
@@ -191,8 +206,14 @@
 								echo '
                                 	<div class="row">
                                     	<div class="col-md-5 mb-3 form-input">
-                                        	<h5 class="rata mb-3">Unduh invoice : &ensp;</h5>
-                                        	<button class="btn btn-outline-primary btn-sm samain" onclick=" window.open(\''.base_url().'invoice\',\'_blank\')"> Unduh</button>
+                                        	<h5 class="rata mb-3">Unduh invoice : &ensp;</h5><input type="hidden" name="order_id" value="'.$order->order_id.'">
+                           
+                                            <form method="post" action="'.base_url("invoice").'" target="_blank">
+                                                <input type="hidden" name="email" value="Robertus Dwi">
+                                                <input type="hidden" name="order_id" value="'.$order->order_id.'">
+                                                <button type="submit" class="btn btn-outline-primary btn-sm samain" id="unduh-invoice"> Unduh </button>
+                                            </form>
+                                        	
                                     	</div>
                                 	</div>';
 							} else {

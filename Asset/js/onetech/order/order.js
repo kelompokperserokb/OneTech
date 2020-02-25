@@ -55,7 +55,11 @@ $(document).ready(function() {
 		e.preventDefault();
 		uploadBukti();
 	});
+
+
 });
+
+
 
 function uploadBukti(){
 	var image = $("#bukti_pembayaran").prop('files')[0];

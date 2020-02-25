@@ -72,8 +72,26 @@ function updateLogistic(id, email, row, logistic_price) {
         },
         success: function () {
             alert('Input Logistic Complete');
-            row.remove();
+            createInvoicePDF(email, id, row);
         },
     });
 }
 
+function createInvoicePDF(email, order_id, row) {
+    var url = base_url.toString() + "/onetech/Order/generatePDF";
+    $.ajax({
+        url: url,
+        method: 'post',
+        data: {
+            email: email,
+            order_id: order_id,
+        },
+
+        beforeSend: function () {
+
+        },
+        success: function () {
+            row.remove();
+        },
+    });
+}

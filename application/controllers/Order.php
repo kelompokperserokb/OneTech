@@ -283,92 +283,102 @@ class Order extends CI_Controller {
 	}
 
 	public function invoice() {
-		$order = $this->M_OrderDB->getOrder($_SESSION["email"]);
-		$data = ($order["data_array"])[0];
-		$item = $this->M_OrderDB->getOrderItem($data->order_id);
-		$date = ($this->M_OrderDB->getOrderDate($data->order_id))["data_array"][0];
-		$orderitem = $item["data_array"];
-		$total_discount = $this->getTotalDiscount($item["data_array"], $date->dateOrder);
-		$normal_price = $data->totalPrice + $total_discount;
-		$total_price = $data->totalPrice + $data->logistic_price + $data->unique_price;
-		$nama = implode(' ', array_slice(explode(' ', $_SESSION["name"]), 0, 1));
+        // The location of the PDF file
+        // on the server
+        $name = $this->input->post('email');
+        $orderid = $this->input->post('order_id');
+        $filename["filename"] = "Asset/users/invoice/".$name."-".$orderid.".pdf";
 
-		$pdf = new FPDF('P', 'mm', 'A5');
-		$pdf->SetTitle('OneTech, Your Mining Solution Service');
-		$pdf->SetKeywords('OneTech, Mining');
-		$pdf->AddPage();
-		$pdf->SetFont('Helvetica', 'B', '22');
+        $this->load->view('V_invoice',$filename);
+    }
 
-		$pdf->SetTextColor(62,193,213);
-		$pdf->Cell(17	,7,'ONE',0,0);
-		$pdf->SetTextColor(4,4,4);
-		$pdf->Cell(10,7,'TECH',0,1);
+	public function generatePDF() {
+        $order = $this->M_OrderDB->getSpecificOrder($this->input->post('email'), $this->input->post('order_id'));
+        $data = ($order["data_array"][0]);
+        $item = $this->M_OrderDB->getOrderItem($data->order_id);
+        $date = (($this->M_OrderDB->getOrderDate($data->order_id))["data_array"])[0];
+        $nameAccount = ($this->M_AccountDB->getAccount($this->input->post('email'))->result())[0];
+        $orderitem = $item["data_array"];
+        $total_discount = $this->getTotalDiscount($item["data_array"], $date->dateOrder);
+        $normal_price = $data->totalPrice + $total_discount;
+        $total_price = $data->totalPrice + $data->logistic_price + $data->unique_price;
+        $nama = implode(' ', array_slice(explode(' ', $nameAccount->first_name), 0, 1));
 
-		$pdf->SetFont('Arial', '', '9');
-		$pdf->cell(100, 7, 'Order ID : ', 0, 0, 'R');
-		$pdf->cell(1, 7, ''.$data->order_id.'', 0, 1);
+        $pdf = new FPDF('P', 'mm', 'A5');
+        $pdf->SetTitle('OneTech, Your Mining Solution Service');
+        $pdf->SetKeywords('OneTech, Mining');
+        $pdf->AddPage();
+        $pdf->SetFont('Helvetica', 'B', '22');
 
-		$pdf->SetFont('Arial', '', '14');
-		$pdf->Cell(20,7,'',0,1);
-		$pdf->Cell(20, 7, 'Terima Kasih Atas Pemesanan Anda!', 0, 1);
+        $pdf->SetTextColor(62,193,213);
+        $pdf->Cell(17	,7,'ONE',0,0);
+        $pdf->SetTextColor(4,4,4);
+        $pdf->Cell(10,7,'TECH',0,1);
 
-		$pdf->SetFont('Arial', '', '11');
-		$pdf->SetTextColor(100,100,100);
-		$pdf->Cell(5, 7, "Hi $nama, kami telah menerima pesanan anda.", 0, 1);
-		$pdf->Cell(20, 7, 'Silahkan Transfer ke Rekening Di Bawah ini:', 0, 1);
-		$pdf->Cell(20, 5, '', 0, 1);
-		$pdf->Cell(20, 7, 'Bank Mandiri 125-002388-3838 a.n. PT Minindo Artha Gemilang', 0, 1);
-		$pdf->Cell(20, 5, '', 0, 1);
+        $pdf->SetFont('Arial', '', '9');
+        $pdf->cell(100, 7, 'Order ID : ', 0, 0, 'R');
+        $pdf->cell(1, 7, ''.$data->order_id.'', 0, 1);
 
-		$pdf->SetFont('Arial', '', '10');
-		$pdf->SetTextColor(0,0,0);
-		$pdf->cell(20, 5, 'PENTING: Jika sudah transfer, Anda WAJIB KONFIRMASI', 0, 1);
-		$pdf->cell(20, 5, 'PEMBAYARAN ANDA', 0, 1);
-		$pdf->Cell(20, 5, '', 0, 1);
-		$pdf->Cell(20, 5, '', 0, 1);
+        $pdf->SetFont('Arial', '', '14');
+        $pdf->Cell(20,7,'',0,1);
+        $pdf->Cell(20, 7, 'Terima Kasih Atas Pemesanan Anda!', 0, 1);
 
-		$pdf->Cell(20, 7, 'ORDER DETAILS', 0, 1);
-		$pdf->Cell(20, 3, '', 0, 1);
+        $pdf->SetFont('Arial', '', '11');
+        $pdf->SetTextColor(100,100,100);
+        $pdf->Cell(5, 7, "Hi $nama, kami telah menerima pesanan anda.", 0, 1);
+        $pdf->Cell(20, 7, 'Silahkan Transfer ke Rekening Di Bawah ini:', 0, 1);
+        $pdf->Cell(20, 5, '', 0, 1);
+        $pdf->Cell(20, 7, 'Bank Mandiri 125-002388-3838 a.n. PT Minindo Artha Gemilang', 0, 1);
+        $pdf->Cell(20, 5, '', 0, 1);
 
-		$pdf->SetFont('Arial', '', '9');
-		foreach ($orderitem as $row) {
-			$pricetoview = $row->product_price;
-			if ($row->discount > 0 && $row->discount < 100) {
-				$order_date = date("Y-m-d");
-				$order_date = date('Y-m-d', strtotime($order_date));
-				$begin = date('Y-m-d', strtotime($row->startDateDiscount));
-				$end = date('Y-m-d', strtotime($row->lastDateDiscount));
-				if (($order_date >= $begin) && ($order_date <= $end)) {
-					$pricetoview = $row->product_price - ($row->product_price * ($row->discount / 100));
-				}
-			}
-			$name = implode(' ', array_slice(explode(' ', $row->product_name), 0, 4));
-			$hargasatuan = number_format($pricetoview, 2, ",", ".");
-			$hargatotal = number_format($pricetoview * $row->quantity, 2, ",", ".");
+        $pdf->SetFont('Arial', '', '10');
+        $pdf->SetTextColor(0,0,0);
+        $pdf->cell(20, 5, 'PENTING: Jika sudah transfer, Anda WAJIB KONFIRMASI', 0, 1);
+        $pdf->cell(20, 5, 'PEMBAYARAN ANDA', 0, 1);
+        $pdf->Cell(20, 5, '', 0, 1);
+        $pdf->Cell(20, 5, '', 0, 1);
 
-			$pdf->Cell(100, 5, ''.$name.'', 0, 0);
-			$pdf->Cell(20, 5, 'Rp. '.$hargatotal.'', 0, 1);
-			$pdf->Cell(20, 5, ''.$row->quantity.' x Rp. '.$hargasatuan.'', 0, 1);
-			$pdf->Cell(20, 3, '', 0, 1);
-		}
+        $pdf->Cell(20, 7, 'ORDER DETAILS', 0, 1);
+        $pdf->Cell(20, 3, '', 0, 1);
 
-		$pdf->Cell(20, 3, '', 0, 1);
-		$pdf->Cell(100, 7, 'Subtotal', 0, 0);
-		$pdf->Cell(20, 7, 'Rp. ' . number_format($normal_price, 2, ",", ".") . '', 0, 1);
-		$pdf->Cell(98, 7, 'Discount', 0, 0);
-		$pdf->Cell(20, 7, '- Rp. ' . number_format($total_discount, 2, ",", ".") . '', 0, 1);
-		$pdf->Cell(100, 7, 'Delivery Fee', 0, 0);
-		$pdf->Cell(20, 7, 'Rp. ' . number_format($data->logistic_price, 2, ",", ".") . '', 0, 1);
-		$pdf->Cell(100, 7, 'Unique Code', 0, 0);
-		$pdf->Cell(20, 7, 'Rp. ' . number_format($data->unique_price, 2, ",", ".") . '', 0, 1);
-		$pdf->Cell(100, 7, 'TOTAL', 0, 0);
-		$pdf->Cell(20, 7, 'Rp. ' . number_format($total_price, 2, ",", ".") . '', 0, 1);
+        $pdf->SetFont('Arial', '', '9');
+        foreach ($orderitem as $row) {
+            $pricetoview = $row->product_price;
+            if ($row->discount > 0 && $row->discount < 100) {
+                $order_date = date("Y-m-d");
+                $order_date = date('Y-m-d', strtotime($order_date));
+                $begin = date('Y-m-d', strtotime($row->startDateDiscount));
+                $end = date('Y-m-d', strtotime($row->lastDateDiscount));
+                if (($order_date >= $begin) && ($order_date <= $end)) {
+                    $pricetoview = $row->product_price - ($row->product_price * ($row->discount / 100));
+                }
+            }
+            $name = implode(' ', array_slice(explode(' ', $row->product_name), 0, 4));
+            $hargasatuan = number_format($pricetoview, 2, ",", ".");
+            $hargatotal = number_format($pricetoview * $row->quantity, 2, ",", ".");
 
-		$pdf->output();
+            $pdf->Cell(100, 5, ''.$name.'', 0, 0);
+            $pdf->Cell(20, 5, 'Rp. '.$hargatotal.'', 0, 1);
+            $pdf->Cell(20, 5, ''.$row->quantity.' x Rp. '.$hargasatuan.'', 0, 1);
+            $pdf->Cell(20, 3, '', 0, 1);
+        }
 
-		$this->load->view('V_invoice');
+        $pdf->Cell(20, 3, '', 0, 1);
+        $pdf->Cell(100, 7, 'Subtotal', 0, 0);
+        $pdf->Cell(20, 7, 'Rp. ' . number_format($normal_price, 2, ",", ".") . '', 0, 1);
+        $pdf->Cell(98, 7, 'Discount', 0, 0);
+        $pdf->Cell(20, 7, '- Rp. ' . number_format($total_discount, 2, ",", ".") . '', 0, 1);
+        $pdf->Cell(100, 7, 'Delivery Fee', 0, 0);
+        $pdf->Cell(20, 7, 'Rp. ' . number_format($data->logistic_price, 2, ",", ".") . '', 0, 1);
+        $pdf->Cell(100, 7, 'Unique Code', 0, 0);
+        $pdf->Cell(20, 7, 'Rp. ' . number_format($data->unique_price, 2, ",", ".") . '', 0, 1);
+        $pdf->Cell(100, 7, 'TOTAL', 0, 0);
+        $pdf->Cell(20, 7, 'Rp. ' . number_format($total_price, 2, ",", ".") . '', 0, 1);
 
-	}
+        $filename = "Asset/users/invoice/".$nameAccount->first_name."-".$data->order_id.".pdf";
+
+        $pdf->output($filename,'F');
+    }
 
 	public function createpdf() {
 		$pdf = new FPDF('P', 'mm', 'A4');
