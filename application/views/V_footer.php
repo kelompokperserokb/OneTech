@@ -50,8 +50,8 @@
 					<div class="row">
 						<div class="col-md-5 col-sm-5 col-xs-12">
 							<div class="footer-content text-center">
-								<p><span>CS:</span> 021 4584 1156</p>
-								<p><span>WA:</span> 081808558855</p>
+								<p>CS: 021 4584 1156</p>
+								<a href = "https://wa.me/6281808558855" target="_blank"><p>WA: <span>081808558855</span></p></a>
 							</div>
 							<div class="footer-icons">
 								<h6 class="mid">Our Official Merchant Site</h6>

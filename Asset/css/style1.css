@@ -1976,6 +1976,10 @@ ul#horizontal-list li:not(:first-child) {
     overflow: hidden;
 }
 
+.footer-content p span {
+	color: #3EC1D5;
+}
+
 .popular-tag ul li a:hover,
 .footer-icons ul li a:hover {
     background: #3EC1D5;

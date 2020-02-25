@@ -65,10 +65,11 @@
                                     <a href="' . base_url() . 'login">Log In</a> | <a href="' . base_url() . 'register">Sign Up</a>
                                 </div>';
 						} else {
+							$name = explode(' ', trim($_SESSION["name"]));
 							echo '<div class="h_up-item h_main-menu">
 										<li>
                                         <i class="fa fa-user"></i>
-                                        <a class="h_nopad" href="#">Hi, ' . $_SESSION["name"] . '</a>
+                                        <a class="h_nopad" href="#">Hi, ' . $name[0] . '</a>
                                         <ul class="h_sub-menu">
                                             <li><a href="' . base_url("order") . '">My Order</a></li>
                                             <li><a href="' . base_url() . 'Account/logout">Sign Out</a></li>
@@ -84,15 +85,15 @@
 							<i class="fa fa-shopping-cart"></i>
 							<a href="<?php echo base_url('cart') ?>">My Cart</a>
 						</div>
-						<div class="h_up-item h_main-menu">
-							<li>
-								<a class="languagestyle" href="#"><span class="flag-icon flag-icon-us"></span>  Eng</a>
-								<ul class="h_sub-menu">
-									<li><a href="#us"><span class="flag-icon flag-icon-us"> </span>  English</a></li>
-									<li><a href="#id"><span class="flag-icon flag-icon-id"> </span>  Indonesian</a></li>
-								</ul>
-							</li>
-						</div>
+<!--						<div class="h_up-item h_main-menu">-->
+<!--							<li>-->
+<!--								<a class="languagestyle" href="#"><span class="flag-icon flag-icon-us"></span>  English</a>-->
+<!--								<ul class="h_sub-menu">-->
+<!--									<li><a href="#us"><span class="flag-icon flag-icon-us"> </span>  English</a></li>-->
+<!--									<li><a href="#id"><span class="flag-icon flag-icon-id"> </span>  Indonesian</a></li>-->
+<!--								</ul>-->
+<!--							</li>-->
+<!--						</div>-->
 					</div>
 				</div>
 			</div>
