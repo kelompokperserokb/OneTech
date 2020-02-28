@@ -3021,13 +3021,17 @@
     
     td,
     th {
-        border: 1px solid #dddddd;
+        border: 2px solid #add8e6;
         text-align: left;
         padding: 8px;
     }
+
+	th{
+		background-color: #c0e2ec;
+	}
     
     tr:nth-child(even) {
-        background-color: #dddddd;
+        background-color: #f2f2f2;
     }
     
     @media (min-width: 1200px) {
@@ -3971,6 +3975,7 @@
 
 	.samain {
 		padding: 1px 8px;
+		margin: 8px 0px;
 	}
     /* Modal */
     

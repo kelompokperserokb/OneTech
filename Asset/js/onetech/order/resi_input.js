@@ -63,8 +63,8 @@ function printListOrder(data){
         '<td>' + (parseInt(data[10])+parseInt(data[11])+parseInt(data[12])) + '</td>' +
 
         '<td><img src="' + data[13] + '"></td>' +
-        '<td> <input class="form-control resi" type="text" value="' + data[14] + '" required> </td>' +
-        '<td> <input class="form-control kurir" type="text" value="' + data[15] + '" required> </td>' +
+        '<td> <input class="resi form-control" type="text" value="' + data[14] + '" required> </td>' +
+        '<td> <input class="kurir form-control" type="text" value="' + data[15] + '" required> </td>' +
         '<td><input type="button" class="btn btn-danger edit_verifikasi" value="Edit Verifikasi"> </td>' +
         '<td><input type="button" class="btn btn-info confirm" value="Confirm"></td>' +
         '<td><a href="'+ base_url + '/onetech/admin/admin/admin/delivery/items/'+data[0] +'">Items</a></td>' +
