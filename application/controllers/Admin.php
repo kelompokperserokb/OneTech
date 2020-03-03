@@ -14,6 +14,7 @@ class Admin extends CI_Controller
         parent::__construct();
         $this->load->model("M_ProductDB");
         $this->load->model("M_OrderDB");
+		$this->load->model("M_AccountDB");
         $this->load->helper('url');
     }
 
@@ -431,6 +432,16 @@ class Admin extends CI_Controller
 		}
 		echo $str;
 	}
+
+	public function getUser(){
+		$str ='';
+		$arr = $this->M_AccountDB->adminGetUser();
+		foreach ($arr as $row) {
+			$str.=$row->email.";".$row->first_name.";".$row->last_name.';'.$row->address.';'.$row->phoneNumber.';'.$row->activeStatus.';'.$row->accountType.';'.$row->typeOfInstitution.';'.$row->institutionName.';'.$row->institutionAddress.';'.$row->npwp.'%';
+		}
+		echo $str;
+	}
+
 }
 
 

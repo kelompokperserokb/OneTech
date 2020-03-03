@@ -120,24 +120,24 @@
 									<div class="mapouter">
 										<div class="gmap_canvas">
 											<iframe width="100%" height="500" id="gmap_canvas"
-													src="https://maps.google.com/maps?q=P.T.%20minindo%20artha%20gemilang&t=&z=13&ie=UTF8&iwloc=&output=embed"
+													src="https://maps.google.com/maps?q=PT.%20Minindo%20Artha%20Gemilang%20Jl.%20Boulevard%20Bar.%20Raya%20No.28%2C%20RT.18%2FRW.8%2C%20West%20Kelapa%20Gading%2C%20Kelapa%20Gading%2C%20North%20Jakarta%20City%2C%20Jakarta%2014240&t=&z=13&ie=UTF8&iwloc=&output=embed"
 													frameborder="0" scrolling="no" marginheight="0"
 													marginwidth="0"></iframe>
-											<a href="https://www.embedgooglemap.net/blog/nordvpn-coupon-code/">nordvpn
-												coupons</a></div>
-										<style>.mapouter {
+											<a href="https://www.embedgooglemap.net">embedgooglemap.net</a></div>
+										<style>
+											.mapouter {
 												position: relative;
 												text-align: right;
 												height: 500px;
 												width: 100%;
 											}
-
 											.gmap_canvas {
 												overflow: hidden;
 												background: none !important;
 												height: 500px;
 												width: 100%;
-											}</style>
+											}
+										</style>
 									</div>
 								</div>
 							</div>

@@ -85,15 +85,15 @@
 							<i class="fa fa-shopping-cart"></i>
 							<a href="<?php echo base_url('cart') ?>">My Cart</a>
 						</div>
-<!--						<div class="h_up-item h_main-menu">-->
-<!--							<li>-->
-<!--								<a class="languagestyle" href="#"><span class="flag-icon flag-icon-us"></span>  English</a>-->
-<!--								<ul class="h_sub-menu">-->
-<!--									<li><a href="#us"><span class="flag-icon flag-icon-us"> </span>  English</a></li>-->
-<!--									<li><a href="#id"><span class="flag-icon flag-icon-id"> </span>  Indonesian</a></li>-->
-<!--								</ul>-->
-<!--							</li>-->
-<!--						</div>-->
+						<div class="h_up-item h_main-menu">
+							<li>
+								<a class="languagestyle" href="#"><span class="flag-icon flag-icon-us"></span>  English</a>
+								<ul class="h_sub-menu">
+									<li><a href="#us"><span class="flag-icon flag-icon-us"> </span>  English</a></li>
+									<li><a href="#id"><span class="flag-icon flag-icon-id"> </span>  Indonesian</a></li>
+								</ul>
+							</li>
+						</div>
 					</div>
 				</div>
 			</div>

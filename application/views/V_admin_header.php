@@ -69,6 +69,13 @@
 						<?php echo '<li><i class="menu-icon fa fa-check"></i><a href="' . base_url('admin/admin/admin/ordered') . '">5. Order success</a></li>';?>
                     </ul>
                 </li>
+				<li class="menu-item-has-children dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+					   aria-expanded="false"> <i class="menu-icon fa fa-user"></i>Client</a>
+					<ul class="sub-menu children dropdown-menu">
+						<?php echo '<li><i class="menu-icon fa fa-user"></i><a href="' . base_url('admin/admin/admin/client') . '">Client</a></li>';?>
+					</ul>
+				</li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>

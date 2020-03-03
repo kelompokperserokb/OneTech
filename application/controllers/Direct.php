@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Direct extends CI_Controller {
+class 	Direct extends CI_Controller {
 
 	public function home()
 	{
@@ -170,6 +170,16 @@ class Direct extends CI_Controller {
             $this->load->view('V_admin_subCategory');
         }
     }
+
+    public function user() {
+		$this->load->helper('url');
+		if (!isset($_SESSION["admin-authorize"])) {
+			redirect(base_url()."admin/admin/admin/login");
+		} else {
+			$this->load->view('V_admin_header');
+			$this->load->view('V_admin_user');
+		}
+	}
 
 	public function loginAdmin()
 	{

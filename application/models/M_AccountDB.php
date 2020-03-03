@@ -100,5 +100,60 @@ class M_AccountDB extends CI_Model
 		$data['data_array'] = $query->result();
 		return $data;
 	}
+
+	/*ADMIN PRIVILEGE*/
+
+	public function adminGetUser(){
+		$this->db->select('*');
+		$this->db->from('user');
+		$query = $this->db->get();
+
+		$data= $query->result();
+		return $data;
+	}
+
+//	public function adminAddNewUser($product_id, $type_name, $quota, $description){
+//		$data = array(
+//			'product_id' => $product_id,
+//			'product_type' => $type_name,
+//			'quota' => $quota,
+//			'description_type' => $description,
+//		);
+//
+//		$this->db->trans_start();
+//		$this->db->insert('type_product',$data);
+//		$this->db->trans_complete();
+//
+//		$this->db->select('type_id');
+//		$this->db->from('type_product');
+//		$this->db->where('product_type', $type_name);
+//		$this->db->where('product_id', $product_id);
+//		$query = $this->db->get();
+//
+//		$data= $query->result();
+//		return $data;
+//
+//	}
+//
+//	public function adminUpdateUser($product_id, $type_id, $type_name, $quota, $description){
+//		$data = array(
+//			'product_id' => $product_id,
+//			'product_type' => $type_name,
+//			'quota' => $quota,
+//			'description_type' => $description,
+//		);
+//		$this->db->trans_start();
+//		$this->db->where('type_id', $type_id);
+//		$this->db->update('type_product', $data);
+//		$this->db->trans_complete();
+//	}
+//
+//	public function adminDeleteUser($product_id, $type_id){
+//		$this->db->trans_start();
+//		$this->db->delete('type_product', array('product_id'=>$product_id, 'type_id'=>$type_id));
+//		$this->db->trans_complete();
+//	}
+
+	/*END OF ADMIN PRIVILEGE*/
 }
 ?>

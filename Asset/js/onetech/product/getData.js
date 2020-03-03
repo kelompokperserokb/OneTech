@@ -205,4 +205,3 @@ function printTypeProduct(data){
 		'</tr>';
 	$("table").append(row);
 }
-
